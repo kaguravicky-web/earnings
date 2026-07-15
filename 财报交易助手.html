@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>财报深度分析助手 · 分析档案</title>
+<style>
+:root{--bg:#f5f5f7;--panel:#fff;--text:#111827;--muted:#667085;--line:#e5e7eb;--blue:#007aff;--green:#18864b;--amber:#a86600;--red:#c9342f;--shadow:0 18px 48px rgba(15,23,42,.08)}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fbfbfd 0,var(--bg) 300px);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.58}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 16px 60px}
+header{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px 24px;margin-bottom:16px}
+.eyebrow{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+h1{font-size:26px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tab-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:700;cursor:pointer;color:var(--muted)}
+.tab-btn.active{background:var(--text);color:#fff;border-color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(15,23,42,.04);padding:18px 20px;margin-bottom:14px}
+.panel h2{font-size:16px;margin:0 0 10px}
+.hint{font-size:12.5px;color:var(--muted)}
+
+.statgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 8px 20px rgba(15,23,42,.04)}
+.stat span{display:block;color:var(--muted);font-size:12px;font-weight:800}
+.stat strong{display:block;margin-top:4px;font-size:22px;font-variant-numeric:tabular-nums}
+
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.toolbar input[type=text]{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;font-family:inherit;width:200px}
+.filter-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--muted)}
+.filter-chip.active{background:#eff6ff;color:var(--blue);border-color:#bcd7ff}
+
+.record{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 20px rgba(15,23,42,.04);margin-bottom:12px;overflow:hidden}
+.record-head{display:flex;align-items:center;gap:14px;padding:14px 18px;cursor:pointer;flex-wrap:wrap}
+.record-head:hover{background:#fafbfc}
+.rec-date{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:84px}
+.rec-ticker{font-size:16px;font-weight:800;min-width:70px}
+.rec-company{font-size:13px;color:var(--muted);flex:1;min-width:120px}
+.rec-score{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;min-width:74px;text-align:right}
+.rec-score small{font-size:11px;color:var(--muted);font-weight:600}
+.badge{display:inline-flex;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:800;white-space:nowrap}
+.badge.resonance{color:var(--green);background:#ecfdf3}
+.badge.doubt{color:var(--amber);background:#fff3d6}
+.badge.repricing{color:var(--blue);background:#eff6ff}
+.badge.deterioration{color:var(--red);background:#fff1f1}
+.badge.event{color:#7c3aed;background:#f5f0ff}
+.rec-arrow{color:var(--muted);font-size:12px;transition:transform .15s}
+.record.open .rec-arrow{transform:rotate(90deg)}
+.record-body{display:none;border-top:1px solid var(--line);padding:16px 18px}
+.record.open .record-body{display:block}
+.dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.dim{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.dim span{display:block;font-size:11px;font-weight:800;color:var(--muted)}
+.dim b{font-size:15px;font-variant-numeric:tabular-nums}
+.dim .bar{height:5px;border-radius:999px;background:#e8ebef;margin-top:5px;overflow:hidden}
+.dim .bar i{display:block;height:100%;background:var(--blue)}
+.report-text{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:16px;max-height:520px;overflow:auto;margin:0 0 12px}
+.vic-notes{border-left:3px solid var(--amber);background:#faf6ee;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
+.vic-notes b{color:#8a5a00;font-size:12px;display:block;margin-bottom:3px}
+.outcome{border-left:3px solid var(--green);background:#f0f9f3;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
+.outcome b{color:var(--green);font-size:12px;display:block;margin-bottom:3px}
+.outcome.loss{border-left-color:var(--red);background:#fdf1f0}
+.outcome.loss b{color:var(--red)}
+.copy-btn{border:none;border-radius:8px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer;background:#f1f3f5;color:var(--text)}
+.copy-btn:hover{background:#e8ebef}
+.empty{text-align:center;color:var(--muted);padding:48px 20px;font-size:14px}
+.empty b{display:block;font-size:16px;color:var(--text);margin-bottom:6px}
+
+.fw h3{font-size:14.5px;margin:18px 0 6px}
+.fw table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:8px 0 12px;font-size:13px}
+.fw th,.fw td{border-bottom:1px solid var(--line);padding:7px 11px;text-align:left}
+.fw tr:last-child td{border-bottom:0}
+.fw th{background:#f8fafc;font-weight:800;color:#334155}
+.fw code{background:#f1f3f5;border-radius:4px;padding:1px 5px;font-size:12px}
+.fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
+.fw ul{padding-left:20px;margin:6px 0}
+.fw li{margin:3px 0;font-size:13.5px}
+@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims{grid-template-columns:1fr}.rec-company{display:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header>
+  <div class="eyebrow">Earnings Deep-Dive Analysis Assistant</div>
+  <h1>财报深度分析助手 · 分析档案</h1>
+  <p class="sub">只做基本面深度分析，不做交易信号。财报是滞后数据，市场解读永远藏着我们没想到的信息——每条记录都会写下"市场在告诉我们什么"。分析由 Claude 在对话中完成并自动写入本页；有新论点直接在对话里说，我会补进对应记录的"Vic观点"。</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
+    <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
+  </div>
+</header>
+
+<!-- ============ TAB: RECORDS ============ -->
+<section id="tab-records">
+  <div class="statgrid" id="stats"></div>
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="搜索 ticker / 公司 / 关键词…">
+    <button class="filter-chip active" data-filter="all">全部</button>
+    <button class="filter-chip" data-filter="resonance">✅ 共振确认</button>
+    <button class="filter-chip" data-filter="doubt">⚠️ 市场存疑</button>
+    <button class="filter-chip" data-filter="repricing">🔄 预期重定价</button>
+    <button class="filter-chip" data-filter="deterioration">🔻 恶化确认</button>
+    <button class="filter-chip" data-filter="event">🗺️ 事件链</button>
+  </div>
+  <div id="records-list"></div>
+</section>
+
+<!-- ============ TAB: FRAMEWORK ============ -->
+<section id="tab-framework" style="display:none">
+<div class="panel fw">
+  <h2>核心哲学</h2>
+  <pre>财报     = 滞后数据（告诉我们已经发生了什么）
+市场解读 = 领先信息（永远有人想到了我们没想到的，知道了我们不知道的）
+分析目标 = 读懂生意本身 + 从市场反应中还原我们缺失的那部分信息</pre>
+  <ul>
+    <li>数字本身只是起点；数字与市场反应的<b>一致或分歧</b>才是最大的信息量</li>
+    <li>数字强但市场卖 → 最重要的警报：市场看到了我们没看到的东西，必须列出可能的原因</li>
+    <li>数字弱但市场买 → 坏消息早已定价，或市场在交易拐点预期</li>
+    <li>估值只在极端泡沫化时作为风险警示标注，不影响评分</li>
+    <li>每份分析必须回答："市场在告诉我们什么？下一个验证点是什么？"</li>
+  </ul>
+  <p class="hint">本助手不做交易决策，不输出买卖建议、入场点、止损位、仓位计划。</p>
+
+  <h3>评分框架（满分100，衡量"财报综合成色"，不是买卖信号）</h3>
+  <table>
+    <thead><tr><th>维度</th><th>分值</th><th>要点</th></tr></thead>
+    <tbody>
+      <tr><td>📊 财报质量</td><td>40</td><td>对预期25（EPS8+营收7+指引10，miss=0分⚠️）+ 历史惊喜对比10（扩大&gt;50%满分，连续两季收窄0分再扣2，连续三季收窄→🔻恶化确认）+ 盈利质量5（毛利率方向/FCF匹配/剔除一次性项目）</td></tr>
+      <tr><td>🧠 市场解读</td><td>35</td><td>价格反应12（核心是反应与数字是否<b>相称</b>，大beat遇冷=最大警报）+ 持续性8 + 成交量确认5 + 聪明钱信号10（分析师修正/IV结构/机构暗池/同行read-through）</td></tr>
+      <tr><td>🔍 基本面深度</td><td>25</td><td>核心驱动可持续性8 + Backlog能见度6 + 管理层语气5 + 竞争格局与份额6</td></tr>
+    </tbody>
+  </table>
+
+  <h3>解读结论（四象限，代替旧的操作建议）</h3>
+  <table>
+    <thead><tr><th>数字</th><th>市场反应</th><th>结论</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td>强</td><td>买账</td><td>✅ 共振确认</td><td>数字与解读一致，生意在变好且市场认可</td></tr>
+      <tr><td>强</td><td>卖</td><td>⚠️ 市场存疑</td><td><b>最重要的警报</b>：有人看到了我们没看到的，必须给出假设清单</td></tr>
+      <tr><td>弱</td><td>买账</td><td>🔄 预期重定价</td><td>坏消息已定价或市场交易拐点，分析"市场在期待什么"</td></tr>
+      <tr><td>弱</td><td>卖</td><td>🔻 恶化确认</td><td>数字与解读一致，生意在变坏</td></tr>
+    </tbody>
+  </table>
+
+  <h3>红旗标注（不扣分，仅标注）</h3>
+  <ul>
+    <li>P/S&gt;50x 或 Forward PE&gt;200x：⚠️估值极度泡沫化</li>
+    <li>内部人90天卖出&gt;买入10倍且股价历史高位：🚩</li>
+    <li>证券诉讼/监管调查进行中：🚩</li>
+    <li>单季FCF深度为负且债务&gt;市值：🚩</li>
+  </ul>
+
+  <p class="hint">完整规则见 <code>Downloads\财报动能交易助手_系统提示词.md</code>。分析在Claude Code对话里进行：说一声"XXX财报出了"，Claude查实时价格+财报数据+市场解读信号后按此框架分析，并自动归档到本页。</p>
+</div>
+</section>
+
+</main>
+
+<script>
+/*
+ * ============================================================
+ * RECORDS DATA — maintained by Claude Code, do not hand-edit.
+ * New records are inserted right below the INSERT marker
+ * (newest first). Record schema:
+ * {
+ *   type: "earnings" | "event",
+ *   date: "YYYY-MM-DD",
+ *   ticker: "NVDA",            // event型可用主题短名
+ *   company: "英伟达",          // event型放事件名称
+ *   score: 87,                 // event型省略
+ *   rec: "resonance"|"doubt"|"repricing"|"deterioration",  // event型省略
+ *   dims: {quality:32, marketread:26, fundamentals:19}, // event型省略
+ *   report: "完整报告文本…",
+ *   vic_notes: "",             // Vic后续论点，Claude代为补充
+ *   outcome: ""                // 复盘结果，如 "+12.3%，Day5清仓"
+ * }
+ * ============================================================
+ */
+const RECORDS = [
+/* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-14",
+  ticker: "IBM",
+  company: "国际商业机器",
+  score: 18,
+  rec: "deterioration",
+  dims: {quality:0, marketread:8, fundamentals:10},
+  report: `【IBM · 国际商业机器】财报深度分析 · 2026-07-14
+综合评分：18 / 100（财报质量维度实际计算为负值，按0计入总分以体现严重性）
+解读结论：🔻 恶化确认（且价格反应幅度远超数字本身的miss幅度，市场明显在为"叙事"定价——详见下方分析）
+
+─────────────────
+📊 财报质量：0 / 40（实际计算为负值，clamp至0展示）
+  EPS：实际$2.93（non-GAAP） vs 预期$3.01（-2.7%，miss）
+  营收：实际$17.2B vs 预期约$17.86-17.9B（约-3.7%，miss）
+  指引：本次为"预先警示"性质的披露（正式财报会与全年指引更新要等7/22），尚无next-quarter guidance vs consensus的直接对比数字，但公司主动提前示警本身已构成事实上的负面沟通⚠️——比常规miss更严重的信号：说明管理层判断这个偏离足够重大，必须抢在计划外的时点告知市场
+
+  历史惊喜对比（近4季EPS）：
+  季度      预期EPS   实际EPS   惊喜
+  Q2'26     $3.01     $2.93     -2.7%
+  Q1'26     $1.81     $1.91     +5.5%
+  Q4'25     $4.32     $4.52     +4.6%
+  Q3'25     $2.44     $2.65     +8.6%
+  本季边际：连续8个季度跑赢预期的记录被本季度打破，由+5.5%beat直接转为-2.7%miss，环比收窄幅度远超30%阈值
+  历史对比得分：0 / 10
+
+  盈利质量：Software（高毛利）增速放缓至+5%不及预期，Infrastructure(mainframe，通常也是高毛利)下滑-7%，产品结构向低毛利方向倾斜（-1）；管理层提到"部分大型合同未能如期签订、收入递延确认"，暗示本季度或有真实需求走弱与时点性因素混合，FCF/利润匹配度需要7/22电话会进一步说明（0）；这是"干净的miss"（非一次性费用造成），比一次性因素导致的miss更值得担忧，反映的是经营性走弱（不加分）
+
+🧠 市场解读：8 / 35
+  价格反应：单日暴跌25%（$290.23→$217.07），为IBM有记录以来最差单日，超过1987年10月19日的-23.7%。但EPS miss只有-2.7%——反应幅度与数字本身完全不相称，这是本次分析里最重要的信号：市场没有在为"这一个季度少赚了几美分"定价，而是在为管理层电话会里透露的"客户资本开支正在从软件/咨询系统性转向AI硬件采购"这个说法，重新定价IBM软件转型故事的长期可信度
+  持续性：仅有盘后数据（$217.07→$219.50，+1.1%小幅反弹），尚无法判断是超跌反弹还是趋势企稳，需要T+1至T+3确认
+  成交量：单日6740万股、成交额$148亿，相对IBM日常成交量（通常300-500万股量级）是数十倍级别的历史性放量，多篇报道明确以"公司史上最差交易日"描述，量能确认充分
+  聪明钱：IDC分析师Ashish Nadkarni公开评论"市场反应可能比警告本身应得的更强烈"，暗示部分专业观察者认为存在过度反应；未搜集到具体"X家分析师下调目标价"的精确计数（需要后续补充）；IV/Put-Call数据未获取（请提供barchart数据）；机构/暗池当日资金动向未获取，标"待确认"
+
+  → 市场在告诉我们什么：
+    反应与数字明显分歧——账面miss只有-2.7%，但股价跌了25%，两者完全不成比例。
+    假设1：市场在对管理层的解释本身定价，而非仅这一季度的数字。"客户把资本支出从软件/咨询转向硬件囤货"如果是真实、持续的行业趋势，意味着IBM过去几年赖以重估的"软件转型故事"（Red Hat、混合云、AI相关软件订阅）的增长前提被削弱——这比一次性miss严重得多。验证信号：下季度（7/22正式财报会+Q3展望）软件/咨询收入增速是否回升；同期其他企业软件公司（如ServiceNow、Salesforce、Accenture）是否也报告了类似的客户预算转移现象——如果只有IBM一家出现，更可能是IBM自身执行问题而非行业性趋势。
+    假设2：主动"预先警示"这种做法本身罕见且不寻常，可能反映管理层认为常规财报流程（等到7/22）来不及应对已经在渠道里扩散的坏消息，这种"抢跑"行为本身会被机构投资者解读为"情况比表面数字更糟"的信号。验证信号：7/22正式电话会上，管理层是否进一步下修全年指引，以及是否有更多细节说明"合同延迟确认"的具体规模和预期回补时间。
+    假设3：部分反应可能是过度的技术性抛售（IDC分析师的评论支持这一点）——IBM过去8个季度稳定跑赢预期培养了市场对其"每季小幅超预期"的路径依赖预期，一旦打破就触发不成比例的重新定价/止损盘。验证信号：观察T+3至T+5是否有价值型/长线资金逢低承接，以及卖方分析师在情绪冷静后给出的目标价是否真的大幅下修。
+
+🔍 基本面深度：10 / 25
+  核心驱动：管理层将miss归因于"客户把资本支出从软件/咨询预算转向服务器/存储/内存采购，以在预期涨价前锁定供给受限的AI基础设施"——如果这个解释成立，说明这更多是行业性的资本开支时点错配，而非IBM独有的执行失误；但这个说法本身也可能是管理层在为执行问题找一个"总量转移"式的外部叙事，需要交叉验证同业情况
+  Backlog/能见度：本次披露未提供具体新的backlog数字，需等7/22正式电话会补充
+  管理层语气：CEO用词"disappointing"，直接、坦诚地承认问题，未回避——语气与数字保持一致（负面一致性），比"报喜不报忧"式的管理层沟通更值得信任，但基调明显从此前的进取转为防御
+  竞争格局：本轮搜索未找到同期可比的企业IT服务/基础设施同业财报数据（如Accenture、HPE、Dell同季结果），无法判断这是IBM独有问题还是行业性现象，是本次分析里信息缺口最大的一块，需要后续专项验证
+
+─────────────────
+💡 结论
+  这份财报说明IBM的生意在明显变坏：8个季度连续跑赢预期的记录被打破，软件和基础设施两大板块同时不及预期，管理层给出的解释（客户预算转向硬件）如果属实，动摇的不只是这一季度的数字，而是过去几年支撑IBM重估的"软件转型"叙事本身。
+  市场解读与数字存在明显分歧——25%的单日跌幅远超-2.7%的EPS miss本身能解释的范围，说明市场在为管理层电话会的措辞和"提前预警"这个不寻常的动作定价，而不只是这一季度少赚的几美分。
+  下一个验证点：① 7/22正式财报电话会——是否进一步下修全年指引、是否披露"合同延迟确认"的具体规模和预期回补时间；② 是否有同业（Accenture/HPE/Dell等）报告类似的客户预算转移现象，用以区分"行业性趋势"还是"IBM独有执行问题"；③ T+3至T+5股价能否止跌企稳，观察是否有价值型资金逢低承接 vs 持续破位。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-07-14",
+  ticker: "GS",
+  company: "高盛集团",
+  score: 84,
+  rec: "resonance",
+  dims: {quality:39, marketread:24, fundamentals:21},
+  report: `【GS · 高盛集团 (The Goldman Sachs Group)】财报深度分析 · 2026-07-14
+综合评分：84 / 100（财报成色，非买卖信号）
+解读结论：✅ 共振确认（但见下方"市场在告诉我们什么"里的板块稀释提示）
+
+─────────────────
+📊 财报质量：39 / 40
+  EPS：实际$20.98 vs 预期$14.46（+45.1%，创纪录）
+  营收：实际$20.34B vs 预期$16.42B（+23.9%，创纪录季度净收入）
+  指引：银行股无常规单季EPS指引，改用CEO表态作为前瞻代理——Solomon称交易backlog为五年最高，预期2026为IPO/并购"record-breaking"年份，方向强烈正面
+
+  历史惊喜对比（近4季EPS）：
+  季度      预期EPS   实际EPS   惊喜
+  Q2'26     $14.46    $20.98    +45.1%
+  Q1'26     $16.34    $17.55    +7.4%
+  Q4'25     $11.77    $14.01    +19.0%
+  Q3'25     $10.86    $12.25    +12.8%
+  本季边际：环比大幅扩大（+509%），且是过去四季里最强的一次beat，四季连续跑赢预期
+  历史对比得分：10 / 10
+
+  盈利质量：ROE 23.5%（创纪录）；GBM(投行+市场)业务收入占比提升带动结构性利润率改善；4B美元回购+上调季度股息至$5.00，现金流与利润匹配度良好；未见明显一次性项目支撑 → 5/5
+
+🧠 市场解读：24 / 35
+  价格反应：盘中收盘+9.0%（$1045.91→$1140.00），盘后进一步+0.14%。反应方向与45%的EPS大beat基本相称，但需注意——JPM、Wells Fargo同日财报同样"远超预期"，本次银行股普涨有相当部分是板块性资本市场景气驱动，非GS独有alpha（相称性判断打折）
+  持续性：仅有当日+盘后数据，尚未观察到次日/2-3日走势，此项暂时保守评分，需在T+2、T+3回补
+  成交量：当日成交379万股/$42.6亿，多篇报道用"创纪录"描述本次交易日，判断为显著放量（精确均量倍数因LongBridge历史K线接口验证报错，未能精确量化，标注"待确认"）
+  聪明钱：BofA/Evercore/Wells Fargo/Morgan Stanley/Citigroup五家一致上调目标价（$1050→$1150、$950→$1075、$1000→$1195、$1021→$1099、$930→$1100）；IV/Put-Call数据未获取（请提供barchart数据）；机构/暗池当日资金流向未获取，标"待确认"
+
+  → 市场在告诉我们什么：
+    反应与数字基本一致（大beat→大涨→分析师集体上调目标价），属于共振确认的典型形态。
+    唯一的分歧点：涨幅有多少是"GS专属"、多少是"银行股普涨"？JPM/WFC同日同样大幅超预期，说明本季度资本市场活动(交易、投行费用)整体繁荣是宏观/行业性的，而不完全是GS执行力独有的证据。
+    验证信号：观察GS相对KBW银行指数(BKX)/JPM的超额收益——如果未来1-2周GS持续跑赢同业，才能确认这是GS特有的份额/执行力优势，而非单纯板块beta。
+
+🔍 基本面深度：21 / 25
+  核心驱动：Global Banking & Markets收入$15.52B，+53% YoY，是本季最大驱动力，叠加"backlog五年最高"的表态，可持续性看起来较强（管道效应，非一次性交易收益）
+  Backlog/能见度：管理层定性描述"backlog处于五年最高位""IPO/并购候补名单规模空前"，但未披露具体量化数字
+  管理层语气：进取。Solomon称2026年是"record-breaking"、"top decile"dealmaking环境，语气与创纪录业绩高度一致，也与年初以来一贯的乐观基调连贯
+  竞争格局：JPM、Wells Fargo同日同样大幅超预期，说明这是板块性周期上行（AI驱动的投行费用+交易活动），GS的GBM增速(+53%)看起来快于板块平均，但需要更精确的JPM/MS投行费用增速数据才能确认是否真正抢份额，还是同涨
+  ⚠️/🚩 红旗：内部人90天零买入、$35.6M卖出（148笔交易全部为卖出）——股价处于历史新高附近，卖出本身在大型金融机构高管里较为常规（薪酬变现/税务规划），但"零买入"值得留意；估值处于历史高位但对于银行股而言PE/PB远未到泡沫化阈值，非红旗
+
+─────────────────
+💡 结论
+  这份财报说明高盛的生意在明显变好：创纪录的净收入、EPS、ROE，投行/交易业务在AI驱动的资本市场繁荣中显著受益，且backlog指向这个强势有望延续到2026全年。
+  市场解读与数字基本一致——但存在一个值得跟踪的分歧：当前的涨幅有多大成分是"GS专属alpha"、多大成分是"银行股集体beta"？JPM/WFC同日同样报喜的事实提醒我们，不要把全部涨幅都归因于GS的独特执行力。
+  下一个验证点：① T+2/T+3股价是否守住$1130以上的反应区间（持续性验证）；② GS相对JPM/BKX指数的超额表现（板块beta vs 个股alpha的分离）；③ 下季度GBM收入增速是否能持续跑赢+50%这个异常高的基数。`,
+  vic_notes: "",
+  outcome: ""
+},
+];
+
+(function(){
+"use strict";
+
+const REC_META = {
+  resonance:    {label:"✅ 共振确认", cls:"resonance"},
+  doubt:        {label:"⚠️ 市场存疑", cls:"doubt"},
+  repricing:    {label:"🔄 预期重定价", cls:"repricing"},
+  deterioration:{label:"🔻 恶化确认", cls:"deterioration"},
+  event:        {label:"🗺️ 事件链",   cls:"event"}
+};
+const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
+const DIM_LABEL = {quality:"📊 财报质量", marketread:"🧠 市场解读", fundamentals:"🔍 基本面深度"};
+
+let activeFilter = "all";
+
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-records").style.display = btn.dataset.tab==="tab-records"?"":"none";
+    document.getElementById("tab-framework").style.display = btn.dataset.tab==="tab-framework"?"":"none";
+  });
+});
+
+document.querySelectorAll(".filter-chip").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+    document.querySelectorAll(".filter-chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+    activeFilter = chip.dataset.filter;
+    render();
+  });
+});
+document.getElementById("search").addEventListener("input", render);
+
+function esc(s){
+  return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+}
+
+function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
+
+function renderStats(){
+  const earnings = RECORDS.filter(r=>r.type!=="event");
+  const avg = earnings.length ? (earnings.reduce((s,r)=>s+(r.score||0),0)/earnings.length) : null;
+  const doubtCount = earnings.filter(r=>r.rec==="doubt").length;
+  const withOutcome = RECORDS.filter(r=>r.outcome && r.outcome.trim());
+  document.getElementById("stats").innerHTML =
+    '<div class="stat"><span>分析总数</span><strong>'+RECORDS.length+'</strong></div>'+
+    '<div class="stat"><span>财报评分均值</span><strong>'+(avg==null?"—":avg.toFixed(1))+'</strong></div>'+
+    '<div class="stat"><span>⚠️ 市场存疑次数</span><strong>'+doubtCount+'</strong></div>'+
+    '<div class="stat"><span>已复盘（有结果）</span><strong>'+withOutcome.length+'</strong></div>';
+}
+
+function render(){
+  renderStats();
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  const list = document.getElementById("records-list");
+  const filtered = RECORDS.filter(r=>{
+    if(activeFilter!=="all" && recKey(r)!==activeFilter) return false;
+    if(q){
+      const hay = [(r.ticker||""),(r.company||""),(r.report||""),(r.vic_notes||""),(r.outcome||"")].join(" ").toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  if(!filtered.length){
+    list.innerHTML = '<div class="panel"><div class="empty"><b>'+(RECORDS.length? "没有匹配的记录":"还没有分析记录")+'</b>'+
+      (RECORDS.length? "换个筛选或关键词试试。":"在 Claude Code 对话里说一声「XXX 财报出了」，分析完成后会自动归档到这里。")+'</div></div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map((r)=>{
+    const meta = REC_META[recKey(r)] || REC_META.doubt;
+    const isEvent = r.type==="event";
+    let dimsHtml = "";
+    if(!isEvent && r.dims){
+      dimsHtml = '<div class="dims">'+Object.keys(DIM_MAX).map(k=>{
+        const v = r.dims[k]!=null ? r.dims[k] : 0;
+        const pct = Math.max(0,Math.min(100, v/DIM_MAX[k]*100));
+        return '<div class="dim"><span>'+DIM_LABEL[k]+'</span><b>'+v+' / '+DIM_MAX[k]+'</b><div class="bar"><i style="width:'+pct+'%"></i></div></div>';
+      }).join("")+'</div>';
+    }
+    const notesHtml = (r.vic_notes && r.vic_notes.trim())
+      ? '<div class="vic-notes"><b>💬 Vic观点</b>'+esc(r.vic_notes)+'</div>' : "";
+    let outcomeHtml = "";
+    if(r.outcome && r.outcome.trim()){
+      const isLoss = /^[-−]|亏|止损|loss/i.test(r.outcome.trim());
+      outcomeHtml = '<div class="outcome'+(isLoss?" loss":"")+'"><b>📋 复盘结果</b>'+esc(r.outcome)+'</div>';
+    }
+    return '<div class="record">'+
+      '<div class="record-head">'+
+        '<span class="rec-arrow">▶</span>'+
+        '<span class="rec-date">'+esc(r.date||"")+'</span>'+
+        '<span class="rec-ticker">'+esc(r.ticker||"")+'</span>'+
+        '<span class="rec-company">'+esc(r.company||"")+'</span>'+
+        (isEvent? "" : '<span class="rec-score">'+(r.score!=null?r.score:"—")+'<small> /100</small></span>')+
+        '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
+      '</div>'+
+      '<div class="record-body">'+
+        dimsHtml + notesHtml + outcomeHtml +
+        '<pre class="report-text">'+esc(r.report||"")+'</pre>'+
+        '<button class="copy-btn" type="button">复制报告文本</button>'+
+      '</div>'+
+    '</div>';
+  }).join("");
+
+  list.querySelectorAll(".record").forEach(card=>{
+    card.querySelector(".record-head").addEventListener("click",()=>card.classList.toggle("open"));
+    card.querySelector(".copy-btn").addEventListener("click",e=>{
+      e.stopPropagation();
+      const text = card.querySelector(".report-text").textContent;
+      navigator.clipboard.writeText(text).then(()=>{
+        const b = e.target, old = b.textContent;
+        b.textContent = "已复制 ✓";
+        setTimeout(()=>{ b.textContent = old; }, 1200);
+      });
+    });
+  });
+}
+
+render();
+}());
+</script>
+</body>
+</html>
