@@ -208,17 +208,116 @@ h1{font-size:26px;margin:0 0 4px}
 const NARRATIVES = [
   {
     rank: 1,
-    theme: "AI基础设施产能、设备与测试瓶颈",
+    theme: "内存、存储与AI基础设施瓶颈",
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["ASML","AEHR"],
-    thesis: "AI资本开支正从算力芯片向光刻、晶圆级burn-in、硅光互连和高功率测试扩散。ASML的扩产与AEHR的有效backlog形成上下游共振。",
-    evidence: "ASML上调全年指引并规划扩产；AEHR有效backlog约$100.6M并给出FY2027高增长指引。",
-    disconfirm: "主要客户资本开支下修、订单延期或backlog转化显著低于计划。"
+    tickers: ["IBM","ASML","AEHR"],
+    thesis: "AI资本开支正在从模型调用扩展到服务器、存储、内存、光刻、硅光互连和burn-in测试，基础设施控制与供应保障成为企业优先事项。",
+    evidence: "IBM CEO致投资者信已确认：6月最后数周，客户把季度资本开支转向服务器、存储和内存，以锁定供应并规避预期涨价；Distributed Infrastructure收入增长37%，期末backlog约5亿美元。注意：截图写成约50亿美元，官方原文是约5亿美元；50亿美元对应Lightwell项目承诺。ASML扩产与AEHR有效backlog则提供设备和测试端共振。",
+    disconfirm: "主要客户资本开支下修、存储/内存价格与订单转弱，或设备backlog转化显著低于计划。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信（2026-07-14）", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
+      {type:"公司公告", label:"ASML 2026 Q2公告", url:"https://live.euronext.com/en/products/equities/company-news/2026-07-15-asml-reports-eu93-billion-total-net-sales-and-eu29"},
+      {type:"公司公告", label:"AEHR FY2026 Q4公告", url:"https://www.aehr.com/2026/07/aehr-test-systems-reports-fiscal-2026-fourth-quarter-and-full-year-financial-results-with-record-quarterly-bookings-and-100-million-effective-backlog/"}
+    ]
   },
   {
     rank: 2,
+    theme: "网络安全成为AI必要开支",
+    strength: "9/10",
+    horizon: "中长期",
+    direction: "强化",
+    tickers: ["IBM","PANW","CRWD","FTNT"],
+    thesis: "企业AI进入生产环境后，身份、权限、审计、日志、数据边界和自适应网络安全从可选项升级为基础预算。",
+    evidence: "IBM CEO已确认，快速变化的网络安全环境分散客户注意力并影响交易签约。Karp在CNBC采访中强调企业必须控制数据、模型与自有竞争优势；Axios进一步提出数据归属、缓存位置、提示词安全和传输边界等检查项。截图所列“零数据保留、细粒度权限、全程审计、自适应安全”等六项是对Palantir产品框架的归纳，不是本次采访的逐字清单。",
+    disconfirm: "企业安全预算增速明显落后AI预算，或大型AI部署并未带动安全平台订单与续费改善。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 3,
+    theme: "主权AI、私有AI与本地部署",
+    strength: "8.5/10",
+    horizon: "未来1–3年",
+    direction: "强化",
+    tickers: ["IBM","PLTR","HPE","DELL","ORCL"],
+    thesis: "企业和政府不愿只依赖按token付费的远程模型调用，正在增加对自有算力、数据、模型和控制架构的投入。",
+    evidence: "已核验Karp在CNBC采访中的核心判断：技术型客户希望控制自己的算力、模型、数据栈和alpha，并确认自己拥有“生产资料”。这与IBM看到的基础设施采购前置形成交叉验证；但从个别公司信号外推到全行业，仍需后续订单和资本开支数据确认。",
+    disconfirm: "公有云模型API成本持续快速下降，且企业大规模放弃私有部署与自建控制层。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"采访摘要", label:"Moneycontrol：AI下一战是所有权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
+      {type:"媒体", label:"Axios：Sovereign AI与企业alpha", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 4,
+    theme: "企业AI控制层与Ontology",
+    strength: "8/10",
+    horizon: "中长期",
+    direction: "形成中",
+    tickers: ["PLTR","IBM","SNOW","NOW"],
+    thesis: "企业AI的竞争焦点正从单一模型能力转向连接数据、权限、工作流、业务对象和行动反馈的控制层。",
+    evidence: "Karp明确把价值公式指向“模型＋应用层＋算力”，Axios将其解释为企业需要掌握连接模型与专有知识的路由/控制层。这直接支持“控制层”主线；但本次采访没有直接展开Ontology，因此Ontology仍是基于Palantir既有产品体系的延伸判断，需要用客户采用和收入数据验证。",
+    disconfirm: "企业客户主要通过通用模型和轻量集成完成生产部署，控制层项目周期、续费或扩展率持续走弱。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：应用层与AI路由控制", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 5,
+    theme: "开放模型与模型可替换性",
+    strength: "7.5/10",
+    horizon: "中长期",
+    direction: "上升",
+    tickers: ["META","IBM","PLTR","ORCL"],
+    thesis: "模型逐步商品化后，企业更重视可替换模型、避免锁定、数据不外泄以及在同一控制层下路由不同模型。",
+    evidence: "Karp在采访中质疑企业把数据和alpha交给前沿模型供应商，并强调客户应控制自己的模型。Axios给出的实践路径是：通用任务租用前沿模型，核心知识任务运行开放权重模型，再由自有路由层调度。由此可支持“模型可替换性”，但它目前更像采购架构方向，不等于开放模型已在能力上全面替代闭源模型。",
+    disconfirm: "闭源模型持续形成显著且不可替代的能力优势，企业愿意接受长期单一供应商锁定。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：开放权重与闭源模型组合", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 6,
+    theme: "SaaS和咨询预算承压",
+    strength: "8/10负面",
+    horizon: "当前至未来数季",
+    direction: "承压",
+    tickers: ["IBM","ACN","CRM","NOW"],
+    thesis: "当企业预算转向AI硬件、存储、内存和安全时，传统软件席位、咨询项目和非核心数字化支出可能被延迟或压缩。",
+    evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。它支持“预算挤出”假设，但还不足以证明整个SaaS与咨询行业承压；需等待ACN、CRM、NOW等同业财报交叉验证。",
+    disconfirm: "软件与咨询公司剩余履约义务、签约周期和净留存率同步改善，证明预算并未被基础设施挤出。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"}
+    ]
+  },
+  {
+    rank: 7,
+    theme: "国防及关键基础设施AI",
+    strength: "8/10",
+    horizon: "长期",
+    direction: "强化",
+    tickers: ["PLTR","LMT","NOC","RTX","IBM"],
+    thesis: "安全、权限、审计、数据主权和本地部署要求，使国防与关键基础设施成为企业级AI控制技术的重要长期落地场景。",
+    evidence: "Karp在CNBC采访中直接反对把国家战场决策外包给硅谷共识；在MD MEETS访谈中又把技术主权和AI视为民主国家防卫能力的一部分。这能直接支持国防与关键基础设施方向，但具体商业强度仍要看政府合同、项目规模、续约与跨部门复制。",
+    disconfirm: "相关项目长期停留在试点阶段，合同扩展、续约和跨部门复制明显低于预期。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"采访摘要", label:"Moneycontrol：国家安全与AI控制权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
+      {type:"播客", label:"MD MEETS：Alex Karp访谈", url:"https://shows.acast.com/md-meets/episodes/palantir-ceo-alex-karp-ai-fears-rise-of-the-far-right-german"}
+    ]
+  },
+  {
+    rank: 8,
     theme: "医疗成本挤压保险利润率",
     strength: "8/10负面",
     horizon: "当前至2027",
@@ -584,7 +683,7 @@ function renderNarratives(){
   list.innerHTML = '<div class="panel"><table class="narrative-table"><thead><tr><th>排名</th><th>主题</th><th>当前强度</th><th>时间维度</th><th>相关公司</th></tr></thead><tbody>'+
     rows.map(n=>'<tr><td>'+esc(n.rank)+'</td><td><b>'+esc(n.theme)+'</b><br><span class="hint">'+esc(n.direction||"")+'</span></td><td class="strength">'+esc(n.strength)+'</td><td>'+esc(n.horizon)+'</td><td>'+esc((n.tickers||[]).join(" · "))+'</td></tr>').join("")+
     '</tbody></table></div>'+
-    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p></div>').join("");
+    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+((n.sources||[]).length?'<div class="source-row">'+n.sources.map(s=>'<a class="source-link" href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||s.url)+'</a>').join("")+'</div>':"")+'</div>').join("");
 }
 
 function renderStats(){
