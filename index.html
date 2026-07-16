@@ -212,15 +212,16 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["IBM","ASML","AEHR"],
-    thesis: "AI资本开支正在从模型调用扩展到服务器、存储、内存、光刻、硅光互连和burn-in测试，基础设施控制与供应保障成为企业优先事项。",
-    evidence: "IBM CEO致投资者信已确认：6月最后数周，客户把季度资本开支转向服务器、存储和内存，以锁定供应并规避预期涨价；Distributed Infrastructure收入增长37%，期末backlog约5亿美元。注意：截图写成约50亿美元，官方原文是约5亿美元；50亿美元对应Lightwell项目承诺。ASML扩产与AEHR有效backlog则提供设备和测试端共振。",
+    tickers: ["TSM","IBM","ASML","AEHR"],
+    thesis: "AI资本开支正在从模型调用扩展到先进制程、先进封装、服务器、存储、内存、光刻、硅光互连和burn-in测试，基础设施控制与供应保障成为企业优先事项。",
+    evidence: "TSMC把2026年资本开支从$52B–$56B提高至$60B–$64B，HPC已占收入66%，并称AI需求极其强劲；Q3收入指引中点较Q2再增长约12%。IBM则观察到客户把资本开支转向服务器、存储和内存，以锁定供应并规避预期涨价；ASML扩产与AEHR有效backlog继续提供设备和测试端共振。",
     disconfirm: "主要客户资本开支下修、存储/内存价格与订单转弱，或设备backlog转化显著低于计划。",
     sources: [
       {type:"公司公告", label:"IBM CEO致投资者信（2026-07-14）", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
       {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
       {type:"公司公告", label:"ASML 2026 Q2公告", url:"https://live.euronext.com/en/products/equities/company-news/2026-07-15-asml-reports-eu93-billion-total-net-sales-and-eu29"},
-      {type:"公司公告", label:"AEHR FY2026 Q4公告", url:"https://www.aehr.com/2026/07/aehr-test-systems-reports-fiscal-2026-fourth-quarter-and-full-year-financial-results-with-record-quarterly-bookings-and-100-million-effective-backlog/"}
+      {type:"公司公告", label:"AEHR FY2026 Q4公告", url:"https://www.aehr.com/2026/07/aehr-test-systems-reports-fiscal-2026-fourth-quarter-and-full-year-financial-results-with-record-quarterly-bookings-and-100-million-effective-backlog/"},
+      {type:"公司公告", label:"TSMC 2026 Q2结果", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"}
     ]
   },
   {
@@ -336,6 +337,121 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-16",
+  ticker: "TSM",
+  company: "Taiwan Semiconductor Manufacturing",
+  score: 83,
+  rec: "resonance",
+  dims: {quality:39, marketread:20, fundamentals:24},
+  management_highlights: [
+    "CEO魏哲家表示全球AI需求仍然“极其强劲”，AI大趋势正在持续推动更多计算需求；公司把2026年资本开支由$52B–$56B大幅提高到$60B–$64B。",
+    "Q3收入指引为$44.6B–$45.8B，中点较Q2再增长约12%；增长由先进制程持续强劲需求和2nm快速爬坡支撑。",
+    "公司新增$100B亚利桑那投资承诺，使美国总投资承诺达到约$265B，用于支持美国主要客户的多年需求；海外晶圆厂和N2初期爬坡仍会稀释利润率。"
+  ],
+  narrative: {
+    summary: "AI基础设施需求没有降温，先进制程和资本开支正在同时加速，TSMC仍是AI算力扩张最硬的订单验证点。",
+    consensus: "收入、经营利润率、净利润、Q3指引和资本开支全部向上；HPC占比升至66%，2nm开始贡献收入。",
+    divergence: "净利润含NT$63.2B VIS持股处置及估值收益，且美国ADR尚未完成财报后交易；高资本开支、海外扩产和N2爬坡可能令下半年利润率低于本季峰值。",
+    signals: ["Q3收入达到指引中高端", "N2收入占比继续提升", "CoWoS与先进封装供给扩张", "海外厂利润率稀释受控"]
+  },
+  sources: [
+    {type:"公告", label:"TSMC 2026 Q2 Results", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"},
+    {type:"财报材料", label:"TSMC Q2 Presentation", url:"https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-07/9ce1ced428b1f53f1319be1fa7964327bcb1b02f/2Q26%20Presentation%20%28E%29.pdf"},
+    {type:"管理层报告", label:"TSMC Q2 Management Report", url:"https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-07/6f49632674bd2d0fd48cb65aaf89ec6ab510b559/2Q26%20ManagementReport.pdf"},
+    {type:"业绩会", label:"TSMC Q2 Webcast", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"},
+    {type:"媒体", label:"AP：AI需求与美国扩产", url:"https://apnews.com/article/taiwan-tsmc-chipmaking-ai-arizona-fab-ba05b1b952257d371acb9d070e7914ff"}
+  ],
+  report: `【TSM · Taiwan Semiconductor Manufacturing】财报深度分析 · 2026-07-16
+综合评分：83 / 100（暂定；财报成色，非买卖信号）
+解读结论：✅ 共振确认（美国ADR财报后反应待补）
+
+─────────────────
+📊 财报质量：39 / 40
+
+营收：$40.20B，同比增长33.7%、环比增长12.0%；位于公司$39.0B–$40.2B指引上沿，高于市场预期约$39.0B–$39.8B
+ADR EPS：$4.31，同比增长77.4%，高于约$3.77的市场预期
+净利润：NT$706.56B，同比增长77.4%，明显高于约NT$632.6B的市场预期
+毛利率：67.7%，高于公司指引上沿67.5%
+经营利润率：60.3%，高于指引上沿58.5%
+
+Q3指引：
+
+收入$44.6B–$45.8B，中点较Q2增长约12.4%
+毛利率65%–67%
+经营利润率56%–58%
+
+2026年资本开支由$52B–$56B提高到$60B–$64B。这个上调比本季EPS更重要，因为它体现管理层对客户多年需求和先进制程供给缺口的判断。
+
+盈利质量保留项：本季非经营收益NT$95.83B，其中NT$63.2B来自VIS持股处置及估值收益；因此77%的净利润增长不能全部当作核心经营增长。不过，毛利率和经营利润率同时大幅改善，说明核心制造业务本身也非常强。
+
+🧠 市场解读：20 / 35（暂定）
+
+台湾股价当日上涨约1.2%，但财报与电话会在台股收盘附近或之后发布，不能视为完整的财报后确认；美国ADR尚未完成财报后交易。成交量、T+2/T+3、分析师修正、IV和机构流向均待补充。
+
+市场真正需要定价的不是已经提前公布的月度收入，而是：
+
+① 净利润比预期高约12%
+② Q3收入仍将环比增长约12%
+③ 资本开支上调约$8B
+④ HPC收入占比继续升至66%
+⑤ 2nm首季即贡献3%晶圆收入
+
+如果美国ADR面对这种组合仍然走弱，才需要警惕市场在交易高估值、资本开支过快、客户重复下单或地缘风险。
+
+🔍 基本面深度：24 / 25
+
+HPC占总收入66%，高于一季度61%，环比增长20%；智能手机占比降至22%，说明TSMC增长越来越由AI和高性能计算主导。
+
+先进制程表现：
+
+2nm占晶圆收入3%
+3nm占30%
+5nm占33%
+7nm占11%
+7nm及以下先进制程合计占77%
+
+毛利率改善来自更高产能利用率和成本改善，部分被海外晶圆厂稀释抵消。库存天数从80天升至87天，管理层解释主要源自N2爬坡；如果后续收入同步增长，这属于为新节点备货，而不是需求恶化。
+
+经营现金流NT$783.36B，资本开支NT$496.00B，自由现金流仍为正NT$287.36B。高资本开支压低了自由现金流，但公司拥有NT$2.49T净现金储备，扩产并未造成资产负债表压力。
+
+🎙️ 业绩会 · 管理层重点
+
+1. 魏哲家表示AI需求仍“极其强劲”，AI大趋势持续推动越来越多计算需求。
+2. Q3增长由先进制程需求和2nm快速爬坡共同支撑。
+3. 资本开支提高至$60B–$64B，是管理层对多年AI需求最有分量的表态。
+4. 公司新增$100B亚利桑那投资承诺，美国总投资承诺约$265B，用于支持主要美国客户的多年需求。
+5. 海外厂成本和N2初期爬坡会令Q3利润率低于Q2峰值，但65%–67%的毛利率指引仍然非常强。
+
+🧭 多信源叙事
+
+当前叙事：AI资本开支没有降温，而是从GPU订单进一步传导到先进制程、先进封装、晶圆厂设备和全球产能布局。
+
+与ASML、AEHR和IBM交叉验证：TSMC提高资本开支并给出强劲Q3指引，验证ASML设备扩产、AEHR测试backlog以及IBM观察到客户抢购基础设施不是孤立现象。
+
+主线强度：9.5/10；当前至未来数季。
+
+证伪条件：TSMC后续下调资本开支、HPC收入环比转负、Q3收入低于指引下沿，或N2库存上升却未转化为收入。
+
+─────────────────
+💡 结论
+
+这是一份接近满分的经营财报：增长不仅来自收入，还体现为产能利用率、利润率、先进制程占比、下一季指引和资本开支的同步上升。
+
+最大保留不是需求，而是市场是否已经把强劲AI周期充分计价，以及海外扩产和N2爬坡对未来利润率的影响。
+
+下一个验证点：
+① 美国ADR财报后首日和T+3价格反应
+② 7月、8月月度收入
+③ Q3收入能否达到$45.2B中点以上
+④ N2收入占比与库存转化
+⑤ 先进封装供给扩张速度
+
+数据截至2026-07-16业绩会后；美国ADR财报后市场反应尚待补充。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-07-15",
