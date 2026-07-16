@@ -54,7 +54,7 @@ h1{font-size:26px;margin:0 0 4px}
 .dim b{font-size:15px;font-variant-numeric:tabular-nums}
 .dim .bar{height:5px;border-radius:999px;background:#e8ebef;margin-top:5px;overflow:hidden}
 .dim .bar i{display:block;height:100%;background:var(--blue)}
-.report-text{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:16px;max-height:520px;overflow:auto;margin:0 0 12px}
+.report-text{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;background:#fff;color:#172033;border:1px solid var(--line);border-radius:10px;padding:16px;max-height:520px;overflow:auto;margin:0 0 12px}
 .vic-notes{border-left:3px solid var(--amber);background:#faf6ee;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .vic-notes b{color:#8a5a00;font-size:12px;display:block;margin-bottom:3px}
 .outcome{border-left:3px solid var(--green);background:#f0f9f3;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
@@ -179,6 +179,165 @@ h1{font-size:26px;margin:0 0 4px}
  */
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-15",
+  ticker: "ELV",
+  company: "Elevance Health",
+  score: 49,
+  rec: "doubt",
+  dims: {quality:25, marketread:10, fundamentals:14},
+  report: `【ELV · Elevance Health】财报深度分析 · 2026-07-15
+综合评分：49 / 100（暂定；财报成色，非买卖信号）
+解读结论：⚠️ 市场存疑
+
+─────────────────
+📊 财报质量：25 / 40
+
+调整后EPS：实际$7.45 vs 预期约$6.18–$6.21（约+20%）
+营业收入：实际$49.8B vs 预期约$48.63B（约+2.5%）
+指引：全年调整后EPS由至少$26.75上调至至少$27.00，仅略高于约$26.91的市场预期；经营现金流指引提高至至少$6B
+
+盈利质量明显弱于标题：约$0.80 EPS来自投资收益估值调整等线下项目，不是核心承保改善；调整后经营利润率由去年同期5.0%降至3.6%；benefit expense ratio升至89.7%，同比恶化80个基点；医疗会员人数同比下降约1.5%。这是headline beat很大、核心经营改善有限的一季。
+
+🧠 市场解读：10 / 35
+
+价格反应：收于约$390.33，下跌约8.7%，盘中最低$376.51。强EPS beat和上调指引仍遭到大幅抛售，是典型的“数字强、市场卖”。
+
+→ 市场在告诉我们什么：
+
+市场关注的不是这一季度多赚的$1.24，而是盈利质量与利润率趋势。约$0.80的非核心收益、政府医保业务的高医疗成本、Health Benefits利润压力，以及仅上调$0.25的全年指引，都不足以证明承保利润率已经触底。
+
+假设1：EPS beat主要来自不可持续项目，而非医疗成本改善。
+验证信号：下一季度剔除投资收益后的核心EPS、经营利润率和benefit expense ratio。
+
+假设2：Medicaid费率仍未追上实际医疗成本。
+验证信号：政府业务医疗成本趋势、州政府费率调整和管理层对2027利润率的量化说明。
+
+🔍 基本面深度：14 / 25
+
+CarelonRx和保费定价仍提供收入支撑，公司也预计2027年重新实现至少12%的调整后EPS增长。但医保公司的核心是保费提价能否追上医疗利用率和单位成本；89.7%的benefit expense ratio说明这个问题尚未解决。
+
+─────────────────
+💡 结论
+
+ELV是这组三家公司中分歧最大的一份财报：表面上beat and raise，市场却大幅卖出，说明医疗成本、利润率和盈利质量才是当前定价核心。
+
+下一个验证点：
+① 下一季度benefit expense ratio是否同比或环比改善
+② Medicaid费率调整能否追上实际医疗成本
+③ 2027年至少12% EPS增长是否获得更具体的利润率与现金流支撑
+④ T+3能否收复$400；若持续低于财报缺口，说明机构仍不接受盈利质量
+
+数据截至2026-07-15收盘；T+2/T+3持续性、精确历史均量及期权数据尚待补充。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-07-15",
+  ticker: "AEHR",
+  company: "Aehr Test Systems",
+  score: 86,
+  rec: "resonance",
+  dims: {quality:36, marketread:29, fundamentals:21},
+  report: `【AEHR · Aehr Test Systems】财报深度分析 · 2026-07-15
+综合评分：86 / 100（暂定；财报成色，非买卖信号）
+解读结论：✅ 共振确认
+
+─────────────────
+📊 财报质量：36 / 40
+
+Q4收入：$18.8M，同比增长33%，相对市场预期约高1%–5%
+调整后EPS：$0.11 vs 市场预期约亏损$0.01
+GAAP EPS：$0.04 vs 去年同期亏损$0.10
+季度订单：创纪录的$60.7M
+Backlog：期末$80.6M；计入期后订单的有效backlog为$100.6M
+FY2027指引：收入$130M–$150M，同比增长约160%–200%；调整后净利润率18%–22%
+
+本季收入本身只是小幅超预期，真正改变估值基线的是订单、有效backlog和FY2027指引。盈利质量仍有保留：FY2026全年收入下降15%，GAAP净亏损$7.1M，经营现金流流出$3.3M，公司尚需证明高增长能够稳定转化为现金。
+
+🧠 市场解读：29 / 35
+
+价格反应：收于约$87.79，上涨约22%，成交量约1,296万股，盘中最高$110.01。市场强烈认可FY2027重估逻辑，但股价从高点显著回落，说明短线也在兑现部分情绪溢价。
+
+→ 市场在告诉我们什么：
+
+市场不是在奖励$18.8M的季度收入，而是在提前定价AEHR从小众SiC测试商向AI处理器、硅光和高功率burn-in平台转型。有效backlog已覆盖FY2027收入指引低端约77%，大幅降低了近期收入能见度的不确定性。
+
+🔍 基本面深度：21 / 25
+
+增长来源已从单一SiC扩散至AI处理器晶圆级burn-in、超大规模客户的封装级测试、硅光/光互连，以及SiC汽车功率器件复苏。头部AI处理器客户已完成benchmark，下一步进入pilot production validation。
+
+主要风险：客户集中度可能仍高；部分增长依赖验证成功和订单按时转化；FY2026全年GAAP利润和现金流仍弱；股价已经为未来两年增长支付较高预期。
+
+─────────────────
+💡 结论
+
+这是一次由前瞻订单驱动的重估，而不是单季收入驱动的普通beat。AEHR的增长弹性最大，但执行风险和估值波动也最大。
+
+下一个验证点：
+① $86–$90能否成为财报后的有效承接区
+② $100.6M有效backlog未来两个季度的收入转化率
+③ 新AI处理器客户是否从benchmark进入量产订单
+④ FY2027调整后18%–22%的净利润率能否同步转化为正经营现金流
+
+数据截至2026-07-15收盘；T+2/T+3持续性、精确历史均量及期权数据尚待补充。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-07-15",
+  ticker: "ASML",
+  company: "ASML Holding",
+  score: 90,
+  rec: "resonance",
+  dims: {quality:38, marketread:28, fundamentals:24},
+  report: `【ASML · ASML Holding】财报深度分析 · 2026-07-15
+综合评分：90 / 100（暂定；财报成色，非买卖信号）
+解读结论：✅ 共振确认
+
+─────────────────
+📊 财报质量：38 / 40
+
+Q2收入：€9.33B vs 市场预期约€8.80B–€8.85B（约+6%）
+净利润：€2.92B vs 预期约€2.62B（约+11%）
+基本EPS：€7.59 vs 财报前预期约€6.88（约+10%）
+毛利率：54%，显著高于公司此前51%–52%的指引
+Q3指引：收入€11B–€12B，毛利率55%–57%
+全年指引：收入由€36B–€40B大幅提高至€43B–€45B，中点上调约16%
+
+这不是单纯的季度beat，而是收入、利润率、全年指引和产能规划同时向上，财报质量接近满分。
+
+🧠 市场解读：28 / 35
+
+价格反应：ASML美股收于约$1,815，上涨约2.2%；阿姆斯特丹股票盘中涨幅一度更高。反应为正，但相对指引上调幅度并不夸张。
+
+→ 市场在告诉我们什么：
+
+这更像高预期被确认，而非市场存疑。财报前市场已经在交易AI设备短缺、先进制程扩产和ASML的垄断地位，因此强财报主要巩固叙事，没有从零创造新叙事。
+
+🔍 基本面深度：24 / 25
+
+公司计划未来两年分别将产能提高约30%，2027年的新增EUV产能几乎已经被预订，客户正在提前规划2027–2028年的先进逻辑与DRAM产能。AI需求已经从逻辑芯片扩散到HBM、先进DRAM和相关设备链，High-NA EUV也进入更明确的量产采用阶段。
+
+主要风险仍是中国出口限制、客户资本开支集中，以及积极扩产在未来可能放大半导体设备周期波动。
+
+─────────────────
+💡 结论
+
+ASML是本组三家公司中基本面确定性最高的一家：季度数字和中期产能规划互相印证，AI订单周期尚未进入消化阶段。
+
+下一个验证点：
+① T+3能否守住$1,775–$1,800附近的财报反应区间
+② TSMC、Samsung、SK Hynix、Micron后续资本开支是否继续上调
+③ 2027年扩产能否在不损害毛利率的情况下落地
+
+数据截至2026-07-15收盘；T+2/T+3持续性、精确历史均量及期权数据尚待补充。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-07-14",
