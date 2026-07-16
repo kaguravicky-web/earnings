@@ -208,30 +208,345 @@ h1{font-size:26px;margin:0 0 4px}
 const NARRATIVES = [
   {
     rank: 1,
-    theme: "AI基础设施产能、设备与测试瓶颈",
+    theme: "内存、存储与AI基础设施瓶颈",
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["ASML","AEHR"],
-    thesis: "AI资本开支正从算力芯片向光刻、晶圆级burn-in、硅光互连和高功率测试扩散。ASML的扩产与AEHR的有效backlog形成上下游共振。",
-    evidence: "ASML上调全年指引并规划扩产；AEHR有效backlog约$100.6M并给出FY2027高增长指引。",
-    disconfirm: "主要客户资本开支下修、订单延期或backlog转化显著低于计划。"
+    tickers: ["TSM","IBM","ASML","AEHR"],
+    thesis: "AI资本开支正在从模型调用扩展到先进制程、先进封装、服务器、存储、内存、光刻、硅光互连和burn-in测试，基础设施控制与供应保障成为企业优先事项。",
+    evidence: "TSMC把2026年资本开支从$52B–$56B提高至$60B–$64B，HPC已占收入66%，并称AI需求极其强劲；Q3收入指引中点较Q2再增长约12%。IBM则观察到客户把资本开支转向服务器、存储和内存，以锁定供应并规避预期涨价；ASML扩产与AEHR有效backlog继续提供设备和测试端共振。",
+    disconfirm: "主要客户资本开支下修、存储/内存价格与订单转弱，或设备backlog转化显著低于计划。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信（2026-07-14）", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
+      {type:"公司公告", label:"ASML 2026 Q2公告", url:"https://live.euronext.com/en/products/equities/company-news/2026-07-15-asml-reports-eu93-billion-total-net-sales-and-eu29"},
+      {type:"公司公告", label:"AEHR FY2026 Q4公告", url:"https://www.aehr.com/2026/07/aehr-test-systems-reports-fiscal-2026-fourth-quarter-and-full-year-financial-results-with-record-quarterly-bookings-and-100-million-effective-backlog/"},
+      {type:"公司公告", label:"TSMC 2026 Q2结果", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"}
+    ]
   },
   {
     rank: 2,
+    theme: "网络安全成为AI必要开支",
+    strength: "9/10",
+    horizon: "中长期",
+    direction: "强化",
+    tickers: ["IBM","PANW","CRWD","FTNT"],
+    thesis: "企业AI进入生产环境后，身份、权限、审计、日志、数据边界和自适应网络安全从可选项升级为基础预算。",
+    evidence: "IBM CEO已确认，快速变化的网络安全环境分散客户注意力并影响交易签约。Karp在CNBC采访中强调企业必须控制数据、模型与自有竞争优势；Axios进一步提出数据归属、缓存位置、提示词安全和传输边界等检查项。截图所列“零数据保留、细粒度权限、全程审计、自适应安全”等六项是对Palantir产品框架的归纳，不是本次采访的逐字清单。",
+    disconfirm: "企业安全预算增速明显落后AI预算，或大型AI部署并未带动安全平台订单与续费改善。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 3,
+    theme: "主权AI、私有AI与本地部署",
+    strength: "8.5/10",
+    horizon: "未来1–3年",
+    direction: "强化",
+    tickers: ["IBM","PLTR","HPE","DELL","ORCL"],
+    thesis: "企业和政府不愿只依赖按token付费的远程模型调用，正在增加对自有算力、数据、模型和控制架构的投入。",
+    evidence: "已核验Karp在CNBC采访中的核心判断：技术型客户希望控制自己的算力、模型、数据栈和alpha，并确认自己拥有“生产资料”。这与IBM看到的基础设施采购前置形成交叉验证；但从个别公司信号外推到全行业，仍需后续订单和资本开支数据确认。",
+    disconfirm: "公有云模型API成本持续快速下降，且企业大规模放弃私有部署与自建控制层。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"采访摘要", label:"Moneycontrol：AI下一战是所有权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
+      {type:"媒体", label:"Axios：Sovereign AI与企业alpha", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 4,
+    theme: "企业AI控制层与Ontology",
+    strength: "8/10",
+    horizon: "中长期",
+    direction: "形成中",
+    tickers: ["PLTR","IBM","SNOW","NOW"],
+    thesis: "企业AI的竞争焦点正从单一模型能力转向连接数据、权限、工作流、业务对象和行动反馈的控制层。",
+    evidence: "Karp明确把价值公式指向“模型＋应用层＋算力”，Axios将其解释为企业需要掌握连接模型与专有知识的路由/控制层。这直接支持“控制层”主线；但本次采访没有直接展开Ontology，因此Ontology仍是基于Palantir既有产品体系的延伸判断，需要用客户采用和收入数据验证。",
+    disconfirm: "企业客户主要通过通用模型和轻量集成完成生产部署，控制层项目周期、续费或扩展率持续走弱。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：应用层与AI路由控制", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 5,
+    theme: "开放模型与模型可替换性",
+    strength: "7.5/10",
+    horizon: "中长期",
+    direction: "上升",
+    tickers: ["META","IBM","PLTR","ORCL"],
+    thesis: "模型逐步商品化后，企业更重视可替换模型、避免锁定、数据不外泄以及在同一控制层下路由不同模型。",
+    evidence: "Karp在采访中质疑企业把数据和alpha交给前沿模型供应商，并强调客户应控制自己的模型。Axios给出的实践路径是：通用任务租用前沿模型，核心知识任务运行开放权重模型，再由自有路由层调度。由此可支持“模型可替换性”，但它目前更像采购架构方向，不等于开放模型已在能力上全面替代闭源模型。",
+    disconfirm: "闭源模型持续形成显著且不可替代的能力优势，企业愿意接受长期单一供应商锁定。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：开放权重与闭源模型组合", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+    ]
+  },
+  {
+    rank: 6,
+    theme: "SaaS和咨询预算承压",
+    strength: "8/10负面",
+    horizon: "当前至未来数季",
+    direction: "承压",
+    tickers: ["IBM","ACN","CRM","NOW"],
+    thesis: "当企业预算转向AI硬件、存储、内存和安全时，传统软件席位、咨询项目和非核心数字化支出可能被延迟或压缩。",
+    evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。它支持“预算挤出”假设，但还不足以证明整个SaaS与咨询行业承压；需等待ACN、CRM、NOW等同业财报交叉验证。",
+    disconfirm: "软件与咨询公司剩余履约义务、签约周期和净留存率同步改善，证明预算并未被基础设施挤出。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"}
+    ]
+  },
+  {
+    rank: 7,
+    theme: "国防及关键基础设施AI",
+    strength: "8/10",
+    horizon: "长期",
+    direction: "强化",
+    tickers: ["PLTR","LMT","NOC","RTX","IBM"],
+    thesis: "安全、权限、审计、数据主权和本地部署要求，使国防与关键基础设施成为企业级AI控制技术的重要长期落地场景。",
+    evidence: "Karp在CNBC采访中直接反对把国家战场决策外包给硅谷共识；在MD MEETS访谈中又把技术主权和AI视为民主国家防卫能力的一部分。这能直接支持国防与关键基础设施方向，但具体商业强度仍要看政府合同、项目规模、续约与跨部门复制。",
+    disconfirm: "相关项目长期停留在试点阶段，合同扩展、续约和跨部门复制明显低于预期。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"采访摘要", label:"Moneycontrol：国家安全与AI控制权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
+      {type:"播客", label:"MD MEETS：Alex Karp访谈", url:"https://shows.acast.com/md-meets/episodes/palantir-ceo-alex-karp-ai-fears-rise-of-the-far-right-german"}
+    ]
+  },
+  {
+    rank: 8,
     theme: "医疗成本挤压保险利润率",
     strength: "8/10负面",
     horizon: "当前至2027",
     direction: "待验证",
-    tickers: ["ELV"],
+    tickers: ["ELV","JNJ"],
     thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量。",
-    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。",
-    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升。"
+    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。JNJ则表示其广泛产品组合没有看到手术量系统性放缓，也未观察到ACA变化造成显著影响；这意味着医疗利用率仍有韧性，暂时不能指望需求自然回落来缓解保险公司的成本压力。",
+    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升，或大型医疗供应商普遍观察到手术量明显转弱。",
+    sources: [
+      {type:"公告", label:"Elevance Q2 2026 Results", url:"https://www.elevancehealth.com/newsroom/elv-quarterly-earnings-q2-2026"},
+      {type:"公司公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
+      {type:"业绩会", label:"JNJ Q2 2026 Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"}
+    ]
   }
 ];
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-16",
+  ticker: "TSM",
+  company: "Taiwan Semiconductor Manufacturing",
+  score: 83,
+  rec: "resonance",
+  dims: {quality:39, marketread:20, fundamentals:24},
+  management_highlights: [
+    "CEO魏哲家表示全球AI需求仍然“极其强劲”，AI大趋势正在持续推动更多计算需求；公司把2026年资本开支由$52B–$56B大幅提高到$60B–$64B。",
+    "Q3收入指引为$44.6B–$45.8B，中点较Q2再增长约12%；增长由先进制程持续强劲需求和2nm快速爬坡支撑。",
+    "公司新增$100B亚利桑那投资承诺，使美国总投资承诺达到约$265B，用于支持美国主要客户的多年需求；海外晶圆厂和N2初期爬坡仍会稀释利润率。"
+  ],
+  narrative: {
+    summary: "AI基础设施需求没有降温，先进制程和资本开支正在同时加速，TSMC仍是AI算力扩张最硬的订单验证点。",
+    consensus: "收入、经营利润率、净利润、Q3指引和资本开支全部向上；HPC占比升至66%，2nm开始贡献收入。",
+    divergence: "净利润含NT$63.2B VIS持股处置及估值收益，且美国ADR尚未完成财报后交易；高资本开支、海外扩产和N2爬坡可能令下半年利润率低于本季峰值。",
+    signals: ["Q3收入达到指引中高端", "N2收入占比继续提升", "CoWoS与先进封装供给扩张", "海外厂利润率稀释受控"]
+  },
+  sources: [
+    {type:"公告", label:"TSMC 2026 Q2 Results", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"},
+    {type:"财报材料", label:"TSMC Q2 Presentation", url:"https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-07/9ce1ced428b1f53f1319be1fa7964327bcb1b02f/2Q26%20Presentation%20%28E%29.pdf"},
+    {type:"管理层报告", label:"TSMC Q2 Management Report", url:"https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-07/6f49632674bd2d0fd48cb65aaf89ec6ab510b559/2Q26%20ManagementReport.pdf"},
+    {type:"业绩会", label:"TSMC Q2 Webcast", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"},
+    {type:"媒体", label:"AP：AI需求与美国扩产", url:"https://apnews.com/article/taiwan-tsmc-chipmaking-ai-arizona-fab-ba05b1b952257d371acb9d070e7914ff"}
+  ],
+  report: `【TSM · Taiwan Semiconductor Manufacturing】财报深度分析 · 2026-07-16
+综合评分：83 / 100（暂定；财报成色，非买卖信号）
+解读结论：✅ 共振确认（美国ADR财报后反应待补）
+
+─────────────────
+📊 财报质量：39 / 40
+
+营收：$40.20B，同比增长33.7%、环比增长12.0%；位于公司$39.0B–$40.2B指引上沿，高于市场预期约$39.0B–$39.8B
+ADR EPS：$4.31，同比增长77.4%，高于约$3.77的市场预期
+净利润：NT$706.56B，同比增长77.4%，明显高于约NT$632.6B的市场预期
+毛利率：67.7%，高于公司指引上沿67.5%
+经营利润率：60.3%，高于指引上沿58.5%
+
+Q3指引：
+
+收入$44.6B–$45.8B，中点较Q2增长约12.4%
+毛利率65%–67%
+经营利润率56%–58%
+
+2026年资本开支由$52B–$56B提高到$60B–$64B。这个上调比本季EPS更重要，因为它体现管理层对客户多年需求和先进制程供给缺口的判断。
+
+盈利质量保留项：本季非经营收益NT$95.83B，其中NT$63.2B来自VIS持股处置及估值收益；因此77%的净利润增长不能全部当作核心经营增长。不过，毛利率和经营利润率同时大幅改善，说明核心制造业务本身也非常强。
+
+🧠 市场解读：20 / 35（暂定）
+
+台湾股价当日上涨约1.2%，但财报与电话会在台股收盘附近或之后发布，不能视为完整的财报后确认；美国ADR尚未完成财报后交易。成交量、T+2/T+3、分析师修正、IV和机构流向均待补充。
+
+市场真正需要定价的不是已经提前公布的月度收入，而是：
+
+① 净利润比预期高约12%
+② Q3收入仍将环比增长约12%
+③ 资本开支上调约$8B
+④ HPC收入占比继续升至66%
+⑤ 2nm首季即贡献3%晶圆收入
+
+如果美国ADR面对这种组合仍然走弱，才需要警惕市场在交易高估值、资本开支过快、客户重复下单或地缘风险。
+
+🔍 基本面深度：24 / 25
+
+HPC占总收入66%，高于一季度61%，环比增长20%；智能手机占比降至22%，说明TSMC增长越来越由AI和高性能计算主导。
+
+先进制程表现：
+
+2nm占晶圆收入3%
+3nm占30%
+5nm占33%
+7nm占11%
+7nm及以下先进制程合计占77%
+
+毛利率改善来自更高产能利用率和成本改善，部分被海外晶圆厂稀释抵消。库存天数从80天升至87天，管理层解释主要源自N2爬坡；如果后续收入同步增长，这属于为新节点备货，而不是需求恶化。
+
+经营现金流NT$783.36B，资本开支NT$496.00B，自由现金流仍为正NT$287.36B。高资本开支压低了自由现金流，但公司拥有NT$2.49T净现金储备，扩产并未造成资产负债表压力。
+
+🎙️ 业绩会 · 管理层重点
+
+1. 魏哲家表示AI需求仍“极其强劲”，AI大趋势持续推动越来越多计算需求。
+2. Q3增长由先进制程需求和2nm快速爬坡共同支撑。
+3. 资本开支提高至$60B–$64B，是管理层对多年AI需求最有分量的表态。
+4. 公司新增$100B亚利桑那投资承诺，美国总投资承诺约$265B，用于支持主要美国客户的多年需求。
+5. 海外厂成本和N2初期爬坡会令Q3利润率低于Q2峰值，但65%–67%的毛利率指引仍然非常强。
+
+🧭 多信源叙事
+
+当前叙事：AI资本开支没有降温，而是从GPU订单进一步传导到先进制程、先进封装、晶圆厂设备和全球产能布局。
+
+与ASML、AEHR和IBM交叉验证：TSMC提高资本开支并给出强劲Q3指引，验证ASML设备扩产、AEHR测试backlog以及IBM观察到客户抢购基础设施不是孤立现象。
+
+主线强度：9.5/10；当前至未来数季。
+
+证伪条件：TSMC后续下调资本开支、HPC收入环比转负、Q3收入低于指引下沿，或N2库存上升却未转化为收入。
+
+─────────────────
+💡 结论
+
+这是一份接近满分的经营财报：增长不仅来自收入，还体现为产能利用率、利润率、先进制程占比、下一季指引和资本开支的同步上升。
+
+最大保留不是需求，而是市场是否已经把强劲AI周期充分计价，以及海外扩产和N2爬坡对未来利润率的影响。
+
+下一个验证点：
+① 美国ADR财报后首日和T+3价格反应
+② 7月、8月月度收入
+③ Q3收入能否达到$45.2B中点以上
+④ N2收入占比与库存转化
+⑤ 先进封装供给扩张速度
+
+数据截至2026-07-16业绩会后；美国ADR财报后市场反应尚待补充。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-07-15",
+  ticker: "JNJ",
+  company: "Johnson & Johnson",
+  score: 62,
+  rec: "doubt",
+  dims: {quality:33, marketread:9, fundamentals:20},
+  management_highlights: [
+    "管理层预计2026年收入首次突破$100B，并维持本十年末实现两位数增长的目标；剔除STELARA后，本季整体收入实现两位数增长。",
+    "管理层认为Abiomed疲软源于英国中性临床研究引发的医生短期谨慎，而不是需求、报销或市场结构恶化，并预计MedTech下半年加速。",
+    "公司未观察到广泛的手术量放缓，也未看到ACA补贴变化对MedTech需求产生显著影响；milvexian房颤研究可能在2026年底或2027年初读出。"
+  ],
+  narrative: {
+    summary: "制药新品正在覆盖STELARA专利悬崖，但市场把注意力转向MedTech、Abiomed和利润率。",
+    consensus: "DARZALEX、TREMFYA及多个新品推动制药业务强劲增长，公司再次上调全年收入和EPS指引。",
+    divergence: "强劲的beat and raise仍换来约2.7%的下跌，说明市场不接受用制药强势完全掩盖Abiomed转负、MedTech低于预期和利润率小幅下滑。",
+    signals: ["Abiomed恢复正增长", "MedTech下半年加速", "新品连续覆盖STELARA下滑", "milvexian关键数据"]
+  },
+  sources: [
+    {type:"公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
+    {type:"业绩会", label:"JNJ Q2 2026 Earnings Call Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"},
+    {type:"市场反应", label:"Reuters：MedTech miss压过财报beat", url:"https://www.investing.com/news/stock-market-news/jj-quarterly-earnings-beat-wall-street-estimates-on-strength-of-medicines-unit-4792739"}
+  ],
+  report: `【JNJ · Johnson & Johnson】财报深度分析 · 2026-07-15
+综合评分：62 / 100（暂定；财报成色，非买卖信号）
+解读结论：⚠️ 市场存疑
+
+─────────────────
+📊 财报质量：33 / 40
+
+营收：$25.31B，同比增长6.6%，高于市场预期约$25.02B
+调整后EPS：$2.90，同比增长4.7%，高于预期$2.84–$2.86
+GAAP EPS：$2.27，同比下降0.9%
+年初至今自由现金流：约$8.7B，一季度后的现金流恢复符合计划
+
+全年收入指引中点由$100.8B提高至$101.1B；调整后EPS中点由$11.55提高至$11.68。经营口径EPS中点提高$0.18，说明上调不只是汇率贡献。
+
+盈利质量略有瑕疵：企业调整后税前利润率由34.5%降至34.2%；新品推广、产品组合、关税、诉讼和重组费用都在压制利润率。
+
+🧠 市场解读：9 / 35
+
+股价财报日收于约$247.02，下跌约2.7%。稳健的beat and raise仍遭卖出，是典型的“数字强、市场存疑”。T+2/T+3持续性、财报后分析师修正、IV和机构流向尚待补充。
+
+市场可能在担心：
+
+① MedTech增长只有3.6%，低于制药业务和市场期待
+② Abiomed收入下降2%，而一季度仍增长14%
+③ 新品推广、关税和产品组合继续压制利润率
+④ 股价年内已经明显上涨，普通幅度的beat不足以支持进一步估值扩张
+
+验证信号：Abiomed三、四季度增长、MedTech下半年加速幅度、利润率变化及财报缺口能否收复。
+
+🔍 基本面深度：20 / 25
+
+Innovative Medicine经营增长6.8%；剔除STELARA后，JNJ整体收入实现两位数增长。DARZALEX季度销售超过$4B、增长接近18%；TREMFYA增长71%；RYBREVANT加LAZCLUZE增长61.6%；SPRAVATO增长40%；CAPLYTA增长70.9%。
+
+STELARA下降55.7%，但新产品矩阵已经覆盖其损失。这是本季最重要的基本面信号：JNJ正在依靠多产品组合跨越专利悬崖，而不是依赖单一新品救场。
+
+MedTech是最大弱点。电生理受到脉冲场消融竞争和中国库存影响；Abiomed因英国中性临床研究引发医生谨慎；手术业务也受到中国集采和竞争压力。相对强项是Shockwave增长14.7%、眼科增长5.6%、骨科增长4.2%。
+
+🎙️ 业绩会 · 管理层重点
+
+1. 管理层预计2026年收入首次超过$100B，并维持本十年末两位数增长目标。
+2. ICOTYDE上市约90天已获得1.8万张处方、1.1万名患者和超过50%的商业保险覆盖。
+3. 管理层认为Abiomed是医生行为上的短期变化，不是需求或报销结构恶化；PROTECT IV研究预计2027年读出。
+4. 公司没有看到手术量系统性放缓，也暂未发现ACA补贴变化对MedTech需求造成显著影响。
+5. milvexian房颤研究已经完成招募，可能在2026年底或2027年初公布结果。
+
+🧭 多信源叙事
+
+当前叙事：医疗内部正在分化——创新药依靠新品周期抵消专利悬崖，保险公司和部分医疗器械则承受成本、临床数据、竞争和利润率压力。
+
+与ELV交叉验证：JNJ没有观察到广泛的手术量下降，说明医疗利用率仍有韧性，保险公司的成本压力暂时不会靠需求自然回落解决。
+
+主线强度：8/10；当前至2027年。
+
+证伪条件：大型医疗供应商普遍出现手术量下降，或ELV等保险公司医疗成本率连续明显改善。
+
+─────────────────
+💡 结论
+
+JNJ整体生意在变好，制药部分尤其强；但市场要求公司证明MedTech只是暂时失速，而不是Abiomed收购回报和竞争力开始恶化。
+
+下一个验证点：
+① Abiomed能否恢复正增长
+② MedTech能否兑现下半年加速
+③ 新品能否连续覆盖STELARA下滑
+④ milvexian关键数据
+⑤ T+3能否收复财报前约$254区域
+
+数据截至2026-07-15收盘。` ,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-07-15",
@@ -584,7 +899,7 @@ function renderNarratives(){
   list.innerHTML = '<div class="panel"><table class="narrative-table"><thead><tr><th>排名</th><th>主题</th><th>当前强度</th><th>时间维度</th><th>相关公司</th></tr></thead><tbody>'+
     rows.map(n=>'<tr><td>'+esc(n.rank)+'</td><td><b>'+esc(n.theme)+'</b><br><span class="hint">'+esc(n.direction||"")+'</span></td><td class="strength">'+esc(n.strength)+'</td><td>'+esc(n.horizon)+'</td><td>'+esc((n.tickers||[]).join(" · "))+'</td></tr>').join("")+
     '</tbody></table></div>'+
-    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p></div>').join("");
+    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+((n.sources||[]).length?'<div class="source-row">'+n.sources.map(s=>'<a class="source-link" href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||s.url)+'</a>').join("")+'</div>':"")+'</div>').join("");
 }
 
 function renderStats(){
