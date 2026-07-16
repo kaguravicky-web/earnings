@@ -322,15 +322,115 @@ const NARRATIVES = [
     strength: "8/10负面",
     horizon: "当前至2027",
     direction: "待验证",
-    tickers: ["ELV"],
+    tickers: ["ELV","JNJ"],
     thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量。",
-    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。",
-    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升。"
+    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。JNJ则表示其广泛产品组合没有看到手术量系统性放缓，也未观察到ACA变化造成显著影响；这意味着医疗利用率仍有韧性，暂时不能指望需求自然回落来缓解保险公司的成本压力。",
+    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升，或大型医疗供应商普遍观察到手术量明显转弱。",
+    sources: [
+      {type:"公告", label:"Elevance Q2 2026 Results", url:"https://www.elevancehealth.com/newsroom/elv-quarterly-earnings-q2-2026"},
+      {type:"公司公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
+      {type:"业绩会", label:"JNJ Q2 2026 Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"}
+    ]
   }
 ];
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-15",
+  ticker: "JNJ",
+  company: "Johnson & Johnson",
+  score: 62,
+  rec: "doubt",
+  dims: {quality:33, marketread:9, fundamentals:20},
+  management_highlights: [
+    "管理层预计2026年收入首次突破$100B，并维持本十年末实现两位数增长的目标；剔除STELARA后，本季整体收入实现两位数增长。",
+    "管理层认为Abiomed疲软源于英国中性临床研究引发的医生短期谨慎，而不是需求、报销或市场结构恶化，并预计MedTech下半年加速。",
+    "公司未观察到广泛的手术量放缓，也未看到ACA补贴变化对MedTech需求产生显著影响；milvexian房颤研究可能在2026年底或2027年初读出。"
+  ],
+  narrative: {
+    summary: "制药新品正在覆盖STELARA专利悬崖，但市场把注意力转向MedTech、Abiomed和利润率。",
+    consensus: "DARZALEX、TREMFYA及多个新品推动制药业务强劲增长，公司再次上调全年收入和EPS指引。",
+    divergence: "强劲的beat and raise仍换来约2.7%的下跌，说明市场不接受用制药强势完全掩盖Abiomed转负、MedTech低于预期和利润率小幅下滑。",
+    signals: ["Abiomed恢复正增长", "MedTech下半年加速", "新品连续覆盖STELARA下滑", "milvexian关键数据"]
+  },
+  sources: [
+    {type:"公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
+    {type:"业绩会", label:"JNJ Q2 2026 Earnings Call Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"},
+    {type:"市场反应", label:"Reuters：MedTech miss压过财报beat", url:"https://www.investing.com/news/stock-market-news/jj-quarterly-earnings-beat-wall-street-estimates-on-strength-of-medicines-unit-4792739"}
+  ],
+  report: `【JNJ · Johnson & Johnson】财报深度分析 · 2026-07-15
+综合评分：62 / 100（暂定；财报成色，非买卖信号）
+解读结论：⚠️ 市场存疑
+
+─────────────────
+📊 财报质量：33 / 40
+
+营收：$25.31B，同比增长6.6%，高于市场预期约$25.02B
+调整后EPS：$2.90，同比增长4.7%，高于预期$2.84–$2.86
+GAAP EPS：$2.27，同比下降0.9%
+年初至今自由现金流：约$8.7B，一季度后的现金流恢复符合计划
+
+全年收入指引中点由$100.8B提高至$101.1B；调整后EPS中点由$11.55提高至$11.68。经营口径EPS中点提高$0.18，说明上调不只是汇率贡献。
+
+盈利质量略有瑕疵：企业调整后税前利润率由34.5%降至34.2%；新品推广、产品组合、关税、诉讼和重组费用都在压制利润率。
+
+🧠 市场解读：9 / 35
+
+股价财报日收于约$247.02，下跌约2.7%。稳健的beat and raise仍遭卖出，是典型的“数字强、市场存疑”。T+2/T+3持续性、财报后分析师修正、IV和机构流向尚待补充。
+
+市场可能在担心：
+
+① MedTech增长只有3.6%，低于制药业务和市场期待
+② Abiomed收入下降2%，而一季度仍增长14%
+③ 新品推广、关税和产品组合继续压制利润率
+④ 股价年内已经明显上涨，普通幅度的beat不足以支持进一步估值扩张
+
+验证信号：Abiomed三、四季度增长、MedTech下半年加速幅度、利润率变化及财报缺口能否收复。
+
+🔍 基本面深度：20 / 25
+
+Innovative Medicine经营增长6.8%；剔除STELARA后，JNJ整体收入实现两位数增长。DARZALEX季度销售超过$4B、增长接近18%；TREMFYA增长71%；RYBREVANT加LAZCLUZE增长61.6%；SPRAVATO增长40%；CAPLYTA增长70.9%。
+
+STELARA下降55.7%，但新产品矩阵已经覆盖其损失。这是本季最重要的基本面信号：JNJ正在依靠多产品组合跨越专利悬崖，而不是依赖单一新品救场。
+
+MedTech是最大弱点。电生理受到脉冲场消融竞争和中国库存影响；Abiomed因英国中性临床研究引发医生谨慎；手术业务也受到中国集采和竞争压力。相对强项是Shockwave增长14.7%、眼科增长5.6%、骨科增长4.2%。
+
+🎙️ 业绩会 · 管理层重点
+
+1. 管理层预计2026年收入首次超过$100B，并维持本十年末两位数增长目标。
+2. ICOTYDE上市约90天已获得1.8万张处方、1.1万名患者和超过50%的商业保险覆盖。
+3. 管理层认为Abiomed是医生行为上的短期变化，不是需求或报销结构恶化；PROTECT IV研究预计2027年读出。
+4. 公司没有看到手术量系统性放缓，也暂未发现ACA补贴变化对MedTech需求造成显著影响。
+5. milvexian房颤研究已经完成招募，可能在2026年底或2027年初公布结果。
+
+🧭 多信源叙事
+
+当前叙事：医疗内部正在分化——创新药依靠新品周期抵消专利悬崖，保险公司和部分医疗器械则承受成本、临床数据、竞争和利润率压力。
+
+与ELV交叉验证：JNJ没有观察到广泛的手术量下降，说明医疗利用率仍有韧性，保险公司的成本压力暂时不会靠需求自然回落解决。
+
+主线强度：8/10；当前至2027年。
+
+证伪条件：大型医疗供应商普遍出现手术量下降，或ELV等保险公司医疗成本率连续明显改善。
+
+─────────────────
+💡 结论
+
+JNJ整体生意在变好，制药部分尤其强；但市场要求公司证明MedTech只是暂时失速，而不是Abiomed收购回报和竞争力开始恶化。
+
+下一个验证点：
+① Abiomed能否恢复正增长
+② MedTech能否兑现下半年加速
+③ 新品能否连续覆盖STELARA下滑
+④ milvexian关键数据
+⑤ T+3能否收复财报前约$254区域
+
+数据截至2026-07-15收盘。` ,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-07-15",
