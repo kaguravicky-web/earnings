@@ -63,6 +63,21 @@ h1{font-size:26px;margin:0 0 4px}
 .outcome.loss b{color:var(--red)}
 .copy-btn{border:none;border-radius:8px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer;background:#f1f3f5;color:var(--text)}
 .copy-btn:hover{background:#e8ebef}
+.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.insight-box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff;font-size:13px}
+.insight-box h4{font-size:12px;margin:0 0 6px;color:#334155}
+.insight-box ul{margin:0;padding-left:18px}.insight-box li{margin:3px 0}
+.narrative-summary{border-left:3px solid var(--blue);background:#f5f9ff;padding:11px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px}
+.source-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
+.source-link{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:#fff;color:#334155;text-decoration:none;font-size:12px;font-weight:700}
+.source-link:hover{border-color:#a9c8f5;color:var(--blue)}
+.narrative-table{width:100%;border-collapse:collapse;font-size:13px}
+.narrative-table th,.narrative-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.narrative-table th{font-size:12px;color:var(--muted);background:#f8fafc}
+.strength{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.narrative-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
+.narrative-card h3{font-size:16px;margin:0 0 6px}.narrative-card p{font-size:13px;margin:5px 0;color:#334155}
+.ticker-list{font-size:12px;color:var(--blue);font-weight:800}
 .empty{text-align:center;color:var(--muted);padding:48px 20px;font-size:14px}
 .empty b{display:block;font-size:16px;color:var(--text);margin-bottom:6px}
 
@@ -75,7 +90,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims{grid-template-columns:1fr}.rec-company{display:none}}
+@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.rec-company{display:none}.narrative-table{display:none}}
 </style>
 </head>
 <body>
@@ -84,9 +99,10 @@ h1{font-size:26px;margin:0 0 4px}
 <header>
   <div class="eyebrow">Earnings Deep-Dive Analysis Assistant</div>
   <h1>财报深度分析助手 · 分析档案</h1>
-  <p class="sub">只做基本面深度分析，不做交易信号。财报是滞后数据，市场解读永远藏着我们没想到的信息——每条记录都会写下“市场在告诉我们什么”。分析在对话中完成并归档到本页；有新论点可继续补进对应记录的“Vic观点”。</p>
+  <p class="sub">从财报、业绩会、X、采访和视频中提炼市场正在交易的叙事与主线。只做基本面和市场解读，不做交易信号；新观点与后续验证会持续补进对应记录。</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
+    <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
     <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
   </div>
 </header>
@@ -104,6 +120,15 @@ h1{font-size:26px;margin:0 0 4px}
     <button class="filter-chip" data-filter="event">🗺️ 事件链</button>
   </div>
   <div id="records-list"></div>
+</section>
+
+<!-- ============ TAB: NARRATIVES ============ -->
+<section id="tab-narratives" style="display:none">
+  <div class="panel">
+    <h2>当前市场叙事与主线</h2>
+    <p class="hint">综合财报、业绩会、X、采访和视频提炼。强度反映多信源共振与可验证性，不是交易信号。</p>
+  </div>
+  <div id="narratives-list"></div>
 </section>
 
 <!-- ============ TAB: FRAMEWORK ============ -->
@@ -172,11 +197,39 @@ h1{font-size:26px;margin:0 0 4px}
  *   rec: "resonance"|"doubt"|"repricing"|"deterioration",  // event型省略
  *   dims: {quality:32, marketread:26, fundamentals:19}, // event型省略
  *   report: "完整报告文本…",
+ *   management_highlights: ["管理层重点…"], // 大盘股/权重股必填
+ *   narrative: {summary:"叙事", consensus:"共识", divergence:"分歧", signals:["验证信号"]},
+ *   sources: [{type:"X|业绩会|采访|视频|公告", label:"来源名称", url:"https://..."}],
  *   vic_notes: "",             // Vic后续论点，Claude代为补充
  *   outcome: ""                // 复盘结果，如 "+12.3%，Day5清仓"
  * }
  * ============================================================
  */
+const NARRATIVES = [
+  {
+    rank: 1,
+    theme: "AI基础设施产能、设备与测试瓶颈",
+    strength: "9/10",
+    horizon: "当前至未来数季",
+    direction: "强化",
+    tickers: ["ASML","AEHR"],
+    thesis: "AI资本开支正从算力芯片向光刻、晶圆级burn-in、硅光互连和高功率测试扩散。ASML的扩产与AEHR的有效backlog形成上下游共振。",
+    evidence: "ASML上调全年指引并规划扩产；AEHR有效backlog约$100.6M并给出FY2027高增长指引。",
+    disconfirm: "主要客户资本开支下修、订单延期或backlog转化显著低于计划。"
+  },
+  {
+    rank: 2,
+    theme: "医疗成本挤压保险利润率",
+    strength: "8/10负面",
+    horizon: "当前至2027",
+    direction: "待验证",
+    tickers: ["ELV"],
+    thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量。",
+    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。",
+    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升。"
+  }
+];
+
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
@@ -187,6 +240,21 @@ const RECORDS = [
   score: 49,
   rec: "doubt",
   dims: {quality:25, marketread:10, fundamentals:14},
+  management_highlights: [
+    "管理层将本季超预期归因于执行改善和多元业务组合，同时把2026年调整后EPS指引提高至至少$27。",
+    "公司强调将加大医疗成本管理、会员体验、供应商连接和Carelon整合方案投入。",
+    "管理层维持2027年调整后EPS恢复至少12%增长的目标，但尚需利润率和医疗成本数据验证。"
+  ],
+  narrative: {
+    summary: "标题是beat and raise，市场实际交易的是医疗成本、利润率和盈利质量。",
+    consensus: "收入和调整后EPS好于预期，CarelonRx与保费收益提供支撑。",
+    divergence: "约$0.80 EPS来自线下项目，benefit expense ratio恶化，指引上调幅度有限，股价因此拒绝认可标题数字。",
+    signals: ["benefit expense ratio连续改善", "Medicaid费率追上成本", "核心经营利润率回升"]
+  },
+  sources: [
+    {type:"公告", label:"Elevance Q2 2026 Results", url:"https://www.elevancehealth.com/newsroom/elv-quarterly-earnings-q2-2026"},
+    {type:"业绩会", label:"Elevance Q2 Earnings Call", url:"https://ir.elevancehealth.com/events-and-presentations/event-details/2026/Elevance-Health-2026-Q2-Earnings-Call/default.aspx"}
+  ],
   report: `【ELV · Elevance Health】财报深度分析 · 2026-07-15
 综合评分：49 / 100（暂定；财报成色，非买卖信号）
 解读结论：⚠️ 市场存疑
@@ -294,6 +362,21 @@ FY2027指引：收入$130M–$150M，同比增长约160%–200%；调整后净�
   score: 90,
   rec: "resonance",
   dims: {quality:38, marketread:28, fundamentals:24},
+  management_highlights: [
+    "管理层称客户正在加速中期产能扩张计划，AI相关需求的可持续性明显增强。",
+    "公司计划未来两年分别提高关键设备产能，2027年的新增EUV产能接近满订。",
+    "Q3收入与毛利率指引继续上台阶，显示产品组合和高端设备需求同时改善。"
+  ],
+  narrative: {
+    summary: "市场主线从单纯AI芯片需求扩展到先进制程设备产能约束，ASML是这一瓶颈的核心验证点。",
+    consensus: "收入、净利润、毛利率和全年指引全面超预期，先进逻辑与DRAM扩产形成共振。",
+    divergence: "财报后的股价涨幅相对指引上调幅度温和，说明相当部分高景气已经提前计价。",
+    signals: ["主要晶圆厂继续上调资本开支", "2027扩产按期落地", "高毛利率在扩产期保持稳定"]
+  },
+  sources: [
+    {type:"公告", label:"ASML Q2 2026 Results", url:"https://live.euronext.com/en/products/equities/company-news/2026-07-15-asml-reports-eu93-billion-total-net-sales-and-eu29"},
+    {type:"业绩会", label:"ASML Quarterly Results", url:"https://www.asml.com/en/investors/financial-results/quarterly-results"}
+  ],
   report: `【ASML · ASML Holding】财报深度分析 · 2026-07-15
 综合评分：90 / 100（暂定；财报成色，非买卖信号）
 解读结论：✅ 共振确认
@@ -469,8 +552,9 @@ document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-    document.getElementById("tab-records").style.display = btn.dataset.tab==="tab-records"?"":"none";
-    document.getElementById("tab-framework").style.display = btn.dataset.tab==="tab-framework"?"":"none";
+    document.querySelectorAll('main > section[id^="tab-"]').forEach(s=>{
+      s.style.display = s.id===btn.dataset.tab ? "" : "none";
+    });
   });
 });
 
@@ -489,6 +573,19 @@ function esc(s){
 }
 
 function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
+
+function renderNarratives(){
+  const list = document.getElementById("narratives-list");
+  if(!NARRATIVES.length){
+    list.innerHTML = '<div class="panel"><div class="empty"><b>还没有叙事主线</b>添加财报、X、采访或视频后，会在这里汇总多信源共识与分歧。</div></div>';
+    return;
+  }
+  const rows = NARRATIVES.slice().sort((a,b)=>(a.rank||99)-(b.rank||99));
+  list.innerHTML = '<div class="panel"><table class="narrative-table"><thead><tr><th>排名</th><th>主题</th><th>当前强度</th><th>时间维度</th><th>相关公司</th></tr></thead><tbody>'+
+    rows.map(n=>'<tr><td>'+esc(n.rank)+'</td><td><b>'+esc(n.theme)+'</b><br><span class="hint">'+esc(n.direction||"")+'</span></td><td class="strength">'+esc(n.strength)+'</td><td>'+esc(n.horizon)+'</td><td>'+esc((n.tickers||[]).join(" · "))+'</td></tr>').join("")+
+    '</tbody></table></div>'+
+    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p></div>').join("");
+}
 
 function renderStats(){
   const earnings = RECORDS.filter(r=>r.type!=="event");
@@ -509,7 +606,10 @@ function render(){
   const filtered = RECORDS.filter(r=>{
     if(activeFilter!=="all" && recKey(r)!==activeFilter) return false;
     if(q){
-      const hay = [(r.ticker||""),(r.company||""),(r.report||""),(r.vic_notes||""),(r.outcome||"")].join(" ").toLowerCase();
+      const hay = [(r.ticker||""),(r.company||""),(r.report||""),(r.vic_notes||""),(r.outcome||""),
+        ...(r.management_highlights||[]),
+        r.narrative ? [r.narrative.summary,r.narrative.consensus,r.narrative.divergence,...(r.narrative.signals||[])].join(" ") : "",
+        ...(r.sources||[]).map(s=>(s.type||"")+" "+(s.label||""))].join(" ").toLowerCase();
       if(!hay.includes(q)) return false;
     }
     return true;
@@ -539,6 +639,12 @@ function render(){
       const isLoss = /^[-−]|亏|止损|loss/i.test(r.outcome.trim());
       outcomeHtml = '<div class="outcome'+(isLoss?" loss":"")+'"><b>📋 复盘结果</b>'+esc(r.outcome)+'</div>';
     }
+    const managementHtml = (r.management_highlights||[]).length
+      ? '<div class="insight-box"><h4>🎙️ 业绩会 · 管理层发言重点</h4><ul>'+r.management_highlights.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
+    const narrativeHtml = r.narrative
+      ? '<div class="narrative-summary"><b>🧭 多信源叙事：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>共识与验证</h4><div>'+esc(r.narrative.consensus||"")+'</div><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div><div class="insight-box"><h4>分歧与反叙事</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div>' : "";
+    const sourcesHtml = (r.sources||[]).length
+      ? '<div class="source-row">'+r.sources.map(s=>'<a class="source-link" href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||"打开")+'</a>').join("")+'</div>' : "";
     return '<div class="record">'+
       '<div class="record-head">'+
         '<span class="rec-arrow">▶</span>'+
@@ -549,7 +655,7 @@ function render(){
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
-        dimsHtml + notesHtml + outcomeHtml +
+        dimsHtml + managementHtml + narrativeHtml + sourcesHtml + notesHtml + outcomeHtml +
         '<pre class="report-text">'+esc(r.report||"")+'</pre>'+
         '<button class="copy-btn" type="button">复制报告文本</button>'+
       '</div>'+
@@ -570,6 +676,7 @@ function render(){
   });
 }
 
+renderNarratives();
 render();
 }());
 </script>
