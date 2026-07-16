@@ -78,6 +78,13 @@ h1{font-size:26px;margin:0 0 4px}
 .narrative-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
 .narrative-card h3{font-size:16px;margin:0 0 6px}.narrative-card p{font-size:13px;margin:5px 0;color:#334155}
 .ticker-list{font-size:12px;color:var(--blue);font-weight:800}
+.merger-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(15,23,42,.04);margin-bottom:14px;overflow:hidden}
+.merger-top{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.merger-title{flex:1;min-width:220px}.merger-title h3{margin:0;font-size:18px}.merger-title p{margin:3px 0 0;color:var(--muted);font-size:12.5px}
+.deal-status{border-radius:999px;padding:5px 11px;background:#fff3d6;color:var(--amber);font-size:12px;font-weight:800;white-space:nowrap}
+.deal-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;padding:14px 20px}
+.deal-metric{border:1px solid var(--line);border-radius:10px;background:#f8fafc;padding:9px 11px}.deal-metric span{display:block;color:var(--muted);font-size:11px;font-weight:700}.deal-metric b{display:block;margin-top:2px;font-size:15px}
+.merger-body{padding:0 20px 18px}.merger-body details{border-top:1px solid var(--line);padding-top:13px}.merger-body summary{cursor:pointer;font-size:13px;font-weight:800;color:var(--blue);margin-bottom:12px}
 .empty{text-align:center;color:var(--muted);padding:48px 20px;font-size:14px}
 .empty b{display:block;font-size:16px;color:var(--text);margin-bottom:6px}
 
@@ -90,7 +97,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.rec-company{display:none}.narrative-table{display:none}}
+@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.narrative-table{display:none}}
 </style>
 </head>
 <body>
@@ -103,6 +110,7 @@ h1{font-size:26px;margin:0 0 4px}
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
     <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
+    <button class="tab-btn" data-tab="tab-mergers">🤝 并购跟踪</button>
     <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
   </div>
 </header>
@@ -129,6 +137,15 @@ h1{font-size:26px;margin:0 0 4px}
     <p class="hint">综合财报、业绩会、X、采访和视频提炼。强度反映多信源共振与可验证性，不是交易信号。</p>
   </div>
   <div id="narratives-list"></div>
+</section>
+
+<!-- ============ TAB: MERGERS ============ -->
+<section id="tab-mergers" style="display:none">
+  <div class="panel">
+    <h2>并购跟踪</h2>
+    <p class="hint">跟踪报价、价差、谈判阶段、融资与监管风险，以及下一次会改变成交概率的事件。市场价格为记录更新时快照，不是实时行情。</p>
+  </div>
+  <div id="mergers-list"></div>
 </section>
 
 <!-- ============ TAB: FRAMEWORK ============ -->
@@ -189,7 +206,7 @@ h1{font-size:26px;margin:0 0 4px}
  * New records are inserted right below the INSERT marker
  * (newest first). Record schema:
  * {
- *   type: "earnings" | "event",
+ *   type: "earnings" | "event" | "merger",
  *   date: "YYYY-MM-DD",
  *   ticker: "NVDA",            // event型可用主题短名
  *   company: "英伟达",          // event型放事件名称
@@ -338,11 +355,22 @@ const NARRATIVES = [
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
-  type: "event",
+  type: "merger",
   date: "2026-07-16",
   ticker: "PYPL",
   company: "Stripe + Advent拟收购PayPal",
   rec: "repricing",
+  merger: {
+    target: "PayPal",
+    buyer: "Stripe + Advent",
+    offer: "$60.50/股",
+    equityValue: ">$53B",
+    marketPrice: "$56.19",
+    spread: "+7.7%",
+    stage: "已报价 · 目标方未回应",
+    probability: "约67%（简化隐含）",
+    next: "董事会回应 / 加价 / 监管申报"
+  },
   narrative: {
     summary: "市场正在把PayPal从低增长支付公司重新定价为潜在并购标的；但60.50美元更像第一轮试探报价，尚不是具有约束力的成交价。",
     consensus: "Stripe补齐消费者钱包、Venmo和4.39亿账户，PayPal获得更强商户分发与技术平台；合并后年支付规模约3.7万亿美元。",
@@ -1020,13 +1048,39 @@ function renderNarratives(){
     rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+((n.sources||[]).length?'<div class="source-row">'+n.sources.map(s=>'<a class="source-link" href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||s.url)+'</a>').join("")+'</div>':"")+'</div>').join("");
 }
 
+function renderMergers(){
+  const list = document.getElementById("mergers-list");
+  const rows = RECORDS.filter(r=>r.type==="merger");
+  if(!rows.length){
+    list.innerHTML = '<div class="panel"><div class="empty"><b>还没有并购事件</b>出现新的正式报价或可信收购报道后，会在这里持续更新。</div></div>';
+    return;
+  }
+  list.innerHTML = rows.map(r=>{
+    const m = r.merger||{};
+    const metrics = [
+      ["报价",m.offer],["记录时市价",m.marketPrice],["至报价空间",m.spread],["交易估值",m.equityValue],["隐含概率",m.probability]
+    ];
+    const narrativeHtml = r.narrative
+      ? '<div class="narrative-summary"><b>核心判断：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>交易逻辑</h4><div>'+esc(r.narrative.consensus||"")+'</div></div><div class="insight-box"><h4>主要障碍</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div><div class="insight-box"><h4>下一步验证</h4><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
+    const sourcesHtml = (r.sources||[]).length
+      ? '<div class="source-row">'+r.sources.map(s=>'<a class="source-link" href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||"打开")+'</a>').join("")+'</div>' : "";
+    return '<article class="merger-card"><div class="merger-top"><div class="merger-title"><h3>'+esc(r.ticker)+' · '+esc(m.target||r.company)+'</h3><p>'+esc(m.buyer||"")+'　更新：'+esc(r.date||"")+'</p></div><span class="deal-status">'+esc(m.stage||"持续跟踪")+'</span></div>'+
+      '<div class="deal-grid">'+metrics.map(x=>'<div class="deal-metric"><span>'+esc(x[0])+'</span><b>'+esc(x[1]||"—")+'</b></div>').join("")+'</div><div class="merger-body">'+
+      narrativeHtml+'<details><summary>展开完整深入分析</summary>'+sourcesHtml+'<pre class="report-text">'+esc(r.report||"")+'</pre><button class="copy-btn merger-copy" type="button">复制报告文本</button></details></div></article>';
+  }).join("");
+  list.querySelectorAll(".merger-copy").forEach(btn=>btn.addEventListener("click",()=>{
+    const text = btn.closest("details").querySelector(".report-text").textContent;
+    navigator.clipboard.writeText(text).then(()=>{const old=btn.textContent;btn.textContent="已复制 ✓";setTimeout(()=>btn.textContent=old,1200);});
+  }));
+}
+
 function renderStats(){
-  const earnings = RECORDS.filter(r=>r.type!=="event");
+  const earnings = RECORDS.filter(r=>r.type==="earnings");
   const avg = earnings.length ? (earnings.reduce((s,r)=>s+(r.score||0),0)/earnings.length) : null;
   const doubtCount = earnings.filter(r=>r.rec==="doubt").length;
   const withOutcome = RECORDS.filter(r=>r.outcome && r.outcome.trim());
   document.getElementById("stats").innerHTML =
-    '<div class="stat"><span>分析总数</span><strong>'+RECORDS.length+'</strong></div>'+
+    '<div class="stat"><span>分析总数</span><strong>'+RECORDS.filter(r=>r.type!=="merger").length+'</strong></div>'+
     '<div class="stat"><span>财报评分均值</span><strong>'+(avg==null?"—":avg.toFixed(1))+'</strong></div>'+
     '<div class="stat"><span>⚠️ 市场存疑次数</span><strong>'+doubtCount+'</strong></div>'+
     '<div class="stat"><span>已复盘（有结果）</span><strong>'+withOutcome.length+'</strong></div>';
@@ -1037,6 +1091,7 @@ function render(){
   const q = document.getElementById("search").value.trim().toLowerCase();
   const list = document.getElementById("records-list");
   const filtered = RECORDS.filter(r=>{
+    if(r.type==="merger") return false;
     if(activeFilter!=="all" && recKey(r)!==activeFilter) return false;
     if(q){
       const hay = [(r.ticker||""),(r.company||""),(r.report||""),(r.vic_notes||""),(r.outcome||""),
@@ -1110,6 +1165,7 @@ function render(){
 }
 
 renderNarratives();
+renderMergers();
 render();
 }());
 </script>
