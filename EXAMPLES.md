@@ -2,7 +2,7 @@
 
 ## 1. 新增一条财报分析记录
 
-打开 `财报交易助手.html`，找到 `const RECORDS = [` 后面的 `/* __RECORDS_INSERT_POINT__ */` 标记，在它下面插入一个新的对象字面量（新记录放最上面，旧记录往下排）。**注意这是 JavaScript 源码里的对象字面量，不是严格 JSON**——`report` 字段用反引号模板字符串包裹，可以直接写多行文本、直接用中文引号，不需要转义。
+打开 `index.html`，找到 `const RECORDS = [` 后面的 `/* __RECORDS_INSERT_POINT__ */` 标记，在它下面插入一个新的对象字面量（新记录放最上面，旧记录往下排）。**注意这是 JavaScript 源码里的对象字面量，不是严格 JSON**——`report` 字段用反引号模板字符串包裹，可以直接写多行文本、直接用中文引号，不需要转义。
 
 ```js
 const RECORDS = [
@@ -38,7 +38,7 @@ const RECORDS = [
 ```bash
 node -e "
 const fs=require('fs');
-const html=fs.readFileSync('财报交易助手.html','utf8');
+const html=fs.readFileSync('index.html','utf8');
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 function fakeEl(){return {innerHTML:'',style:{},value:'',textContent:'',classList:{add(){},remove(){},toggle(){}},addEventListener(){},querySelector(){return fakeEl();},querySelectorAll(){return [];},dataset:{}};}
 global.document={querySelectorAll(){return [];},getElementById(){return fakeEl();},addEventListener(){}};

@@ -34,11 +34,11 @@
 ## 4. 盘前、盘中、盘后价格
 
 - **获取方式：** LongBridge MCP 工具 `quote-realtime-info`，传入 `symbol: ["TICKER.US"]`
-- **是否需要登录/API：** 是 Claude Code 环境下配置好的 MCP 连接器，Vic 本人的 LongBridge 账户授权。Codex 若无此 MCP，需要自建（见 `HANDOVER.md` 第3节）
+- **是否需要登录/API：** 是，需要预先配置 LongBridge 连接器或官方 SDK。若运行环境没有现成连接器，需要另行配置（见 `HANDOVER.md` 第3节）
 - **返回结构：** 顶层 `open/high/low/lastDone/prevClose/turnover/volume`（常规盘），加上独立的 `preMarketQuote{high,low,lastDone,prevClose,timestamp,turnover,volume}` 和 `postMarketQuote{同上}` 对象
 - **常见失败情况：** 部分特殊代码（如 `BRK.B`）据了解无法用 `TICKER.US` 格式查询，会报 "Symbol must be in ticker.region format"（本次GS/IBM没有遇到，未在本项目内验证）
 - **替代来源：** 已知可行的方案——直接用 `longport` 官方 Python SDK + 用户自己的 API 凭证（环境变量），绕开 MCP 层
-- **冲突时以谁为准：** LongBridge 是 Vic 本人的实盘账户数据源，视为权威，不需要跟其他来源比对
+- **冲突时以谁为准：** 结构化行情数据优先，但关键价格仍建议与交易所、公司公告或第二行情源核对
 
 ## 5. 成交量和历史平均成交量
 

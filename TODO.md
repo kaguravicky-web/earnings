@@ -2,13 +2,13 @@
 
 ## 已知 Bug
 
-1. **`财报交易助手.html` 的 Edit 操作容易漏改数组收尾 `];`**——本次会话实际发生过一次：用 Edit 工具整段替换 `RECORDS` 数组内容时，新内容里忘了带上收尾的 `];`，导致整个页面脚本语法错误、页面完全无法渲染。靠手写一个 Node.js 脚本 `eval()` 整个 `<script>` 内容才定位到问题。**建议：以后每次插入/修改 RECORDS 后，都跑一次类似的 Node 语法校验（提取 `<script>...</script>` 内容 → `eval()` → 检查 `RECORDS.length` 符合预期），再告诉用户"完成了"。**
+1. **`index.html` 的编辑操作容易漏改数组收尾 `];`**——曾发生过替换 `RECORDS` 数组时遗漏收尾括号、导致页面脚本无法运行的问题。以后每次修改记录后，都必须运行语法校验并检查记录数量，再提交变更。
 2. **成交量均量倍数目前完全没有真实数据**——见 `DATA_SOURCES.md` 第5条，`quote-history-candlesticks` MCP工具确认损坏，所有分析报告里这一项目前都是定性描述，不是真实计算值。
 
 ## GitHub Pages 访问或部署问题
 
-- **状态未知。** 本次会话指导 Vic 手动去 Settings → Pages 开启（Deploy from branch → main → `/root`），但对话在此之前结束，**没有收到 Vic 确认是否已经操作、Pages 是否已生效**。Codex 接手后第一件事应该确认一下 `https://kaguravicky-web.github.io/earnings/` 或 `https://kaguravicky-web.github.io/earnings/财报交易助手.html` 是否能访问。
-- 如果确认要开 Pages 且文件名不改，注意中文文件名在URL里会被编码（`%E8%B4%A2...`），链接不好记；之前讨论过改名成 `index.html` 但 Vic 未回复确认，**这是一个需要跟 Vic 确认的待办**，不要擅自改名。
+- GitHub Pages 已启用，旧中文文件名的直达地址可访问。
+- 本 PR 将页面统一改为 `index.html`。合并并完成 Pages 部署后，应验证项目根地址返回 200 且页面功能正常。
 
 ## 数据获取不稳定的环节
 
@@ -31,8 +31,8 @@
 
 ## 已经讨论但没有完成的改进
 
-1. HTML 文件改名为 `index.html`（方便 GitHub Pages 根路径访问）——已提议，Vic 未回复
-2. 本地 `D:\交易为生\output\财报交易助手.html` 与 GitHub 仓库副本的同步流程自动化——已在本次交接文档里指出问题，未设计具体方案，需要 Vic 先决定"谁是唯一真相源"
+1. HTML 文件改名为 `index.html`（本 PR 已处理，待合并后验证）
+2. GitHub 仓库已确定为唯一真相源；后续通过分支和 PR 更新，不同步仓库外副本
 
 ## 建议 Codex 优先处理的前三项工作
 

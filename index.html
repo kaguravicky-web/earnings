@@ -84,7 +84,7 @@ h1{font-size:26px;margin:0 0 4px}
 <header>
   <div class="eyebrow">Earnings Deep-Dive Analysis Assistant</div>
   <h1>财报深度分析助手 · 分析档案</h1>
-  <p class="sub">只做基本面深度分析，不做交易信号。财报是滞后数据，市场解读永远藏着我们没想到的信息——每条记录都会写下"市场在告诉我们什么"。分析由 Claude 在对话中完成并自动写入本页；有新论点直接在对话里说，我会补进对应记录的"Vic观点"。</p>
+  <p class="sub">只做基本面深度分析，不做交易信号。财报是滞后数据，市场解读永远藏着我们没想到的信息——每条记录都会写下“市场在告诉我们什么”。分析在对话中完成并归档到本页；有新论点可继续补进对应记录的“Vic观点”。</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
     <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
@@ -151,7 +151,7 @@ h1{font-size:26px;margin:0 0 4px}
     <li>单季FCF深度为负且债务&gt;市值：🚩</li>
   </ul>
 
-  <p class="hint">完整规则见 <code>Downloads\财报动能交易助手_系统提示词.md</code>。分析在Claude Code对话里进行：说一声"XXX财报出了"，Claude查实时价格+财报数据+市场解读信号后按此框架分析，并自动归档到本页。</p>
+  <p class="hint">完整规则见仓库中的 <code>prompts/系统提示词_v2_基本面分析版.md</code>。在对话中提出“XXX 财报出了”后，助手会核实发布时间、财报数据和市场反应，再按此框架分析并归档。</p>
 </div>
 </section>
 
@@ -160,7 +160,7 @@ h1{font-size:26px;margin:0 0 4px}
 <script>
 /*
  * ============================================================
- * RECORDS DATA — maintained by Claude Code, do not hand-edit.
+ * RECORDS DATA — maintained through reviewed repository changes.
  * New records are inserted right below the INSERT marker
  * (newest first). Record schema:
  * {
