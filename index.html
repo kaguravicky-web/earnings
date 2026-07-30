@@ -255,6 +255,21 @@ const NARRATIVES = [
     ]
   },
   {
+    rank: 1.5,
+    theme: "AI电力与现场供电基础设施",
+    strength: "9/10",
+    horizon: "当前至未来数年",
+    direction: "强化",
+    tickers: ["BE","GEV","VRT","ETN","CEG"],
+    thesis: "AI资本开支正在从GPU、服务器和存储继续外溢到电力、并网、现场供电、冷却和电气设备。核心瓶颈不只是有没有算力，而是能不能把足够稳定的电力足够快地送到算力旁边。",
+    evidence: "BE Q2收入首次超过10亿美元，产品收入同比+215.4%，Non-GAAP经营利润率升至22.5%，经营现金流转正并上修全年收入指引至39亿至42亿美元。管理层称所有美国大型hyperscaler以及十多家美国neocloud、AI lab和colo运营商已验证并批准Bloom用于AI factories，说明AI电力瓶颈已进入当期订单、交付和损益表。",
+    disconfirm: "大型云厂商AI资本开支放慢，BE订单转收入低于预期，产品毛利率回落，关键材料或项目审批限制交付，或同链条GEV、VRT、ETN、CEG等财报无法形成交叉验证。",
+    sources: [
+      {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
+      {type:"市场反应", label:"IBD：BE强业绩后AI电力股波动", url:"https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"}
+    ]
+  },
+  {
     rank: 2,
     theme: "网络安全成为AI必要开支",
     strength: "9/10",
@@ -367,6 +382,212 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-07-28",
+  ticker: "BE",
+  company: "Bloom Energy",
+  sector: "industrials",
+  score: 88,
+  rec: "doubt",
+  dims: {quality: 39, marketread: 25, fundamentals: 24},
+  management_highlights: [
+    "Q2收入10.654亿美元，同比+165.5%，公司首次单季收入超过10亿美元；产品收入9.354亿美元，同比+215.4%，说明增长不是靠小项波动，而是核心Energy Server交付进入放量阶段。",
+    "GAAP毛利率33.4%，同比提升668bp；Non-GAAP毛利率34.3%，同比提升604bp。高增长同时毛利率上行，是本季最重要的质量信号。",
+    "GAAP经营利润1.822亿美元，去年同期为亏损350万美元；Non-GAAP经营利润2.396亿美元，Non-GAAP经营利润率22.5%，较去年同期7.1%大幅扩张。",
+    "经营现金流2.264亿美元，较去年同期净流出2.131亿美元改善4.395亿美元；这使BE从“订单故事”进一步变成“利润和现金流正在兑现”的故事。",
+    "全年2026收入指引上调至39亿至42亿美元，中点约同比+100%；Non-GAAP经营利润指引上调至8亿至9亿美元，Non-GAAP EPS指引为2.55至2.85美元。",
+    "CEO KR Sridhar强调，过去默认选择燃烧技术的客户正在主动选择Bloom；所有美国大型hyperscaler，以及十多家美国neocloud、AI lab和数据中心运营商已经验证并批准Bloom用于AI factories。",
+    "管理层把Bloom定位为AI onsite power的标准方案。这个说法很重，含义是BE不只在卖燃料电池设备，而是在争夺AI数据中心“time to power”的基础设施标准位。",
+    "风险也来自同一处：如果AI数据中心建设节奏、客户资本开支、项目融资、scandium等关键材料供应或社区/监管审批任何一环放慢，当前估值会比传统工业股更敏感。"
+  ],
+  narrative: {
+    summary: "BE本季验证了“AI电力瓶颈正在外溢到现场供电设备”的主线。收入、利润率、经营现金流和全年指引同时上修，说明AI数据中心不是远期想象，而已经进入当期交付和损益表。但股价在强财报后没有形成稳定单边确认，市场的分歧不在业绩本身，而在估值、拥挤度、关键材料与项目兑现节奏。",
+    consensus: "多头逻辑是：AI数据中心最缺的不是模型口号，而是能快速上线的可靠电力。传统电网和燃气/涡轮方案交付慢、审批长，BE的现场固体氧化物燃料电池把“time to power”变成竞争优势。Q2产品收入+215%、Non-GAAP经营利润率22.5%、经营现金流转正放大，证明商业模式已经过了只讲订单的阶段。",
+    divergence: "反叙事是：BE已经被市场当成AI电力核心票交易，估值和预期非常高；近期又有关于scandium oxide供应、项目集中度和AI股轮动的担忧。强财报没有持续压倒这些担忧，所以这不是低位反转，而是高预期资产继续证明自己的考试。",
+    signals: [
+      "后续订单是否继续来自hyperscaler、AI lab、neocloud和colo，而不是一次性大单拉动。",
+      "产品毛利率能否维持在中高30%区间，安装/服务端不要重新吞噬利润。",
+      "经营现金流能否连续为正，库存、合同资产和客户预付款是否健康。",
+      "管理层是否披露更多产能扩张、关键材料供应和Brookfield/Oracle相关项目落地节奏。",
+      "若AI电力链中GEV、VRT、ETN、CEG等继续共振，BE叙事可信度会提高；若同链条同步退潮，要把估值风险放在第一位。"
+    ]
+  },
+  sources: [
+    {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
+    {type:"业绩会", label:"Bloom Q2 2026 Webcast入口", url:"https://investor.bloomenergy.com/"},
+    {type:"市场反应", label:"IBD：BE强业绩后AI电力股波动", url:"https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"},
+    {type:"市场反应", label:"Investing.com：盘后上涨与指引上调", url:"https://m.in.investing.com/news/earnings/bloom-energy-jumps-8-in-after-hours-after-record-revenue-raises-2026-outlook-5518691?ampMode=1"}
+  ],
+  report: `【BE · Bloom Energy】2026 Q2财报与业绩会管理层重点分析 · 2026-07-28
+
+结论先说：
+BE这份财报非常强，属于AI电力基础设施主线里最硬的一类验证。收入首次单季超过10亿美元，产品收入同比增长超过三倍，毛利率、经营利润率、经营现金流和全年指引同时改善。
+
+但我不把它简单归为“共振确认”，而是归为“市场存疑”。原因是股价已经被AI电力叙事充分交易，财报后虽然盘后一度上涨，但后续反应并不稳定。市场现在不是怀疑本季数字，而是在问三个问题：
+
+1. 这种增长是不是能持续到2027？
+2. 供应链和关键材料能不能支撑多GW扩张？
+3. 当前估值是否已经提前吃掉了相当多订单兑现？
+
+一、核心数字
+
+1. 收入和增长
+
+Q2收入10.654亿美元，同比+165.5%，去年同期为4.012亿美元。
+
+产品收入9.354亿美元，同比+215.4%，去年同期为2.966亿美元。
+
+这是最关键的点：增长主要来自核心产品交付，而不是安装、服务或电力收入的小项扰动。BE正在从“AI电力订单叙事”变成“AI电力交付叙事”。
+
+2. 毛利率
+
+GAAP毛利率33.4%，同比提升668bp。
+
+Non-GAAP毛利率34.3%，同比提升604bp。
+
+这比单纯收入beat更重要。很多工业设备公司在放量初期会牺牲毛利率，但BE本季是收入大幅放量同时毛利率继续改善，说明产品定价、产能利用率和成本吸收正在一起变好。
+
+3. 利润和经营杠杆
+
+GAAP经营利润1.822亿美元，去年同期为亏损350万美元。
+
+Non-GAAP经营利润2.396亿美元，去年同期2860万美元。
+
+Non-GAAP经营利润率22.5%，去年同期7.1%，Q1为17.3%。
+
+这说明BE已经不是只有收入增长，经营杠杆也开始真正释放。对这类高增长工业公司，市场最怕的是“订单越多、交付越多、亏得越多”。本季至少暂时打消了这个担忧。
+
+4. 现金流
+
+经营现金流2.264亿美元，去年同期为净流出2.131亿美元，改善4.395亿美元。
+
+这也是质量分很高的原因。AI基础设施链里，很多公司会因为扩产、库存和应收款导致现金流承压。BE这季能在高增长和扩产投入下产生正经营现金流，说明客户付款、交付节奏和利润质量都比过去更好。
+
+5. 全年指引
+
+2026全年收入指引上调到39亿至42亿美元，中点约同比+100%。
+
+Non-GAAP毛利率约34%。
+
+Non-GAAP经营利润8亿至9亿美元。
+
+Non-GAAP EPS 2.55至2.85美元。
+
+这是典型的“beat and raise”，而且不是小幅上修。公司把Q1之后的全年收入指引从34亿至38亿美元进一步提高到39亿至42亿美元，说明订单和交付可见度继续增强。
+
+二、管理层重点
+
+CEO KR Sridhar这次最重要的一句话是：所有美国大型hyperscaler，以及十多家美国neocloud、AI lab和colocation data center operators，已经验证并批准Bloom的电力方案用于AI factories。
+
+这句话的市场含义很强。
+
+BE不是在说“AI客户对我们有兴趣”，而是在说“客户已经验证并批准”。对数据中心电力系统来说，验证和批准意味着它进入采购清单、工程标准和项目融资讨论的可能性更高。
+
+管理层还明确强调，传统默认的combustion technologies正在被客户主动替代。也就是说，BE希望市场理解的不是“燃料电池是环保补充”，而是：
+
+AI数据中心需要快速、可靠、可扩展、可现场部署的电力。
+
+传统电网扩容太慢，燃烧类方案有审批、排放、噪音、社区接受度和部署速度问题。
+
+Bloom的价值主张是time to power。
+
+这和你前面一直在跟的AI基础设施主线非常一致：AI瓶颈正在从GPU扩散到电力、冷却、土地、并网、网络和安全。
+
+三、为什么市场没有无脑追？
+
+这份财报本身非常强，但市场反应没有形成干净的持续共振，原因大概有四个。
+
+1. 股价已经提前交易了很多好消息
+
+BE在2026年已经大涨，过去一年涨幅更夸张。强业绩出来后，市场不是第一次听到AI电力故事，而是在检查这个故事还能不能继续超预期。
+
+这类股票进入高估值状态后，要求会从“有没有增长”升级到“增长能不能持续超预期，而且没有瑕疵”。
+
+2. AI电力链本身变拥挤
+
+GEV、VRT、ETN、CEG、数据中心REIT、电网设备、燃气轮机、核电、储能都在抢同一条叙事：AI需要电力。
+
+BE的差异化是现场燃料电池和快速部署，但市场会不断比较：客户最终是买Bloom，还是买燃气轮机、并网升级、微电网、储能、核电PPA或混合方案？
+
+3. 供应链和关键材料争议还没有完全消失
+
+近期市场关注过scandium oxide相关争议。公司此前否认对中国供应存在依赖，并表示有足够供应满足当前需求和backlog。
+
+但对高估值成长股来说，这类争议即便短期被否认，也会让市场要求更多证据：产能扩张越快，供应链可验证性越重要。
+
+4. 项目兑现周期仍然是工业股逻辑
+
+AI软件可以很快上线，电力设备不一样。它涉及制造、运输、安装、客户现场、监管、社区、融资和长期服务。
+
+所以BE的叙事虽然像AI股，兑现方式仍然是工业项目。市场会盯着订单转收入、毛利率稳定性、现金流和项目延迟。
+
+四、和市场主线的关系
+
+BE这份财报强化了一条主线：
+
+AI下一阶段的瓶颈不只是GPU，而是“能不能把电力足够快地送到算力旁边”。
+
+这条主线和MSFT、GOOG、META的资本开支扩张是同一件事的另一面。大厂愿意花更多钱建AI基础设施，问题就会传导到：
+
+电力：BE、GEV、CEG
+
+电气设备：ETN、PWR、VRT
+
+冷却和数据中心设施：VRT、TT、CARR
+
+电网和公用事业：NEE、AEP、SO
+
+半导体制造和测试：TSM、ASML、AEHR
+
+所以BE不是孤立个股，它是AI资本开支从“芯片层”扩散到“物理基础设施层”的证据。
+
+五、评分
+
+财报质量：39/40
+
+收入、EPS、毛利率、经营利润、现金流和全年指引全部强。唯一没有给满，是因为仍要观察增长中是否存在大客户/项目集中、合同资产和库存膨胀等后续问题。
+
+市场解读：25/35
+
+数字极强，但股价反应并不算干净。盘后上涨说明市场承认beat and raise；后续波动说明市场还在消化估值、拥挤交易、关键材料和AI板块轮动风险。
+
+基本面深度：24/25
+
+BE已经站在AI电力瓶颈的核心位置，管理层口径非常强，经营杠杆也开始兑现。扣1分是因为产能扩张、项目执行和供应链仍需要连续季度验证。
+
+综合分：88/100
+
+类型：市场存疑
+
+六、下一步要盯什么
+
+1. 新订单和客户类型
+
+如果后续继续看到hyperscaler、AI lab、neocloud和colo客户确认订单，BE的“AI onsite power标准方案”叙事会继续强化。
+
+2. 产品毛利率
+
+产品毛利率如果能维持在中高30%区间，说明规模化没有牺牲经济性。
+
+3. 经营现金流
+
+这季现金流很漂亮，但高增长制造公司最容易在扩产阶段被库存、应收和合同资产吃现金。未来两个季度要看经营现金流能否连续为正。
+
+4. 供应链
+
+scandium oxide和其他关键材料问题需要持续验证。公司说供应足够，但市场需要看到扩产后的实际交付。
+
+5. 同链条共振
+
+如果GEV、VRT、ETN、PWR、CEG等AI电力链继续得到订单和业绩验证，BE的叙事可信度会提高。反过来，如果整个AI电力链退潮，BE估值压力会更大。
+
+一句话：
+
+BE这份财报证明AI电力瓶颈正在变成真实收入、利润和现金流；但股价已经不便宜，市场接下来要的不是故事，而是连续交付。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-07-29",
@@ -4877,7 +5098,7 @@ const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   CLS:"tech", APLD:"tech",
-  LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
+  BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
   INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
