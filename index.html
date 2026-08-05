@@ -238,140 +238,158 @@ h1{font-size:26px;margin:0 0 4px}
 const NARRATIVES = [
   {
     rank: 1,
-    theme: "内存、存储与AI基础设施瓶颈",
-    strength: "9/10",
+    theme: "AI基础设施从芯片扩散为全栈瓶颈",
+    strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["TSM","IBM","ASML","AEHR"],
-    thesis: "AI资本开支正在从模型调用扩展到先进制程、先进封装、服务器、存储、内存、光刻、硅光互连和burn-in测试，基础设施控制与供应保障成为企业优先事项。",
-    evidence: "TSMC把2026年资本开支从$52B–$56B提高至$60B–$64B，HPC已占收入66%，并称AI需求极其强劲；Q3收入指引中点较Q2再增长约12%。IBM则观察到客户把资本开支转向服务器、存储和内存，以锁定供应并规避预期涨价；ASML扩产与AEHR有效backlog继续提供设备和测试端共振。",
-    disconfirm: "主要客户资本开支下修、存储/内存价格与订单转弱，或设备backlog转化显著低于计划。",
+    tickers: ["MSFT","GOOG","META","TSM","ASML","AMD","ANET","BE"],
+    thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
+    disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
-      {type:"公司公告", label:"IBM CEO致投资者信（2026-07-14）", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
-      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
-      {type:"公司公告", label:"ASML 2026 Q2公告", url:"https://live.euronext.com/en/products/equities/company-news/2026-07-15-asml-reports-eu93-billion-total-net-sales-and-eu29"},
-      {type:"公司公告", label:"AEHR FY2026 Q4公告", url:"https://www.aehr.com/2026/07/aehr-test-systems-reports-fiscal-2026-fourth-quarter-and-full-year-financial-results-with-record-quarterly-bookings-and-100-million-effective-backlog/"},
-      {type:"公司公告", label:"TSMC 2026 Q2结果", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"}
-    ]
-  },
-  {
-    rank: 1.5,
-    theme: "AI电力与现场供电基础设施",
-    strength: "9/10",
-    horizon: "当前至未来数年",
-    direction: "强化",
-    tickers: ["BE","GEV","VRT","ETN","CEG"],
-    thesis: "AI资本开支正在从GPU、服务器和存储继续外溢到电力、并网、现场供电、冷却和电气设备。核心瓶颈不只是有没有算力，而是能不能把足够稳定的电力足够快地送到算力旁边。",
-    evidence: "BE Q2收入首次超过10亿美元，产品收入同比+215.4%，Non-GAAP经营利润率升至22.5%，经营现金流转正并上修全年收入指引至39亿至42亿美元。管理层称所有美国大型hyperscaler以及十多家美国neocloud、AI lab和colo运营商已验证并批准Bloom用于AI factories，说明AI电力瓶颈已进入当期订单、交付和损益表。",
-    disconfirm: "大型云厂商AI资本开支放慢，BE订单转收入低于预期，产品毛利率回落，关键材料或项目审批限制交付，或同链条GEV、VRT、ETN、CEG等财报无法形成交叉验证。",
-    sources: [
+      {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
+      {type:"公司公告", label:"Microsoft FY2026 Q4 Results", url:"https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast"},
       {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
-      {type:"市场反应", label:"IBD：BE强业绩后AI电力股波动", url:"https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"}
+      {type:"市场反应", label:"IBD：Arista AI cloud networking beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"}
     ]
   },
   {
     rank: 2,
-    theme: "网络安全成为AI必要开支",
+    theme: "AI网络层成为新瓶颈：Ethernet Fabric重定价",
     strength: "9/10",
-    horizon: "中长期",
-    direction: "强化",
-    tickers: ["IBM","PANW","CRWD","FTNT"],
-    thesis: "企业AI进入生产环境后，身份、权限、审计、日志、数据边界和自适应网络安全从可选项升级为基础预算。",
-    evidence: "IBM CEO已确认，快速变化的网络安全环境分散客户注意力并影响交易签约。Karp在CNBC采访中强调企业必须控制数据、模型与自有竞争优势；Axios进一步提出数据归属、缓存位置、提示词安全和传输边界等检查项。截图所列“零数据保留、细粒度权限、全程审计、自适应安全”等六项是对Palantir产品框架的归纳，不是本次采访的逐字清单。",
-    disconfirm: "企业安全预算增速明显落后AI预算，或大型AI部署并未带动安全平台订单与续费改善。",
+    horizon: "当前至未来数季",
+    direction: "快速强化",
+    tickers: ["ANET","AMD","NVDA","CSCO","AVGO"],
+    thesis: "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
+    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；AMD也把Helios、Pensando网络和Arista协同纳入全栈AI系统叙事。",
+    disconfirm: "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     sources: [
-      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
-      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
-      {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+      {type:"市场反应", label:"IBD：AI Cloud Networking Growth Drives Arista Beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
+      {type:"市场反应", label:"Barron's：Arista stock surges after earnings", url:"https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"},
+      {type:"公司资料", label:"AMD and Arista AI networking webinar", url:"https://www.arista.com/en/23982-amd-webinar-series"}
     ]
   },
   {
     rank: 3,
-    theme: "主权AI、私有AI与本地部署",
-    strength: "8.5/10",
-    horizon: "未来1–3年",
+    theme: "AI电力、冷却与现场供电成为硬瓶颈",
+    strength: "9/10",
+    horizon: "当前至未来数年",
     direction: "强化",
-    tickers: ["IBM","PLTR","HPE","DELL","ORCL"],
-    thesis: "企业和政府不愿只依赖按token付费的远程模型调用，正在增加对自有算力、数据、模型和控制架构的投入。",
-    evidence: "已核验Karp在CNBC采访中的核心判断：技术型客户希望控制自己的算力、模型、数据栈和alpha，并确认自己拥有“生产资料”。这与IBM看到的基础设施采购前置形成交叉验证；但从个别公司信号外推到全行业，仍需后续订单和资本开支数据确认。",
-    disconfirm: "公有云模型API成本持续快速下降，且企业大规模放弃私有部署与自建控制层。",
+    tickers: ["BE","GEV","VRT","ETN","CEG","CAT"],
+    thesis: "AI数据中心最稀缺的资源正在从GPU进一步外溢到电力、并网、燃气/燃料电池、冷却、电气设备和现场施工。市场开始奖励能缩短time to power、缩短交付周期、把AI capex变成实际容量的公司。",
+    evidence: "BE Q2收入首次超过10亿美元，产品收入同比+215.4%，经营现金流转正并上修全年收入指引；管理层称所有美国大型hyperscaler和十多家neocloud/AI lab/colo运营商已验证并批准Bloom用于AI factories。SpaceX的AI capex也通过数据中心和算力需求传导到重型设备与电力链条。",
+    disconfirm: "云厂商AI资本开支放慢，数据中心项目审批/并网延迟明显恶化，或BE、GEV、VRT、ETN等同链条财报无法继续交叉验证。",
     sources: [
-      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
-      {type:"采访摘要", label:"Moneycontrol：AI下一战是所有权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
-      {type:"媒体", label:"Axios：Sovereign AI与企业alpha", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+      {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
+      {type:"市场反应", label:"IBD：Bloom Energy AI infrastructure winner", url:"https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"},
+      {type:"市场观察", label:"Axios：SpaceX, Caterpillar and AI", url:"https://www.axios.com/newsletters/axios-closer-f8186890-7ddf-4084-b60d-d84a9e794345"}
     ]
   },
   {
     rank: 4,
-    theme: "企业AI控制层与Ontology",
-    strength: "8/10",
-    horizon: "中长期",
-    direction: "形成中",
-    tickers: ["PLTR","IBM","SNOW","NOW"],
-    thesis: "企业AI的竞争焦点正从单一模型能力转向连接数据、权限、工作流、业务对象和行动反馈的控制层。",
-    evidence: "Karp明确把价值公式指向“模型＋应用层＋算力”，Axios将其解释为企业需要掌握连接模型与专有知识的路由/控制层。这直接支持“控制层”主线；但本次采访没有直接展开Ontology，因此Ontology仍是基于Palantir既有产品体系的延伸判断，需要用客户采用和收入数据验证。",
-    disconfirm: "企业客户主要通过通用模型和轻量集成完成生产部署，控制层项目周期、续费或扩展率持续走弱。",
+    theme: "AI Capex纪律成为分水岭",
+    strength: "8.5/10",
+    horizon: "当前至未来数季",
+    direction: "分化加剧",
+    tickers: ["SPCX","META","AMD","MSFT","GOOG","AMZN"],
+    thesis: "市场不再无条件奖励AI投入，而是开始区分“能快速转化为收入、订单、现金流的capex”和“回报周期不清楚、吞现金、缺乏指引的capex”。同样是AI支出，ANET、MSFT、BE更容易获得确认，SPCX、META、AMD则被要求证明回报率。",
+    evidence: "SPCX首份公开财报收入约78亿美元、同比约+92%，但AI capex高于预期且lockup临近，股价承压；AMD收入和Data Center强但股价下跌，因为市场想看到更快的Helios/AI加速；META广告很强但自由现金流被AI基础设施支出压低。",
+    disconfirm: "高capex公司连续几个季度证明收入、利润和现金流同步改善，市场重新接受更长回报周期；或AI支出整体降速但股价不再承压。",
     sources: [
-      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
-      {type:"媒体", label:"Axios：应用层与AI路由控制", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+      {type:"市场反应", label:"Business Insider：SpaceX AI capex and lockup pressure", url:"https://www.businessinsider.com/spacex-first-earnings-report-spcx-stock-lockup-period-expiration-2026-8"},
+      {type:"市场反应", label:"MarketWatch：SpaceX AI spending converting to revenue", url:"https://www.marketwatch.com/livecoverage/spacex-earnings-stock-results-spcx-musk/card/spacex-s-ai-spending-is-rapidly-converting-to-revenue-gD0OT3rsd5PaDaKRbdWi"},
+      {type:"市场反应", label:"IBD：AMD drops after modest beat", url:"https://www.investors.com/news/technology/amd-stock-q2-2026-earnings-advanced-micro-devices/"}
     ]
   },
   {
     rank: 5,
-    theme: "开放模型与模型可替换性",
-    strength: "7.5/10",
-    horizon: "中长期",
-    direction: "上升",
-    tickers: ["META","IBM","PLTR","ORCL"],
-    thesis: "模型逐步商品化后，企业更重视可替换模型、避免锁定、数据不外泄以及在同一控制层下路由不同模型。",
-    evidence: "Karp在采访中质疑企业把数据和alpha交给前沿模型供应商，并强调客户应控制自己的模型。Axios给出的实践路径是：通用任务租用前沿模型，核心知识任务运行开放权重模型，再由自有路由层调度。由此可支持“模型可替换性”，但它目前更像采购架构方向，不等于开放模型已在能力上全面替代闭源模型。",
-    disconfirm: "闭源模型持续形成显著且不可替代的能力优势，企业愿意接受长期单一供应商锁定。",
+    theme: "第二供应商与全栈AI系统竞争",
+    strength: "8/10",
+    horizon: "2026下半年至2027",
+    direction: "待验证但升温",
+    tickers: ["AMD","NVDA","ANET","MSFT","META","ORCL"],
+    thesis: "市场希望看到Nvidia之外的AI系统级第二供应商，但标准已经提高：不仅要有GPU，还要有CPU、网络、rack-scale系统、软件生态、客户承诺和交付能力。",
+    evidence: "AMD Data Center收入67亿美元、同比+107%，Helios开始ramp，并披露Anthropic 2GW、Microsoft Azure、Cerebras等合作；但股价下跌说明市场认为“进入名单”还不够，需要看到Helios从客户承诺转化为大规模收入和毛利率改善。",
+    disconfirm: "Helios出货延迟，MI450/MI400客户订单低于预期，ROCm生态难以扩大，或主要AI客户重新集中采购Nvidia系统。",
     sources: [
-      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
-      {type:"媒体", label:"Axios：开放权重与闭源模型组合", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"}
+      {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
+      {type:"市场反应", label:"MarketWatch：AMD Helios ramp", url:"https://www.marketwatch.com/livecoverage/amd-earnings-stock-results-guidance-q2/card/amd-sees-strong-momentum-ahead-as-helios-ramps-5TjEBs40Q3RPenlq5p6k"},
+      {type:"市场反应", label:"WSJ：AMD falls as Musk commits to Nvidia chips", url:"https://www.wsj.com/business/earnings/amd-earnings-q2-2026-stock-03fe0b09"}
     ]
   },
   {
     rank: 6,
-    theme: "SaaS和咨询预算承压",
-    strength: "8/10负面",
+    theme: "主权AI、私有AI与企业控制层",
+    strength: "8/10",
+    horizon: "未来1–3年",
+    direction: "强化",
+    tickers: ["PLTR","IBM","AMD","ORCL","HPE","DELL"],
+    thesis: "企业和政府不愿只依赖远程模型API，正在增加对自有算力、数据、模型、权限、路由和行动反馈层的投入。控制权正在从单一模型能力转向“谁掌握生产资料和业务闭环”。",
+    evidence: "Karp多次强调企业要控制自己的算力、模型、数据栈和alpha；IBM观察到客户资本开支转向服务器、存储和内存；AMD的Helios、MI450和ROCm也在争取主权AI、开放系统和多供应商架构的位置。",
+    disconfirm: "公有云模型API成本继续快速下降，企业大规模放弃私有部署和自建控制层，或控制层项目长期停留在试点。",
+    sources: [
+      {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
+      {type:"媒体", label:"Axios：Sovereign AI data protection", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"},
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"}
+    ]
+  },
+  {
+    rank: 7,
+    theme: "AI安全、权限与审计成为必要开支",
+    strength: "8/10",
+    horizon: "中长期",
+    direction: "强化",
+    tickers: ["PANW","CRWD","FTNT","IBM","PLTR","ANET"],
+    thesis: "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。",
+    evidence: "IBM已确认快速变化的网络安全环境影响客户交易签约；Karp和Axios围绕数据归属、缓存位置、提示词安全和控制层的讨论，说明AI部署越深入，安全和权限越靠近采购核心。ANET把网络可观测与AI fabric放在一起，也说明安全/网络/AI正在融合。",
+    disconfirm: "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。",
+    sources: [
+      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
+      {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"},
+      {type:"公司资料", label:"Arista AI networking overview", url:"https://investors.arista.com/"}
+    ]
+  },
+  {
+    rank: 8,
+    theme: "SaaS与咨询预算被基础设施挤出",
+    strength: "7.5/10负面",
     horizon: "当前至未来数季",
-    direction: "承压",
-    tickers: ["IBM","ACN","CRM","NOW"],
-    thesis: "当企业预算转向AI硬件、存储、内存和安全时，传统软件席位、咨询项目和非核心数字化支出可能被延迟或压缩。",
-    evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。它支持“预算挤出”假设，但还不足以证明整个SaaS与咨询行业承压；需等待ACN、CRM、NOW等同业财报交叉验证。",
-    disconfirm: "软件与咨询公司剩余履约义务、签约周期和净留存率同步改善，证明预算并未被基础设施挤出。",
+    direction: "待交叉验证",
+    tickers: ["IBM","ACN","CRM","NOW","ADBE"],
+    thesis: "当企业预算优先投向GPU、服务器、网络、电力、存储和安全，传统软件席位、咨询项目和非核心数字化支出可能被延迟、压缩或重新议价。",
+    evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。AI硬件链和电力链连续强验证，提高了预算挤出假设的可信度，但仍需要ACN、CRM、NOW等后续财报确认。",
+    disconfirm: "软件与咨询公司RPO、签约周期、净留存率和AI增购同步改善，证明AI没有挤出而是带动软件预算。",
     sources: [
       {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
       {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"}
     ]
   },
   {
-    rank: 7,
-    theme: "国防及关键基础设施AI",
+    rank: 9,
+    theme: "国防与关键基础设施AI",
     strength: "8/10",
     horizon: "长期",
     direction: "强化",
-    tickers: ["PLTR","LMT","NOC","RTX","IBM"],
-    thesis: "安全、权限、审计、数据主权和本地部署要求，使国防与关键基础设施成为企业级AI控制技术的重要长期落地场景。",
-    evidence: "Karp在CNBC采访中直接反对把国家战场决策外包给硅谷共识；在MD MEETS访谈中又把技术主权和AI视为民主国家防卫能力的一部分。这能直接支持国防与关键基础设施方向，但具体商业强度仍要看政府合同、项目规模、续约与跨部门复制。",
-    disconfirm: "相关项目长期停留在试点阶段，合同扩展、续约和跨部门复制明显低于预期。",
+    tickers: ["PLTR","LMT","RTX","SPCX","IBM"],
+    thesis: "安全、权限、审计、数据主权、本地部署和任务可靠性要求，使国防、航天、政府云和关键基础设施成为企业级AI控制技术的重要长期落地场景。",
+    evidence: "Karp强调国家安全不应外包给硅谷共识；LMT、RTX等国防链条继续体现预算韧性；SPCX的政府合同、Starlink政府/企业通信和发射能力，把太空基础设施纳入AI与国家安全叙事。",
+    disconfirm: "相关AI项目长期停留在试点，政府合同扩展、续约、跨部门复制和商业化效率明显低于预期。",
     sources: [
       {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
       {type:"采访摘要", label:"Moneycontrol：国家安全与AI控制权", url:"https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"},
-      {type:"播客", label:"MD MEETS：Alex Karp访谈", url:"https://shows.acast.com/md-meets/episodes/palantir-ceo-alex-karp-ai-fears-rise-of-the-far-right-german"}
+      {type:"市场反应", label:"AP：SpaceX posts smaller-than-expected loss", url:"https://apnews.com/article/3b7b66a3e522e51d75caebc40af7e09e"}
     ]
   },
   {
-    rank: 8,
+    rank: 10,
     theme: "医疗成本挤压保险利润率",
     strength: "8/10负面",
     horizon: "当前至2027",
     direction: "待验证",
-    tickers: ["ELV","JNJ"],
-    thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量。",
-    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌；benefit expense ratio升至89.7%。JNJ则表示其广泛产品组合没有看到手术量系统性放缓，也未观察到ACA变化造成显著影响；这意味着医疗利用率仍有韧性，暂时不能指望需求自然回落来缓解保险公司的成本压力。",
-    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本并带动核心经营利润率回升，或大型医疗供应商普遍观察到手术量明显转弱。",
+    tickers: ["ELV","MOH","UNH","JNJ","ISRG"],
+    thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量；医疗服务量和药械需求如果保持韧性，保险端利润率会继续承压。",
+    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌，benefit expense ratio升至89.7%；JNJ表示没有看到手术量系统性放缓，ISRG也显示手术机器人需求仍有韧性。这意味着不能简单指望医疗利用率自然回落来缓解保险成本。",
+    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本，保险公司核心经营利润率回升，或大型医疗供应商普遍观察到手术量明显转弱。",
     sources: [
       {type:"公告", label:"Elevance Q2 2026 Results", url:"https://www.elevancehealth.com/newsroom/elv-quarterly-earnings-q2-2026"},
       {type:"公司公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
