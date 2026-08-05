@@ -242,9 +242,9 @@ const NARRATIVES = [
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","AMD","ANET","BE"],
+    tickers: ["MSFT","GOOG","META","TSM","ASML","AMD","ANET","ALAB","BE"],
     thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
     disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
@@ -259,9 +259,9 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "快速强化",
-    tickers: ["ANET","AMD","NVDA","CSCO","AVGO"],
+    tickers: ["ANET","ALAB","CRDO","MRVL","AMD","NVDA","CSCO","AVGO"],
     thesis: "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
-    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；AMD也把Helios、Pensando网络和Arista协同纳入全栈AI系统叙事。",
+    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；CRDO和MRVL则分别验证AEC/高速连接与光互连DSP、交换硅需求。AMD也把Helios、Pensando网络和Arista协同纳入全栈AI系统叙事。",
     disconfirm: "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     sources: [
       {type:"市场反应", label:"IBD：AI Cloud Networking Growth Drives Arista Beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
@@ -307,9 +307,9 @@ const NARRATIVES = [
     strength: "8/10",
     horizon: "2026下半年至2027",
     direction: "待验证但升温",
-    tickers: ["AMD","NVDA","ANET","MSFT","META","ORCL"],
+    tickers: ["AMD","ALAB","NVDA","ANET","MSFT","META","ORCL"],
     thesis: "市场希望看到Nvidia之外的AI系统级第二供应商，但标准已经提高：不仅要有GPU，还要有CPU、网络、rack-scale系统、软件生态、客户承诺和交付能力。",
-    evidence: "AMD Data Center收入67亿美元、同比+107%，Helios开始ramp，并披露Anthropic 2GW、Microsoft Azure、Cerebras等合作；但股价下跌说明市场认为“进入名单”还不够，需要看到Helios从客户承诺转化为大规模收入和毛利率改善。",
+    evidence: "AMD Data Center收入67亿美元、同比+107%，Helios开始ramp，并披露Anthropic 2GW、Microsoft Azure、Cerebras等合作；ALAB的Scorpio fabric switch、PCIe/CXL/Ethernet/NVLink Fusion/UALink互连组合，则说明第二供应商竞争不能只靠GPU，还需要rack-scale互连能力。但AMD股价下跌、ALAB强财报后盘后仍回落，说明市场认为“进入名单”还不够，需要看到客户承诺转化为大规模收入和毛利率改善。",
     disconfirm: "Helios出货延迟，MI450/MI400客户订单低于预期，ROCm生态难以扩大，或主要AI客户重新集中采购Nvidia系统。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
@@ -400,6 +400,199 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-04",
+  ticker: "ALAB",
+  company: "Astera Labs",
+  sector: "semis",
+  score: 89,
+  rec: "doubt",
+  dims: {quality: 39, marketread: 26, fundamentals: 24},
+  management_highlights: [
+    "Q2收入3.924亿美元，同比+104%，高于市场约3.609亿美元预期；调整后EPS 0.80美元，高于市场约0.69美元预期。",
+    "Q3收入指引约5.50亿美元，远高于市场约4.17亿美元预期；调整后EPS指引约1.19美元，也显著高于市场约0.81美元预期。",
+    "管理层把增长核心指向rack-scale AI基础设施：Scorpio fabric switches、PCIe 6、CXL、Ethernet、NVLink Fusion、UALink和COSMOS软件共同构成智能互连平台。",
+    "Scorpio fabric switch是关键增量。它不是传统交换机，而是用于AI系统内部scale-up/scale-out连接的高通量、低延迟fabric，目标是提高加速器利用率和token economics。",
+    "公司此前已披露Scorpio X-Series 320-lane AI Fabric Switch开始出货，并预计下半年生产ramp；Q2强指引说明这个产品线和光互连/定制方案正在进入更可见的放量阶段。",
+    "市场短线没有给出干净共振：ALAB日内大涨后盘后仍下跌，说明投资者认可业绩，但也担心估值、预期拥挤、客户集中和2027放量节奏。"
+  ],
+  narrative: {
+    summary: "ALAB这份财报非常强，直接验证了ANET之外的另一条AI网络高beta支线：rack-scale AI互连。它不是数据中心交换机公司，而是把GPU/ASIC、CPU、内存、CXL、PCIe、Ethernet、NVLink Fusion和UALink连成可管理系统的“内部fabric”供应商。问题在于股价已经提前交易很多，强财报后没有形成稳定共振，所以归为市场存疑偏强。",
+    consensus: "多头逻辑是AI基础设施进入rack-scale阶段后，瓶颈会从单颗GPU转向整机柜/多机柜的连接效率、可靠性、可观测性和协议兼容。ALAB的Scorpio fabric switch、Aries retimer、Taurus Ethernet retimer/redriver、Leo CXL memory controller和COSMOS软件，让它成为AI互连层里比ANET更高beta的验证器。",
+    divergence: "主要分歧不是需求，而是价格。Q2和Q3指引都非常强，但股票盘后回落，说明市场担心业绩已经被提前反映；同时客户集中、产品ramp节奏、Scorpio从设计导入到大规模收入的转化、以及NVDA/AVGO/MRVL/CRDO等生态竞争都需要继续验证。",
+    signals: [
+      "Q3收入能否兑现5.5亿美元附近指引，并维持高毛利率和经营杠杆。",
+      "Scorpio fabric switch是否从初期出货进入多客户生产ramp。",
+      "Taurus 3.2T Ethernet retimer/redriver、光互连和定制方案是否成为2027新增曲线。",
+      "如果ANET、CRDO、MRVL、COHR、AAOI继续共振，说明AI网络层从单点行情扩散成完整链条。",
+      "若强财报后股价持续无法站稳，要把估值和拥挤交易风险放在第一位。"
+    ]
+  },
+  sources: [
+    {type:"公司IR", label:"Astera Labs Investor Relations", url:"https://ir.asteralabs.com/"},
+    {type:"业绩会", label:"Astera Labs Q2 2026 Earnings Call", url:"https://ir.asteralabs.com/events/event-details/astera-labs-second-quarter-2026-earnings-call"},
+    {type:"市场反应", label:"IBD: Astera Labs sales more than double in Q2", url:"https://www.investors.com/news/technology/astera-labs-alab-stock-q2-2026-earnings/"},
+    {type:"公司公告", label:"Astera Q1 2026 Scorpio and fabric switch details", url:"https://ir.asteralabs.com/news-releases/news-release-details/astera-labs-reports-first-quarter-2026-financial-results"},
+    {type:"公司公告", label:"Astera Taurus 3.2T smart retimers and redrivers", url:"https://ir.asteralabs.com/news-events/news-releases"}
+  ],
+  report: `【ALAB · Astera Labs】2026 Q2财报与AI网络层验证 · 2026-08-04
+
+结论先说：
+ALAB这份财报非常强，是ANET之后对“AI网络层成为新瓶颈”的第二个高beta验证。
+
+但我不把它归为简单共振确认，而是归为“市场存疑偏强”。原因不是数字差，而是股价反应没有干净确认：日内先大涨，财报后盘后反而回落。市场承认业绩强，但也在消化估值、拥挤交易和2027放量节奏。
+
+一、核心数字
+
+Q2收入3.924亿美元，同比+104%。
+
+市场预期约3.609亿美元，实际明显超预期。
+
+调整后EPS 0.80美元，高于市场约0.69美元预期。
+
+Q3收入指引约5.50亿美元，明显高于市场约4.17亿美元预期。
+
+Q3调整后EPS指引约1.19美元，也高于市场约0.81美元预期。
+
+这组数字非常硬。Q2不是小beat，Q3指引也不是轻微上修，而是把市场预期大幅抬高。
+
+二、ALAB到底验证了什么？
+
+ANET验证的是AI数据中心的后端网络和Ethernet fabric。
+
+ALAB验证的是更靠近服务器和rack内部的智能互连。
+
+它的关键词不是“交换机”，而是：
+
+PCIe；
+
+CXL；
+
+Ethernet；
+
+NVLink Fusion；
+
+UALink；
+
+Scorpio fabric switch；
+
+Aries retimer；
+
+Taurus Ethernet retimer/redriver；
+
+Leo CXL memory controller；
+
+COSMOS软件。
+
+这些东西合起来，解决的是AI系统进入rack-scale之后的真正问题：
+
+GPU/ASIC之间怎么高速通信；
+
+服务器内部怎么降低延迟；
+
+内存和缓存怎么扩展；
+
+多协议怎么统一管理；
+
+出问题时怎么诊断链路；
+
+不同加速器生态怎么连接。
+
+所以ALAB不是普通半导体小票，它是AI基础设施从“单服务器”进入“整机柜系统”后的互连层。
+
+三、管理层重点
+
+管理层强调，未来增长会来自Scorpio fabric switches和光互连等产品线。
+
+Scorpio是最值得盯的增量。它不是传统数据中心交换机，而是服务于AI scale-up和scale-out架构的fabric switch，目标是提高加速器利用率、降低延迟，并改善token economics。
+
+此前公司已披露Scorpio X-Series 320-lane AI Fabric Switch开始出货，生产ramp目标在2026年下半年，并把更广泛的量产放量指向2027。
+
+这次Q3收入指引大幅高于预期，说明市场开始相信：Scorpio和其他AI互连产品不是PPT，而是正在进入收入曲线。
+
+四、为什么股价没有直接共振？
+
+1. 股价提前涨了
+
+财报前ALAB已经大涨，日内也涨了不少。强财报出来后，市场第一反应不是“没想到这么强”，而是“这是不是已经反映在股价里”。
+
+2. 估值门槛很高
+
+ALAB是高质量高增长公司，但也是高预期资产。对这种票，beat本身不够，必须连续几个季度证明收入、毛利率、客户扩散和产品ramp都没有掉链子。
+
+3. 客户集中和产品ramp风险
+
+AI互连供应链很容易出现大客户集中。Scorpio、Taurus、光互连和定制方案从设计导入到量产，会经历客户认证、供应链、良率和交付节奏验证。
+
+4. 竞争生态复杂
+
+ALAB不是没有竞争。NVDA、AVGO、MRVL、CRDO、ANET以及各类云厂商自研，都在争夺AI互连和fabric控制权。
+
+五、和ANET叙事的关系
+
+ANET是AI网络层的核心确认票。
+
+ALAB是更高beta的内部互连验证票。
+
+它们的关系可以这样看：
+
+ANET：数据中心和AI集群之间的网络系统；
+
+ALAB：rack内部、服务器内部、多协议互连；
+
+CRDO：AEC和高速铜缆连接；
+
+MRVL：光互连DSP、交换硅、custom silicon；
+
+COHR/LITE/AAOI：光模块和光器件；
+
+AVGO：交换ASIC、定制AI芯片和数据中心硅平台。
+
+如果ANET强、ALAB强、CRDO/MRVL/光模块链也强，就说明AI网络层不是单点行情，而是整条链都在被重新定价。
+
+六、评分
+
+财报质量：39/40
+
+收入、EPS和Q3指引都非常强。扣1分是因为仍要观察Scorpio等新产品从高预期变成连续量产收入。
+
+市场解读：26/35
+
+强财报后股价没有干净确认，说明市场仍担心估值、拥挤度和预期提前反映。不是坏反应，但不如ANET那种清晰共振。
+
+基本面深度：24/25
+
+ALAB站在AI rack-scale互连的核心位置，产品组合深，协议覆盖广，管理层叙事和财报数字一致。
+
+综合分：89/100
+
+类型：市场存疑偏强
+
+七、下一步要盯什么
+
+1. Q3能否兑现5.5亿美元收入指引
+
+这是最直接验证。如果Q3兑现，市场会更相信公司进入新一轮收入台阶。
+
+2. Scorpio fabric switch ramp
+
+Scorpio是否从初期出货走向多客户生产ramp，是ALAB从“连接芯片公司”升级为“AI fabric平台公司”的关键。
+
+3. 光互连和Taurus 3.2T
+
+如果光互连、Taurus 3.2T Ethernet retimer/redriver成为2027新增长曲线，ALAB的天花板会继续上移。
+
+4. 和ANET/CRDO/MRVL的同步性
+
+如果ANET、CRDO、MRVL、COHR、AAOI继续共振，说明AI网络层叙事在扩散。若只有ALAB强，可能只是单公司产品周期。
+
+一句话：
+
+ALAB这份财报证明AI网络瓶颈已经深入到rack内部和多协议互连层；但股价告诉我们，高beta好公司也必须连续兑现，才能撑住高预期。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-04",
@@ -5550,7 +5743,7 @@ const TICKER_SECTOR = {
   SAP:"tech",
   ANET:"tech", CLS:"tech", APLD:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
-  AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
+  ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", TRV:"financials",
