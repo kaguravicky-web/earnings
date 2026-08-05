@@ -384,6 +384,439 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-04",
+  ticker: "ANET",
+  company: "Arista Networks",
+  sector: "tech",
+  score: 96,
+  rec: "resonance",
+  dims: {quality: 40, marketread: 33, fundamentals: 23},
+  management_highlights: [
+    "Q2收入约30.3亿至30.4亿美元，同比+38%，明显高于市场约28.3亿美元预期；调整后EPS约1.02美元，高于市场约0.89美元预期。",
+    "AI云网络需求是核心驱动，市场把ANET重新定价为AI集群后端网络和Ethernet fabric的核心受益者，而不是普通交换机公司。",
+    "管理层强调网络是AI基础设施的central nervous system，从前端用户、云数据中心到后端AI集群都需要高性能、可观测、低延迟网络。",
+    "Q3收入指引约33亿美元，高于市场约29.5亿美元预期；调整后EPS指引约1.06至1.08美元，也高于市场约0.92美元预期。",
+    "调整后经营利润率接近50%，说明AI网络放量没有明显牺牲盈利质量；供应和制造分销能力改善也缓解了此前市场对组件短缺的担忧。",
+    "主要客户仍集中在Microsoft、Meta、Oracle、Alphabet等云和AI资本开支大户，客户质量非常强，但也意味着资本开支周期和大客户采购节奏会放大波动。"
+  ],
+  narrative: {
+    summary: "ANET本季是AI基础设施链里非常干净的共振确认：收入、EPS、指引、利润率和股价反应同时强。市场交易的不是传统企业网络，而是AI集群里Ethernet后端网络成为和GPU、电力、冷却同等重要的瓶颈层。",
+    consensus: "多头逻辑很直接：AI数据中心不能只堆GPU，节点之间的数据交换、训练集群的利用率、推理延迟和故障定位都依赖网络。ANET在高端云网络、EOS软件和开放Ethernet生态上的位置，使它成为Nvidia之外AI基础设施扩散的核心受益者。",
+    divergence: "主要分歧在估值和大客户集中。股价已处高位，市场会持续追问：云厂商是否会把部分网络采购转向白牌/ODM？Cisco、HPE/Juniper、Broadcom生态是否会压缩份额？AI订单是否有一两家客户集中拉动？",
+    signals: [
+      "Q3收入能否兑现33亿美元附近指引，并维持接近50%的调整后经营利润率。",
+      "800G/1.6T Ethernet AI fabric订单是否继续扩散到更多云厂商和AI lab。",
+      "Microsoft、Meta、Oracle、Alphabet资本开支是否继续上修或至少不降速。",
+      "如果ANET与VRT、GEV、BE、AMD、TSM形成同向业绩验证，AI物理基础设施主线会更扎实。"
+    ]
+  },
+  sources: [
+    {type:"公司IR", label:"Arista Investor Relations", url:"https://investors.arista.com/"},
+    {type:"公司公告", label:"Arista Q2 2026 earnings event notice", url:"https://www.arista.com/en/company/news/press-release/24143-pr-20260706"},
+    {type:"市场反应", label:"IBD: AI cloud networking drives Arista beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
+    {type:"市场反应", label:"Barron's: Arista stock surges after earnings", url:"https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"}
+  ],
+  report: `【ANET · Arista Networks】2026 Q2财报与业绩会重点分析 · 2026-08-04
+
+结论先说：
+ANET这份财报是AI基础设施链里非常漂亮的一份“共振确认”。数字强，指引强，利润率强，股价也买账。
+
+这不是普通网络设备周期，而是市场重新确认一件事：
+
+AI集群的瓶颈不只在GPU，也在网络。
+
+如果GPU之间、服务器之间、数据中心之间不能高速稳定通信，昂贵算力的利用率就会下降。ANET正好站在这个瓶颈层。
+
+一、核心数字
+
+Q2收入约30.3亿至30.4亿美元，同比+38%，高于市场约28.3亿美元预期。
+
+调整后EPS约1.02美元，高于市场约0.89美元预期。
+
+Q3收入指引约33亿美元，高于市场约29.5亿美元预期。
+
+调整后EPS指引约1.06至1.08美元，也高于市场约0.92美元预期。
+
+调整后经营利润率接近50%。
+
+这是一组很完整的beat and raise：不是只靠本季出货冲一下，而是公司直接把下一季预期抬高。
+
+二、管理层重点
+
+管理层把网络称为AI基础设施的central nervous system。
+
+这句话的意思很重要。AI数据中心不是把GPU买回来就结束，真正的大规模训练和推理需要：
+
+服务器间低延迟通信；
+
+后端AI fabric的稳定性；
+
+前端云网络和用户访问；
+
+可观测性、自动化和故障定位；
+
+对不同XPU/GPU生态的开放支持。
+
+ANET的叙事不是“交换机卖得好”，而是“AI集群要高利用率，网络层必须升级”。
+
+三、为什么市场反应积极？
+
+1. AI网络需求变成当期收入
+
+收入同比+38%，EPS明显超预期，说明AI网络不是远期故事，而是现在就在进损益表。
+
+2. 指引证明需求还在往前走
+
+Q3收入指引约33亿美元，高于市场预期不少。对高估值成长股来说，最怕的是本季强、下季平；ANET这次给的是继续加速。
+
+3. 利润率没有被供应链和成本吃掉
+
+调整后经营利润率接近50%，这很稀缺。AI硬件链很多公司增长快但利润率受压，ANET目前仍能把增长转化成高质量利润。
+
+4. 它补齐了AI基础设施主线的一块拼图
+
+前面我们看到GPU、先进制程、电力、冷却、现场供电都在受益。ANET这季把“网络层”也验证了。
+
+四、主要风险
+
+1. 大客户集中
+
+ANET核心客户包括Microsoft、Meta、Oracle、Alphabet这类云和AI资本开支大户。客户质量很好，但采购集中也会带来波动。
+
+2. 白牌和ODM替代
+
+大型云厂商有动力压低成本，也有自研和白牌采购能力。ANET需要持续证明自己的软件、可靠性和复杂部署经验值得溢价。
+
+3. 估值不便宜
+
+财报后股价大涨，市场已经把它放进AI基础设施核心资产篮子。以后只要AI资本开支有一点降速，估值会很敏感。
+
+五、评分
+
+财报质量：40/40
+
+收入、EPS、指引、利润率全部强，没有明显瑕疵。
+
+市场解读：33/35
+
+股价反应积极，和数字高度一致。扣分只因为年内涨幅已经大，后续预期门槛会越来越高。
+
+基本面深度：23/25
+
+AI网络层位置非常好，但仍要观察白牌替代、大客户集中和竞争格局。
+
+综合分：96/100
+
+类型：共振确认
+
+一句话：
+
+ANET证明了AI基础设施主线正在从GPU扩散到网络层，而且这次市场愿意直接付钱确认。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-04",
+  ticker: "AMD",
+  company: "Advanced Micro Devices",
+  sector: "semis",
+  score: 84,
+  rec: "doubt",
+  dims: {quality: 38, marketread: 22, fundamentals: 24},
+  management_highlights: [
+    "Q2收入115.36亿美元，同比+50%，创纪录；Non-GAAP EPS 1.66美元，同比+246%，均略高于市场预期。",
+    "Data Center收入67亿美元，同比+107%，占公司收入58%，由EPYC CPU和Instinct GPU共同驱动；这确认AMD已经从PC/游戏周期股转向数据中心主导。",
+    "Non-GAAP毛利率56%，同比提升13个百分点；Non-GAAP经营利润30.94亿美元，同比+245%，经营杠杆明显释放。",
+    "Q3收入指引约130亿美元，上下浮动3亿美元，中点同比+41%、环比+13%；Non-GAAP毛利率预计约56%。",
+    "Lisa Su强调下半年进入强动能阶段：EPYC需求加速、Instinct部署扩大、Helios开始ramp。",
+    "公司近期集中强化全栈AI：Helios rack-scale、MI400/MI450、ROCm、Anthropic 2GW合作、Microsoft Azure部署、Cerebras合作，都在试图把AMD从单芯片供应商升级为AI系统平台。",
+    "市场下跌的核心不是财报差，而是预期太高：股价此前大涨，投资者想看到比“略超预期”更强的AI加速斜率，尤其是Helios出货、MI450份额和毛利率上行。"
+  ],
+  narrative: {
+    summary: "AMD财报数字强，但市场不满意。它证明数据中心和AI正在成为公司主引擎，却没有完全回答“能否明显加速追赶NVDA、并把Helios变成大规模系统收入”的问题。当前是基本面进步很快、但股价预期跑得更快。",
+    consensus: "多头逻辑是AMD已经完成结构性转身：Data Center收入翻倍，占比58%；EPYC CPU、Instinct GPU、Helios系统和ROCm软件共同组成全栈AI方案。Anthropic、Microsoft、OpenAI、Meta、Oracle等客户/合作关系让2027增长有可见度。",
+    divergence: "市场分歧在于：Q2只是小幅beat，Q3毛利率仍约56%，没有给出足够惊艳的毛利率上行或AI收入加速证据；同时Musk转向Nvidia的消息加重了投资者对AMD AI份额的疑虑。",
+    signals: [
+      "Helios是否按期在本季度末开始出货，并在Q4/2027形成可见收入。",
+      "Data Center收入能否继续环比加速，而不是只维持高同比。",
+      "Non-GAAP毛利率能否突破56%平台，证明AI系统收入质量改善。",
+      "Anthropic、Microsoft、OpenAI、Meta等合作是否转化为可量化订单和长期采购。",
+      "市场是否重新把AMD当作AI系统平台，而不是NVDA之外的备选GPU供应商。"
+    ]
+  },
+  sources: [
+    {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
+    {type:"业绩会", label:"AMD Q2 2026 webcast", url:"https://ir.amd.com/news-events/ir-calendar/detail/20260804-amd-fiscal-second-quarter-2026-financial-results"},
+    {type:"市场反应", label:"IBD: AMD drops after modest beat", url:"https://www.investors.com/news/technology/amd-stock-q2-2026-earnings-advanced-micro-devices/"},
+    {type:"市场反应", label:"MarketWatch: Helios ramp and stock reaction", url:"https://www.marketwatch.com/livecoverage/amd-earnings-stock-results-guidance-q2/card/amd-sees-strong-momentum-ahead-as-helios-ramps-5TjEBs40Q3RPenlq5p6k"}
+  ],
+  report: `【AMD · Advanced Micro Devices】2026 Q2财报与业绩会重点分析 · 2026-08-04
+
+结论先说：
+AMD这份财报本身很强，但市场反应弱，所以归为“市场存疑”。
+
+这类财报最有信息量。因为数字并不差，市场却卖，说明真正的问题不在本季收入和EPS，而在预期差：
+
+投资者想看到AMD在AI服务器和Helios上的加速度更猛。
+
+一、核心数字
+
+Q2收入115.36亿美元，同比+50%，创纪录。
+
+GAAP毛利率54%，去年同期40%。
+
+Non-GAAP毛利率56%，去年同期43%。
+
+GAAP EPS 1.38美元。
+
+Non-GAAP EPS 1.66美元，同比+246%。
+
+Data Center收入67亿美元，同比+107%。
+
+Data Center占公司收入58%。
+
+Q3收入指引约130亿美元，上下浮动3亿美元；中点同比+41%，环比+13%。
+
+Non-GAAP毛利率指引约56%。
+
+这些数字单看都很好。AMD已经不是传统PC/游戏周期股，数据中心才是公司主引擎。
+
+二、管理层重点
+
+Lisa Su的核心表达是：AMD进入下半年时有强动能，EPYC需求加速，Instinct部署扩大，Helios开始ramp。
+
+这句话是整份财报的钥匙。
+
+AMD现在要讲的故事不是“我们也有GPU”，而是：
+
+EPYC CPU；
+
+Instinct GPU；
+
+Helios rack-scale系统；
+
+ROCm软件生态；
+
+Microsoft、Anthropic、OpenAI、Meta、Oracle等客户和合作伙伴；
+
+这些东西合起来，能不能成为一个真正可规模化的AI系统平台。
+
+三、为什么市场还卖？
+
+1. 预期太高
+
+AMD财报前涨幅已经很大。市场不是想看“略超预期”，而是想看AI收入、指引、毛利率和客户订单全面超预期。
+
+这次数字强，但不够炸。
+
+2. 毛利率没有上一个台阶
+
+Q3 Non-GAAP毛利率仍约56%。这不是坏数字，但对于正在转向AI系统平台的AMD，市场可能希望看到更明显的毛利率扩张。
+
+3. Helios还在验证期
+
+Helios是AMD追赶NVDA系统级优势的关键，但现在仍处在开始ramp阶段。市场需要看到它从客户名单变成实际大规模收入。
+
+4. NVDA生态压力仍大
+
+AMD的客户和合作名单非常漂亮，但NVDA的软件、网络、整机系统和开发者生态仍然强。尤其市场听到SpaceX/Tesla偏向Nvidia，会加重对AMD份额的担忧。
+
+四、基本面真正变化
+
+正面变化很清楚：
+
+Data Center收入翻倍；
+
+公司收入创纪录；
+
+毛利率大幅恢复；
+
+经营利润同比大增；
+
+AI客户可见度比过去高；
+
+AMD从芯片走向rack-scale系统。
+
+真正的问题是：这些变化是否足以支撑市场已经给出的AI估值？
+
+五、评分
+
+财报质量：38/40
+
+收入、EPS、Data Center、毛利率、指引都强。扣分是因为beat幅度不大，毛利率没有给出新惊喜。
+
+市场解读：22/35
+
+股价下跌说明市场不满足。本季不是业绩崩，而是预期过高下的“强但不够强”。
+
+基本面深度：24/25
+
+AMD战略位置明显提升，Helios、MI450、EPYC、ROCm和大客户合作构成了完整AI平台叙事。
+
+综合分：84/100
+
+类型：市场存疑
+
+一句话：
+
+AMD证明自己已经是AI数据中心核心玩家，但市场要它证明下一步：能不能从“第二选择”变成真正的系统级替代方案。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-04",
+  ticker: "SPCX",
+  company: "SpaceX",
+  sector: "industrials",
+  score: 76,
+  rec: "doubt",
+  dims: {quality: 33, marketread: 19, fundamentals: 24},
+  management_highlights: [
+    "SpaceX公布IPO后首份财报，Q2收入约78亿美元，同比约+90%至+92%，高于市场约68亿至69亿美元预期。",
+    "净亏损约5.41亿美元，每股亏损约0.09美元，亏损小于市场预期；但公司仍未进入稳定盈利阶段。",
+    "Starlink仍是最清晰、最赚钱的业务，用户数约1200万，收入约43亿美元；Musk强调市场低估Starlink，V3卫星容量提升可能带来数量级带宽扩张。",
+    "AI/xAI相关收入约25亿至26亿美元，增长极快，但对应AI资本开支约158亿至184亿美元，远高于市场预期，成为股价下跌核心原因。",
+    "Musk把长期收入目标前移，提出2029/2030左右达到1万亿美元收入的愿景；这是极强叙事，但也提高了市场对资本纪律和兑现节奏的要求。",
+    "公司未给正式指引，也未回应SpaceX与Tesla潜在合并传闻；首次公开财报后的沟通透明度仍需市场适应。",
+    "8月6日前后大规模IPO lockup到期，超过千亿美元级别股份可能解禁，短期股价技术压力和基本面争议叠加。"
+  ],
+  narrative: {
+    summary: "SPCX首份公开财报证明收入增长和Starlink规模极强，但市场更担心AI资本开支、亏损、无正式指引和解禁压力。它不是传统航天公司，而是Space + Connectivity + AI的超级叙事资产；问题是当前资本开支强度让市场暂时无法判断回报率。",
+    consensus: "多头逻辑是Starlink已经成为全球连接业务现金牛，SpaceX又拥有发射、卫星、政府合同、AI和潜在太空数据中心多条曲线。收入超预期、亏损小于预期，说明上市后第一份成绩单不是业务失速。",
+    divergence: "反叙事是AI capex太重，xAI/Grok和太空AI数据中心的回报周期不清晰；没有正式指引，加上lockup到期，市场很难给近端确定性溢价。",
+    signals: [
+      "Starlink用户数和ARPU能否继续增长，尤其企业和政府客户是否放量。",
+      "AI资本开支是否开始转化为可见收入和EBITDA，而不是持续吞现金。",
+      "Starship V3和下一次试飞是否顺利，能否真正降低发射和卫星部署成本。",
+      "lockup到期后供给压力是否被机构买盘吸收。",
+      "管理层是否在下一次电话会给出更清晰的分部利润、capex和全年目标。"
+    ]
+  },
+  sources: [
+    {type:"公司公告", label:"SpaceX Q2 2026 webcast notice", url:"https://ir.spacex.com/updates/releases-details/2026/SpaceX-to-Post-Second-Quarter-2026-Results-and-Host-Webcast-on-August-4-2026-2026-g8layJlbFm/default.aspx"},
+    {type:"市场反应", label:"IBD: SpaceX first public earnings", url:"https://www.investors.com/news/spacex-earnings-elon-musk-starlink-starship-falcon9-launches-ai-tesla-spcx-stock-lockup/"},
+    {type:"市场反应", label:"Business Insider: AI capex and lockup pressure", url:"https://www.businessinsider.com/spacex-first-earnings-report-spcx-stock-lockup-period-expiration-2026-8"},
+    {type:"市场反应", label:"AP: SpaceX posts smaller-than-expected loss", url:"https://apnews.com/article/3b7b66a3e522e51d75caebc40af7e09e"}
+  ],
+  report: `【SPCX · SpaceX】2026 Q2首份公开财报与业绩会重点分析 · 2026-08-04
+
+结论先说：
+SPCX这份财报数字很强，但市场反应偏负面，所以归为“市场存疑”。
+
+它的核心矛盾是：
+
+收入增长和Starlink规模非常强；
+
+但AI资本开支太大、亏损仍在、正式指引缺失、lockup即将到期。
+
+市场不是不相信SpaceX厉害，而是不知道该怎样给一个Space + Connectivity + AI混合体定价。
+
+一、核心数字
+
+Q2收入约78亿美元，同比约+90%至+92%，高于市场约68亿至69亿美元预期。
+
+净亏损约5.41亿美元，每股亏损约0.09美元，亏损小于市场预期。
+
+Starlink收入约43亿美元，用户数约1200万。
+
+AI/xAI相关收入约25亿至26亿美元。
+
+AI资本开支约158亿至184亿美元，明显高于市场预期。
+
+这组数字看起来很矛盾：收入超预期，亏损也好于预期，但股价下跌。原因就是资本开支和解禁压力压过了收入惊喜。
+
+二、管理层重点
+
+Musk在首次公开业绩会上继续强化长期愿景：SpaceX有机会在2029或2030年前后达到1万亿美元收入级别。
+
+这不是普通公司指引，而是超级叙事。
+
+他还强调Starlink被市场低估。V3卫星能力约为V2的10倍，如果发射数量也上一个台阶，即使单位带宽收入下降，整体收入仍可能大幅增长。
+
+这背后的逻辑是：
+
+Starlink不是单纯家庭宽带；
+
+它可以进入企业、航运、航空、政府、安全通信和偏远地区；
+
+如果Starship降低发射成本，Starlink的单位经济性可能继续改善。
+
+三、为什么市场卖？
+
+1. AI资本开支太重
+
+市场最怕的是SpaceX变成另一个超大capex故事：收入在涨，但现金不断被AI数据中心、xAI和Grok投入吞掉。
+
+AI收入增长很快，但投资更快。投资者现在要看的是回报率，不只是愿景。
+
+2. 没有正式指引
+
+首次公开财报后，公司没有给清晰全年指引，也没有充分拆开各业务利润。对于刚IPO的公司，这会让市场折价。
+
+3. Lockup到期
+
+8月6日前后大规模股份解禁，市场担心短期供给压力。即使长期基本面好，短期也可能有技术性卖压。
+
+4. 业务太复杂
+
+SpaceX现在不是单一航天公司。它同时有发射、Starlink、政府合同、AI、xAI、潜在太空数据中心和社交/AI生态关联。
+
+这让叙事很大，也让估值更难。
+
+四、真正的基本面
+
+正面：
+
+Starlink规模已经非常大；
+
+收入增长极快；
+
+亏损小于预期；
+
+政府和企业合同提供长期需求；
+
+Starship如果成功，会改变卫星部署经济性。
+
+负面：
+
+AI capex过重；
+
+公司仍亏损；
+
+分部利润透明度不足；
+
+lockup带来短期供给压力；
+
+长期目标非常宏大，市场需要更多阶段性里程碑。
+
+五、评分
+
+财报质量：33/40
+
+收入和亏损好于预期，但资本开支太重，分部利润透明度不够，不能给更高。
+
+市场解读：19/35
+
+股价下跌说明市场更在乎AI capex和解禁风险。强收入没有形成共振。
+
+基本面深度：24/25
+
+Starlink、发射、AI和政府合同构成非常深的长期叙事，但兑现路径复杂。
+
+综合分：76/100
+
+类型：市场存疑
+
+一句话：
+
+SPCX证明了收入增长和Starlink规模，但市场现在要求它证明另一件事：这么大的AI和太空资本开支，最终能不能变成足够高质量的现金流。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
   date: "2026-07-28",
   ticker: "BE",
   company: "Bloom Energy",
@@ -5097,9 +5530,9 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  CLS:"tech", APLD:"tech",
-  BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
-  INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
+  ANET:"tech", CLS:"tech", APLD:"tech",
+  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
+  AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", TRV:"financials",
