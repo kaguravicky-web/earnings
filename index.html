@@ -44,6 +44,7 @@ h1{font-size:26px;margin:0 0 4px}
 .badge.repricing{color:var(--blue);background:#eff6ff}
 .badge.deterioration{color:var(--red);background:#fff1f1}
 .badge.event{color:#7c3aed;background:#f5f0ff}
+.deep-tag{display:inline-flex;border:1px solid #c7d7ee;border-radius:7px;padding:3px 8px;background:#f5f8fc;color:#365f91;font-size:10.5px;font-weight:800;white-space:nowrap}
 .rec-arrow{color:var(--muted);font-size:12px;transition:transform .15s}
 .record.open .rec-arrow{transform:rotate(90deg)}
 .record-body{display:none;border-top:1px solid var(--line);padding:16px 18px}
@@ -80,6 +81,13 @@ h1{font-size:26px;margin:0 0 4px}
 .narrative-summary{border-left:3px solid var(--blue);background:#f5f9ff;padding:11px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px}
 .history-box{border:1px solid var(--line);border-radius:10px;background:#fbfcfe;padding:12px 14px;font-size:13px;margin:0 0 12px}
 .history-box h4{font-size:12px;margin:0 0 7px;color:#334155}.history-box ul{margin:0;padding-left:18px}.history-box li{margin:3px 0}
+.extended-analysis{border:1px solid #cdd8e7;border-radius:12px;background:#f8fafc;padding:15px;margin:0 0 12px}
+.extended-head{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-bottom:9px}.extended-head h4{margin:0;font-size:14px}.extended-head span{font-size:10.5px;font-weight:800;color:#365f91;background:#eaf1fa;border-radius:6px;padding:3px 7px}
+.extended-core{background:#fff;border-left:3px solid #4b8fd8;border-radius:0 8px 8px 0;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.growth-path{display:flex;gap:6px;align-items:stretch;margin:0 0 10px;overflow-x:auto;padding-bottom:3px}.growth-node{flex:1;min-width:118px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 9px}.growth-node b{display:block;font-size:10.5px;color:var(--muted)}.growth-node span{display:block;margin-top:2px;font-size:12.5px;font-weight:800}.growth-arrow{align-self:center;color:#94a3b8;font-weight:800}
+.extended-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:10px}.extended-box{border:1px solid var(--line);border-radius:8px;background:#fff;padding:10px 11px;font-size:12.5px}.extended-box h5{margin:0 0 4px;font-size:11px;color:#475569}
+.sector-map{margin-top:10px}.sector-map h5,.judge-box h5{margin:0 0 6px;font-size:11px;color:#475569}.sector-row{display:grid;grid-template-columns:86px 150px minmax(0,1fr);gap:8px;padding:7px 0;border-top:1px solid var(--line);font-size:12px}.sector-row:first-of-type{border-top:0}.sector-row b{color:#334155}.sector-row em{font-style:normal;color:var(--blue);font-weight:800}
+.judge-box{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}.judge-box ol{margin:0;padding-left:20px}.judge-box li{font-size:12.5px;margin:3px 0}
 .source-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
 .source-link{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:#fff;color:#334155;text-decoration:none;font-size:12px;font-weight:700}
 .source-link:hover{border-color:#a9c8f5;color:var(--blue)}
@@ -113,7 +121,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.dims,.insight-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.tabs{margin-left:-8px;margin-right:-8px}.toolbar input[type=text]{width:100%}.sector-select,.sort-select{flex:1;min-width:145px}.metric-snapshot{padding:12px}.metric-line{font-size:12.5px}}
+@media(max-width:760px){.dims,.insight-grid,.extended-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.tabs{margin-left:-8px;margin-right:-8px}.toolbar input[type=text]{width:100%}.sector-select,.sort-select{flex:1;min-width:145px}.metric-snapshot{padding:12px}.metric-line{font-size:12.5px}.sector-row{grid-template-columns:74px minmax(0,1fr)}.sector-row span{grid-column:1/-1}.extended-analysis{padding:12px}}
 </style>
 </head>
 <body>
@@ -263,6 +271,8 @@ h1{font-size:26px;margin:0 0 4px}
  *   report: "完整报告文本…",
  *   management_highlights: ["管理层重点…"], // 大盘股/权重股必填
  *   narrative: {summary:"叙事", consensus:"共识", divergence:"分歧", signals:["验证信号"]},
+ *   extended: {coreConflict:"核心矛盾", growthPath:[{label:"Q1",value:"+59%"}],
+ *     managementClaim:"管理层说法", externalEvidence:"外部证据", transmission:[{level:"一级",tickers:"APP",impact:"板块传导"}], checkpoints:["下季裁决"]},
  *   sources: [{type:"X|业绩会|采访|视频|公告", label:"来源名称", url:"https://..."}],
  *   vic_notes: "",             // Vic后续论点，Claude代为补充
  *   outcome: ""                // 复盘结果，如 "+12.3%，Day5清仓"
@@ -354,14 +364,15 @@ const NARRATIVES = [
   {
     rank: 6,
     theme: "主权AI、私有AI与企业控制层",
-    strength: "8/10",
+    strength: "9.5/10",
     horizon: "未来1–3年",
     direction: "强化",
     tickers: ["PLTR","IBM","AMD","ORCL","HPE","DELL"],
     thesis: "企业和政府不愿只依赖远程模型API，正在增加对自有算力、数据、模型、权限、路由和行动反馈层的投入。控制权正在从单一模型能力转向“谁掌握生产资料和业务闭环”。",
-    evidence: "Karp多次强调企业要控制自己的算力、模型、数据栈和alpha；IBM观察到客户资本开支转向服务器、存储和内存；AMD的Helios、MI450和ROCm也在争取主权AI、开放系统和多供应商架构的位置。",
+    evidence: "PLTR Q2收入同比+93%，美国商业收入+149%、美国政府收入+90%，次日股价上涨29.5%，说明主权AI与企业控制层已经从采访观点进入订单、收入、利润和价格。Karp强调客户要控制数据、提示词与组织alpha；IBM观察到资本开支转向基础设施，AMD也以开放系统争取主权AI部署。",
     disconfirm: "公有云模型API成本继续快速下降，企业大规模放弃私有部署和自建控制层，或控制层项目长期停留在试点。",
     sources: [
+      {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
       {type:"采访", label:"Karp CNBC采访视频", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"},
       {type:"媒体", label:"Axios：Sovereign AI data protection", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"},
       {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"}
@@ -386,14 +397,15 @@ const NARRATIVES = [
   {
     rank: 8,
     theme: "AI应用层开始分化：交易转化胜过模型故事",
-    strength: "8/10",
+    strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["SHOP","APP","META","GOOG","CRM","ADBE"],
-    thesis: "市场正在区分AI应用层的质量：能把AI直接转化为GMV、广告ROI、订单、现金流和清晰指引的公司会被奖励；只讲模型效率但季度节奏失误的公司会被惩罚。",
-    evidence: "SHOP Q2收入+34%、GMV+32%、自由现金流率超预期，且管理层称AI带来的traffic和orders约增长三倍，股价大涨；APP收入仍+53%、利润率仍高，但AI模型改进timing拖累Q2和Q3指引，股价盘后大跌。两者共同说明市场不是反AI应用，而是要求AI应用有稳定、可验证的商业转化。",
+    tickers: ["PLTR","SHOP","APP","META","GOOG","CRM","NOW","ADBE"],
+    thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
+    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；SHOP收入+34%、GMV+32%，AI流量与订单约增长三倍；APP收入仍+53%、利润率仍高，却因增速斜率、FCF转换和Q3指引存疑而大跌。三者共同确认：AI应用不是统一行情，而是按结果可验证性重新分层。",
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
     sources: [
+      {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
       {type:"市场反应", label:"WSJ：Shopify revenue acceleration as AI tools drive results", url:"https://www.wsj.com/business/earnings/shopify-profit-jumps-as-subscriptions-merchant-services-boost-revenues-73693ff6"},
       {type:"市场反应", label:"WSJ：AppLovin says Q2 fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
       {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"}
@@ -450,6 +462,156 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-03",
+  ticker: "PLTR",
+  company: "Palantir Technologies",
+  sector: "tech",
+  score: 90,
+  rec: "resonance",
+  dims: {quality: 38, marketread: 33, fundamentals: 19},
+  compare: {revenueGrowth:93, revenueGuidance:82},
+  metrics: [
+    {label:"Q2收入", value:"19.35亿美元", sub:"+93% YoY；高于约18.01亿美元共识约7.4%", tone:"beat", pct:95},
+    {label:"美国收入", value:"约16亿美元", sub:"+115% YoY；成为增长绝对核心", tone:"up", pct:96},
+    {label:"美国商业收入", value:"7.64亿美元", sub:"+149% YoY、+28% QoQ", tone:"up", pct:100},
+    {label:"美国政府收入", value:"8.09亿美元", sub:"+90% YoY；商业与政府同时加速", tone:"up", pct:92},
+    {label:"美国商业TCV", value:"约21.32亿美元", sub:"+153% YoY；前瞻订单继续扩张", tone:"beat", pct:96},
+    {label:"Q3收入指引", value:"21.60亿至21.64亿美元", sub:"高于约20亿美元共识；隐含继续高增长", tone:"beat", pct:94},
+    {label:"FY2026收入指引", value:"81.50亿至81.60亿美元", sub:"约+82% YoY；较前次指引明显上调", tone:"up", pct:96},
+    {label:"股价反应", value:"+29.5%", sub:"数字、指引和主权AI叙事同时共振", tone:"up", pct:100}
+  ],
+  management_highlights: [
+    "Q2收入约19.35亿美元，同比+93%；美国收入约16亿美元、同比+115%，美国商业收入7.64亿美元、同比+149%且环比+28%。",
+    "美国政府收入约8.09亿美元、同比+90%。商业与政府同时增长，削弱了PLTR只是单一国防承包商或单一企业软件热潮的反叙事。",
+    "美国商业TCV约21.32亿美元、同比+153%；公司签下220笔至少100万美元的交易，其中98笔至少500万美元、73笔至少1000万美元。",
+    "Q3收入指引约21.60亿至21.64亿美元，显著高于约20亿美元共识；FY2026收入指引上调至约81.50亿至81.60亿美元，对应约+82%。",
+    "Karp把需求概括为AI sovereignty：客户希望控制数据、提示词、模型调用和组织知识，不愿把核心经营alpha交给模型供应商。",
+    "管理层强调PLTR按客户创造的经营价值收费，而不是按token、点击或聊天次数收费；美国商业业务在销售团队规模很小甚至收缩的情况下仍高速增长。",
+    "股价次日上涨约29.5%。这次市场不仅奖励beat，而是在提高对Ontology、AIP与主权AI控制层的长期定价。"
+  ],
+  narrative: {
+    summary: "PLTR Q2把主权AI、Ontology与企业控制层从访谈观点推进到财务确认：总收入+93%、美国商业+149%、美国政府+90%、指引大幅上调，且价格反应强烈。它是本季少数真正能拉动企业AI软件与国防AI叙事的财报。",
+    consensus: "多头认为AIP不依赖某一家大模型，而是负责把模型接入客户的数据、权限、流程和行动闭环；Ontology把组织对象与业务规则结构化，FDE/Bootcamp再缩短部署和成交周期。这使PLTR更像AI时代的经营控制系统，而不是普通分析软件。",
+    divergence: "最强反叙事不是本季需求，而是估值、美国集中度和收入确认持续性。按总收入减美国收入粗略推算，国际业务增速明显低于美国；大额政府与商业合同也可能造成季度波动。若未来增长从90%快速回落，极高估值会放大任何小幅失误。",
+    signals: [
+      "美国商业收入能否继续保持三位数增长，并把21亿美元以上TCV逐步转成收入与现金流。",
+      "美国政府收入能否在高基数上持续增长，而不是受少数大型项目确认时点推动。",
+      "国际业务能否明显加速，降低增长过度依赖美国的风险。",
+      "客户经营成果、净留存和扩展交易能否证明价值收费模式，而非AI预算一次性抢跑。",
+      "若NOW、SNOW、DDOG等软件公司也出现订单加速，才说明PLTR带动的是板块；若只有PLTR强，则更可能是公司特有alpha。"
+    ]
+  },
+  extended: {
+    coreConflict: "这是几乎无可挑剔的经营季度，但股价跳涨后，投资者必须区分两件事：PLTR已经验证了企业AI需求，却尚未证明整个软件板块都能复制它的增长、交付方式和估值。",
+    growthPath: [
+      {label:"Q4 2025实际", value:"收入 +70%"},
+      {label:"Q1 2026实际", value:"收入 +85%"},
+      {label:"Q2 2026实际", value:"收入 +93%"},
+      {label:"FY2026指引", value:"约 +82%"}
+    ],
+    managementClaim: "客户正在反抗把数据、提示词和组织知识交给模型实验室；AIP与Ontology提供模型无关的控制层，并按实际价值而非token收费。销售团队很小仍能快速扩张，被管理层视为产品和部署模式出现经营杠杆。",
+    externalEvidence: "次日股价+29.5%、美国商业与政府收入同时加速、TCV和大额交易数扩张，支持需求真实存在。反证在于国际增速相对较慢、合同节奏可能波动，以及跳涨后估值要求未来数年继续保持异常增长。",
+    transmission: [
+      {level:"控制层/数据", tickers:"NOW · SNOW · DDOG · MDB", impact:"PLTR确认企业愿意为可落地AI付费，但这些公司既可能受益，也可能被Ontology和端到端交付抢走预算。要看RPO、净新增ACV和AI产品收入，而不是只看股价联动。"},
+      {level:"国防软件", tickers:"BAH · CACI · LDOS · PSN", impact:"主权AI和任务软件预算得到确认；传统承包商能否受益，取决于它们能否把合同转成软件化、高毛利和可复制收入。"},
+      {level:"边缘/无人系统", tickers:"KTOS · AVAV · LMT · RTX", impact:"实时决策、传感器融合和任务自治需求上升，但PLTR的高软件利润率不能直接外推到硬件平台。"},
+      {level:"算力与部署", tickers:"NVDA · ORCL · MSFT · DELL", impact:"模型无关和主权部署增加算力、云与私有基础设施需求；这是二阶受益，收入弹性通常低于PLTR本身。"},
+      {level:"情绪高Beta", tickers:"BBAI · AI · SOUN", impact:"可能随企业AI行情上涨，但当前财务质量、合同可见度和利润率远不等同于PLTR，不能作为叙事确认。"}
+    ],
+    checkpoints: [
+      "Q3收入需要达到21.60亿至21.64亿美元区间，并继续给出大幅高于共识的前瞻。",
+      "美国商业TCV向收入转换不能明显放慢；大额交易增长应伴随客户扩展，而非少数合同集中。",
+      "国际业务必须加速，否则主权AI可能主要是美国政府与美国企业的局部主线。",
+      "追踪NOW、SNOW、DDOG、MDB的RPO和AI收入：同步改善才是板块扩散，持续分化则是PLTR独有alpha。",
+      "估值复盘要看财报后5日与20日能否守住大部分跳空涨幅；若迅速回吐，说明价格主要是仓位挤压而非长期重估。"
+    ]
+  },
+  sources: [
+    {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
+    {type:"财报发布镜像", label:"Palantir Q2 2026 financial results", url:"https://www.stocktitan.net/news/PLTR/palantir-reports-q2-2026-u-s-comm-revenue-growth-of-149-y-y-and-c8762wptyyap.html"},
+    {type:"业绩会视频", label:"Palantir Q2 2026 Earnings Call", url:"https://www.youtube.com/live/yTHNjVWnoWo"},
+    {type:"市场反应", label:"AP：Palantir leads record market rally after Q2 results", url:"https://apnews.com/article/fbbe6128d618509e33d45a493c2615b1"},
+    {type:"市场反应", label:"Kiplinger：Palantir stock soars after otherworldly earnings", url:"https://www.kiplinger.com/investing/stocks/s-and-p-500-joins-dow-in-record-high-territory-stock-market-today"},
+    {type:"管理层采访", label:"Alex Karp CNBC interview on AI control and sovereignty", url:"https://www.youtube.com/watch?v=0A3sGymV6kY"}
+  ],
+  report: `【PLTR · Palantir】2026 Q2财报与企业AI板块扩散分析 · 2026-08-03
+
+结论先说：
+
+PLTR这份财报不只是公司级beat，而是企业AI、主权AI和国防软件的一次板块级验证。
+
+总收入同比增长93%，美国商业收入增长149%，美国政府收入增长90%，Q3与全年指引同时大幅高于此前预期，次日股价上涨约29.5%。数字、管理层叙事和市场价格形成完整共振。
+
+但它不能被简单翻译成“所有AI软件都可以买”。PLTR验证的是能进入客户核心流程、控制数据与权限、并把模型转成经营结果的软件；只提供聊天界面、token调用或概念性AI功能的公司并没有因此自动获得基本面确认。
+
+一、PLTR究竟卖什么
+
+最简单的理解是：大模型负责生成和推理，PLTR负责告诉模型企业里有哪些对象、数据、权限、规则和可执行动作。
+
+Ontology把客户的工厂、库存、合同、人员、设备和任务关系变成统一经营语义层；AIP连接不同模型；Foundry与Gotham承接企业和政府数据；Apollo负责在云、私有环境与边缘持续部署。
+
+因此PLTR的护城河不只是模型，而是客户业务本身被编码进系统后形成的高切换成本，以及FDE把软件快速嵌入真实工作流的交付能力。
+
+二、为什么这季能影响整个板块
+
+过去市场怀疑企业AI只有试点、聊天机器人和算力支出，没有稳定软件收入。PLTR用收入、TCV、大额交易、利润与上调指引说明：至少在美国，企业愿意为能够改变生产、供应链、国防和运营决策的AI系统支付大额预算。
+
+这会提高市场对企业AI软件的上限预期，但也提高筛选标准。以后需要看的不是“有没有AI产品”，而是部署周期、客户扩展、合同金额、现金流与可量化经营结果。
+
+三、增长来自哪里
+
+美国商业收入7.64亿美元，同比增长149%、环比增长28%，是最强增量；美国政府收入8.09亿美元，同比增长90%，说明国防与政府需求没有拖后腿。
+
+按总收入减美国收入粗略推算，国际收入约3.35亿美元，增速明显低于美国。这是当前最大的结构性保留项：主权AI故事是全球性的，但财务爆发目前仍高度集中在美国。
+
+四、管理层真正想表达什么
+
+Karp把这一轮需求描述为对模型实验室控制权的反抗。客户不愿把数据、提示词和组织知识交给单一模型供应商，更希望保留模型选择权、权限和行动闭环。
+
+这也是PLTR与普通SaaS的重要差异：管理层强调不按点击、token或聊天次数收费，而希望分享客户创造的经营价值。如果这一模式持续成立，PLTR的收入可以快于传统席位制软件增长；反过来，它也更依赖成功交付和客户结果。
+
+五、板块传导不能简单化
+
+NOW、SNOW、DDOG、MDB会因为企业AI预算扩大而受益，但也可能受到PLTR端到端控制层的竞争。真正的验证指标是RPO、净新增ACV、AI产品收入和客户扩展，而不是财报日跟涨。
+
+BAH、CACI、LDOS、PSN受益于主权AI和国防软件预算，但传统政府承包商的人力和项目制收入不能直接获得PLTR的软件估值。
+
+KTOS、AVAV、LMT、RTX承接边缘决策、无人系统与传感器融合需求，却有不同的硬件周期和利润率。
+
+BBAI、AI、SOUN属于高Beta情绪映射，若缺少同样的订单、增长和现金流，联动只能算资金行为，不能算叙事验证。
+
+六、最大的反叙事
+
+估值是最直接风险。财报后的价格已经要求PLTR在更大收入基数上继续保持异常高增速和利润率，任何轻微miss都可能造成极大波动。
+
+其次是美国集中度、合同确认节奏、政府项目波动和管理层高度进取的叙述方式。需要把经营数据与宏大叙事分开验证。
+
+七、评分
+
+财报质量：38/40
+
+收入、细分业务、TCV和前瞻指引全面强劲，接近最高等级。
+
+股价反应：33/35
+
+次日上涨约29.5%，数字和价格高度共振；扣分来自跳涨后的持续性尚待验证。
+
+持续性质量：19/25
+
+Ontology、AIP、FDE和政府壁垒构成强护城河，但国际增速、合同集中和极高估值降低了可重复性安全边际。
+
+综合分：90/100
+
+类型：共振确认
+
+一句话：
+
+PLTR证明企业AI真正有收入的部分不是token消费，而是数据、权限、Ontology和行动闭环；它拉动的是“可交付的AI控制层”，不是所有AI软件。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-05",
@@ -607,24 +769,26 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
   ticker: "APP",
   company: "AppLovin",
   sector: "tech",
-  score: 72,
+  score: 66,
   rec: "doubt",
-  dims: {quality: 29, marketread: 18, fundamentals: 25},
+  dims: {quality: 28, marketread: 14, fundamentals: 24},
   metrics: [
-    {label:"Q2收入", value:"约19.2亿美元", sub:"+53% YoY，略低于约19.4亿预期", tone:"miss", pct:62},
-    {label:"净利润", value:"约12.7亿美元", sub:"EPS约3.76美元，大致符合预期", tone:"flat", pct:70},
-    {label:"调整后EBITDA", value:"约16.0亿美元", sub:"低于公司指引和市场预期", tone:"miss", pct:58},
-    {label:"Q3收入指引", value:"20.6亿至20.9亿美元", sub:"略低于市场预期", tone:"miss", pct:60},
-    {label:"Q3 EBITDA指引", value:"17.1亿至17.4亿美元", sub:"低于市场预期", tone:"miss", pct:59},
-    {label:"市场反应", value:"-17%至-21%", sub:"AI模型timing被惩罚", tone:"down", pct:85}
+    {label:"Q2收入", value:"19.24亿美元", sub:"+53% YoY；低于约19.5亿美元共识1.2%", tone:"miss", pct:62},
+    {label:"GAAP EPS", value:"3.76美元", sub:"大致符合3.75美元共识；同比+57%", tone:"flat", pct:70},
+    {label:"调整后EBITDA", value:"16.14亿美元", sub:"利润率83.9%；低于约16.4亿美元共识", tone:"miss", pct:58},
+    {label:"自由现金流", value:"8.63亿美元", sub:"FCF率44.9%；Q1为70.1%", tone:"down", pct:44},
+    {label:"Q3收入指引", value:"20.55亿至20.85亿美元", sub:"中点隐含约+47.3% YoY；略低于共识", tone:"miss", pct:60},
+    {label:"Q3 EBITDA指引", value:"17.10亿至17.40亿美元", sub:"利润率约83%；低于约17.5亿美元共识", tone:"miss", pct:59},
+    {label:"股价反应", value:"-19%至-21%", sub:"小幅miss触发增长曲线重估", tone:"down", pct:90}
   ],
   management_highlights: [
-    "Q2收入约19.2亿美元，同比+53%，略低于市场约19.4亿美元预期，也处在公司此前指引区间下端。",
-    "净利润约12.7亿美元，EPS约3.76美元，大致符合市场预期；调整后EBITDA约16.0亿美元，低于公司此前指引和市场预期。",
-    "Q3收入指引约20.6亿至20.9亿美元，调整后EBITDA约17.1亿至17.4亿美元，均略低于市场预期。",
-    "CEO Adam Foroughi承认Q2低于公司内部标准，主要因为AI模型改进推出节奏和timing问题，而不是广告主需求突然恶化。",
-    "管理层表示广告主需求仍强，当前季度开局良好；这保留了APP作为AI广告效率平台的长期叙事。",
-    "市场反应非常负面，盘后下跌约17%至21%。高估值AI广告平台一旦收入/EBITDA和指引不够完美，会被迅速惩罚。"
+    "Q2收入19.24亿美元，同比+53%，比约19.5亿美元共识低约1.2%；GAAP EPS 3.76美元，大致符合预期。",
+    "调整后EBITDA 16.14亿美元、利润率83.9%；自由现金流8.63亿美元，FCF率从Q1的70.1%降到44.9%。",
+    "Q3收入指引20.55亿至20.85亿美元，中点隐含同比约+47.3%；EBITDA指引17.10亿至17.40亿美元，两者均略低于共识。",
+    "CEO Adam Foroughi承认没有达到公司内部标准，但把偏差归因于模型升级数量和推出时点，而非广告需求或竞争恶化。",
+    "管理层称重大模型升级已在季后上线、Q3开局重新加速；消费垂直支出比Q4高峰高28%，MAX发行商收益环比双位数增长。",
+    "CFO称FCF下降来自国际税款和利息付款时点，承诺Q3改善、全年现金转化回到调整后EBITDA约75%；这一说法仍需数据验证。",
+    "股价盘后下跌约19%至21%。市场惩罚的不是1.2%的收入miss，而是59%→53%→约47%的连续减速和管理层可信度风险。"
   ],
   narrative: {
     summary: "APP本季不是业务崩坏，而是高预期资产的节奏失误。收入仍+53%、利润率仍极高，但Q2落在指引低端、EBITDA不达预期、Q3指引偏软，市场立刻从“AI广告效率平台”切到“模型迭代不确定性和增长降速”。",
@@ -637,9 +801,34 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
       "如果APP继续弱而SHOP/META强，说明市场更偏好AI应用中可见交易和现金流，而不是黑箱模型效率。"
     ]
   },
+  extended: {
+    coreConflict: "收入只低于共识约1.2%，股价却跌近20%。真正被重估的是增长二阶导数、FCF转换率与管理层解释的可信度，而不是当季绝对盈利能力。",
+    growthPath: [
+      {label:"Q1 2026实际", value:"收入 +59%"},
+      {label:"Q2 2026实际", value:"收入 +53%"},
+      {label:"Q3 2026指引", value:"约 +47.3%"}
+    ],
+    managementClaim: "模型改版数量偏少造成Q2节奏失误，重大升级已在季后上线；需求与竞争没有恶化，消费广告支出仍强。FCF下降主要是税款和利息付款时点，全年转换率仍应回到约75%。",
+    externalEvidence: "7月第三方广告数据已经提示电商增速放缓；同时SHOP与META的交易和广告数据仍强。现在不是简单相信管理层或第三方，而是等待Q3把模型升级、消费垂直和现金转换三项同时对账。",
+    transmission: [
+      {level:"一级同业", tickers:"TTD · U · MGNI", impact:"APP若只是模型时点问题，广告科技估值可修复；若增速继续掉，板块会按成熟广告平台重新估值。"},
+      {level:"需求验证", tickers:"META · SHOP · PINS", impact:"这些公司的广告ROI、GMV和商户预算决定问题是APP执行失误，还是消费/效果广告整体放慢。"},
+      {level:"情绪高Beta", tickers:"RDDT · PUBM · SOUN", impact:"可能跟随AI应用情绪波动，但商业模式和利润率差异很大，不能把联动当成基本面确认。"},
+      {level:"竞争/平台", tickers:"GOOG · AMZN", impact:"Android与零售媒体竞争增强，会检验AXON能否在游戏之外持续取得预算份额。"}
+    ],
+    checkpoints: [
+      "Q3收入至少达到约20.7亿美元，并尽量靠近20.85亿美元上端；若再次低于指引，模型时点解释失效。",
+      "FCF转换率必须明显回升，并朝全年调整后EBITDA约75%的目标收敛。",
+      "消费垂直支出、MAX发行商收益和waterfall份额要与第三方广告追踪数据对得上。",
+      "6月开放的自助平台需要证明长尾客户质量、ROAS与欺诈控制没有被规模稀释。",
+      "重大模型升级应重新带动广告主预算和收入，而不只是电话会上的定性描述。"
+    ]
+  },
   sources: [
-    {type:"公司IR", label:"AppLovin quarterly results", url:"https://investors.applovin.com/financials/quarterly-results/default.aspx"},
-    {type:"业绩会", label:"AppLovin Q2 2026 results event notice", url:"https://investors.applovin.com/news/news-details/2026/AppLovin-to-Announce-Second-Quarter-2026-Results/default.aspx"},
+    {type:"公司公告", label:"AppLovin Q2 2026 Financial Results", url:"https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Second-Quarter-2026-Financial-Results/default.aspx"},
+    {type:"财务附件", label:"AppLovin Q2 2026 Financial Update", url:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"},
+    {type:"业绩会视频", label:"AppLovin Q2 2026 Earnings Call", url:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/2026-Q2-Earnings-Call-w-QandA-02-Final-720.mp4"},
+    {type:"扩展参考", label:"AppLovin Q2 2026研究与交易整合版", url:"https://sintszkay.github.io/market-reports/reports/applovin-q2-2026-earnings.html"},
     {type:"市场反应", label:"WSJ: AppLovin Q2 results fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
     {type:"市场反应", label:"Barron's: AppLovin stock sinks on soft earnings", url:"https://www.barrons.com/articles/applovin-earnings-stock-price-eaafd6d3"}
   ],
@@ -728,19 +917,19 @@ META和SHOP都用AI证明了广告/商户转化效率，而APP这季反而暴露
 
 五、评分
 
-财报质量：29/40
+财报质量：28/40
 
 增长仍强，但收入、EBITDA和指引都没有达到高预期，且管理层承认执行 timing 问题。
 
-市场解读：18/35
+股价反应：14/35
 
 盘后大跌，说明市场明显不满意。
 
-基本面深度：25/25
+持续性质量：24/25
 
 APP的AI广告平台护城河和盈利能力仍强，问题是节奏和估值。
 
-综合分：72/100
+综合分：66/100
 
 类型：市场存疑
 
@@ -6249,7 +6438,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", ANET:"tech", CLS:"tech", APLD:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
@@ -6397,6 +6586,24 @@ function historyHtml(r){
   }).join("")+'</ul></div>';
 }
 
+function extendedHtml(r){
+  const x = r.extended;
+  if(!x) return "";
+  const path = (x.growthPath||[]).map((p,i)=>
+    (i?'<span class="growth-arrow">→</span>':'')+'<div class="growth-node"><b>'+esc(p.label||"")+'</b><span>'+esc(p.value||"")+'</span></div>'
+  ).join("");
+  const transmission = (x.transmission||[]).map(row=>
+    '<div class="sector-row"><b>'+esc(row.level||"")+'</b><em>'+esc(row.tickers||"")+'</em><span>'+esc(row.impact||"")+'</span></div>'
+  ).join("");
+  return '<section class="extended-analysis"><div class="extended-head"><h4>板块级扩展分析</h4><span>扩散型财报</span></div>'+
+    '<div class="extended-core"><b>核心矛盾：</b>'+esc(x.coreConflict||"")+'</div>'+
+    (path?'<div class="growth-path">'+path+'</div>':'')+
+    '<div class="extended-grid"><div class="extended-box"><h5>管理层解释</h5>'+esc(x.managementClaim||"")+'</div><div class="extended-box"><h5>外部证据 / 反叙事</h5>'+esc(x.externalEvidence||"")+'</div></div>'+
+    (transmission?'<div class="sector-map"><h5>板块传导与高 Beta 映射</h5>'+transmission+'</div>':'')+
+    ((x.checkpoints||[]).length?'<div class="judge-box"><h5>下一季度裁决清单</h5><ol>'+x.checkpoints.map(item=>'<li>'+esc(item)+'</li>').join("")+'</ol></div>':'')+
+  '</section>';
+}
+
 function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
 function sectorKey(r){ return r.sector || TICKER_SECTOR[r.ticker] || "other"; }
 function sectorLabel(r){ return SECTOR_META[sectorKey(r)] || SECTOR_META.other; }
@@ -6506,6 +6713,7 @@ function render(){
     const sourcesHtml = footnotesHtml(r.sources);
     const fullReportHtml = reportHtml(r.report);
     const historyBlock = historyHtml(r);
+    const extendedBlock = extendedHtml(r);
     return '<div class="record">'+
       '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
         '<span class="rec-arrow">▶</span>'+
@@ -6513,12 +6721,13 @@ function render(){
         '<span class="rec-ticker">'+esc(r.ticker||"")+'</span>'+
         '<span class="rec-company">'+esc(r.company||"")+'</span>'+
          '<span class="sector-tag">'+esc(sectorLabel(r))+'</span>'+
+        (r.extended?'<span class="deep-tag">板块扩展</span>':'')+
         sortBadge(r)+
         (isEvent? "" : '<span class="rec-score">'+(r.score!=null?r.score:"—")+'<small> /100</small></span>')+
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
-        dimsHtml + metricsHtml + historyBlock + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
+        dimsHtml + metricsHtml + historyBlock + extendedBlock + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
         '<button type="button" class="collapse-record">收起 ↑</button>'+
       '</div>'+
     '</div>';
