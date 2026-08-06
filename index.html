@@ -48,6 +48,20 @@ h1{font-size:26px;margin:0 0 4px}
 .record.open .rec-arrow{transform:rotate(90deg)}
 .record-body{display:none;border-top:1px solid var(--line);padding:16px 18px}
 .record.open .record-body{display:block}
+.record-mode-tabs{display:flex;border-bottom:1px solid var(--line);margin:-4px 0 14px;overflow-x:auto}
+.record-mode-tab{flex:1;min-width:160px;border:0;border-bottom:2px solid transparent;background:transparent;padding:10px 14px;text-align:left;color:#98a2b3;font-family:inherit;cursor:pointer}
+.record-mode-tab b{display:inline;font-size:14px;color:inherit}.record-mode-tab span{display:inline;margin-left:7px;font-size:11px;color:inherit}
+.record-mode-tab.active{color:#111827;border-bottom-color:#4f46e5}.record-mode-tab.active b{font-weight:850}
+.record-pane{display:none}.record-pane.active{display:block}
+.business-card{border:1px solid #d9dee7;border-radius:12px;background:#fff;padding:15px 16px;margin:0 0 12px}
+.business-card h4{margin:0;font-size:15px}.business-kicker{font-size:11.5px;color:var(--muted);margin:1px 0 10px}
+.business-lead{font-size:14px;font-weight:750;line-height:1.65;background:#f8fafc;border-radius:9px;padding:11px 12px;margin-bottom:10px}
+.business-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.business-item{border-top:1px solid var(--line);padding-top:8px;font-size:12.5px}.business-item b{display:block;color:#475569;font-size:11px;margin-bottom:3px}
+.decision-hero{border:1px solid #d7dce5;border-radius:12px;background:#f8fafc;padding:14px 15px;margin-bottom:12px}.decision-hero-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:5px}.decision-hero h4{margin:0;font-size:15px}.decision-stance{border-radius:999px;background:#fff3d6;color:#8a5a00;padding:4px 10px;font-size:11px;font-weight:850}.decision-hero p{margin:0;font-size:13px;color:#334155}
+.decision-section{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px;margin-bottom:10px}.decision-section h4{margin:0 0 7px;font-size:12px;color:#334155}
+.decision-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:12.5px}.decision-row:first-of-type{border-top:0}.decision-row b{color:#334155}.decision-row strong{color:#185fa8}.decision-row span{color:#475569}
+.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.decision-list{margin:0;padding-left:18px}.decision-list li{font-size:12.5px;margin:4px 0}.decision-note{font-size:11.5px;color:var(--muted);margin-top:8px}.decision-empty{border:1px dashed #cbd5e1;border-radius:10px;padding:22px;text-align:center;color:var(--muted);font-size:13px}
+.detail-page-link{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #bed1eb;border-radius:11px;background:#f4f8fd;padding:11px 13px;margin-bottom:14px}.detail-page-link div{font-size:12px;color:#475569}.detail-page-link b{display:block;font-size:13px;color:#1e3a5f}.detail-page-link a{flex:0 0 auto;border-radius:8px;background:#185fa8;color:#fff;text-decoration:none;padding:7px 12px;font-size:12px;font-weight:800}
 .dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:14px}
 .dim{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px 12px}
 .dim span{display:block;font-size:11px;font-weight:800;color:var(--muted)}
@@ -120,7 +134,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.dims,.insight-grid,.extended-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.tabs{margin-left:-8px;margin-right:-8px}.toolbar input[type=text]{width:100%}.sector-select,.sort-select{flex:1;min-width:145px}.metric-snapshot{padding:12px}.metric-line{font-size:12.5px}.sector-row{grid-template-columns:74px minmax(0,1fr)}.sector-row span{grid-column:1/-1}.extended-analysis{padding:12px}}
+@media(max-width:760px){.dims,.insight-grid,.extended-grid,.business-grid,.decision-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.tabs{margin-left:-8px;margin-right:-8px}.toolbar input[type=text]{width:100%}.sector-select,.sort-select{flex:1;min-width:145px}.metric-snapshot{padding:12px}.metric-line{font-size:12.5px}.sector-row{grid-template-columns:74px minmax(0,1fr)}.sector-row span{grid-column:1/-1}.extended-analysis{padding:12px}.record-mode-tab{padding:9px 8px;min-width:145px}.record-mode-tab b,.record-mode-tab span{display:block;margin:0}.decision-row{grid-template-columns:1fr}.decision-row strong,.decision-row span{padding-left:12px}}
 </style>
 </head>
 <body>
@@ -128,7 +142,7 @@ h1{font-size:26px;margin:0 0 4px}
 
 <header>
   <h1>财报助手</h1>
-  <p class="sub">从财报、业绩会、X、采访和视频中提炼市场正在交易的叙事与主线。聚焦基本面与股价反应，不做交易信号；新观点与后续验证会持续补进对应记录。</p>
+  <p class="sub">先回答这家公司好不好，再把交易动作绑定到证据、价格和时间；新观点与后续验证会持续补进对应记录。</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
     <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
@@ -261,16 +275,20 @@ h1{font-size:26px;margin:0 0 4px}
  *   ticker: "NVDA",            // event型可用主题短名
  *   company: "英伟达",          // event型放事件名称
  *   sector: "semis",           // 板块；旧记录由ticker映射兼容
+ *   detailPage: "reports/nvda-q2-2026.html", // 板块扩展独立页；普通记录省略
  *   score: 87,                 // event型省略
  *   rec: "resonance"|"doubt"|"repricing"|"deterioration",  // event型省略
  *   dims: {quality:32, marketread:26, fundamentals:19}, // event型省略
  *   compare: {revenueGrowth:34, revenueGuidance:30}, // 可比增速，统一填同比百分比
+ *   business: {plain:"白话解释", howMakesMoney:"怎么赚钱", moat:"为什么难复制", whatChanged:"本季变化"},
  *   metrics: [{label:"Q2收入", value:"35.8亿美元", sub:"+34% YoY，高于预期", tone:"beat"}],
  *   report: "完整报告文本…",
  *   management_highlights: ["管理层重点…"], // 大盘股/权重股必填
  *   narrative: {summary:"叙事", consensus:"共识", divergence:"分歧", signals:["验证信号"]},
  *   extended: {coreConflict:"核心矛盾", growthPath:[{label:"Q1",value:"+59%"}],
  *     managementClaim:"管理层说法", externalEvidence:"外部证据", transmission:[{level:"一级",tickers:"APP",impact:"板块传导"}], checkpoints:["下季裁决"]},
+ *   decision: {stance:"等待确认", summary:"当前交易本质", playbook:[{if:"证据",then:"动作",why:"理由"}],
+ *     triggers:["未来催化"], invalidation:["失效条件"], timing:"验证日期", risk:"执行风险"},
  *   sources: [{type:"X|业绩会|采访|视频|公告", label:"来源名称", url:"https://..."}],
  *   vic_notes: "",             // Vic后续论点，Claude代为补充
  *   outcome: ""                // 复盘结果，如 "+12.3%，Day5清仓"
@@ -466,10 +484,31 @@ const RECORDS = [
   ticker: "PLTR",
   company: "Palantir Technologies",
   sector: "tech",
+  detailPage: "reports/palantir-q2-2026.html",
   score: 90,
   rec: "resonance",
   dims: {quality: 38, marketread: 33, fundamentals: 19},
   compare: {revenueGrowth:93, revenueGuidance:82},
+  business: {
+    plain: "企业和政府的数据通常散落在几十套系统里，AI即使会思考，也不知道谁有权限、库存在哪里、下一步能执行什么。Palantir把这些数据和业务规则画成一张可操作的地图，再让AI在权限范围内帮助人做决定和执行任务。",
+    howMakesMoney: "向政府和企业收取软件平台、部署与长期合同费用；客户把系统用进更多部门和流程后，合同继续扩张。",
+    moat: "Ontology把客户独有的对象、关系和权限编码进系统，迁移成本高；国防安全资质、FDE现场交付和多年项目经验也很难复制。",
+    whatChanged: "AIP把原来的数据平台升级成AI行动层，美国商业与政府收入同时加速，说明AI项目正在从试验进入正式预算。"
+  },
+  decision: {
+    stance: "公司很强，交易上不追财报跳空",
+    summary: "PLTR已经证明企业AI需求真实，但财报后价格把大量好消息一次性计入。交易优势来自后续数据继续超预期或跳空后的低波动整理，而不是把90分财报直接翻译成追涨。",
+    playbook: [
+      {if:"财报后5日与20日仍守住大部分跳空涨幅，成交量逐步收缩且盈利预测没有下修", then:"等待整理后再考虑小仓位参与或继续持有", why:"说明上涨主要是长期重估，而不只是空头回补。"},
+      {if:"Q3收入达到21.60亿至21.64亿美元，美国商业继续三位数增长，TCV开始转成收入", then:"提高基本面置信度，可在价格确认后增加风险预算", why:"增长、订单和兑现形成闭环。"},
+      {if:"国际业务加速，NOW、SNOW、DDOG等也出现RPO与AI收入改善", then:"把交易从PLTR个股扩展到经过财报验证的板块受益者", why:"这才证明主权AI与控制层需求正在扩散。"},
+      {if:"跳空被快速完全回补，同时盈利预测下修或Q3低于指引", then:"减仓或回避，等待下一次财报重新评估", why:"极高估值下，增长可信度一旦破坏，价格弹性会反向放大。"}
+    ],
+    triggers: ["财报后第5日与第20日的缺口保持情况。","Q3收入、美国商业TCV转化与国际增速。","NOW、SNOW、DDOG、MDB的RPO及AI产品收入。"],
+    invalidation: ["Q3收入低于公司指引下沿。","美国商业增长快速跌破三位数且TCV转换放慢。","财报跳空完全回补，并伴随一致预期下修。"],
+    timing: "先观察财报后5日和20日价格结构；基本面终验在下一季财报。",
+    risk: "没有录入实时价格区间和期权定价，执行前必须刷新行情、波动率与仓位风险。"
+  },
   metrics: [
     {label:"Q2收入", value:"19.35亿美元", sub:"+93% YoY；高于约18.01亿美元共识约7.4%", tone:"beat", pct:95},
     {label:"美国收入", value:"约16亿美元", sub:"+115% YoY；成为增长绝对核心", tone:"up", pct:96},
@@ -767,9 +806,30 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
   ticker: "APP",
   company: "AppLovin",
   sector: "tech",
+  detailPage: "reports/applovin-q2-2026.html",
   score: 66,
   rec: "doubt",
   dims: {quality: 28, marketread: 14, fundamentals: 24},
+  business: {
+    plain: "AppLovin像一个自动化广告配对员：它判断哪个用户更可能买东西，再把广告主的预算送到最有可能转化的游戏或应用里。预测越准，广告主赚得越多，也越愿意继续加预算。",
+    howMakesMoney: "广告主为投放和效果付费，AppLovin用AXON优化广告匹配，并通过MAX连接应用流量；高度自动化让大部分新增收入变成利润和现金流。",
+    moat: "长期积累的广告转化数据、AXON模型、应用流量关系和实时竞价规模形成数据飞轮，新平台很难同时获得供给、需求和训练数据。",
+    whatChanged: "公司正从游戏广告扩张到电商和更多消费行业，但本季模型升级变少，收入增速从59%降到53%，Q3指引约47%，市场开始怀疑扩张速度。"
+  },
+  decision: {
+    stance: "等待证据，不抢财报后第一段反弹",
+    summary: "业务质量仍高，但交易现在押注的是管理层解释能否被验证。增长斜率、消费广告数据和现金转换率至少要有两项改善，才有足够证据把大跌视为错杀。",
+    playbook: [
+      {if:"月度电商领先数据回升，新增像素恢复且客户总量继续增长", then:"在价格止跌后考虑小仓位试错", why:"这是财报前能够最早验证消费垂直没有结构性放缓的信号。"},
+      {if:"股价重新站上并守住财报跳空缺口下沿，同时成交量和波动率正常化", then:"把市场确认加入决策，但不单凭价格追涨", why:"说明机构开始接受Q2只是时点问题。"},
+      {if:"Q3收入达到20.85亿美元附近，FCF/EBITDA恢复到70%以上，消费垂直仍增长", then:"确认管理层版本，可提高仓位或继续持有", why:"模型、需求和现金流三个争议同时被硬数据解决。"},
+      {if:"电商领先数据连续两个月下降，或Q3收入低于20.55亿美元、FCF/EBITDA低于60%", then:"减仓或回避，等待新的增长证据", why:"这会证伪模型时点和税务时点两项核心解释。"}
+    ],
+    triggers: ["8月下旬至9月的电商客户与新增像素数据。","财报跳空后5日、20日的价格结构。","Q3收入、消费垂直披露和FCF/EBITDA转换率。"],
+    invalidation: ["Q3再次低于公司指引下沿。","消费垂直与自助平台继续不披露可验证运营数据。","FCF转换没有按管理层承诺恢复。"],
+    timing: "中间验证看月度电商数据；最终裁决是下一季财报。老师参考页中的精确价格关卡必须在执行前用实时日线重算。",
+    risk: "APP波动很大；精确入场位、止损位和期权expected move不能沿用静态报告，必须使用当日价格与期权链。"
+  },
   metrics: [
     {label:"Q2收入", value:"19.24亿美元", sub:"+53% YoY；低于约19.5亿美元共识1.2%", tone:"miss", pct:62},
     {label:"GAAP EPS", value:"3.76美元", sub:"大致符合3.75美元共识；同比+57%", tone:"flat", pct:70},
@@ -6584,6 +6644,43 @@ function historyHtml(r){
   }).join("")+'</ul></div>';
 }
 
+function businessHtml(r){
+  const b = r.business;
+  if(!b){
+    return '<section class="business-card"><h4>这家公司在做什么？</h4><div class="business-kicker">用最白话的方式理解 '+esc(r.company||r.ticker||"这家公司")+' 的生意</div><div class="decision-empty">这条历史记录尚未补录白话商业模式。后续更新时必须先回答：卖什么、客户是谁、怎么赚钱、为什么难复制。</div></section>';
+  }
+  const items = [
+    ["怎么赚钱",b.howMakesMoney],
+    ["为什么难复制",b.moat],
+    ["这季发生了什么",b.whatChanged]
+  ].filter(x=>x[1]);
+  return '<section class="business-card"><h4>这家公司在做什么？</h4><div class="business-kicker">用最白话的方式理解 '+esc(r.company||r.ticker||"这家公司")+' 的生意</div><div class="business-lead">'+esc(b.plain||"")+'</div>'+
+    (items.length?'<div class="business-grid">'+items.map(x=>'<div class="business-item"><b>'+esc(x[0])+'</b>'+esc(x[1])+'</div>').join("")+'</div>':'')+'</section>';
+}
+
+function decisionHtml(r){
+  const d = r.decision;
+  if(!d){
+    return '<div class="decision-empty"><b>交易决策尚未补录</b><br>不能从财报分数自动推出买卖动作。需要先核验当前价格、财报后结构、下一催化剂和失效条件。</div>';
+  }
+  const rows = (d.playbook||[]).map(x=>'<div class="decision-row"><b>如果：'+esc(x.if||"")+'</b><strong>那么：'+esc(x.then||"")+'</strong><span>因为：'+esc(x.why||"")+'</span></div>').join("");
+  const triggers = (d.triggers||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
+  const invalidation = (d.invalidation||[]).map(x=>'<li>'+esc(x)+'</li>').join("");
+  return '<div class="decision-hero"><div class="decision-hero-top"><h4>当前交易判断</h4><span class="decision-stance">'+esc(d.stance||"等待确认")+'</span></div><p>'+esc(d.summary||"")+'</p></div>'+
+    (rows?'<section class="decision-section"><h4>证据 → 动作</h4>'+rows+'</section>':'')+
+    '<div class="decision-grid">'+
+      (triggers?'<section class="decision-section"><h4>未来催化与确认</h4><ul class="decision-list">'+triggers+'</ul></section>':'')+
+      (invalidation?'<section class="decision-section"><h4>失效条件与撤退</h4><ul class="decision-list">'+invalidation+'</ul></section>':'')+
+    '</div>'+
+    (d.timing?'<section class="decision-section"><h4>时间窗口</h4><div>'+esc(d.timing)+'</div></section>':'')+
+    (d.risk?'<div class="decision-note">执行提醒：'+esc(d.risk)+'</div>':'');
+}
+
+function detailPageHtml(r){
+  if(!r.detailPage) return "";
+  return '<div class="detail-page-link"><div><b>'+esc(r.ticker||"")+' 板块级完整分析</b>白话商业模式、深度研究、证据化交易决策与后续裁决集中在独立页面。</div><a href="'+esc(r.detailPage)+'">打开完整页面 →</a></div>';
+}
+
 function extendedHtml(r){
   const x = r.extended;
   if(!x) return "";
@@ -6712,6 +6809,12 @@ function render(){
     const fullReportHtml = reportHtml(r.report);
     const historyBlock = historyHtml(r);
     const extendedBlock = extendedHtml(r);
+    const businessBlock = businessHtml(r);
+    const decisionBlock = decisionHtml(r);
+    const detailPageBlock = detailPageHtml(r);
+    const researchBody = r.detailPage
+      ? businessBlock+dimsHtml+metricsHtml+historyBlock
+      : businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+fullReportHtml+sourcesHtml;
     return '<div class="record">'+
       '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
         '<span class="rec-arrow">▶</span>'+
@@ -6725,7 +6828,13 @@ function render(){
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
-        dimsHtml + metricsHtml + historyBlock + extendedBlock + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
+        detailPageBlock+
+        '<div class="record-mode-tabs" role="tablist" aria-label="研究与交易">'+
+          '<button type="button" class="record-mode-tab active" data-mode="research" role="tab" aria-selected="true"><b>研究分析</b><span>这家公司好不好</span></button>'+
+          '<button type="button" class="record-mode-tab" data-mode="decision" role="tab" aria-selected="false"><b>交易决策</b><span>什么证据该做什么</span></button>'+
+        '</div>'+
+        '<div class="record-pane active" data-pane="research">'+researchBody+'</div>'+
+        '<div class="record-pane" data-pane="decision">'+decisionBlock+'</div>'+
         '<button type="button" class="collapse-record">收起 ↑</button>'+
       '</div>'+
     '</div>';
@@ -6739,6 +6848,16 @@ function render(){
     };
     head.addEventListener("click",toggle);
     head.addEventListener("keydown",e=>{ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); toggle(); } });
+    card.querySelectorAll(".record-mode-tab").forEach(tab=>{
+      tab.addEventListener("click",()=>{
+        card.querySelectorAll(".record-mode-tab").forEach(x=>{
+          const active = x===tab;
+          x.classList.toggle("active",active);
+          x.setAttribute("aria-selected",active?"true":"false");
+        });
+        card.querySelectorAll(".record-pane").forEach(p=>p.classList.toggle("active",p.dataset.pane===tab.dataset.mode));
+      });
+    });
     card.querySelector(".collapse-record").addEventListener("click",()=>{
       card.classList.remove("open");
       head.setAttribute("aria-expanded","false");
