@@ -56,15 +56,24 @@ h1{font-size:26px;margin:0 0 4px}
 .dim b{font-size:15px;font-variant-numeric:tabular-nums}
 .dim .bar{height:5px;border-radius:999px;background:#e8ebef;margin-top:5px;overflow:hidden}
 .dim .bar i{display:block;height:100%;background:var(--blue)}
-.report-text{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;background:#fff;color:#172033;border:1px solid var(--line);border-radius:10px;padding:16px;max-height:520px;overflow:auto;margin:0 0 12px}
+.report-text{background:#fff;color:#172033;border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 12px}
+.report-text h3{font-size:15px;margin:18px 0 7px;color:#111827}.report-text h3:first-child{margin-top:0}
+.report-text p{font-size:13.5px;margin:7px 0;color:#172033}.report-text .one-line{font-weight:800;background:#f8fafc;border-left:3px solid var(--blue);padding:9px 11px;border-radius:0 8px 8px 0}
+.metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.metric-card{border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px 12px;min-width:0}
+.metric-card span{display:block;font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.metric-card b{display:block;margin-top:2px;font-size:19px;line-height:1.15;font-variant-numeric:tabular-nums;color:#111827;word-break:break-word}
+.metric-card em{display:block;margin-top:4px;font-style:normal;font-size:12px;color:var(--muted)}
+.metric-card.up b,.metric-card.beat b{color:var(--green)}.metric-card.down b,.metric-card.miss b{color:var(--red)}.metric-card.flat b{color:#334155}
+.metric-track{height:6px;border-radius:999px;background:#eef2f7;overflow:hidden;margin-top:8px}
+.metric-track i{display:block;height:100%;border-radius:999px;background:var(--blue);width:50%}
+.metric-card.up .metric-track i,.metric-card.beat .metric-track i{background:var(--green)}.metric-card.down .metric-track i,.metric-card.miss .metric-track i{background:var(--red)}
 .vic-notes{border-left:3px solid var(--amber);background:#faf6ee;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .vic-notes b{color:#8a5a00;font-size:12px;display:block;margin-bottom:3px}
 .outcome{border-left:3px solid var(--green);background:#f0f9f3;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .outcome b{color:var(--green);font-size:12px;display:block;margin-bottom:3px}
 .outcome.loss{border-left-color:var(--red);background:#fdf1f0}
 .outcome.loss b{color:var(--red)}
-.copy-btn{border:none;border-radius:8px;padding:7px 14px;font-size:12.5px;font-weight:700;cursor:pointer;background:#f1f3f5;color:var(--text)}
-.copy-btn:hover{background:#e8ebef}
 .insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
 .insight-box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff;font-size:13px}
 .insight-box h4{font-size:12px;margin:0 0 6px;color:#334155}
@@ -73,6 +82,8 @@ h1{font-size:26px;margin:0 0 4px}
 .source-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
 .source-link{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:#fff;color:#334155;text-decoration:none;font-size:12px;font-weight:700}
 .source-link:hover{border-color:#a9c8f5;color:var(--blue)}
+.footnotes{border-top:1px solid var(--line);margin:12px 0 0;padding:10px 0 0;color:var(--muted);font-size:11.5px}
+.footnotes ol{margin:4px 0 0;padding-left:18px}.footnotes li{margin:2px 0}.footnotes a{color:#475569;text-decoration:none}.footnotes a:hover{color:var(--blue);text-decoration:underline}
 .narrative-table{width:100%;border-collapse:collapse;font-size:13px}
 .narrative-table th,.narrative-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 .narrative-table th{font-size:12px;color:var(--muted);background:#f8fafc}
@@ -99,7 +110,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.narrative-table{display:none}}
+@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.narrative-table{display:none}}
 </style>
 </head>
 <body>
@@ -425,6 +436,14 @@ const RECORDS = [
   score: 94,
   rec: "resonance",
   dims: {quality: 39, marketread: 33, fundamentals: 22},
+  metrics: [
+    {label:"Q2收入", value:"35.8亿美元", sub:"+34% YoY，高于约34.5亿至34.6亿预期", tone:"beat", pct:88},
+    {label:"GMV", value:"约1156亿至1160亿美元", sub:"+32% YoY，高于市场预期", tone:"beat", pct:86},
+    {label:"调整后EPS", value:"0.42美元", sub:"高于约0.40美元预期", tone:"beat", pct:72},
+    {label:"自由现金流率", value:"约18.3%", sub:"高于约15.6%预期", tone:"beat", pct:76},
+    {label:"Q3收入指引", value:"低30%增长", sub:"高于约27%预期", tone:"up", pct:82},
+    {label:"市场反应", value:"+18%至+22%", sub:"增长轨迹重新获得确认", tone:"up", pct:90}
+  ],
   management_highlights: [
     "Q2收入35.8亿美元，同比+34%，高于市场约34.5亿至34.6亿美元预期；GMV约1156亿至1160亿美元，同比+32%，同样高于市场预期。",
     "调整后EPS 0.42美元，高于市场约0.40美元预期；自由现金流率约18.3%，高于市场约15.6%预期，说明增长没有牺牲现金质量。",
@@ -568,6 +587,14 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
   score: 72,
   rec: "doubt",
   dims: {quality: 29, marketread: 18, fundamentals: 25},
+  metrics: [
+    {label:"Q2收入", value:"约19.2亿美元", sub:"+53% YoY，略低于约19.4亿预期", tone:"miss", pct:62},
+    {label:"净利润", value:"约12.7亿美元", sub:"EPS约3.76美元，大致符合预期", tone:"flat", pct:70},
+    {label:"调整后EBITDA", value:"约16.0亿美元", sub:"低于公司指引和市场预期", tone:"miss", pct:58},
+    {label:"Q3收入指引", value:"20.6亿至20.9亿美元", sub:"略低于市场预期", tone:"miss", pct:60},
+    {label:"Q3 EBITDA指引", value:"17.1亿至17.4亿美元", sub:"低于市场预期", tone:"miss", pct:59},
+    {label:"市场反应", value:"-17%至-21%", sub:"AI模型timing被惩罚", tone:"down", pct:85}
+  ],
   management_highlights: [
     "Q2收入约19.2亿美元，同比+53%，略低于市场约19.4亿美元预期，也处在公司此前指引区间下端。",
     "净利润约12.7亿美元，EPS约3.76美元，大致符合市场预期；调整后EBITDA约16.0亿美元，低于公司此前指引和市场预期。",
@@ -709,6 +736,14 @@ APP这季告诉我们，AI应用公司不能只讲模型强，必须每个季度
   score: 86,
   rec: "doubt",
   dims: {quality: 38, marketread: 23, fundamentals: 25},
+  metrics: [
+    {label:"Fiscal Q4收入", value:"89.7亿美元", sub:"高于约84.8亿美元预期", tone:"beat", pct:84},
+    {label:"调整后EPS", value:"39.25美元", sub:"高于约34.96美元预期", tone:"beat", pct:82},
+    {label:"收入同比", value:"+372%", sub:"AI存储周期极强", tone:"up", pct:96},
+    {label:"Data Center收入", value:"约29.7亿至29.8亿美元", sub:"高于约27.4亿美元预期", tone:"beat", pct:78},
+    {label:"Consumer收入", value:"约5.56亿美元", sub:"低于约8.74亿美元预期", tone:"miss", pct:43},
+    {label:"Q1 FY2027收入指引", value:"103亿至108亿美元", sub:"中点略低于约108亿预期", tone:"miss", pct:61}
+  ],
   management_highlights: [
     "Fiscal Q4 2026收入89.7亿美元，高于市场约84.8亿美元预期；调整后EPS 39.25美元，高于市场约34.96美元预期。",
     "收入同比约+372%，调整后EPS同比大幅跃升，体现NAND/存储周期在AI数据中心需求推动下进入强上行阶段。",
@@ -6234,6 +6269,33 @@ function esc(s){
   return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 }
 
+function metricCards(r){
+  const rows = r.metrics || [];
+  if(!rows.length) return "";
+  return '<div class="metric-grid">'+rows.map(m=>{
+    const tone = m.tone || "flat";
+    const pct = Math.max(6,Math.min(100, Number(m.pct==null?50:m.pct)));
+    return '<div class="metric-card '+esc(tone)+'"><span>'+esc(m.label||"指标")+'</span><b>'+esc(m.value||"")+'</b><em>'+esc(m.sub||"")+'</em><div class="metric-track"><i style="width:'+pct+'%"></i></div></div>';
+  }).join("")+'</div>';
+}
+
+function reportHtml(text){
+  const blocks = String(text||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  if(!blocks.length) return "";
+  return '<div class="report-text">'+blocks.map((x,i)=>{
+    const isTitle = i===0 || /^[一二三四五六七八九十]+、/.test(x) || /^\\d+\\./.test(x) || /^(结论先说|一句话|综合分|类型|财报质量|市场解读|基本面深度)[:：]?$/.test(x);
+    if(isTitle) return '<h3>'+esc(x)+'</h3>';
+    if(/^一句话[:：]?$/.test(blocks[i-1]||"")) return '<p class="one-line">'+esc(x)+'</p>';
+    return '<p>'+esc(x)+'</p>';
+  }).join("")+'</div>';
+}
+
+function footnotesHtml(sources){
+  const rows = sources || [];
+  if(!rows.length) return "";
+  return '<div class="footnotes"><b>来源</b><ol>'+rows.map(s=>'<li><a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc((s.type? s.type+" · ":"")+(s.label||s.url||"打开"))+'</a></li>').join("")+'</ol></div>';
+}
+
 function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
 function sectorKey(r){ return r.sector || TICKER_SECTOR[r.ticker] || "other"; }
 function sectorLabel(r){ return SECTOR_META[sectorKey(r)] || SECTOR_META.other; }
@@ -6265,16 +6327,12 @@ function renderMergers(){
     ];
     const narrativeHtml = r.narrative
       ? '<div class="narrative-summary"><b>核心判断：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>交易逻辑</h4><div>'+esc(r.narrative.consensus||"")+'</div></div><div class="insight-box"><h4>主要障碍</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div><div class="insight-box"><h4>下一步验证</h4><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
-    const sourcesHtml = (r.sources||[]).length
-      ? '<div class="source-row">'+r.sources.map(s=>'<a class="source-link" href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||"打开")+'</a>').join("")+'</div>' : "";
+    const sourcesHtml = footnotesHtml(r.sources);
+    const fullReportHtml = reportHtml(r.report);
     return '<article class="merger-card"><div class="merger-top"><div class="merger-title"><h3>'+esc(r.ticker)+' · '+esc(m.target||r.company)+'</h3><p>'+esc(m.buyer||"")+'　更新：'+esc(r.date||"")+'</p></div><span class="deal-status">'+esc(m.stage||"持续跟踪")+'</span></div>'+
       '<div class="deal-grid">'+metrics.map(x=>'<div class="deal-metric"><span>'+esc(x[0])+'</span><b>'+esc(x[1]||"—")+'</b></div>').join("")+'</div><div class="merger-body">'+
-      narrativeHtml+'<details><summary>展开完整深入分析</summary>'+sourcesHtml+'<pre class="report-text">'+esc(r.report||"")+'</pre><button class="copy-btn merger-copy" type="button">复制报告文本</button></details></div></article>';
+      narrativeHtml+'<details><summary>展开完整深入分析</summary>'+fullReportHtml+sourcesHtml+'</details></div></article>';
   }).join("");
-  list.querySelectorAll(".merger-copy").forEach(btn=>btn.addEventListener("click",()=>{
-    const text = btn.closest("details").querySelector(".report-text").textContent;
-    navigator.clipboard.writeText(text).then(()=>{const old=btn.textContent;btn.textContent="已复制 ✓";setTimeout(()=>btn.textContent=old,1200);});
-  }));
 }
 
 function renderStats(){
@@ -6336,8 +6394,9 @@ function render(){
       ? '<div class="insight-box"><h4>🎙️ 业绩会 · 管理层发言重点</h4><ul>'+r.management_highlights.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
     const narrativeHtml = r.narrative
       ? '<div class="narrative-summary"><b>🧭 多信源叙事：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>共识与验证</h4><div>'+esc(r.narrative.consensus||"")+'</div><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div><div class="insight-box"><h4>分歧与反叙事</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div>' : "";
-    const sourcesHtml = (r.sources||[]).length
-      ? '<div class="source-row">'+r.sources.map(s=>'<a class="source-link" href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||"打开")+'</a>').join("")+'</div>' : "";
+    const metricsHtml = metricCards(r);
+    const sourcesHtml = footnotesHtml(r.sources);
+    const fullReportHtml = reportHtml(r.report);
     return '<div class="record">'+
       '<div class="record-head">'+
         '<span class="rec-arrow">▶</span>'+
@@ -6349,24 +6408,13 @@ function render(){
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
-        dimsHtml + managementHtml + narrativeHtml + sourcesHtml + notesHtml + outcomeHtml +
-        '<pre class="report-text">'+esc(r.report||"")+'</pre>'+
-        '<button class="copy-btn" type="button">复制报告文本</button>'+
+        dimsHtml + metricsHtml + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
       '</div>'+
     '</div>';
   }).join("");
 
   list.querySelectorAll(".record").forEach(card=>{
     card.querySelector(".record-head").addEventListener("click",()=>card.classList.toggle("open"));
-    card.querySelector(".copy-btn").addEventListener("click",e=>{
-      e.stopPropagation();
-      const text = card.querySelector(".report-text").textContent;
-      navigator.clipboard.writeText(text).then(()=>{
-        const b = e.target, old = b.textContent;
-        b.textContent = "已复制 ✓";
-        setTimeout(()=>{ b.textContent = old; }, 1200);
-      });
-    });
   });
 }
 
