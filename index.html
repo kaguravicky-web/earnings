@@ -20,11 +20,6 @@ h1{font-size:26px;margin:0 0 4px}
 .panel h2{font-size:16px;margin:0 0 10px}
 .hint{font-size:12.5px;color:var(--muted)}
 
-.statgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
-.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 8px 20px rgba(15,23,42,.04)}
-.stat span{display:block;color:var(--muted);font-size:12px;font-weight:800}
-.stat strong{display:block;margin-top:4px;font-size:22px;font-variant-numeric:tabular-nums}
-
 .toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
 .toolbar input[type=text]{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;font-family:inherit;width:200px}
 .sector-select{padding:8px 34px 8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#334155;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}
@@ -79,17 +74,20 @@ h1{font-size:26px;margin:0 0 4px}
 .insight-box h4{font-size:12px;margin:0 0 6px;color:#334155}
 .insight-box ul{margin:0;padding-left:18px}.insight-box li{margin:3px 0}
 .narrative-summary{border-left:3px solid var(--blue);background:#f5f9ff;padding:11px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px}
+.history-box{border:1px solid var(--line);border-radius:10px;background:#fbfcfe;padding:12px 14px;font-size:13px;margin:0 0 12px}
+.history-box h4{font-size:12px;margin:0 0 7px;color:#334155}.history-box ul{margin:0;padding-left:18px}.history-box li{margin:3px 0}
 .source-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 12px}
 .source-link{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:#fff;color:#334155;text-decoration:none;font-size:12px;font-weight:700}
 .source-link:hover{border-color:#a9c8f5;color:var(--blue)}
 .footnotes{border-top:1px solid var(--line);margin:12px 0 0;padding:10px 0 0;color:var(--muted);font-size:11.5px}
 .footnotes ol{margin:4px 0 0;padding-left:18px}.footnotes li{margin:2px 0}.footnotes a{color:#475569;text-decoration:none}.footnotes a:hover{color:var(--blue);text-decoration:underline}
-.narrative-table{width:100%;border-collapse:collapse;font-size:13px}
-.narrative-table th,.narrative-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.narrative-table th{font-size:12px;color:var(--muted);background:#f8fafc}
 .strength{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .narrative-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
+.narrative-card.high{background:#f2fbf5;border-color:#bfe8cb}
+.narrative-card.mid{background:#fbfdf7;border-color:#dcecc0}
 .narrative-card h3{font-size:16px;margin:0 0 6px}.narrative-card p{font-size:13px;margin:5px 0;color:#334155}
+.strength-pill{display:inline-flex;border-radius:999px;padding:3px 9px;background:#eef2f7;color:#334155;font-size:12px;font-weight:800}
+.narrative-card.high .strength-pill{background:#dcfce7;color:#166534}.narrative-card.mid .strength-pill{background:#ecfccb;color:#4d7c0f}
 .ticker-list{font-size:12px;color:var(--blue);font-weight:800}
 .merger-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(15,23,42,.04);margin-bottom:14px;overflow:hidden}
 .merger-top{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
@@ -110,7 +108,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.statgrid{grid-template-columns:repeat(2,1fr)}.dims,.insight-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.narrative-table{display:none}}
+@media(max-width:760px){.dims,.insight-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}}
 </style>
 </head>
 <body>
@@ -130,7 +128,6 @@ h1{font-size:26px;margin:0 0 4px}
 
 <!-- ============ TAB: RECORDS ============ -->
 <section id="tab-records">
-  <div class="statgrid" id="stats"></div>
   <div class="toolbar">
     <input type="text" id="search" placeholder="搜索 ticker / 公司 / 关键词…">
     <select id="sector-filter" class="sector-select" aria-label="按板块筛选">
@@ -157,7 +154,8 @@ h1{font-size:26px;margin:0 0 4px}
 <section id="tab-narratives" style="display:none">
   <div class="panel">
     <h2>当前市场叙事与主线</h2>
-    <p class="hint">综合财报、业绩会、X、采访和视频提炼。强度反映多信源共振与可验证性，不是交易信号。</p>
+    <p class="hint">综合财报、业绩会、X、采访和视频提炼。叙事强度不是看多/看空，而是衡量“这条主线是否被多家公司、多个数据点和市场价格共同验证”。</p>
+    <p class="hint">强度口径：9分以上 = 多家公司财报和价格同时确认；8分以上 = 有强证据但还需后续季度交叉验证；7分左右 = 正在形成但证据仍偏单点；低于7分 = 仅作为观察线索。</p>
   </div>
   <div id="narratives-list"></div>
 </section>
@@ -174,49 +172,60 @@ h1{font-size:26px;margin:0 0 4px}
 <!-- ============ TAB: FRAMEWORK ============ -->
 <section id="tab-framework" style="display:none">
 <div class="panel fw">
-  <h2>核心哲学</h2>
-  <pre>财报     = 滞后数据（告诉我们已经发生了什么）
-市场解读 = 领先信息（永远有人想到了我们没想到的，知道了我们不知道的）
-分析目标 = 读懂生意本身 + 从市场反应中还原我们缺失的那部分信息</pre>
+  <h2>评分框架</h2>
+  <pre>财报质量 = 业绩兑现度
+市场解读 = 股价与预期差消化
+叙事强度 = 是否能被多家公司、多信源反复验证
+总分     = 财报质量 + 市场解读 + 叙事强度，但会被估值与后续股价惩罚</pre>
   <ul>
-    <li>数字本身只是起点；数字与市场反应的<b>一致或分歧</b>才是最大的信息量</li>
-    <li>数字强但市场卖 → 最重要的警报：市场看到了我们没看到的东西，必须列出可能的原因</li>
-    <li>数字弱但市场买 → 坏消息早已定价，或市场在交易拐点预期</li>
-    <li>估值只在极端泡沫化时作为风险警示标注，不影响评分</li>
-    <li>每份分析必须回答："市场在告诉我们什么？下一个验证点是什么？"</li>
+    <li>以后打分更吝啬：90分以上只给“业绩、指引、叙事、股价反馈、跨公司验证”同时成立的报告。</li>
+    <li>单季 beat 不等于高分；如果只是市场预期太低、或一次性因素贡献，分数必须打折。</li>
+    <li>SanDisk 上一季只作为“财报质量”benchmark，不再作为综合 benchmark；综合 benchmark 更接近 ANET/SHOP 这种业绩、叙事、后续验证都能闭环的案例。</li>
+    <li>高 beta 个股如果只是在跟随主题交易，不能和核心龙头用同一套分数标准。</li>
+    <li>每份新财报都要回看上一季判断：哪些验证了，哪些失效，哪些需要降权。</li>
   </ul>
-  <p class="hint">本助手不做交易决策，不输出买卖建议、入场点、止损位、仓位计划。</p>
+  <p class="hint">目标不是把新闻改写成中文，而是建立一个能反复校验的“市场叙事数据库”。</p>
 
-  <h3>评分框架（满分100，衡量"财报综合成色"，不是买卖信号）</h3>
+  <h3>总分解释</h3>
   <table>
-    <thead><tr><th>维度</th><th>分值</th><th>要点</th></tr></thead>
+    <thead><tr><th>分数</th><th>含义</th><th>要求</th></tr></thead>
     <tbody>
-      <tr><td>📊 财报质量</td><td>40</td><td>对预期25（EPS8+营收7+指引10，miss=0分⚠️）+ 历史惊喜对比10（扩大&gt;50%满分，连续两季收窄0分再扣2，连续三季收窄→🔻恶化确认）+ 盈利质量5（毛利率方向/FCF匹配/剔除一次性项目）</td></tr>
-      <tr><td>🧠 市场解读</td><td>35</td><td>价格反应12（核心是反应与数字是否<b>相称</b>，大beat遇冷=最大警报）+ 持续性8 + 成交量确认5 + 聪明钱信号10（分析师修正/IV结构/机构暗池/同行read-through）</td></tr>
-      <tr><td>🔍 基本面深度</td><td>25</td><td>核心驱动可持续性8 + Backlog能见度6 + 管理层语气5 + 竞争格局与份额6</td></tr>
+      <tr><td>90+</td><td>稀缺强确认</td><td>业绩、指引、管理层发言、股价反馈、产业链 read-through 同时站住。</td></tr>
+      <tr><td>80-89</td><td>优秀但仍需验证</td><td>核心指标强，但估值、单点证据或后续价格反馈仍有扣分项。</td></tr>
+      <tr><td>70-79</td><td>方向积极</td><td>财报不差，叙事有苗头，但还没有形成强主线。</td></tr>
+      <tr><td>60-69</td><td>普通/分歧</td><td>headline 可以，但质量、持续性或市场接受度不足。</td></tr>
+      <tr><td>60以下</td><td>风险优先</td><td>核心指标或叙事被财报削弱，需要优先防守。</td></tr>
     </tbody>
   </table>
 
-  <h3>解读结论（四象限，代替旧的操作建议）</h3>
+  <h3>权重</h3>
   <table>
-    <thead><tr><th>数字</th><th>市场反应</th><th>结论</th><th>含义</th></tr></thead>
+    <thead><tr><th>维度</th><th>权重</th><th>说明</th></tr></thead>
     <tbody>
-      <tr><td>强</td><td>买账</td><td>✅ 共振确认</td><td>数字与解读一致，生意在变好且市场认可</td></tr>
-      <tr><td>强</td><td>卖</td><td>⚠️ 市场存疑</td><td><b>最重要的警报</b>：有人看到了我们没看到的，必须给出假设清单</td></tr>
-      <tr><td>弱</td><td>买账</td><td>🔄 预期重定价</td><td>坏消息已定价或市场交易拐点，分析"市场在期待什么"</td></tr>
-      <tr><td>弱</td><td>卖</td><td>🔻 恶化确认</td><td>数字与解读一致，生意在变坏</td></tr>
+      <tr><td>财报质量</td><td>40</td><td>收入、EPS、利润率、FCF、订单、backlog、指引；SNDK 这类强财报可作为该维度参照。</td></tr>
+      <tr><td>市场解读</td><td>35</td><td>盘后/次日股价、卖方预期修正、估值约束、是否出现“利好兑现”。</td></tr>
+      <tr><td>叙事强度</td><td>25</td><td>是否能被同行财报、电话会、X、采访、产业链价格反复验证。</td></tr>
     </tbody>
   </table>
 
-  <h3>红旗标注（不扣分，仅标注）</h3>
-  <ul>
-    <li>P/S&gt;50x 或 Forward PE&gt;200x：⚠️估值极度泡沫化</li>
-    <li>内部人90天卖出&gt;买入10倍且股价历史高位：🚩</li>
-    <li>证券诉讼/监管调查进行中：🚩</li>
-    <li>单季FCF深度为负且债务&gt;市值：🚩</li>
-  </ul>
+  <h3>叙事强度标准</h3>
+  <table>
+    <thead><tr><th>强度</th><th>判断标准</th></tr></thead>
+    <tbody>
+      <tr><td>9分以上</td><td>至少两家核心公司财报验证，且股价/估值/订单或客户预算同时确认。</td></tr>
+      <tr><td>8-8.9分</td><td>证据很强，但仍集中在少数公司、少数数据点或单一季度。</td></tr>
+      <tr><td>7-7.9分</td><td>方向正在形成，需要下一季财报或更多公司交叉验证。</td></tr>
+      <tr><td>7分以下</td><td>作为观察线索，不进入核心主线。</td></tr>
+    </tbody>
+  </table>
 
-  <p class="hint">完整规则见仓库中的 <code>prompts/系统提示词_v2_基本面分析版.md</code>。在对话中提出“XXX 财报出了”后，助手会核实发布时间、财报数据和市场反应，再按此框架分析并归档。</p>
+  <h3>扣分项</h3>
+  <ul>
+    <li>财报好但股价连续走弱，综合分要下调，不能只看业绩本身。</li>
+    <li>P/S&gt;50x 或 Forward PE&gt;200x 的股票，必须证明成长还在加速，普通 beat and raise 不够。</li>
+    <li>靠 capex、价格周期或短期订单拉动的公司，要特别检查持续性。</li>
+    <li>上一季预测落空的主题，下一次必须降权，直到重新被数据验证。</li>
+  </ul>
 </div>
 </section>
 
@@ -6296,6 +6305,28 @@ function footnotesHtml(sources){
   return '<div class="footnotes"><b>来源</b><ol>'+rows.map(s=>'<li><a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc((s.type? s.type+" · ":"")+(s.label||s.url||"打开"))+'</a></li>').join("")+'</ol></div>';
 }
 
+function strengthClass(n){
+  const v = parseFloat(String(n.strength||"").replace(/[^\d.]/g,""));
+  if(v>=8.8) return "high";
+  if(v>=8) return "mid";
+  return "";
+}
+
+function historyHtml(r){
+  if(!r.ticker || r.type!=="earnings") return "";
+  const rows = RECORDS
+    .filter(x=>x!==r && x.type==="earnings" && x.ticker===r.ticker)
+    .sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+  if(!rows.length){
+    return '<div class="history-box"><h4>同公司季度复盘</h4><div class="hint">这是当前库里第一条 '+esc(r.ticker)+' 财报记录。下一季会自动把本次判断放在这里对照，检查预测是否被验证。</div></div>';
+  }
+  return '<div class="history-box"><h4>同公司季度复盘</h4><ul>'+rows.map(x=>{
+    const meta = REC_META[recKey(x)] || REC_META.doubt;
+    const result = x.outcome && x.outcome.trim() ? "；复盘："+x.outcome.trim() : "；尚未复盘";
+    return '<li>'+esc(x.date||"")+' · '+esc(x.ticker||"")+' · '+esc(x.score!=null?x.score+"/100":"未评分")+' · '+esc(meta.label)+esc(result)+'</li>';
+  }).join("")+'</ul></div>';
+}
+
 function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
 function sectorKey(r){ return r.sector || TICKER_SECTOR[r.ticker] || "other"; }
 function sectorLabel(r){ return SECTOR_META[sectorKey(r)] || SECTOR_META.other; }
@@ -6307,10 +6338,7 @@ function renderNarratives(){
     return;
   }
   const rows = NARRATIVES.slice().sort((a,b)=>(a.rank||99)-(b.rank||99));
-  list.innerHTML = '<div class="panel"><table class="narrative-table"><thead><tr><th>排名</th><th>主题</th><th>当前强度</th><th>时间维度</th><th>相关公司</th></tr></thead><tbody>'+
-    rows.map(n=>'<tr><td>'+esc(n.rank)+'</td><td><b>'+esc(n.theme)+'</b><br><span class="hint">'+esc(n.direction||"")+'</span></td><td class="strength">'+esc(n.strength)+'</td><td>'+esc(n.horizon)+'</td><td>'+esc((n.tickers||[]).join(" · "))+'</td></tr>').join("")+
-    '</tbody></table></div>'+
-    rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　'+esc(n.strength)+'　'+esc(n.horizon)+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+((n.sources||[]).length?'<div class="source-row">'+n.sources.map(s=>'<a class="source-link" href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.type||"来源")+' · '+esc(s.label||s.url)+'</a>').join("")+'</div>':"")+'</div>').join("");
+  list.innerHTML = rows.map(n=>'<div class="narrative-card '+strengthClass(n)+'"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+footnotesHtml(n.sources)+'</div>').join("");
 }
 
 function renderMergers(){
@@ -6336,11 +6364,13 @@ function renderMergers(){
 }
 
 function renderStats(){
+  const stats = document.getElementById("stats");
+  if(!stats) return;
   const earnings = RECORDS.filter(r=>r.type==="earnings");
   const avg = earnings.length ? (earnings.reduce((s,r)=>s+(r.score||0),0)/earnings.length) : null;
   const doubtCount = earnings.filter(r=>r.rec==="doubt").length;
   const withOutcome = RECORDS.filter(r=>r.outcome && r.outcome.trim());
-  document.getElementById("stats").innerHTML =
+  stats.innerHTML =
     '<div class="stat"><span>分析总数</span><strong>'+RECORDS.filter(r=>r.type!=="merger").length+'</strong></div>'+
     '<div class="stat"><span>财报评分均值</span><strong>'+(avg==null?"—":avg.toFixed(1))+'</strong></div>'+
     '<div class="stat"><span>⚠️ 市场存疑次数</span><strong>'+doubtCount+'</strong></div>'+
@@ -6397,6 +6427,7 @@ function render(){
     const metricsHtml = metricCards(r);
     const sourcesHtml = footnotesHtml(r.sources);
     const fullReportHtml = reportHtml(r.report);
+    const historyBlock = historyHtml(r);
     return '<div class="record">'+
       '<div class="record-head">'+
         '<span class="rec-arrow">▶</span>'+
@@ -6408,7 +6439,7 @@ function render(){
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
-        dimsHtml + metricsHtml + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
+        dimsHtml + metricsHtml + historyBlock + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
       '</div>'+
     '</div>';
   }).join("");
