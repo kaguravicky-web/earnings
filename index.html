@@ -242,9 +242,9 @@ const NARRATIVES = [
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","AMD","ANET","ALAB","BE"],
+    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","AMD","ANET","ALAB","BE"],
     thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
     disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
@@ -351,6 +351,22 @@ const NARRATIVES = [
   },
   {
     rank: 8,
+    theme: "AI应用层开始分化：交易转化胜过模型故事",
+    strength: "8/10",
+    horizon: "当前至未来数季",
+    direction: "分化加剧",
+    tickers: ["SHOP","APP","META","GOOG","CRM","ADBE"],
+    thesis: "市场正在区分AI应用层的质量：能把AI直接转化为GMV、广告ROI、订单、现金流和清晰指引的公司会被奖励；只讲模型效率但季度节奏失误的公司会被惩罚。",
+    evidence: "SHOP Q2收入+34%、GMV+32%、自由现金流率超预期，且管理层称AI带来的traffic和orders约增长三倍，股价大涨；APP收入仍+53%、利润率仍高，但AI模型改进timing拖累Q2和Q3指引，股价盘后大跌。两者共同说明市场不是反AI应用，而是要求AI应用有稳定、可验证的商业转化。",
+    disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
+    sources: [
+      {type:"市场反应", label:"WSJ：Shopify revenue acceleration as AI tools drive results", url:"https://www.wsj.com/business/earnings/shopify-profit-jumps-as-subscriptions-merchant-services-boost-revenues-73693ff6"},
+      {type:"市场反应", label:"WSJ：AppLovin says Q2 fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
+      {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"}
+    ]
+  },
+  {
+    rank: 9,
     theme: "SaaS与咨询预算被基础设施挤出",
     strength: "7.5/10负面",
     horizon: "当前至未来数季",
@@ -365,7 +381,7 @@ const NARRATIVES = [
     ]
   },
   {
-    rank: 9,
+    rank: 10,
     theme: "国防与关键基础设施AI",
     strength: "8/10",
     horizon: "长期",
@@ -381,7 +397,7 @@ const NARRATIVES = [
     ]
   },
   {
-    rank: 10,
+    rank: 11,
     theme: "医疗成本挤压保险利润率",
     strength: "8/10负面",
     horizon: "当前至2027",
@@ -400,6 +416,440 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-05",
+  ticker: "SHOP",
+  company: "Shopify",
+  sector: "consumer",
+  score: 94,
+  rec: "resonance",
+  dims: {quality: 39, marketread: 33, fundamentals: 22},
+  management_highlights: [
+    "Q2收入35.8亿美元，同比+34%，高于市场约34.5亿至34.6亿美元预期；GMV约1156亿至1160亿美元，同比+32%，同样高于市场预期。",
+    "调整后EPS 0.42美元，高于市场约0.40美元预期；自由现金流率约18.3%，高于市场约15.6%预期，说明增长没有牺牲现金质量。",
+    "Subscription Solutions收入约8.02亿美元，Merchant Solutions收入约27.8亿美元；商户服务继续成为交易规模扩张的主要承接层。",
+    "Q3收入指引为低30%增长，高于市场约27%预期；公司还预计毛利润继续改善，自由现金流率保持健康。",
+    "管理层强调AI工具正在帮助小商户获得更多流量和订单，AI引发的traffic和orders约增长三倍；这缓解了市场此前担心AI工具会挤压服务需求的疑虑。",
+    "市场反应非常积极，股价大涨约18%至22%。这是一份数字、指引、现金流和叙事同时获得确认的财报。"
+  ],
+  narrative: {
+    summary: "SHOP本季是消费互联网/商户软件里很干净的共振确认。市场原本担心电商增长放缓、AI工具降低服务需求、利润率受投资拖累；这份财报用GMV +32%、收入 +34%、自由现金流率超预期和Q3强指引逐一回应。",
+    consensus: "多头逻辑是Shopify已经从单纯建站工具升级为商户操作系统：支付、物流、营销、POS、B2B、国际化和AI工具一起提高商户转化和GMV。AI在这里不是替代Shopify，而是提高商户经营效率、放大平台交易规模。",
+    divergence: "主要分歧在估值和宏观消费。如果消费者支出放缓、商户倒闭率上升、take rate承压，SHOP的高增长估值会受压。但本季市场更愿意相信它的增长轨迹重新加速。",
+    signals: [
+      "Q3收入是否继续保持低30%增长，而不是回落到20%区间。",
+      "GMV增速能否继续跑赢整体电商行业。",
+      "自由现金流率是否保持双位数并接近高 teens。",
+      "AI工具带来的traffic和orders是否能持续转化为Merchant Solutions收入。",
+      "如果SHOP继续强，而CRM/NOW等SaaS偏弱，说明AI应用层会进一步分化。"
+    ]
+  },
+  sources: [
+    {type:"公司公告", label:"Shopify Q2 2026 financial advisory", url:"https://www.shopify.com/news/shopify-q2-2026-financial-advisory"},
+    {type:"公司IR", label:"Shopify investor events", url:"https://www.shopify.com/investors/events"},
+    {type:"市场反应", label:"WSJ: Shopify revenue acceleration and AI tools", url:"https://www.wsj.com/business/earnings/shopify-profit-jumps-as-subscriptions-merchant-services-boost-revenues-73693ff6"},
+    {type:"市场反应", label:"MarketWatch: Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"},
+    {type:"市场反应", label:"Investopedia: Shopify stock soars after monster quarter", url:"https://www.investopedia.com/market-update-shopify-stock-soars-after-monster-quarter-shop-12034397"}
+  ],
+  report: `【SHOP · Shopify】2026 Q2财报与AI commerce叙事验证 · 2026-08-05
+
+结论先说：
+SHOP这份财报是非常干净的共振确认。
+
+它回应了市场之前最担心的三件事：
+
+电商增长会不会放缓；
+
+AI工具会不会挤压软件服务需求；
+
+增长会不会靠牺牲现金流换来。
+
+答案都偏正面。GMV、收入、指引和自由现金流率一起超预期，股价大涨也说明市场愿意重新给增长确定性溢价。
+
+一、核心数字
+
+Q2收入35.8亿美元，同比+34%，高于市场约34.5亿至34.6亿美元预期。
+
+GMV约1156亿至1160亿美元，同比+32%，高于市场约1120亿美元预期。
+
+调整后EPS 0.42美元，高于市场约0.40美元预期。
+
+Subscription Solutions收入约8.02亿美元。
+
+Merchant Solutions收入约27.8亿美元。
+
+自由现金流率约18.3%，高于市场约15.6%预期。
+
+Q3收入指引为低30%增长，高于市场约27%预期。
+
+这不是单点beat，而是增长、交易规模、盈利质量和下一季指引同时强。
+
+二、管理层重点
+
+SHOP这季最重要的管理层信息是：AI工具没有削弱Shopify的价值，反而帮助商户获得更多traffic和orders。
+
+这点很关键。
+
+市场对软件公司的一个大担忧是：AI会不会把软件功能商品化？商户会不会少买工具、少用服务？
+
+SHOP给出的答案是另一种路径：
+
+AI帮助小商户生成内容、优化商品、提高转化；
+
+更多流量和订单进入Shopify生态；
+
+GMV增长带动Merchant Solutions收入；
+
+平台不是被AI替代，而是把AI变成商户操作系统的一部分。
+
+三、为什么市场反应这么积极？
+
+1. 增长没有放缓，反而再加速
+
+收入+34%、GMV+32%，说明Shopify仍在拿份额，而且不是只靠价格或一次性因素。
+
+2. 指引强
+
+Q3收入低30%增长，明显高于市场预期。这让投资者相信Q2不是孤立强季。
+
+3. 现金流质量好
+
+自由现金流率约18.3%，高于预期。对高成长软件/平台公司来说，市场现在非常在意“增长是不是烧出来的”。SHOP这季不是。
+
+4. AI叙事被正向验证
+
+AI对SHOP不是成本中心，也不是替代风险，而是商户增长工具。这和APP、META那类AI广告效率叙事有相通之处，但SHOP更偏commerce operating system。
+
+四、风险
+
+1. 消费环境
+
+如果美国和全球消费放缓，GMV增长会受压。
+
+2. 估值
+
+股价大涨后，市场会要求Q3继续兑现低30%增长。
+
+3. Take rate和竞争
+
+支付、物流、广告和商户服务竞争激烈，Amazon、TikTok Shop、Stripe和各类垂直平台都会影响商户预算分配。
+
+五、评分
+
+财报质量：39/40
+
+收入、GMV、EPS、自由现金流率和指引都强。扣1分是因为仍要观察宏观消费和take rate持续性。
+
+市场解读：33/35
+
+股价大涨，和数字高度一致。扣分只因为涨后预期门槛明显提高。
+
+基本面深度：22/25
+
+Shopify的平台位置清晰，AI工具正在强化商户操作系统叙事，但消费周期仍是外部变量。
+
+综合分：94/100
+
+类型：共振确认
+
+一句话：
+
+SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、订单、GMV和自由现金流。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-05",
+  ticker: "APP",
+  company: "AppLovin",
+  sector: "tech",
+  score: 72,
+  rec: "doubt",
+  dims: {quality: 29, marketread: 18, fundamentals: 25},
+  management_highlights: [
+    "Q2收入约19.2亿美元，同比+53%，略低于市场约19.4亿美元预期，也处在公司此前指引区间下端。",
+    "净利润约12.7亿美元，EPS约3.76美元，大致符合市场预期；调整后EBITDA约16.0亿美元，低于公司此前指引和市场预期。",
+    "Q3收入指引约20.6亿至20.9亿美元，调整后EBITDA约17.1亿至17.4亿美元，均略低于市场预期。",
+    "CEO Adam Foroughi承认Q2低于公司内部标准，主要因为AI模型改进推出节奏和timing问题，而不是广告主需求突然恶化。",
+    "管理层表示广告主需求仍强，当前季度开局良好；这保留了APP作为AI广告效率平台的长期叙事。",
+    "市场反应非常负面，盘后下跌约17%至21%。高估值AI广告平台一旦收入/EBITDA和指引不够完美，会被迅速惩罚。"
+  ],
+  narrative: {
+    summary: "APP本季不是业务崩坏，而是高预期资产的节奏失误。收入仍+53%、利润率仍极高，但Q2落在指引低端、EBITDA不达预期、Q3指引偏软，市场立刻从“AI广告效率平台”切到“模型迭代不确定性和增长降速”。",
+    consensus: "多头逻辑仍在：APP的AI广告引擎能提高广告投放效率，把模型优化转化为广告主ROI和平台EBITDA，利润率远高于多数互联网平台。只要模型迭代重新加速，增长可能恢复。",
+    divergence: "反叙事是APP太依赖AI模型迭代节奏，且市场预期过高；一旦Axon/广告模型改善推迟，就会同时影响收入、EBITDA和指引。监管、广告客户集中和竞争也会放大估值波动。",
+    signals: [
+      "Q3收入是否能靠近20.9亿美元上端，而不是落在区间下沿。",
+      "调整后EBITDA率能否重新稳定在80%以上。",
+      "管理层提到的AI模型改进是否在下季度转化为广告主预算和收入加速。",
+      "如果APP继续弱而SHOP/META强，说明市场更偏好AI应用中可见交易和现金流，而不是黑箱模型效率。"
+    ]
+  },
+  sources: [
+    {type:"公司IR", label:"AppLovin quarterly results", url:"https://investors.applovin.com/financials/quarterly-results/default.aspx"},
+    {type:"业绩会", label:"AppLovin Q2 2026 results event notice", url:"https://investors.applovin.com/news/news-details/2026/AppLovin-to-Announce-Second-Quarter-2026-Results/default.aspx"},
+    {type:"市场反应", label:"WSJ: AppLovin Q2 results fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
+    {type:"市场反应", label:"Barron's: AppLovin stock sinks on soft earnings", url:"https://www.barrons.com/articles/applovin-earnings-stock-price-eaafd6d3"}
+  ],
+  report: `【APP · AppLovin】2026 Q2财报与AI广告平台节奏风险 · 2026-08-05
+
+结论先说：
+APP这份财报不是差公司财报，而是高预期AI广告平台的节奏失误。
+
+收入仍然同比增长53%，利润仍然很高，但市场最在乎的是：
+
+Q2落在指引低端；
+
+调整后EBITDA低于预期；
+
+Q3指引略低于市场；
+
+管理层承认AI模型改进推出节奏不理想。
+
+所以它归为“市场存疑”。
+
+一、核心数字
+
+Q2收入约19.2亿美元，同比+53%，略低于市场约19.4亿美元预期。
+
+净利润约12.7亿美元。
+
+EPS约3.76美元，大致符合市场预期。
+
+调整后EBITDA约16.0亿美元，低于此前指引和市场预期。
+
+Q3收入指引约20.6亿至20.9亿美元。
+
+Q3调整后EBITDA指引约17.1亿至17.4亿美元。
+
+这组数字的问题不是绝对弱，而是不够完美。
+
+对APP这种高估值、高利润率、高AI预期资产来说，“略低于预期”就足够触发大跌。
+
+二、管理层重点
+
+CEO Adam Foroughi承认，Q2结果低于公司内部标准，核心原因是AI模型改进的timing问题。
+
+这句话很重要。
+
+如果问题是广告主需求突然恶化，那会伤及基本面。
+
+但管理层说广告主需求仍强，当前季度开局良好，问题主要出在模型改进推出节奏和转化 timing。
+
+这意味着长期叙事还没被推翻，但短期可预测性下降。
+
+三、为什么市场反应这么差？
+
+1. APP的预期太高
+
+市场买APP，是因为它像AI广告效率机器：模型越强，广告主ROI越好，收入和EBITDA越高。
+
+一旦模型迭代不顺，市场会立刻质疑增长斜率。
+
+2. EBITDA没达到预期
+
+APP的估值基础很大程度来自极高利润率。收入小miss还可以解释，EBITDA不够强会让市场更敏感。
+
+3. Q3指引偏软
+
+如果公司说Q2只是timing问题，市场希望Q3明显补回来。但Q3指引没有给出足够惊喜。
+
+4. AI广告叙事开始分化
+
+META和SHOP都用AI证明了广告/商户转化效率，而APP这季反而暴露模型迭代节奏问题。市场会把AI应用层公司重新分层。
+
+四、正面仍在吗？
+
+还在。
+
+收入+53%；
+
+利润率极高；
+
+广告主需求没有明显恶化；
+
+公司仍有AI模型优化空间；
+
+如果Q3/Q4模型改进兑现，市场可能重新接受它。
+
+但当前最重要的问题是：APP必须重新证明增长斜率和模型迭代节奏。
+
+五、评分
+
+财报质量：29/40
+
+增长仍强，但收入、EBITDA和指引都没有达到高预期，且管理层承认执行 timing 问题。
+
+市场解读：18/35
+
+盘后大跌，说明市场明显不满意。
+
+基本面深度：25/25
+
+APP的AI广告平台护城河和盈利能力仍强，问题是节奏和估值。
+
+综合分：72/100
+
+类型：市场存疑
+
+一句话：
+
+APP这季告诉我们，AI应用公司不能只讲模型强，必须每个季度把模型改进稳定翻译成收入、EBITDA和指引。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-05",
+  ticker: "SNDK",
+  company: "SanDisk",
+  sector: "semis",
+  score: 86,
+  rec: "doubt",
+  dims: {quality: 38, marketread: 23, fundamentals: 25},
+  management_highlights: [
+    "Fiscal Q4 2026收入89.7亿美元，高于市场约84.8亿美元预期；调整后EPS 39.25美元，高于市场约34.96美元预期。",
+    "收入同比约+372%，调整后EPS同比大幅跃升，体现NAND/存储周期在AI数据中心需求推动下进入强上行阶段。",
+    "Data Center收入约29.7亿至29.8亿美元，高于市场约27.4亿美元预期；Edge收入约54.3亿美元，Consumer收入约5.56亿美元，Consumer明显低于市场约8.74亿美元预期。",
+    "毛利率约84.6%，处于极高水平；公司强调目标是构建更耐久的自由现金流，并降低行业周期性。",
+    "下季度收入指引103亿至108亿美元，中点约105.5亿美元，略低于市场约108亿美元附近预期；调整后EPS指引44至46美元，大致接近市场预期。",
+    "公司过去六个月签署10项客户供应协议，预期收入总额约933亿美元；这提高了数据中心需求可见度，但也抬高了市场对持续beat的要求。",
+    "股价盘后下跌约5%，原因不是本季差，而是股价年内已大涨、指引没继续大幅上修、Consumer端疲弱。"
+  ],
+  narrative: {
+    summary: "SNDK本季验证AI存储和NAND周期非常强，但市场没有继续奖励，因为预期已经极高。数据中心和Edge需求强、毛利率极高、客户供应协议提高可见度；但Q1 FY2027指引只接近预期、Consumer疲弱，导致股价回落。",
+    consensus: "多头逻辑是AI数据中心需要高性能存储和NAND，供应扩张有限，多年期客户协议锁定需求，SanDisk正在从强周期公司变成更有可见度的AI存储供应商。",
+    divergence: "反叙事是存储行业终究有周期性，当前毛利率和EPS可能处于上行甜蜜点；如果新增产能、价格、Consumer疲弱或客户库存变化出现拐点，估值会快速压缩。",
+    signals: [
+      "Q1 FY2027收入能否突破108亿美元上沿，而不是只落在中点。",
+      "Data Center收入是否继续环比增长，并抵消Consumer疲弱。",
+      "毛利率是否能维持80%以上，而不是因价格和产品组合回落。",
+      "客户供应协议是否继续增加，且变成可见的长期现金流。",
+      "如果SNDK、MU、WDC、SK Hynix同步走弱，要警惕存储周期预期见顶。"
+    ]
+  },
+  sources: [
+    {type:"公司IR", label:"SanDisk news releases", url:"https://investor.sandisk.com/news-events/news-releases"},
+    {type:"公司公告", label:"SanDisk fiscal Q4 2026 event notice", url:"https://investor.sandisk.com/news-events/news-releases"},
+    {type:"市场反应", label:"IBD: Sandisk beats fiscal Q4 targets but gives in-line outlook", url:"https://www.investors.com/news/technology/sandisk-stock-sndk-fiscal-q4-2026-earnings/"},
+    {type:"市场反应", label:"MarketWatch: Sandisk forecast doesn't live up to high expectations", url:"https://www.marketwatch.com/story/sandisks-stock-falls-as-the-companys-forecast-doesnt-live-up-to-high-expectations-8fd13d9b"},
+    {type:"市场反应", label:"Barron's: Sandisk earnings soar but stock drops", url:"https://www.barrons.com/articles/sandisk-earnings-stock-price-3eb4ce48"}
+  ],
+  report: `【SNDK · SanDisk】Fiscal Q4 2026财报与AI存储周期分析 · 2026-08-05
+
+结论先说：
+SNDK这份财报非常强，但股价下跌，所以归为“市场存疑”。
+
+这不是基本面差，而是高预期周期股的典型反应：
+
+本季大超预期；
+
+但下一季指引没有继续大幅超预期；
+
+Consumer端疲弱；
+
+股价此前已经大涨太多。
+
+一、核心数字
+
+Fiscal Q4 2026收入89.7亿美元，高于市场约84.8亿美元预期。
+
+调整后EPS 39.25美元，高于市场约34.96美元预期。
+
+收入同比约+372%。
+
+Data Center收入约29.7亿至29.8亿美元，高于市场约27.4亿美元预期。
+
+Edge收入约54.3亿美元。
+
+Consumer收入约5.56亿美元，明显低于市场约8.74亿美元预期。
+
+毛利率约84.6%。
+
+下一季收入指引103亿至108亿美元，中点约105.5亿美元。
+
+调整后EPS指引44至46美元。
+
+二、管理层重点
+
+CEO David Goeckeler强调，公司正在构建更耐久的自由现金流，并试图降低存储行业的周期性。
+
+这句话很重要。
+
+SanDisk历史上是强周期公司，市场常常在高景气时担心“这就是顶部”。现在公司想告诉市场：
+
+AI数据中心需求更长期；
+
+客户供应协议提高可见度；
+
+供应扩张受到约束；
+
+产品组合更偏高价值数据中心和Edge。
+
+公司还提到过去六个月签署10项客户供应协议，预期收入总额约933亿美元。这是很强的需求可见度信号。
+
+三、为什么股价还跌？
+
+1. 指引没有继续明显超预期
+
+Q1 FY2027收入指引中点约105.5亿美元，市场预期约108亿美元附近。对普通公司这不差，但对年内大涨的SNDK来说不够。
+
+2. Consumer疲弱
+
+Consumer收入5.56亿美元，明显低于市场预期。数据中心很强，但消费端疲弱提醒市场：这仍然不是完全无周期的业务。
+
+3. 估值和涨幅已经很极端
+
+SNDK年内已经大涨数倍，市场要求它每一季都显著beat and raise。一旦只是“强但不更强”，股价就会回落。
+
+4. 存储周期顶部担忧
+
+NAND和存储价格正在AI需求推动下上行，但市场会提前问：供应什么时候回来？客户库存什么时候正常化？毛利率还能不能维持80%以上？
+
+四、和AI主线的关系
+
+SNDK是AI基础设施从GPU扩散到存储层的强验证。
+
+AI训练和推理不只需要计算，也需要：
+
+高容量存储；
+
+高吞吐数据读取；
+
+边缘端和数据中心之间的数据流；
+
+低功耗、高密度NAND；
+
+长期客户供应协议。
+
+这和TSM、ASML、AMD、ANET、BE属于同一条“AI物理基础设施扩散”主线。
+
+五、评分
+
+财报质量：38/40
+
+收入、EPS、数据中心、毛利率都强。扣分是因为Consumer明显低于预期，且指引没有继续大幅超市场。
+
+市场解读：23/35
+
+股价下跌说明市场对高预期不满足。不是业务转坏，而是预期太满。
+
+基本面深度：25/25
+
+AI存储需求、供应协议、毛利率和现金流叙事都很强。
+
+综合分：86/100
+
+类型：市场存疑
+
+一句话：
+
+SNDK证明AI存储周期非常强，但市场已经不奖励“强”，只奖励“继续更强”。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-04",
@@ -5741,13 +6191,13 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  ANET:"tech", CLS:"tech", APLD:"tech",
+  APP:"tech", ANET:"tech", CLS:"tech", APLD:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
-  ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
+  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", TRV:"financials",
-  TSLA:"consumer", NFLX:"consumer",
+  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer",
   CLF:"materials"
 };
 const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
