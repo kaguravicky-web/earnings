@@ -13,16 +13,18 @@ header{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radi
 .eyebrow{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 h1{font-size:26px;margin:0 0 4px}
 .sub{color:var(--muted);font-size:13px}
-.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-.tab-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-size:13.5px;font-weight:700;cursor:pointer;color:var(--muted)}
-.tab-btn.active{background:var(--text);color:#fff;border-color:var(--text)}
+.tabs{display:flex;gap:4px;margin-top:16px;padding:8px 10px;background:#fff;border:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex:0 0 auto;border:1px solid #dfe3e8;background:#f7f8fa;border-radius:8px 8px 3px 3px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;color:#475569;white-space:nowrap}
+.tab-btn.active{background:#eef5ff;color:#185fa8;border-color:#b9d4f5;box-shadow:inset 0 -2px 0 #4b8fd8}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(15,23,42,.04);padding:18px 20px;margin-bottom:14px}
 .panel h2{font-size:16px;margin:0 0 10px}
 .hint{font-size:12.5px;color:var(--muted)}
 
 .toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
 .toolbar input[type=text]{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font-size:13.5px;font-family:inherit;width:200px}
-.sector-select{padding:8px 34px 8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#334155;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}
+.sector-select,.sort-select{padding:8px 34px 8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#334155;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}
+.sort-note{width:100%;margin-top:-4px;color:var(--muted);font-size:11.5px}
 .filter-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--muted)}
 .filter-chip.active{background:#eff6ff;color:var(--blue);border-color:#bcd7ff}
 
@@ -35,6 +37,7 @@ h1{font-size:26px;margin:0 0 4px}
 .sector-tag{display:inline-flex;border-radius:999px;padding:3px 9px;background:#f1f5f9;color:#475569;font-size:11px;font-weight:800;white-space:nowrap}
 .rec-score{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;min-width:74px;text-align:right}
 .rec-score small{font-size:11px;color:var(--muted);font-weight:600}
+.sort-value{display:inline-flex;border:1px solid #bdd7f5;border-radius:7px;padding:3px 8px;background:#f0f7ff;color:#185fa8;font-size:11px;font-weight:800;white-space:nowrap}.sort-value.muted{border-color:var(--line);background:#f8fafc;color:#94a3b8}
 .badge{display:inline-flex;border-radius:999px;padding:4px 12px;font-size:12.5px;font-weight:800;white-space:nowrap}
 .badge.resonance{color:var(--green);background:#ecfdf3}
 .badge.doubt{color:var(--amber);background:#fff3d6}
@@ -54,15 +57,16 @@ h1{font-size:26px;margin:0 0 4px}
 .report-text{background:#fff;color:#172033;border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 12px}
 .report-text h3{font-size:15px;margin:18px 0 7px;color:#111827}.report-text h3:first-child{margin-top:0}
 .report-text p{font-size:13.5px;margin:7px 0;color:#172033}.report-text .one-line{font-weight:800;background:#f8fafc;border-left:3px solid var(--blue);padding:9px 11px;border-radius:0 8px 8px 0}
-.metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
-.metric-card{border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px 12px;min-width:0}
-.metric-card span{display:block;font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.metric-card b{display:block;margin-top:2px;font-size:19px;line-height:1.15;font-variant-numeric:tabular-nums;color:#111827;word-break:break-word}
-.metric-card em{display:block;margin-top:4px;font-style:normal;font-size:12px;color:var(--muted)}
-.metric-card.up b,.metric-card.beat b{color:var(--green)}.metric-card.down b,.metric-card.miss b{color:var(--red)}.metric-card.flat b{color:#334155}
-.metric-track{height:6px;border-radius:999px;background:#eef2f7;overflow:hidden;margin-top:8px}
-.metric-track i{display:block;height:100%;border-radius:999px;background:var(--blue);width:50%}
-.metric-card.up .metric-track i,.metric-card.beat .metric-track i{background:var(--green)}.metric-card.down .metric-track i,.metric-card.miss .metric-track i{background:var(--red)}
+.metric-snapshot{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 16px;margin:0 0 12px}
+.metric-snapshot h4{margin:0 0 8px;font-size:13px;color:#111827}
+.metric-section{margin-top:10px}.metric-section:first-of-type{margin-top:0}
+.metric-section-title{font-size:11px;font-weight:800;color:var(--muted);margin:0 0 3px;text-transform:uppercase;letter-spacing:.03em}
+.metric-line{display:grid;grid-template-columns:12px minmax(0,1fr) 12px;gap:7px;align-items:start;padding:2px 0;font-size:13px;line-height:1.45}
+.metric-diamond{color:#56a7e4;font-size:11px;transform:translateY(2px)}
+.metric-copy b{font-weight:800}.metric-copy span{color:#475569}
+.metric-dot{width:11px;height:11px;border-radius:50%;margin-top:4px;background:#94a3b8}
+.metric-dot.beat,.metric-dot.up{background:#72bb56}.metric-dot.miss,.metric-dot.down{background:#ef476f}.metric-dot.flat{background:#f5bd4f}
+.metric-legend{margin-top:9px;padding-top:7px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--muted)}
 .vic-notes{border-left:3px solid var(--amber);background:#faf6ee;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .vic-notes b{color:#8a5a00;font-size:12px;display:block;margin-bottom:3px}
 .outcome{border-left:3px solid var(--green);background:#f0f9f3;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
@@ -83,12 +87,13 @@ h1{font-size:26px;margin:0 0 4px}
 .footnotes ol{margin:4px 0 0;padding-left:18px}.footnotes li{margin:2px 0}.footnotes a{color:#475569;text-decoration:none}.footnotes a:hover{color:var(--blue);text-decoration:underline}
 .strength{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .narrative-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
-.narrative-card.high{background:#f2fbf5;border-color:#bfe8cb}
-.narrative-card.mid{background:#fbfdf7;border-color:#dcecc0}
 .narrative-card h3{font-size:16px;margin:0 0 6px}.narrative-card p{font-size:13px;margin:5px 0;color:#334155}
 .strength-pill{display:inline-flex;border-radius:999px;padding:3px 9px;background:#eef2f7;color:#334155;font-size:12px;font-weight:800}
-.narrative-card.high .strength-pill{background:#dcfce7;color:#166534}.narrative-card.mid .strength-pill{background:#ecfccb;color:#4d7c0f}
 .ticker-list{font-size:12px;color:var(--blue);font-weight:800}
+.inline-sources{border-top:1px solid var(--line);margin-top:10px;padding-top:8px;color:var(--muted);font-size:11.5px;line-height:1.6}
+.inline-sources a{color:#475569;text-decoration:none}.inline-sources a:hover{color:var(--blue);text-decoration:underline}
+.collapse-record{display:block;margin:16px auto 0;border:1px solid #cbd5e1;background:#f8fafc;color:#334155;border-radius:8px;padding:8px 24px;font:700 12.5px/1.2 inherit;cursor:pointer}
+.collapse-record:hover{background:#eef2f7}
 .merger-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(15,23,42,.04);margin-bottom:14px;overflow:hidden}
 .merger-top{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
 .merger-title{flex:1;min-width:220px}.merger-title h3{margin:0;font-size:18px}.merger-title p{margin:3px 0 0;color:var(--muted);font-size:12.5px}
@@ -108,7 +113,7 @@ h1{font-size:26px;margin:0 0 4px}
 .fw pre{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow:auto}
 .fw ul{padding-left:20px;margin:6px 0}
 .fw li{margin:3px 0;font-size:13.5px}
-@media(max-width:760px){.dims,.insight-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr 1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}}
+@media(max-width:760px){.dims,.insight-grid{grid-template-columns:1fr}.deal-grid{grid-template-columns:repeat(2,1fr)}.rec-company{display:none}.tabs{margin-left:-8px;margin-right:-8px}.toolbar input[type=text]{width:100%}.sector-select,.sort-select{flex:1;min-width:145px}.metric-snapshot{padding:12px}.metric-line{font-size:12.5px}}
 </style>
 </head>
 <body>
@@ -117,7 +122,7 @@ h1{font-size:26px;margin:0 0 4px}
 <header>
   <div class="eyebrow">Earnings Deep-Dive Analysis Assistant</div>
   <h1>财报深度分析助手 · 分析档案</h1>
-  <p class="sub">从财报、业绩会、X、采访和视频中提炼市场正在交易的叙事与主线。只做基本面和市场解读，不做交易信号；新观点与后续验证会持续补进对应记录。</p>
+  <p class="sub">从财报、业绩会、X、采访和视频中提炼市场正在交易的叙事与主线。聚焦基本面与股价反应，不做交易信号；新观点与后续验证会持续补进对应记录。</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
     <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
@@ -140,12 +145,18 @@ h1{font-size:26px;margin:0 0 4px}
       <option value="consumer">消费与传媒</option>
       <option value="materials">材料与资源</option>
     </select>
+    <select id="sort-control" class="sort-select" aria-label="分析记录排序">
+      <option value="date">排序：最新优先</option>
+      <option value="revenueGrowth">Revenue Growth ↓</option>
+      <option value="revenueGuidance">收入指引增速 ↓</option>
+    </select>
     <button class="filter-chip active" data-filter="all">全部</button>
     <button class="filter-chip" data-filter="resonance">✅ 共振确认</button>
     <button class="filter-chip" data-filter="doubt">⚠️ 市场存疑</button>
     <button class="filter-chip" data-filter="repricing">🔄 预期重定价</button>
     <button class="filter-chip" data-filter="deterioration">🔻 恶化确认</button>
     <button class="filter-chip" data-filter="event">🗺️ 事件链</button>
+    <div class="sort-note" id="sort-note" hidden>仅比较已录入结构化口径的公司；缺少可靠可比数据的旧记录排在后面。</div>
   </div>
   <div id="records-list"></div>
 </section>
@@ -173,10 +184,11 @@ h1{font-size:26px;margin:0 0 4px}
 <section id="tab-framework" style="display:none">
 <div class="panel fw">
   <h2>评分框架</h2>
-  <pre>财报质量 = 业绩兑现度
-市场解读 = 股价与预期差消化
-叙事强度 = 是否能被多家公司、多信源反复验证
-总分     = 财报质量 + 市场解读 + 叙事强度，但会被估值与后续股价惩罚</pre>
+  <pre>财报质量   = 本季度收入、利润、现金流和指引相对预期的兑现度
+股价反应   = 财报后价格如何消化预期差，以及反应能否持续
+持续性质量 = 护城河、订单可见度、客户结构、现金转化与未来几个季度的可重复性
+总分       = 财报质量 + 股价反应 + 持续性质量
+叙事强度   = 独立的10分制主线指标，不直接与个股总分相加</pre>
   <ul>
     <li>以后打分更吝啬：90分以上只给“业绩、指引、叙事、股价反馈、跨公司验证”同时成立的报告。</li>
     <li>单季 beat 不等于高分；如果只是市场预期太低、或一次性因素贡献，分数必须打折。</li>
@@ -202,9 +214,9 @@ h1{font-size:26px;margin:0 0 4px}
   <table>
     <thead><tr><th>维度</th><th>权重</th><th>说明</th></tr></thead>
     <tbody>
-      <tr><td>财报质量</td><td>40</td><td>收入、EPS、利润率、FCF、订单、backlog、指引；SNDK 这类强财报可作为该维度参照。</td></tr>
-      <tr><td>市场解读</td><td>35</td><td>盘后/次日股价、卖方预期修正、估值约束、是否出现“利好兑现”。</td></tr>
-      <tr><td>叙事强度</td><td>25</td><td>是否能被同行财报、电话会、X、采访、产业链价格反复验证。</td></tr>
+      <tr><td>财报质量</td><td>40</td><td>只看当季兑现：收入、EPS、利润率、FCF、订单、backlog和指引相对预期。</td></tr>
+      <tr><td>股价反应</td><td>35</td><td>盘后/次日及后续价格、成交、卖方预期修正、估值约束与“利好兑现”。</td></tr>
+      <tr><td>持续性质量</td><td>25</td><td>判断好数字能否重复：护城河、客户集中度、订单可见度、资本强度、现金转化与周期性。</td></tr>
     </tbody>
   </table>
 
@@ -246,6 +258,8 @@ h1{font-size:26px;margin:0 0 4px}
  *   score: 87,                 // event型省略
  *   rec: "resonance"|"doubt"|"repricing"|"deterioration",  // event型省略
  *   dims: {quality:32, marketread:26, fundamentals:19}, // event型省略
+ *   compare: {revenueGrowth:34, revenueGuidance:30}, // 可比增速，统一填同比百分比
+ *   metrics: [{label:"Q2收入", value:"35.8亿美元", sub:"+34% YoY，高于预期", tone:"beat"}],
  *   report: "完整报告文本…",
  *   management_highlights: ["管理层重点…"], // 大盘股/权重股必填
  *   narrative: {summary:"叙事", consensus:"共识", divergence:"分歧", signals:["验证信号"]},
@@ -6245,10 +6259,41 @@ const TICKER_SECTOR = {
   CLF:"materials"
 };
 const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
-const DIM_LABEL = {quality:"📊 财报质量", marketread:"🧠 市场解读", fundamentals:"🔍 基本面深度"};
+const DIM_LABEL = {quality:"📊 财报质量", marketread:"📈 股价反应", fundamentals:"🔁 持续性质量"};
+const COMPARABLES = {
+  "2026-08-05|SHOP": {revenueGrowth:34, revenueGuidance:30},
+  "2026-08-05|APP": {revenueGrowth:53},
+  "2026-08-05|SNDK": {revenueGrowth:372},
+  "2026-08-04|ALAB": {revenueGrowth:104},
+  "2026-08-04|ANET": {revenueGrowth:38},
+  "2026-08-04|AMD": {revenueGrowth:50, revenueGuidance:41},
+  "2026-08-04|SPCX": {revenueGrowth:92},
+  "2026-07-28|BE": {revenueGrowth:165.5, revenueGuidance:100},
+  "2026-07-29|MSFT": {revenueGrowth:18},
+  "2026-07-29|META": {revenueGrowth:28},
+  "2026-07-29|PRCH": {revenueGrowth:23},
+  "2026-07-23|SAP": {revenueGrowth:9},
+  "2026-07-27|CLS": {revenueGrowth:62, revenueGuidance:65},
+  "2026-07-27|APLD": {revenueGrowth:407},
+  "2026-07-23|LMT": {revenueGrowth:11},
+  "2026-07-24|FIX": {revenueGrowth:50},
+  "2026-07-23|INTC": {revenueGrowth:25},
+  "2026-07-23|RTX": {revenueGrowth:14},
+  "2026-07-22|GEV": {revenueGrowth:22},
+  "2026-07-22|GOOG": {revenueGrowth:24},
+  "2026-07-22|TSLA": {revenueGrowth:26},
+  "2026-07-22|MOH": {revenueGrowth:-4.8},
+  "2026-07-21|VMI": {revenueGrowth:6.5},
+  "2026-07-16|NFLX": {revenueGrowth:13.4, revenueGuidance:11.7},
+  "2026-07-16|TSM": {revenueGrowth:33.7},
+  "2026-07-15|JNJ": {revenueGrowth:6.6},
+  "2026-07-15|AEHR": {revenueGrowth:33, revenueGuidance:180},
+  "2026-07-14|IBM": {revenueGuidance:4.5}
+};
 
 let activeFilter = "all";
 let activeSector = "all";
+let activeSort = "date";
 
 document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
@@ -6273,26 +6318,40 @@ document.getElementById("sector-filter").addEventListener("change", e=>{
   activeSector = e.target.value;
   render();
 });
+document.getElementById("sort-control").addEventListener("change", e=>{
+  activeSort = e.target.value;
+  document.getElementById("sort-note").hidden = activeSort==="date";
+  render();
+});
 
 function esc(s){
   return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 }
 
 function metricCards(r){
-  const rows = r.metrics || [];
+  let rows = r.metrics || [];
+  const structured = rows.length>0;
+  if(!structured){
+    rows = (r.management_highlights||[]).filter(x=>/\d/.test(x)).slice(0,5).map(x=>({value:x}));
+  }
   if(!rows.length) return "";
-  return '<div class="metric-grid">'+rows.map(m=>{
-    const tone = m.tone || "flat";
-    const pct = Math.max(6,Math.min(100, Number(m.pct==null?50:m.pct)));
-    return '<div class="metric-card '+esc(tone)+'"><span>'+esc(m.label||"指标")+'</span><b>'+esc(m.value||"")+'</b><em>'+esc(m.sub||"")+'</em><div class="metric-track"><i style="width:'+pct+'%"></i></div></div>';
-  }).join("")+'</div>';
+  const groups = [
+    ["本季关键数字", rows.filter(m=>!/指引|市场反应|股价反应/.test(m.label||""))],
+    ["前瞻指引", rows.filter(m=>/指引/.test(m.label||""))],
+    ["股价反应", rows.filter(m=>/市场反应|股价反应/.test(m.label||""))]
+  ].filter(x=>x[1].length);
+  return '<div class="metric-snapshot"><h4>'+esc(r.ticker||"")+' · 财报数字快照</h4>'+groups.map(group=>
+    '<div class="metric-section"><div class="metric-section-title">'+group[0]+'</div>'+group[1].map(m=>
+      '<div class="metric-line"><span class="metric-diamond">◆</span><div class="metric-copy">'+(m.label?'<b>'+esc(m.label)+'：</b> ':'')+esc(m.value||"")+(m.sub?' <span>；'+esc(m.sub)+'</span>':'')+'</div>'+(m.tone?'<span class="metric-dot '+esc(m.tone)+'" aria-label="'+esc(m.tone)+'"></span>':'<span></span>')+'</div>'
+    ).join("")+'</div>'
+  ).join("")+(structured?'<div class="metric-legend">● 绿：高于预期　● 黄：大致符合　● 红：低于预期</div>':'')+'</div>';
 }
 
 function reportHtml(text){
-  const blocks = String(text||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  const blocks = String(text||"").replace(/市场解读/g,"股价反应").replace(/基本面深度/g,"持续性质量").split(/\n+/).map(x=>x.trim()).filter(Boolean);
   if(!blocks.length) return "";
   return '<div class="report-text">'+blocks.map((x,i)=>{
-    const isTitle = i===0 || /^[一二三四五六七八九十]+、/.test(x) || /^\\d+\\./.test(x) || /^(结论先说|一句话|综合分|类型|财报质量|市场解读|基本面深度)[:：]?$/.test(x);
+    const isTitle = i===0 || /^[一二三四五六七八九十]+、/.test(x) || /^\\d+\\./.test(x) || /^(结论先说|一句话|综合分|类型|财报质量|股价反应|持续性质量)[:：]?$/.test(x);
     if(isTitle) return '<h3>'+esc(x)+'</h3>';
     if(/^一句话[:：]?$/.test(blocks[i-1]||"")) return '<p class="one-line">'+esc(x)+'</p>';
     return '<p>'+esc(x)+'</p>';
@@ -6305,11 +6364,22 @@ function footnotesHtml(sources){
   return '<div class="footnotes"><b>来源</b><ol>'+rows.map(s=>'<li><a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc((s.type? s.type+" · ":"")+(s.label||s.url||"打开"))+'</a></li>').join("")+'</ol></div>';
 }
 
-function strengthClass(n){
-  const v = parseFloat(String(n.strength||"").replace(/[^\d.]/g,""));
-  if(v>=8.8) return "high";
-  if(v>=8) return "mid";
-  return "";
+function inlineSourcesHtml(sources){
+  const rows = sources || [];
+  if(!rows.length) return "";
+  return '<div class="inline-sources"><b>来源：</b>'+rows.map((s,i)=>'<a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">['+(i+1)+'] '+esc(s.label||s.url||"打开")+'</a>').join('　')+'</div>';
+}
+
+function comparable(r){
+  return Object.assign({}, COMPARABLES[(r.date||"")+"|"+(r.ticker||"")]||{}, r.compare||{});
+}
+
+function sortBadge(r){
+  if(activeSort==="date") return "";
+  const value = comparable(r)[activeSort];
+  if(!Number.isFinite(value)) return '<span class="sort-value muted">暂无可比数据</span>';
+  const label = activeSort==="revenueGrowth" ? "收入" : "指引";
+  return '<span class="sort-value">'+label+' '+(value>0?"+":"")+value+'%</span>';
 }
 
 function historyHtml(r){
@@ -6337,8 +6407,8 @@ function renderNarratives(){
     list.innerHTML = '<div class="panel"><div class="empty"><b>还没有叙事主线</b>添加财报、X、采访或视频后，会在这里汇总多信源共识与分歧。</div></div>';
     return;
   }
-  const rows = NARRATIVES.slice().sort((a,b)=>(a.rank||99)-(b.rank||99));
-  list.innerHTML = rows.map(n=>'<div class="narrative-card '+strengthClass(n)+'"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+footnotesHtml(n.sources)+'</div>').join("");
+  const rows = NARRATIVES.slice();
+  list.innerHTML = rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+inlineSourcesHtml(n.sources)+'</div>').join("");
 }
 
 function renderMergers(){
@@ -6394,6 +6464,14 @@ function render(){
       if(!hay.includes(q)) return false;
     }
     return true;
+  }).sort((a,b)=>{
+    if(activeSort==="date") return String(b.date||"").localeCompare(String(a.date||""));
+    const av = comparable(a)[activeSort];
+    const bv = comparable(b)[activeSort];
+    const aMissing = !Number.isFinite(av), bMissing = !Number.isFinite(bv);
+    if(aMissing!==bMissing) return aMissing ? 1 : -1;
+    if(!aMissing && av!==bv) return bv-av;
+    return String(b.date||"").localeCompare(String(a.date||""));
   });
 
   if(!filtered.length){
@@ -6429,23 +6507,36 @@ function render(){
     const fullReportHtml = reportHtml(r.report);
     const historyBlock = historyHtml(r);
     return '<div class="record">'+
-      '<div class="record-head">'+
+      '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
         '<span class="rec-arrow">▶</span>'+
         '<span class="rec-date">'+esc(r.date||"")+'</span>'+
         '<span class="rec-ticker">'+esc(r.ticker||"")+'</span>'+
         '<span class="rec-company">'+esc(r.company||"")+'</span>'+
-        '<span class="sector-tag">'+esc(sectorLabel(r))+'</span>'+
+         '<span class="sector-tag">'+esc(sectorLabel(r))+'</span>'+
+        sortBadge(r)+
         (isEvent? "" : '<span class="rec-score">'+(r.score!=null?r.score:"—")+'<small> /100</small></span>')+
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
       '</div>'+
       '<div class="record-body">'+
         dimsHtml + metricsHtml + historyBlock + managementHtml + narrativeHtml + notesHtml + outcomeHtml + fullReportHtml + sourcesHtml +
+        '<button type="button" class="collapse-record">收起 ↑</button>'+
       '</div>'+
     '</div>';
   }).join("");
 
   list.querySelectorAll(".record").forEach(card=>{
-    card.querySelector(".record-head").addEventListener("click",()=>card.classList.toggle("open"));
+    const head = card.querySelector(".record-head");
+    const toggle = ()=>{
+      card.classList.toggle("open");
+      head.setAttribute("aria-expanded", card.classList.contains("open") ? "true" : "false");
+    };
+    head.addEventListener("click",toggle);
+    head.addEventListener("keydown",e=>{ if(e.key==="Enter" || e.key===" "){ e.preventDefault(); toggle(); } });
+    card.querySelector(".collapse-record").addEventListener("click",()=>{
+      card.classList.remove("open");
+      head.setAttribute("aria-expanded","false");
+      head.scrollIntoView({behavior:"smooth",block:"start"});
+    });
   });
 }
 
