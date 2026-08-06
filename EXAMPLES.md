@@ -1,77 +1,69 @@
-# 操作示例
+# 维护示例
 
-## 1. 新增一条财报分析记录
+## 新增普通财报记录
 
-打开 `index.html`，找到 `const RECORDS = [` 后面的 `/* __RECORDS_INSERT_POINT__ */` 标记，在它下面插入一个新的对象字面量（新记录放最上面，旧记录往下排）。**注意这是 JavaScript 源码里的对象字面量，不是严格 JSON**——`report` 字段用反引号模板字符串包裹，可以直接写多行文本、直接用中文引号，不需要转义。
+在 `index.html` 的 `/* __RECORDS_INSERT_POINT__ */` 后插入：
 
 ```js
-const RECORDS = [
-/* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
-  date: "2026-07-16",
-  ticker: "TSLA",
-  company: "特斯拉",
-  score: 62,
-  rec: "repricing",
-  dims: {quality:20, marketread:22, fundamentals:20},
-  report: `【TSLA · 特斯拉】财报深度分析 · 2026-07-16
-综合评分：62 / 100（财报成色，非买卖信号）
-解读结论：🔄 预期重定价
+  date: "2026-08-06",
+  ticker: "XYZ",
+  company: "Example Corp",
+  sector: "tech",
+  score: 72,
+  rec: "doubt",
+  dims: {quality:30, marketread:20, fundamentals:22},
+  compare: {revenueGrowth:28, revenueGuidance:24},
+  metrics: [
+    {label:"Q2收入", value:"12.3亿美元", sub:"+28% YoY；高于约12.0亿美元预期", tone:"beat", pct:82},
+    {label:"Q3收入指引", value:"13.0亿至13.2亿美元", sub:"中点隐含约+24% YoY", tone:"flat", pct:68},
+    {label:"股价反应", value:"-6%", sub:"好数字未能满足高预期", tone:"down", pct:55}
+  ],
+  management_highlights: ["仅在大盘股、权重股或重要板块公司中填写管理层重点。"],
+  narrative: {
+    summary: "一句话说明市场正在交易什么。",
+    consensus: "支持当前叙事的证据。",
+    divergence: "最重要的分歧与反证。",
+    signals: ["下一季度可以证实或证伪的指标。"]
+  },
+  sources: [{type:"公司公告", label:"Q2 results", url:"https://example.com"}],
+  report: `【XYZ】2026 Q2财报分析
 
-─────────────────
-（……这里放完整报告正文，格式参照系统提示词里"模式一标准输出格式"……）`,
+结论先说：……`,
   vic_notes: "",
   outcome: ""
 },
-{
-  type: "earnings",
-  date: "2026-07-14",
-  ticker: "IBM",
-  ...  // 已有的旧记录，保持不动
-},
-];
 ```
 
-**插入后必须做的语法校验**（防止漏改收尾 `];` 导致页面崩溃，本次交接文档写作期间真实发生过这个事故）：
+`rec` 可用值：`resonance`、`doubt`、`repricing`、`deterioration`、`event`。
 
-```bash
-node -e "
-const fs=require('fs');
-const html=fs.readFileSync('index.html','utf8');
-const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
-function fakeEl(){return {innerHTML:'',style:{},value:'',textContent:'',classList:{add(){},remove(){},toggle(){}},addEventListener(){},querySelector(){return fakeEl();},querySelectorAll(){return [];},dataset:{}};}
-global.document={querySelectorAll(){return [];},getElementById(){return fakeEl();},addEventListener(){}};
-global.navigator={clipboard:{writeText(){return Promise.resolve();}}};
-eval(script + ';globalThis.__R=RECORDS;');
-console.log('OK, records=', globalThis.__R.length);
-globalThis.__R.forEach(r=>console.log(r.ticker, r.score, r.rec));
-"
-```
+## 板块扩展字段
 
-如果这段脚本报错（比如 `Unexpected token`），说明对象字面量或数组括号没配平，回去检查刚插入的那段。如果正常打印出记录数量和列表，说明语法正确，再提交推送。
-
-## 2. 补充 Vic 观点或复盘结果（T+更新）
-
-找到对应 `ticker` + `date` 的那条记录，直接修改 `vic_notes` 或 `outcome` 字段（其余字段不动）：
+只有符合 `HANDOVER.md` 触发标准时才增加：
 
 ```js
-{
-  type: "earnings",
-  date: "2026-07-14",
-  ticker: "IBM",
-  company: "国际商业机器",
-  score: 18,
-  rec: "deterioration",
-  dims: {quality:0, marketread:8, fundamentals:10},
-  report: `……原有报告正文不动……`,
-  vic_notes: "7/22电话会确认了全年指引下修，管理层承认客户预算转移比预期更持续，不是一次性的。",
-  outcome: "-8.3%，T+5未能收复缺口，倾向于确认是结构性问题而非过度反应"
+extended: {
+  coreConflict: "市场最重要的争论，不是重复财报数字。",
+  growthPath: [
+    {label:"Q1实际", value:"收入 +40%"},
+    {label:"Q2实际", value:"收入 +52%"},
+    {label:"Q3指引", value:"约 +47%"}
+  ],
+  managementClaim: "管理层如何解释增长、miss或指引。",
+  externalEvidence: "第三方数据、价格反应与反叙事。",
+  transmission: [
+    {level:"直接受益", tickers:"AAA · BBB", impact:"具体传导机制和验证指标。"},
+    {level:"竞争关系", tickers:"CCC · DDD", impact:"预算可能扩张，也可能被抢占。"},
+    {level:"情绪高Beta", tickers:"EEE", impact:"只属于情绪映射，尚无基本面确认。"}
+  ],
+  checkpoints: ["下一季需要达到的数字或经营条件。"]
 },
 ```
 
-**约定：**
-- `outcome` 字段如果以 `-`、"亏"、"止损"开头，页面会自动显示为红色，其余显示绿色——写复盘结论时留意这个隐式规则，别因为用词习惯（比如写"回撤"而不是"亏"）导致颜色显示和实际盈亏方向不符
-- `vic_notes` 和 `outcome` 没有格式要求，自然语言即可，但建议注明是第几个交易日的复盘（T+几），因为目前没有专门字段记录复盘发生在哪一天
+## 修改后的最低验证
 
-同样的语法校验步骤（见上）在改完之后也应该跑一遍。
+```powershell
+node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\s\S]*?)<\/script>/);new Function(m[1]);console.log('script ok')"
+git diff --check
+```
