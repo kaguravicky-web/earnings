@@ -416,9 +416,9 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["PLTR","SHOP","APP","META","GOOG","CRM","NOW","ADBE"],
+    tickers: ["PLTR","DDOG","SHOP","APP","META","GOOG","CRM","NOW","ADBE"],
     thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
-    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；SHOP收入+34%、GMV+32%，AI流量与订单约增长三倍；APP收入仍+53%、利润率仍高，却因增速斜率、FCF转换和Q3指引存疑而大跌。三者共同确认：AI应用不是统一行情，而是按结果可验证性重新分层。",
+    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，却因大客户新增放慢和高预期重定价下跌约17%；SHOP收入+34%、GMV+32%；APP收入仍+53%却因增速斜率和FCF转换存疑而大跌。共同结论是：AI应用与软件正在按可验证结果、客户扩张和估值重新分层。",
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
     sources: [
       {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
@@ -478,6 +478,183 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "U",
+  company: "Unity Software",
+  sector: "tech",
+  detailPage: "reports/unity-q2-2026.html",
+  score: 81,
+  rec: "repricing",
+  dims: {quality: 36, marketread: 20, fundamentals: 25},
+  compare: {revenueGrowth:24, revenueGuidance:45.5},
+  business: {
+    plain: "Unity一边卖做游戏的工具，一边帮游戏开发商买广告、找到玩家并把玩家流量变现。它最独特的地方，是同一个平台既看得到游戏如何运行，也看得到哪些玩家更可能安装、付费和长期留下。",
+    howMakesMoney: "Create向开发者收订阅和平台费用；Grow从广告投放、用户获取和变现中收费。现在增长主要来自用AI做广告匹配的Unity Vector。",
+    moat: "Unity引擎覆盖大量移动游戏，Runtime提供玩家行为数据，广告网络又能把数据转成投放效果；引擎、数据和广告闭环同时存在，比单纯广告网络更难复制。",
+    whatChanged: "公司关停ironSource旧广告网络并卖掉Supersonic，把资源集中到Vector和Unity核心引擎。Q2首次证明这种收缩可以同时换来更快战略收入增长和更高利润率。"
+  },
+  decision: {
+    stance: "基本面拐点得到强化，但先等价格确认，不把重组收益全当成长期增长",
+    summary: "总收入、战略收入、Vector驱动的Strategic Grow和利润率都明显超过原指引，Q3又给出加速指引。关键争议不是本季好不好，而是Vector增长有多少来自真正抢份额，有多少只是ironSource关闭后的内部迁移。",
+    playbook: [
+      {if:"财报后5日和20日守住跳空，分析师上调2027收入与利润预测", then:"价格稳定后小仓位参与或继续持有", why:"说明市场把Q2视为可持续的平台重估，而非一次性重组红利。"},
+      {if:"Q3 Strategic Grow达到3.80亿至3.85亿美元，且广告主回报、留存或独立Vector指标继续改善", then:"提高增长置信度并增加风险预算", why:"证明Vector增长没有因ironSource退出而在Q2提前透支。"},
+      {if:"Strategic Create恢复双位数增长，Unity 7采用与订阅提价同步兑现", then:"把估值逻辑从广告反转扩展到引擎与广告双轮驱动", why:"更均衡的增长质量值得更高倍数。"},
+      {if:"Q3 Strategic Grow低于3.80亿美元、Create停滞，或股价放量回补财报缺口", then:"减仓或回避", why:"这会支持增长主要来自流量迁移和成本削减的反叙事。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构。","Q3 Strategic Grow、Strategic Create与调整后EBITDA。","Unity 7采用、Vector独立商业指标和Supersonic剥离后的收入桥。"],
+    invalidation: ["Q3 Strategic Grow低于3.80亿美元。","Strategic Create持续低个位数增长。","GAAP盈利时间再次后移。","财报缺口完全回补并伴随盈利预测下修。"],
+    timing: "短线先看5日和20日；Q3是Vector增速与非战略业务退出后的第一次干净验证。",
+    risk: "8月6日仍是事件日，最终收盘反应和期权隐含波动需收盘后补录，不能用盘中价格替代结论。"
+  },
+  metrics: [
+    {label:"Q2总收入", value:"5.465亿美元", sub:"+24% YoY；高于原指引5.05亿至5.15亿美元", tone:"beat", pct:92},
+    {label:"战略收入", value:"4.864亿美元", sub:"+38% YoY；高于原指引4.55亿至4.65亿美元", tone:"beat", pct:94},
+    {label:"Strategic Grow", value:"3.290亿美元", sub:"+63% YoY、约+18% QoQ；Vector是主引擎", tone:"up", pct:98},
+    {label:"Strategic Create", value:"1.575亿美元", sub:"+5% YoY；剔除去年一次性项目后约+14%", tone:"flat", pct:70},
+    {label:"调整后EBITDA", value:"1.602亿美元", sub:"利润率29%；原指引1.30亿至1.35亿美元", tone:"beat", pct:96},
+    {label:"自由现金流", value:"2.020亿美元", sub:"去年同期1.267亿美元；现金转化显著改善", tone:"up", pct:91},
+    {label:"Q3战略收入指引", value:"5.40亿至5.50亿美元", sub:"+44%至+47% YoY；Strategic Grow指引+68%至+70%", tone:"up", pct:98},
+    {label:"股价反应", value:"待收盘确认", sub:"事件日盘中波动不作为最终市场裁决", tone:"flat", pct:50}
+  ],
+  management_highlights: [
+    "Q2总收入5.465亿美元、同比增长24%；战略收入4.864亿美元、增长38%，两者均明显高于公司原指引。",
+    "Strategic Grow收入3.290亿美元、同比增长63%，环比约增长18%；Vector继续成为广告业务的主要增长引擎。",
+    "调整后EBITDA 1.602亿美元、利润率29%，高于原指引1.30亿至1.35亿美元；自由现金流2.020亿美元。",
+    "Q3战略收入指引5.40亿至5.50亿美元，同比增长44%至47%；其中Strategic Grow为3.80亿至3.85亿美元，同比增长68%至70%。",
+    "公司已在4月30日关停ironSource Ads Network，并于8月4日出售Supersonic；Q3非战略收入只剩约2000万美元，收入结构将更干净。",
+    "管理层把GAAP盈利目标从Q4提前到Q3，并计划在11月偿还2021年可转债、降低资产负债表杠杆。",
+    "管理层称这是Unity上市以来最好季度之一，但需要用Q3验证Vector增长并非主要来自旧网络内部迁移。"
+  ],
+  narrative: {
+    summary: "Unity正在从混乱的引擎加广告集团，收缩成‘游戏开发基础设施 + AI广告匹配’平台。Q2最重要的不是总收入+24%，而是Strategic Grow +63%、Q3再指引+68%至+70%，同时EBITDA利润率升到29%。",
+    consensus: "多头证据是Vector连续加速、战略收入超指引、现金流改善和GAAP盈利时间提前。Unity Runtime掌握玩家行为，广告系统可以把这些数据转成更好的用户获取与变现，形成数据闭环。",
+    divergence: "反叙事是Create报告增速只有2%、Strategic Create只有5%；Vector的一部分增长可能是ironSource关停后的内部份额迁移。公司仍有较高股权激励、可转债和平台政策依赖，不能只用调整后EBITDA看质量。",
+    signals: ["Q3 Strategic Grow能否达到3.80亿至3.85亿美元", "Vector增长中外部份额与内部迁移的比例", "Strategic Create与Unity 7采用率", "Q3能否实现GAAP盈利", "Supersonic出售后的收入和费用桥", "财报后5日与20日价格结构"]
+  },
+  extended: {
+    coreConflict: "Vector与利润率已经给出拐点证据，但Unity必须证明广告增长不是旧网络退出后的内部搬家，并让Create重新成为第二增长引擎。",
+    growthPath: [{label:"Q1 2026战略收入",value:"+35%"},{label:"Q2 2026战略收入",value:"+38%"},{label:"Q3 2026指引",value:"+44%至+47%"}],
+    managementClaim: "Vector利用Unity Runtime的行为数据提高广告匹配和玩家价值预测，Unity 7与AI工具则提升引擎采用和开发效率。",
+    externalEvidence: "Strategic Grow环比约+18%、EBITDA与FCF同步改善支持产品有效；Create低增速和ironSource退出则要求拆解增长来源。",
+    transmission: [
+      {level:"移动广告",tickers:"APP · TTD",impact:"Unity验证AI广告匹配仍能提升投放效率，但Vector更聚焦游戏，不能直接外推所有广告平台。"},
+      {level:"游戏内容",tickers:"RBLX · TTWO · EA",impact:"更多内容、玩家和商业化有利于引擎及广告需求；平台自研工具也构成竞争。"},
+      {level:"开发平台",tickers:"MSFT · ADBE",impact:"实时3D、AI辅助创作和开发者工作流需求受益，但Unity必须修复开发者信任。"},
+      {level:"高Beta映射",tickers:"U · APP",impact:"事件日价格容易被AI广告叙事放大，必须用真实广告主回报和后续指引验证。"}
+    ],
+    checkpoints: ["Q3 Strategic Grow", "Create与Unity 7", "GAAP盈利", "Vector独立指标", "5日/20日价格"]
+  },
+  sources: [
+    {type:"公司公告",label:"Unity Q2 2026 Press Release",url:"https://s205.q4cdn.com/200788659/files/doc_earnings/2026/q2/earnings-result/2026_Q2-Press-Release_FINAL.pdf"},
+    {type:"公司业绩会",label:"Unity Q2 2026 Webcast Replay",url:"https://events.q4inc.com/attendee/541219237"},
+    {type:"公司资料",label:"Unity Quarterly Results",url:"https://investors.unity.com/financials/quarterly-results/default.aspx"}
+  ],
+  report: `【U · Unity】2026 Q2财报分析 · 2026-08-06
+
+结论先说：公司已经不只是“止血”，而是在出现可验证的增长拐点，但交易上仍要拆开Vector真实增量和ironSource内部迁移。
+
+Q2总收入5.465亿美元，同比增长24%；战略收入增长38%，Strategic Grow增长63%，调整后EBITDA利润率29%，自由现金流2.02亿美元。Q3战略收入指引进一步加速到44%至47%，其中Strategic Grow为68%至70%。
+
+Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。Vector若能持续提高广告主回报，Unity Runtime就不只是开发工具，也会变成广告数据优势。
+
+保留项是Create仍低增，Vector部分增长可能来自公司关停ironSource后的内部迁移。Q3是第一次更干净的验证：看Strategic Grow、Create、GAAP盈利和股价是否保留财报重估。
+
+评分81分：财报质量36/40，股价反应暂记20/35，持续性25/25。市场维度会在收盘与5日后更新。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "DDOG",
+  company: "Datadog",
+  sector: "tech",
+  detailPage: "reports/datadog-q2-2026.html",
+  score: 68,
+  rec: "doubt",
+  dims: {quality: 37, marketread: 9, fundamentals: 22},
+  compare: {revenueGrowth:36, revenueGuidance:28.7},
+  business: {
+    plain: "Datadog像云软件的总控室：它把服务器、应用、日志、数据库、安全事件和AI模型的运行状态集中到一张屏幕，帮工程师发现哪里坏了、为什么坏、会影响哪些客户，并逐步让AI自动修复。",
+    howMakesMoney: "企业按使用量和订阅产品付费；客户监控的数据越多、云规模越大、采用的日志、安全和AI产品越多，Datadog收入越高。",
+    moat: "统一平台积累了大量真实运维数据，并嵌入开发和安全团队的日常流程；跨产品关联、生态集成和迁移成本让客户不容易拆回多个工具。",
+    whatChanged: "AI正在增加系统复杂度与机器生成流量，带动可观测性需求；Datadog同时把Bits从辅助问答推进到检测、调查和修复，但市场要求AI功能尽快变成客户扩张和收入。"
+  },
+  decision: {
+    stance: "好公司、强财报，但先尊重17%的负面价格信号",
+    summary: "Q2实际值、billings和指引全面高于共识，股价仍下跌约17.3%。交易的核心是判断这是高估值仓位清洗，还是大客户新增放慢与Q3增速回落正在预告更长的减速周期。",
+    playbook: [
+      {if:"财报后5日和20日守住低点，盈利预测继续上调，缺口开始缩小", then:"价格稳定后再考虑小仓位参与或继续持有", why:"说明大跌主要是预期和仓位重置，而不是基本面恶化。"},
+      {if:"Q3收入超过11.45亿美元上沿，billings继续快于收入，10万美元以上客户净增重新加速", then:"提高基本面置信度并增加风险预算", why:"证明Q2的客户新增放慢不是需求转折。"},
+      {if:"Bits与AI安全产品开始披露可验证采用率、ARR或客户扩张", then:"把AI叙事从产品发布升级为商业确认", why:"只有货币化证据才能支撑高估值。"},
+      {if:"股价继续放量破低，同时大客户净增进一步放慢或Q3低于指引", then:"减仓或回避", why:"价格和客户扩张会同时证伪短期错杀逻辑。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构。","DT、ESTC、SNOW、NOW等软件同行的订单与云使用数据。","Q3收入、billings、大客户净增和AI产品商业化披露。"],
+    invalidation: ["Q3收入低于11.35亿美元指引下沿。","10万美元以上ARR客户净增继续明显放慢。","billings增速跌到收入增速以下。","大跌后盈利预测转为下修。"],
+    timing: "短线先看5日与20日；基本面终验在下一季财报。业绩会刚结束，详细问答需在正式文字稿出现后补录。",
+    risk: "财报前期权隐含波动约13%的第三方估算必须用原始期权链复核；精确价格关卡不可长期沿用。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"11.2亿美元", sub:"+36% YoY；高于10.8亿美元共识约3.9%", tone:"beat", pct:92},
+    {label:"调整后EPS", value:"0.65美元", sub:"高于0.58美元共识约11.4%", tone:"beat", pct:90},
+    {label:"调整后营业利润", value:"2.57亿美元", sub:"利润率约23%；高于约2.33亿美元共识", tone:"beat", pct:91},
+    {label:"Billings", value:"11.8亿美元", sub:"+38.1% YoY；增速快于收入", tone:"up", pct:93},
+    {label:"10万美元以上ARR客户", value:"约4,720家", sub:"+23% YoY；环比净增约170家", tone:"flat", pct:68},
+    {label:"自由现金流", value:"2.79亿美元", sub:"FCF率24.9%；Q1为28.7%", tone:"flat", pct:71},
+    {label:"Q3收入指引", value:"11.35亿至11.45亿美元", sub:"中点隐含约+28.7%；高于共识约2.9%", tone:"beat", pct:85},
+    {label:"FY2026收入指引", value:"44.5亿至44.7亿美元", sub:"中点较前指引上调约3.2%", tone:"up", pct:88},
+    {label:"股价反应", value:"约-17.3%", sub:"跌至约234.23美元；好数字遭预期重定价", tone:"down", pct:92}
+  ],
+  management_highlights: [
+    "Q2收入11.2亿美元、同比增长36%；调整后营业利润2.57亿美元、利润率约23%，自由现金流2.79亿美元。",
+    "Billings约11.8亿美元、同比增长38.1%，快于收入；10万美元以上ARR客户约4,720家，同比增长23%，但环比净增约170家，少于上一季。",
+    "Q3收入指引11.35亿至11.45亿美元，中点高于市场预期约2.9%；全年收入指引上调至44.5亿至44.7亿美元。",
+    "CEO Olivier Pomel表示客户正在用AI开发和部署产品，也使用Datadog观察、保护并处理AI系统；AI带来的复杂度是平台需求的新来源。",
+    "DASH 2026发布100多项能力，包括可自主检测、调查和修复事故的Bits AI、AI Guard、Bring Your Own Cloud和Bits Agent Builder。",
+    "公司收购Adaptive ML，加强世界模型、agentic LLM后训练与强化学习运维能力；但这些产品目前仍需要ARR、采用率和客户扩张数据证明商业价值。",
+    "官方业绩会于8月6日8:00 ET召开。当前记录以正式财报稿为主，详细问答将在官方回放或文字稿可用后继续补充。"
+  ],
+  narrative: {
+    summary: "DDOG确认AI并不只增加算力需求，也增加监控、安全和自动修复复杂度；但市场拒绝仅凭AI产品发布提高估值。全面beat、raise与17%下跌并存，说明高倍数软件现在更看重大客户净增、AI货币化和下一季度增速斜率。",
+    consensus: "多头证据是收入+36%、billings+38%、Q3和全年指引高于预期、自由现金流强劲，以及Bits从辅助工具向自主运维代理扩张。平台覆盖监控、日志、安全与AI工作负载，交叉销售和数据规模构成壁垒。",
+    divergence: "反叙事是10万美元以上ARR客户只环比净增约170家，客户增长23%低于收入增长36%；Q3指引隐含增速降到约28.7%。在财报前已高预期和高估值背景下，市场可能认为Q2加速不可持续，AI产品尚未形成独立收入披露。",
+    signals: ["Q3收入能否超过11.45亿美元上沿", "Billings是否继续快于收入", "10万美元以上ARR客户净增能否重新加速", "Bits与AI安全产品是否披露采用率或ARR", "财报后5日与20日能否守住低点", "DT、ESTC、SNOW、NOW是否同步确认企业云和AI运维需求"]
+  },
+  extended: {
+    coreConflict: "财务数据几乎全面超预期，股价却下跌约17.3%。市场不是否认当前需求，而是在怀疑大客户扩张速度、AI货币化和36%增长能否延续。",
+    growthPath: [{label:"Q1 2026实际",value:"收入 +32%"},{label:"Q2 2026实际",value:"收入 +36%"},{label:"Q3 2026指引",value:"约 +28.7%"}],
+    managementClaim: "AI工作负载增加系统复杂度，客户需要统一观察、保护和自动处理；Bits、AI Guard与Agent Builder将把Datadog从监控平台推进到自主运维行动层。",
+    externalEvidence: "Billings增长38.1%且快于收入，支持需求真实；但大客户环比净增放慢、FCF率下降和股价大跌说明市场要求更强的客户与货币化证据。",
+    transmission: [
+      {level:"直接同业",tickers:"DT · ESTC",impact:"可观测性需求得到确认，但需要用ARR、RPO、净留存和大客户净增判断是否为行业扩张。"},
+      {level:"数据/云软件",tickers:"SNOW · MDB · NOW",impact:"AI应用增加数据与运维复杂度是利好，也会争夺企业AI软件预算。"},
+      {level:"安全平台",tickers:"CRWD · PANW · S",impact:"AI Guard和统一安全观察扩展Datadog边界，既验证安全需求，也增加平台竞争。"},
+      {level:"云平台",tickers:"AMZN · MSFT · GOOG",impact:"云使用量决定底层数据增长，同时原生监控工具构成竞争。"}
+    ],
+    checkpoints: ["Q3收入和billings", "大客户净增", "AI产品商业披露", "财报后5日/20日价格", "同行订单交叉验证"]
+  },
+  sources: [
+    {type:"公司公告",label:"Datadog Q2 2026 Financial Results",url:"https://investors.datadoghq.com/news-releases/news-release-details/datadog-announces-second-quarter-2026-financial-results"},
+    {type:"公司业绩会",label:"Datadog Q2 2026 Earnings Conference Call",url:"https://investors.datadoghq.com/events/event-details/q2-2026-datadog-earnings-conference-call"},
+    {type:"市场数据",label:"StockStory Q2 results and market reaction",url:"https://stockstory.org/us/stocks/nasdaq/ddog/news/earnings/datadog-nasdaqddog-delivers-impressive-q2-cy2026-but-stock-drops-173percent"}
+  ],
+  report: `【DDOG · Datadog】2026 Q2财报分析 · 2026-08-06
+
+结论先说：Datadog仍是一家高质量公司，但这份强财报不是一笔自动成立的好交易。
+
+收入同比增长36%，调整后EPS、营业利润、billings、Q3和全年指引都高于市场预期，自由现金流也很强。股价却下跌约17.3%，说明市场交易的不是Q2好不好，而是大客户扩张、AI货币化和下一季增速能否继续支持高估值。
+
+公司本质是云软件的总控室。它把服务器、应用、日志、安全和AI模型的运行数据放到一个平台，帮助工程师定位和修复问题。AI工作负载越复杂，可观测性需求越高；但Datadog必须证明Bits和AI Guard不只是产品发布，而能推动客户增加产品、使用量和ARR。
+
+最强证据是billings增长38.1%、快于收入，Q3指引也高于共识。最重要的保留项是10万美元以上ARR客户环比只净增约170家，客户增长23%低于收入36%，Q3指引增速又回落到约28.7%。
+
+因此评分为68分：财报质量37/40，股价反应9/35，持续性质量22/25。公司好不好与现在是否该追是两个答案。下一步先看财报后5日和20日，再等Q3用收入、billings、大客户净增和AI商业化逐条裁决。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-03",
@@ -2509,9 +2686,31 @@ SAP这份财报的质量不能只看EPS。
   ticker: "CLS",
   company: "Celestica",
   sector: "tech",
-  score: 94,
+  detailPage: "reports/celestica-q2-2026.html",
+  score: 89,
   rec: "resonance",
-  dims: {quality: 40, marketread: 29, fundamentals: 25},
+  dims: {quality: 38, marketread: 29, fundamentals: 22},
+  compare: {revenueGrowth:62, revenueGuidance:65},
+  business: {
+    plain: "Celestica不是芯片公司。它替云厂商和设备商共同设计、采购并制造网络交换机、定制计算、存储和整机架系统，也为航空航天、国防、工业和医疗客户生产复杂设备。",
+    howMakesMoney: "客户把平台设计和大规模制造项目交给Celestica，项目进入量产后按硬件和工程服务形成收入；AI园区的交换机、计算和存储平台放量是当前最大增量。",
+    moat: "联合设计、供应链采购、客户认证和大规模制造执行需要多年积累。高端平台一旦进入客户架构，切换供应商的时间、良率和交付风险都很高。",
+    whatChanged: "公司从传统代工厂重估为AI数据中心平台伙伴：CCS和HPS高速增长、利润率同步扩张，并称2027年增长还会快于2026年。"
+  },
+  decision: {
+    stance: "公司质量很强，但价格已开始交易2027年继续加速",
+    summary: "Q2收入、EPS、利润率和全年指引全面上修，且管理层把2027年增长加速写进预期。好公司已得到确认；好交易要等Q3兑现、现金流跟上以及价格消化高预期。",
+    playbook: [
+      {if:"Q3收入达到52.5亿至55.5亿美元、调整后营业利润率不低于8.4%", then:"确认经营加速，可持有或在价格稳定后增加风险预算", why:"收入与利润率同时兑现说明平台放量质量仍高。"},
+      {if:"2027加速被新客户项目、1.6T交换机或机架级平台订单继续验证", then:"提高长期估值置信度", why:"市场需要看到远期表态转成项目和收入可见度。"},
+      {if:"全年自由现金流达到6亿美元且营运资金受控", then:"确认盈利质量", why:"高速制造扩张若不能转成现金，利润质量需要打折。"},
+      {if:"利润率回落、客户项目延迟或管理层弱化2027加速表述", then:"减仓或回避", why:"当前估值最怕增长持续期被下修。"}
+    ],
+    triggers: ["Q3收入与8.4%利润率。","1.6T交换机、机架级平台和新客户项目。","全年6亿美元自由现金流。","首次正式2027指引。"],
+    invalidation: ["Q3收入低于52.5亿美元。","调整后营业利润率跌破8%。","2027增速不再高于2026。","营运资金吞噬自由现金流。"],
+    timing: "先看财报后5日和20日承接；Q3与首次2027指引是基本面终验。",
+    risk: "精确价格结构与期权链需执行前刷新；大客户集中、组件供应和项目确认节奏会放大波动。"
+  },
   management_highlights: [
     "管理层把2026年收入目标从190亿美元上调至205亿美元，调整后EPS从10.15美元上调至11.30美元，自由现金流从5亿美元上调至6亿美元；这不是单季超预期，而是全年盈利基线再次抬高。",
     "公司预计2026年收入增长约65%，并明确表示2027年收入增速还会进一步加快，调整后EPS增速将继续快于收入；这是本次最强、也最需要后续兑现的表态。",
@@ -6496,7 +6695,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
