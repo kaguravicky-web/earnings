@@ -302,9 +302,9 @@ const NARRATIVES = [
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","AMD","ANET","ALAB","BE"],
+    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","BE","VECO"],
     thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%。这些信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，并给出下一季约+42%至+49%的收入增长指引；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单并称2027可见度增强。信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资，但WDC与SNDK财报后下跌也说明存储链的强基本面已被高预期提前计价。",
     disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
@@ -319,9 +319,9 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "快速强化",
-    tickers: ["ANET","ALAB","CRDO","MRVL","AMD","NVDA","CSCO","AVGO"],
+    tickers: ["ANET","ALAB","CRDO","MRVL","AMD","NVDA","CSCO","AVGO","AEVA"],
     thesis: "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
-    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；CRDO和MRVL则分别验证AEC/高速连接与光互连DSP、交换硅需求。AMD也把Helios、Pensando网络和Arista协同纳入全栈AI系统叙事。",
+    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；CRDO和MRVL分别验证AEC/高速连接与光互连DSP、交换硅需求。AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线，但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。",
     disconfirm: "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     sources: [
       {type:"市场反应", label:"IBD：AI Cloud Networking Growth Drives Arista Beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
@@ -478,6 +478,308 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "WDC",
+  company: "Western Digital",
+  sector: "semis",
+  score: 67,
+  rec: "doubt",
+  dims: {quality: 39, marketread: 6, fundamentals: 22},
+  compare: {revenueGrowth:44, revenueGuidance:45.5},
+  business: {
+    plain: "拆分SanDisk以后，Western Digital已经不是NAND闪存公司，核心业务是机械硬盘HDD。最白话地说，它替云数据中心制造容量很大、单位成本很低的长期数据仓库；GPU负责计算，SSD负责高速读写，HDD负责把海量训练数据、推理日志、视频和备份长期存下来。",
+    howMakesMoney: "云厂商、企业与消费渠道购买硬盘，收入取决于出货容量、每EB价格和高容量Nearline产品占比。云客户占本季收入89%，因此公司本质上已高度集中于少数超大规模数据中心客户的容量建设周期。",
+    moat: "大容量硬盘需要磁头、介质、固件和精密制造共同迭代，全球有效供应商很少；客户认证周期长、容量又已通过采购订单和长期协议锁定，形成供给纪律和价格壁垒。风险是客户高度集中、资本开支周期、单位容量价格见顶，以及Seagate的技术和执行竞争。",
+    whatChanged: "Q4收入、毛利率、EPS和自由现金流同时加速，40TB ePMR开始出货，下一季仍指引约45.5%的收入增长；但股价财报后大跌，说明市场关注点已从‘需求是否强’转向‘这种价格、毛利率和增长还能比极高预期强多久’。"
+  },
+  decision: {
+    stance: "公司和财报都很强，但交易先等价格稳定，不追着好数字买",
+    summary: "Q4收入37.47亿美元、同比+44%，非GAAP毛利率54.4%，自由现金流12.81亿美元；Q1 FY2027收入中点41亿美元、同比约+45.5%，非GAAP EPS中点4.00美元。财报几乎没有明显经营硬伤，真正的交易问题是股价此前已把HDD短缺、AI数据增长和多年协议充分定价，‘强但没有再次大幅抬高预期’仍会触发获利了结。",
+    playbook: [
+      {if:"财报后5日和20日能够收回大部分跌幅，且FY2027收入、毛利率和EPS预测继续上调", then:"把下跌视为高预期清洗，可在价格企稳后小仓位参与", why:"基本面和价格重新同向，说明市场接受HDD景气的持续性。"},
+      {if:"Q1收入达到40亿至42亿美元、非GAAP毛利率达到55%-56%、EPS达到3.85至4.15美元", then:"维持高质量判断", why:"收入增长、价格结构和利润率继续兑现，而不是只靠上一季涨价。"},
+      {if:"Nearline exabytes继续增长、40TB产品放量，2027/2028长期协议覆盖度提高", then:"提高周期持续性置信度", why:"容量需求与客户承诺共同延长景气，而不只是现货价格上涨。"},
+      {if:"股价20日后仍弱、预测停止上调，或毛利率/每EB价格出现环比拐点", then:"降低仓位并按周期顶部处理", why:"好财报无法推动价格，往往说明边际预期已经见顶。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "Q1 FY2027收入、非GAAP毛利率与EPS", "Nearline exabytes、每EB价格和40TB出货", "2027/2028长期协议覆盖与云客户资本开支"],
+    invalidation: ["Q1收入低于40亿美元", "非GAAP毛利率跌破55%或下一季开始环比下降", "Nearline exabytes连续下降", "大客户推迟采购或长期协议被重谈", "财报后20日仍未企稳且盈利预测下修"],
+    timing: "先看财报后5日和20日能否止跌；下一季同时验证单位容量价格、Nearline容量与毛利率，避免把一次高利润季度外推成永久状态。",
+    risk: "约-9.7%为8月6日盘中反应，收盘后还需补录最终价格。WDC云收入占比89%，供给纪律提高利润，也放大客户集中、行业周期与估值压缩风险。"
+  },
+  metrics: [
+    {label:"Q4收入", value:"37.47亿美元", sub:"+44% YoY、+12% QoQ；高于此前36.5亿美元指引中点", tone:"beat", pct:94},
+    {label:"非GAAP毛利率", value:"54.4%", sub:"+1310bp YoY、+390bp QoQ；产品组合和定价继续改善", tone:"up", pct:98},
+    {label:"非GAAP EPS", value:"3.56美元", sub:"+109% YoY、+31% QoQ；高于此前3.25美元指引中点", tone:"beat", pct:95},
+    {label:"自由现金流", value:"12.81亿美元", sub:"+90% YoY；自由现金流率约34%", tone:"up", pct:98},
+    {label:"Nearline出货容量", value:"209 EB", sub:"去年同期170 EB；总出货容量231 EB", tone:"up", pct:90},
+    {label:"云业务占比", value:"89%", sub:"AI与云数据留存是增长核心，也意味着客户集中度很高", tone:"flat", pct:88},
+    {label:"Q1 FY2027收入指引", value:"40亿至42亿美元", sub:"中点41亿美元，隐含约+45.5% YoY、+9.4% QoQ", tone:"up", pct:94},
+    {label:"Q1非GAAP指引", value:"毛利率55%-56%", sub:"EPS 3.85至4.15美元；利润率仍扩张但市场预期已很高", tone:"up", pct:91},
+    {label:"股价反应", value:"盘中约-9.7%", sub:"强结果未能推动价格，典型的高预期与获利了结信号", tone:"down", pct:95}
+  ],
+  management_highlights: [
+    "管理层称Q4收入位于指引高端，非GAAP毛利率同比扩大1310个基点，非GAAP EPS超过原指引区间，自由现金流率达到34%。",
+    "下一代ePMR硬盘已经开始出货，单盘容量最高40TB；高容量产品提升单位硬盘价值，并帮助云客户降低每TB总拥有成本。",
+    "Nearline出货容量从去年同期170 EB升至209 EB，总出货容量由190 EB升至231 EB；增长主要由云和AI工作负载驱动。",
+    "云业务连续多个季度占收入约89%，证明WDC已从多元存储品牌转为高度聚焦超大规模数据中心HDD的公司。",
+    "Q1 FY2027收入指引40亿至42亿美元，非GAAP毛利率55%-56%，非GAAP EPS 3.85至4.15美元；经营动能仍强，但收入环比增速从Q4约12%降至中点约9%。",
+    "全年自由现金流35.11亿美元、同比+145%；强现金流给去杠杆、分红和回购提供空间，但不能消除HDD周期和高估值风险。"
+  ],
+  narrative: {
+    summary: "WDC验证了AI基础设施的瓶颈不只在GPU、网络和电力，也在长期、低成本的数据留存。收入+44%、毛利率54.4%、自由现金流率34%，说明HDD供给纪律和云需求正在共同重塑行业利润；但股价下跌提醒我们，市场已经从验证需求转向交易景气持续时间与预期上限。",
+    consensus: "多头证据是云收入占89%、Nearline容量增长、40TB产品开始出货、2026产能已有订单保障，以及2027/2028长期协议提高可见度。HDD在大规模冷数据和温数据存储中的成本优势短期难被SSD完全替代。",
+    divergence: "反叙事是WDC与SNDK在极强数字后都下跌，说明存储链可能已进入‘只奖励大幅上修、不奖励正常超预期’阶段。Q1收入仍强，但环比增长中点约9%，若每EB价格、毛利率或云客户采购增量见顶，估值会比盈利更早压缩。",
+    signals: ["Q1收入能否达到41亿美元附近", "非GAAP毛利率能否守住55%以上", "Nearline exabytes与每EB价格", "40TB ePMR客户认证与出货", "2027/2028长期协议覆盖", "财报后5日与20日能否收复跌幅"]
+  },
+  sources: [
+    {type:"公司公告",label:"WD Q4 FY2026 Results",url:"https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-fourth-quarter-and-fiscal-year-2026-financial"},
+    {type:"公司演示稿",label:"WD Q4 FY2026 Financial Results",url:"https://investor.wdc.com/static-files/e1f02f77-4432-42c3-8bd4-024371f40e54"},
+    {type:"公司投资者关系",label:"Western Digital Investor Relations",url:"https://investor.wdc.com/"},
+    {type:"市场行情",label:"Google Finance WDC",url:"https://www.google.com/finance/quote/WDC:NASDAQ"}
+  ],
+  report: `【WDC · Western Digital】Fiscal Q4 2026财报分析 · 2026-08-06
+
+结论先说：公司好、财报强，但这次不是一个可以只看好数字就追的交易。
+
+拆分SanDisk以后，WDC只做机械硬盘HDD。它给云数据中心提供容量大、单位成本低的长期数据仓库：GPU负责算，SSD负责快，HDD负责把训练数据、推理日志、视频和备份长期存下来。
+
+Q4收入37.47亿美元、同比增长44%；非GAAP毛利率54.4%，同比提高13.1个百分点；非GAAP EPS 3.56美元、同比增长109%；自由现金流12.81亿美元，自由现金流率约34%。下一季收入指引40亿至42亿美元，中点同比约增长45.5%，非GAAP毛利率55%-56%，EPS 3.85至4.15美元。经营结果几乎全线强劲。
+
+管理层还开始出货最高40TB的下一代ePMR硬盘。Nearline容量从去年同期170 EB升至209 EB，云业务占收入89%，说明AI产生的数据确实正在拉动低成本大容量存储。
+
+但股价盘中下跌约9.7%。这不是公司突然变差，而是预期已经更高：HDD供给紧、2026产能锁定、长期协议和利润率扩张此前都被市场知道；当结果只是强而没有再次大幅抬高远期上限，资金会兑现利润。Q1收入中点虽同比增长约45.5%，环比增长约9.4%，边际加速度已成为争议。
+
+因此交易上先等5日和20日价格结构。若股价企稳、盈利预测继续上调、Nearline容量和每EB价格保持增长，可把下跌视为预期清洗；若价格持续弱、毛利率或单位容量价格出现环比拐点，就要按周期顶部而不是便宜机会处理。
+
+评分67分：财报质量39/40，股价反应6/35，持续性质量22/25。好公司和好财报不自动等于好交易。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "CELH",
+  company: "Celsius Holdings",
+  sector: "consumer",
+  score: 43,
+  rec: "deterioration",
+  dims: {quality: 20, marketread: 5, fundamentals: 18},
+  compare: {revenueGrowth:10.6},
+  business: {
+    plain: "Celsius卖能量饮料。现在不再只有CELSIUS一个品牌，还拥有更偏年轻女性的Alani Nu和传统大众能量饮料Rockstar，希望用三个品牌覆盖不同人群、口味和饮用场景。",
+    howMakesMoney: "产品主要通过PepsiCo分销系统进入便利店、超市、健身房和电商。销量、货架位置和单罐价格越高，收入越多；但促销、上架费、分销激励和渠道库存会让出货收入与消费者实际购买产生明显差异。",
+    moat: "品牌认知、口味创新、PepsiCo分销和冷柜货架构成壁垒，但能量饮料转换成本低，Monster、Red Bull与零售商自有品牌持续争夺消费者和位置。",
+    whatChanged: "组合规模变大，却暴露出核心CELSIUS品牌收缩。Alani Nu仍强，Rockstar仍下滑；财报从‘并购带来增长’进入‘必须修复主品牌并恢复利润率’阶段。"
+  },
+  decision: {
+    stance: "先回避，不因大跌自动抄底",
+    summary: "市场大跌不是只在惩罚一次EPS miss，而是在否定‘Alani Nu和Rockstar整合完成后，CELSIUS主品牌会自然恢复’的预期。公司要同时证明主品牌恢复、渠道库存正常化和利润率回升，交易才有正向闭环。",
+    playbook: [
+      {if:"财报后5日和20日仍无法收复大跌缺口，盈利预测继续下修", then:"维持回避", why:"价格与预期同时说明这不是一次性噪音。"},
+      {if:"CELSIUS品牌零售销售转正、出货与scanner差距明显缩小", then:"把主品牌从恶化降级为修复观察", why:"消费者购买与渠道订单重新同步，才说明库存再平衡接近结束。"},
+      {if:"毛利率回到50%以上、调整后EBITDA恢复增长，Alani Nu仍保持高双位数零售增长", then:"等待价格筑底后再评估小仓位", why:"组合增长开始转成利润，而不是用促销和渠道费用换收入。"},
+      {if:"主品牌继续负增长、Rockstar继续双位数下滑或促销费用再上升", then:"继续降低估值假设", why:"三个品牌会变成互相稀释资源，而不是共享分销平台。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构。","下一季CELSIUS品牌零售销售、出货与scanner差距。","毛利率、调整后EBITDA率和PepsiCo渠道库存。"],
+    invalidation: ["CELSIUS品牌收入继续双位数下降。","毛利率持续低于48%。","Alani Nu零售增速快速回落，同时Rockstar仍双位数下滑。","大跌后盈利预测继续明显下修。"],
+    timing: "先看5日与20日是否止跌；基本面终验在下一季财报。",
+    risk: "-16.7%为8月6日约11:54 ET的盘中反应，收盘后仍需补录最终价格；不能把盘中超跌直接当成安全边际。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"8.179亿美元", sub:"+10.6% YoY；组合增长主要来自Alani Nu与Rockstar", tone:"flat", pct:62},
+    {label:"CELSIUS品牌收入", value:"-11.7% YoY", sub:"促销、库存再平衡、club渠道疲弱与SKU优化共同拖累", tone:"down", pct:18},
+    {label:"Alani Nu收入", value:"3.644亿美元", sub:"零售销售+55.7%，但DSD渠道结构和费用压低报告收入", tone:"up", pct:85},
+    {label:"Rockstar收入", value:"6650万美元", sub:"零售销售-13%，品牌仍未稳定", tone:"down", pct:25},
+    {label:"毛利率", value:"48.1%", sub:"同比-340bp；铝价、促销和渠道结构抵消整合节省", tone:"down", pct:35},
+    {label:"调整后EPS", value:"0.36美元", sub:"同比-23%；GAAP EPS为0.14美元、同比-58%", tone:"down", pct:28},
+    {label:"调整后EBITDA", value:"1.842亿美元", sub:"同比-12%；利润率22.5%，去年为28.4%", tone:"down", pct:30},
+    {label:"股价反应", value:"盘中约-16.7%", sub:"核心品牌、利润率和盈利质量同时遭市场否定", tone:"down", pct:96}
+  ],
+  management_highlights: [
+    "管理层称Rockstar整合已经完成，Alani Nu继续扩大；但当前首要任务已转为提高SKU生产率并让CELSIUS主品牌恢复可持续增长。",
+    "CELSIUS品牌零售销售同比-2%，平均铺货点减少约7%；剩余SKU每个铺货点的销售额较Q1提高约16%，说明优化有局部效果，但尚未转成总品牌增长。",
+    "CELSIUS品牌订单增速落后scanner约7个百分点，管理层归因于DSD分销网络库存再平衡；这是下一季必须验证的关键解释。",
+    "Alani Nu零售销售+55.7%，但更高DSD占比、trade investment和约900万美元非现金captaincy摊销压低报告收入。",
+    "毛利率维持在约48%，运输和供应链整合节省被铝等大宗商品成本抵消；管理层期待orbit模型、运费优化和price-pack architecture在下半年逐步改善利润率。",
+    "公司Q2回购约1.004亿美元股票，但在核心品牌与利润同步走弱时，回购不能替代经营修复。"
+  ],
+  narrative: {
+    summary: "CELH验证的不是‘能量饮料组合高速成长’，而是并购会暂时把总收入和核心品牌健康度分开。组合收入+11%、零售销售+31%，同时CELSIUS品牌收入-11.7%、调整后EBITDA-12%、股价-16.7%；市场更相信品牌和利润，而不是并购后的总规模。",
+    consensus: "Alani Nu仍是资产亮点，PepsiCo分销、约20%美国RTD能量饮料份额和国际长期空间提供底盘。SKU减少后单点生产率改善，也给主品牌修复留下可能。",
+    divergence: "反叙事更强：核心CELSIUS和Rockstar均下滑，毛利率低于去年，促销与渠道费用增加。若所谓库存再平衡不能在下一季带来订单追上scanner，本季解释就会从时点问题变成需求问题。",
+    signals: ["CELSIUS品牌收入与零售销售转正", "订单与scanner差距从约7个百分点收窄", "毛利率回到50%以上", "Alani Nu高增长是否转成报告收入和利润", "Rockstar零售跌幅是否收窄", "财报后5日与20日能否守住低点"]
+  },
+  sources: [
+    {type:"公司公告",label:"Celsius Q2 2026 Earnings Press Release",url:"https://s203.q4cdn.com/427437840/files/doc_financials/2026/q2/Celsius-Holdings-Q2-2026-Earnings-Press-Release.pdf"},
+    {type:"公司演示稿",label:"Celsius Q2 2026 Investor Presentation",url:"https://s203.q4cdn.com/427437840/files/doc_financials/2026/q2/CELH-Q2-2026-Investor-Presentation-080626.pdf"},
+    {type:"公司业绩会",label:"Celsius Q2 2026 Earnings Webcast",url:"https://events.q4inc.com/attendee/277956573"},
+    {type:"市场行情",label:"Google Finance CELH",url:"https://www.google.com/finance/quote/CELH:NASDAQ"}
+  ],
+  report: `【CELH · Celsius Holdings】2026 Q2财报分析 · 2026-08-06
+
+结论先说：公司有品牌资产，但这季不好，交易上先回避。
+
+收入增长10.6%看似尚可，实际被并购和Alani Nu掩饰。核心CELSIUS品牌收入下降11.7%，Rockstar零售销售下降13%；毛利率降至48.1%，调整后EPS下降23%，调整后EBITDA下降12%。
+
+最重要的争议是CELSIUS主品牌究竟只是渠道库存再平衡，还是消费者需求和品牌动能真的走弱。管理层称订单落后scanner约7个百分点，并通过减少SKU提高单点生产率；下一季订单如果仍追不上零售销售，这个解释就会失效。
+
+Alani Nu仍然很强，零售销售增长55.7%，但更高的DSD渠道费用和分销会计摊销使增长没有完整落到收入与利润。组合规模不是最终答案，三个品牌能否共同提高利润率才是。
+
+评分43分：财报质量20/40，股价反应5/35，持续性质量18/25。` ,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "VECO",
+  company: "Veeco Instruments",
+  sector: "semis",
+  score: 68,
+  rec: "doubt",
+  dims: {quality: 34, marketread: 17, fundamentals: 17},
+  compare: {revenueGrowth:16.5, revenueGuidance:26.6},
+  business: {
+    plain: "Veeco卖制造芯片和先进封装用的专用设备，可以把它理解成芯片厂里的激光热处理机、薄膜沉积机、清洗机和光刻设备。它不是什么都做，而是在激光退火、EUV掩膜、先进封装、化合物半导体等小而关键的工序占位置。",
+    howMakesMoney: "晶圆厂、封装厂、硬盘和化合物半导体厂采购设备，安装后再购买服务与零部件。收入取决于客户资本开支、设备验收和交付时点，订单领先收入几个季度。",
+    moat: "关键工艺必须同时满足良率、速度和成本，设备一旦通过大客户认证不容易更换；但市场规模较窄、客户集中，季度收入和产品组合会明显波动。",
+    whatChanged: "先进封装订单达到2亿美元，半导体、数据存储和区域收入同时回升，2027可见度增强；同时公司提前扩产，全年EPS指引反而下调，说明收入增长暂时没有等比例转成利润。"
+  },
+  decision: {
+    stance: "基本面向上，但不把订单强劲等同于当期盈利加速",
+    summary: "Q2收入和EPS都超过指引，Q3收入中点对应约27%增长，先进封装订单提供2027可见度；但毛利率同比下降、全年非GAAP EPS中点被下调，股价只温和上涨。交易需要等利润率与收入重新同步。",
+    playbook: [
+      {if:"财报后5日与20日守住跳空，2027收入和EPS预测继续上调", then:"可在回踩稳定后小仓位参与", why:"说明2亿美元先进封装订单正在被市场视为可兑现收入。"},
+      {if:"Q3收入达到2.0亿至2.2亿美元、非GAAP毛利率达到41%-42%", then:"提高盈利兑现置信度", why:"收入加速终于伴随产品组合和制造效率改善。"},
+      {if:"数据存储和半导体收入继续环比增长，先进封装订单转成发货", then:"把AI基础设施验证从订单升级为收入", why:"多个终端共同增长比单一大单更可持续。"},
+      {if:"毛利率低于指引、FY EPS再下调，或美国海关/中国审批继续延迟", then:"减仓或回避", why:"订单可见度无法抵消利润和交易完成风险。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构。","Q3收入、非GAAP毛利率和先进封装订单发货。","Axcelis合并的监管进度与中国审批。"],
+    invalidation: ["Q3收入低于2亿美元。","非GAAP毛利率低于41%。","FY2026非GAAP EPS再次下调。","2亿美元先进封装订单未按计划转成2027收入。"],
+    timing: "短线看5日和20日；Q3验证利润率，2027验证扩产与订单兑现。",
+    risk: "+1.8%为8月6日约11:54 ET盘中反应；Axcelis交易、海关、出口政策和中国收入均可能制造非经营性波动。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"1.935亿美元", sub:"+16.5% YoY；超过公司1.70亿至1.90亿美元指引上沿", tone:"beat", pct:90},
+    {label:"非GAAP EPS", value:"0.33美元", sub:"高于公司0.20至0.32美元指引；同比仍下降8%", tone:"beat", pct:78},
+    {label:"非GAAP毛利率", value:"39.5%", sub:"Q1为36.2%，但去年同期42.6%", tone:"flat", pct:58},
+    {label:"先进封装订单", value:"2亿美元", sub:"覆盖湿法处理与光刻，强化2027收入可见度", tone:"up", pct:94},
+    {label:"半导体收入", value:"1.307亿美元", sub:"+5% YoY、+20% QoQ，占总收入68%", tone:"up", pct:82},
+    {label:"数据存储收入", value:"2220万美元", sub:"+79% YoY、+118% QoQ，周期性反弹明显", tone:"up", pct:86},
+    {label:"Q3收入指引", value:"2.00亿至2.20亿美元", sub:"中点隐含约+26.6% YoY", tone:"up", pct:88},
+    {label:"FY2026非GAAP EPS指引", value:"1.36至1.61美元", sub:"此前1.50至1.85美元；扩产投资与组合压制利润", tone:"down", pct:38},
+    {label:"股价反应", value:"盘中约+1.8%", sub:"数字强，但市场没有给予高强度共振", tone:"flat", pct:55}
+  ],
+  management_highlights: [
+    "管理层称所有主要终端订单动能都在加速，并取得约2亿美元先进封装订单，支持2027更高收入可见度。",
+    "公司正在为2027收入提前扩充制造能力，因此近期费用和利润率承压；这也是全年收入上修而EPS下修的核心矛盾。",
+    "半导体收入1.307亿美元，占68%；数据存储收入2220万美元，较Q1翻倍以上；美国和中国收入也明显环比增长。",
+    "下一代nanosecond annealing项目达到重大里程碑，管理层把激光退火、EUV掩膜和先进封装视为AI/HPC的核心受益工序。",
+    "现金与短期投资4.29亿美元，Q2经营现金流5100万美元；资产负债表足以支持当前扩产。",
+    "Axcelis合并仍待完成，中国监管审批、美国海关扣留和出口政策可能影响交付与收入确认。"
+  ],
+  narrative: {
+    summary: "VECO验证AI资本开支正在向先进封装、EUV掩膜、激光退火和光通信材料设备扩散。最强证据是2亿美元先进封装订单与Q3约27%收入增长指引；最大反证是全年EPS被下调，说明设备需求强不等于利润立即同步。",
+    consensus: "半导体、化合物半导体和数据存储同时环比改善，订单跨终端而非单一客户；设备认证和关键工艺位置让2027收入具备一定可见度。",
+    divergence: "产品组合使非GAAP毛利率仍比去年低约310bp，扩产提前吞噬利润。中国占收入25%，Axcelis合并还存在中国审批风险；AI叙事不能消除设备周期和政策风险。",
+    signals: ["2亿美元先进封装订单转化速度", "Q3非GAAP毛利率41%-42%", "FY EPS是否停止下调", "半导体与数据存储收入是否继续环比增长", "Axcelis监管进度", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"公司公告",label:"Veeco Q2 2026 Financial Results",url:"https://ir.veeco.com/news-and-events/news-details/2026/Veeco-Reports-Second-Quarter-2026-Financial-Results/default.aspx"},
+    {type:"公司演示稿",label:"Veeco Q2 2026 Earnings Presentation",url:"https://s1.q4cdn.com/522285864/files/doc_financials/2026/q2/Q22026EarningsPresentation2026-08-04FINAL.pdf"},
+    {type:"公司资料",label:"Veeco Quarterly Financial Results",url:"https://ir.veeco.com/financial-information/quarterly-financial-results/default.aspx"},
+    {type:"市场行情",label:"Google Finance VECO",url:"https://www.google.com/finance/quote/VECO:NASDAQ"}
+  ],
+  report: `【VECO · Veeco Instruments】2026 Q2财报分析 · 2026-08-06
+
+结论先说：公司正在变好，但利润质量暂时落后于订单和收入，交易上等毛利率确认。
+
+Q2收入1.935亿美元，同比增长16.5%，超过公司指引上沿；非GAAP EPS 0.33美元，也略超指引。更重要的是，公司取得2亿美元先进封装订单，并给出Q3收入2.00亿至2.20亿美元指引，中点对应约27%增长。
+
+VECO卖的是芯片制造中小而关键的设备。AI/HPC不仅需要GPU，也需要先进封装、EUV掩膜、激光退火、硅光与高密度存储；订单说明资本开支正在沿这些工序扩散。
+
+但这不是无瑕疵财报。非GAAP毛利率39.5%，仍低于去年42.6%；公司上调全年收入区间，却把非GAAP EPS从1.50至1.85美元下调为1.36至1.61美元。管理层说是提前为2027扩产，但投资者需要看到Q3毛利率回到41%-42%证明利润只是延后，而非结构性变差。
+
+评分68分：财报质量34/40，股价反应17/35，持续性质量17/25。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-06",
+  ticker: "AEVA",
+  company: "Aeva Technologies",
+  sector: "tech",
+  score: 61,
+  rec: "repricing",
+  dims: {quality: 20, marketread: 31, fundamentals: 10},
+  compare: {revenueGrowth:11.3},
+  business: {
+    plain: "Aeva原本主要给汽车和机器做‘眼睛’：它的4D激光雷达不只看物体离多远，还直接测出物体移动速度。现在公司把同一套硅光技术延伸到AI数据中心，为近封装光学提供高功率光源。",
+    howMakesMoney: "当前收入来自少量传感器产品、开发里程碑和专业服务；真正的大机会来自汽车量产、工业传感器放量，以及AI数据中心光源在2027以后进入部署。",
+    moat: "FMCW 4D激光雷达、片上硅光和高功率光源共享底层技术，能同时测距测速并潜在复用到光互连；但是否形成规模成本、良率和量产壁垒仍未被收入证明。",
+    whatChanged: "公司第一次把AI光互连从技术故事推进到客户联合开发协议，市场因此重估；但当季产品收入下降、增长主要靠专业服务，基本面仍是早期项目公司。"
+  },
+  decision: {
+    stance: "把它当事件驱动的高Beta期权，不当成熟AI光通信公司",
+    summary: "股价上涨约35%主要交易AI数据中心光源的远期可选性，而不是610万美元季度收入。联合开发协议若升级为具名生产订单，叙事可能继续；如果2027部署延迟或再次融资，估值会快速反向。",
+    playbook: [
+      {if:"财报后5日与20日保留大部分涨幅，客户协议出现明确工程样品和量产里程碑", then:"只用小仓位事件预算参与", why:"价格和产业证据开始共同确认光互连新业务。"},
+      {if:"联合开发协议升级为生产合同、披露订单金额或2027部署数量", then:"提高光互连收入置信度", why:"JDA终于从研发费用转向可估算收入。"},
+      {if:"产品收入重新增长、汽车和SICK项目按计划进入量产，同时季度现金消耗稳定", then:"提高公司质量评分", why:"原有Lidar业务没有被AI故事掩盖，而是在共同兑现。"},
+      {if:"部署推迟、客户不再推进、产品收入继续下降或公司再次大额发股", then:"减仓或退出", why:"远期可选性不足以抵消稀释和现金消耗。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构。","NPO客户JDA的样品、设计定点、生产合同与部署数量。","Bendix、Daimler、SICK和欧洲OEM量产节点。"],
+    invalidation: ["2027下半年初始部署延迟。","光互连JDA未转化为生产订单。","产品收入继续同比下降。","现金消耗未改善且再次大额股权融资。","CFO过渡影响融资或执行。"],
+    timing: "价格先看5日和20日；光互连关键节点在2027下半年部署和2028量产，汽车项目按各自SOP验证。",
+    risk: "+34.6%为8月6日约11:53 ET盘中反应。小盘股、远期收入、客户不具名和高稀释使仓位风险远高于普通财报交易。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"613.6万美元", sub:"+11.3% YoY；规模仍很小", tone:"beat", pct:62},
+    {label:"产品收入", value:"254.6万美元", sub:"同比-39%；收入增长主要不是产品放量", tone:"down", pct:20},
+    {label:"专业服务收入", value:"359.0万美元", sub:"去年同期130.8万美元；里程碑收入占比上升", tone:"up", pct:74},
+    {label:"毛利润", value:"218.9万美元", sub:"去年同期为-272.0万美元；毛利率约35.7%", tone:"up", pct:78},
+    {label:"非GAAP经营亏损", value:"2605万美元", sub:"去年同期2511万美元，核心亏损略扩大", tone:"down", pct:28},
+    {label:"可用流动性", value:"3.029亿美元", sub:"含1.779亿美元现金与证券、1.25亿美元可用额度", tone:"up", pct:80},
+    {label:"AI光互连里程碑", value:"首个NPO联合开发协议", sub:"目标2027H2初始部署、2028量产；尚非生产订单", tone:"up", pct:88},
+    {label:"股权融资", value:"1.15亿美元", sub:"流动性增强，但加权平均股数同比约+17%", tone:"flat", pct:45},
+    {label:"股价反应", value:"盘中约+34.6%", sub:"市场在重估AI光学可选性，而非当期利润", tone:"up", pct:98}
+  ],
+  management_highlights: [
+    "Aeva成立Optical Connectivity业务，把过去十年开发的高功率光源技术用于下一代AI数据中心。",
+    "公司与一家主要客户签署联合开发协议，为某hyperscaler的Near-Packaged Optics方案提供光源；目标2027年下半年初始部署、2028年量产。",
+    "Bendix选择Aeva 4D Lidar与感知软件开发下一代商用车ADAS，覆盖北美主要Class 8卡车平台；SICK也推出首款Eve芯片传感器。",
+    "总收入同比增长11%，但产品收入从420.3万美元降至254.6万美元，专业服务收入升至359万美元；这说明增长主要来自开发里程碑。",
+    "非GAAP经营亏损2605万美元，同比略扩大；上半年经营现金流流出5702万美元，商业进展尚未降低现金消耗。",
+    "公司通过增发筹集1.15亿美元；CFO Saurabh Sinha将于9月5日离职，由Corporate Controller暂代，融资与执行连续性需要观察。"
+  ],
+  narrative: {
+    summary: "AEVA把激光雷达公司重新包装成‘FMCW感知 + AI数据中心光源’双平台。市场约35%的上涨说明光互连瓶颈会给拥有独特硅光资产的小公司巨大估值弹性；但当季产品收入下降、亏损未改善，当前只是远期可选性确认，不是盈利确认。",
+    consensus: "同一底层硅光技术能同时服务测距测速和高功率光源，首个客户JDA证明技术至少进入hyperscaler供应链开发阶段；汽车、工业和数据中心形成多个潜在落点。",
+    divergence: "JDA不是订单，客户没有具名，部署在2027下半年、量产在2028。收入只有610万美元且依赖专业服务，产品收入下滑、持续烧钱和股权稀释都说明市场价格跑在财务兑现前面。",
+    signals: ["NPO协议转为生产合同或披露订单金额", "2027H2部署是否按期", "产品收入重新增长", "Daimler/Bendix/SICK/OEM项目量产", "季度经营现金消耗下降", "财报后5日与20日能否保留跳空"]
+  },
+  sources: [
+    {type:"公司公告",label:"Aeva Q2 2026 Results",url:"https://investors.aeva.com/news-releases/news-release-details/aeva-reports-second-quarter-2026-results"},
+    {type:"公司业绩会",label:"Aeva Q2 2026 Earnings Call",url:"https://investors.aeva.com/news-events/events"},
+    {type:"市场行情",label:"Google Finance AEVA",url:"https://www.google.com/finance/quote/AEVA:NASDAQ"}
+  ],
+  report: `【AEVA · Aeva Technologies】2026 Q2财报分析 · 2026-08-06
+
+结论先说：这不是一份高质量盈利财报，而是一次新业务叙事带来的估值重定价。
+
+AEVA最白话的理解是给汽车和机器做能同时看距离与速度的眼睛。它现在把硅光技术延伸到AI数据中心，为Near-Packaged Optics提供高功率光源。首个客户联合开发协议目标在2027年下半年部署、2028年量产，这是股价上涨约35%的核心原因。
+
+财务仍很早期。Q2收入只有613.6万美元，增长11%；产品收入下降39%，增长主要来自专业服务。非GAAP经营亏损2605万美元，同比略扩大，上半年经营现金流流出5702万美元。1.15亿美元增发改善了流动性，也带来明显稀释。
+
+因此必须区分技术验证、客户开发与商业收入。JDA说明客户愿意共同开发，不等于已经下生产订单。下一步需要看到具名客户、工程样品、订单金额、部署数量和量产时间没有延迟。
+
+评分61分：财报质量20/40，股价反应31/35，持续性质量10/25。股价很强，公司质量尚未跟上。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-06",
