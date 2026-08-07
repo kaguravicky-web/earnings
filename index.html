@@ -302,14 +302,15 @@ const NARRATIVES = [
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","BE","VECO","ONTO","NET","AKAM"],
+    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","AAOI","BE","VECO","ONTO","NET","AKAM"],
     thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，并给出下一季约+42%至+49%的收入增长指引；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单；ONTO先进节点收入环比+50%、先进封装创新高、积压订单首次超过10亿美元，Q3收入中点隐含约+79%；NET收入增速重新加速至36%；AKAM云基础设施收入+39%，年内签署的多年CIS合同合计超过28亿美元。信号共同说明AI支出已从“买GPU”扩散到检测量测、先进封装、网络、安全和边缘云，但WDC与SNDK财报后下跌、AKAM在合同很强时仍下跌，也说明市场会区分收入质量、利润与资本强度。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；AAOI数据中心收入+140%、800G出货环比翻倍，Q3收入中点隐含约+130%；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单；ONTO先进节点收入环比+50%、先进封装创新高、积压订单首次超过10亿美元；NET收入增速重新加速至36%；AKAM云基础设施收入+39%，多年CIS合同超过28亿美元。信号共同说明AI支出已从“买GPU”扩散到检测量测、先进封装、光通信、网络、安全和边缘云，但WDC、SNDK与AKAM的价格反应也说明市场会区分收入质量、利润与资本强度。",
     disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
       {type:"公司公告", label:"Microsoft FY2026 Q4 Results", url:"https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast"},
       {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
+      {type:"SEC财报", label:"AAOI Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"},
       {type:"SEC财报", label:"Onto Innovation Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"},
       {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"},
       {type:"市场反应", label:"IBD：Arista AI cloud networking beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"}
@@ -321,13 +322,14 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "快速强化",
-    tickers: ["ANET","ALAB","CRDO","MRVL","AMD","NVDA","CSCO","AVGO","AEVA"],
+    tickers: ["ANET","ALAB","AAOI","CRDO","MRVL","AMD","NVDA","CSCO","AVGO","AEVA"],
     thesis: "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
-    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；CRDO和MRVL分别验证AEC/高速连接与光互连DSP、交换硅需求。AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线，但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。",
+    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍，管理层称800G/1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%；CRDO和MRVL分别验证AEC/高速连接与光互连DSP、交换硅需求。AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线，但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。",
     disconfirm: "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     sources: [
       {type:"市场反应", label:"IBD：AI Cloud Networking Growth Drives Arista Beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
       {type:"市场反应", label:"Barron's：Arista stock surges after earnings", url:"https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"},
+      {type:"SEC财报", label:"AAOI Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"},
       {type:"公司资料", label:"AMD and Arista AI networking webinar", url:"https://www.arista.com/en/23982-amd-webinar-series"}
     ]
   },
@@ -419,14 +421,16 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["PLTR","DDOG","SHOP","APP","TEAM","META","GOOG","CRM","NOW","ADBE"],
+    tickers: ["PLTR","DDOG","SHOP","APP","TEAM","HUBS","META","GOOG","CRM","NOW","ADBE"],
     thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
-    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，却因大客户新增放慢和高预期重定价下跌约17%；SHOP收入+34%、GMV+32%；APP收入仍+53%却因增速斜率和FCF转换存疑而大跌；TEAM云收入+31%、RPO +44%、MCP与Teamwork Graph CLI月活突破100万，盘后上涨约33%，说明能让AI代理安全读取企业上下文的软件平台仍可获得重估。共同结论是：AI应用与软件正在按可验证结果、客户扩张和估值重新分层。",
+    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，首日却下跌约19%；SHOP收入+34%、GMV+32%；APP收入仍+53%，但首日同样下跌约20%；TEAM云收入+31%、RPO +44%、盘后大涨；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日下跌约19%。共同结论是：AI应用与软件正按可验证收入、客户扩张、指引斜率和估值重新分层，当前强数字本身已经不够。",
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
     sources: [
       {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
       {type:"市场反应", label:"WSJ：Shopify revenue acceleration as AI tools drive results", url:"https://www.wsj.com/business/earnings/shopify-profit-jumps-as-subscriptions-merchant-services-boost-revenues-73693ff6"},
       {type:"市场反应", label:"WSJ：AppLovin says Q2 fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
+      {type:"SEC财报", label:"Datadog Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"},
+      {type:"SEC财报", label:"HubSpot Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"},
       {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"}
     ]
   },
@@ -436,13 +440,14 @@ const NARRATIVES = [
     strength: "7.5/10负面",
     horizon: "当前至未来数季",
     direction: "待交叉验证",
-    tickers: ["IBM","ACN","CRM","NOW","ADBE","TEAM"],
+    tickers: ["IBM","ACN","CRM","NOW","ADBE","TEAM","HUBS"],
     thesis: "当企业预算优先投向GPU、服务器、网络、电力、存储和安全，传统软件席位、咨询项目和非核心数字化支出可能被延迟、压缩或重新议价。",
     evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。AI硬件链和电力链连续强验证，提高了预算挤出假设的可信度，但仍需要ACN、CRM、NOW等后续财报确认。",
-    disconfirm: "软件与咨询公司RPO、签约周期、净留存率和AI增购同步改善，证明AI没有挤出而是带动软件预算。TEAM本季云收入+31%、RPO +44%、盘后约+33%，已经构成重要反证；但FY2027总收入仅指引约+13%，仍需后续CRM、NOW、ADBE交叉验证。",
+    disconfirm: "软件与咨询公司RPO、签约周期、净留存率和AI增购同步改善，证明AI没有挤出而是带动软件预算。TEAM本季云收入+31%、RPO +44%、盘后约+33%，构成重要反证；但HUBS billings增速降至14%、Q3收入只指引约+14%且全年收入区间下调，说明部分SaaS公司仍在承受预算、席位定价和AI转型摩擦，需后续CRM、NOW、ADBE继续裁决。",
     sources: [
       {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
-      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"}
+      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
+      {type:"SEC财报", label:"HubSpot Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"}
     ]
   },
   {
@@ -481,6 +486,164 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-08",
+  ticker: "AAOI",
+  company: "Applied Optoelectronics",
+  sector: "tech",
+  score: 75,
+  rec: "resonance",
+  dims: {quality: 33, marketread: 28, fundamentals: 14},
+  compare: {revenueGrowth:86.4, revenueGuidance:129.7},
+  business: {
+    plain: "AAOI卖的是数据中心里负责把电信号变成光信号的高速光模块和激光器。GPU服务器之间要高速交换数据，铜线距离和功耗越来越难承受，就需要800G、1.6T光模块；公司也给有线电视网络卖升级设备。",
+    howMakesMoney: "云厂商和网络设备客户采购800G、1.6T光收发模块、激光器与组件，CATV运营商采购1.8GHz网络升级产品。收入取决于客户认证、产能爬坡、良率和大客户部署节奏。",
+    moat: "公司从激光芯片、组件到完整模块垂直整合，并在美国、台湾和中国拥有研发制造能力。设计导入和客户认证提供粘性，但规模、客户集中与制造良率仍弱于大型同行，扩产执行决定利润。",
+    whatChanged: "Q2收入同比增长86%，数据中心收入增长140%，800G出货环比翻倍，公司重回非GAAP盈利；管理层称800G和1.6T需求到2027年中仍超过产能，Q3收入中点同比约增长130%。叙事从设计导入升级为大规模交付。"
+  },
+  decision: {
+    stance: "需求与价格共振，但只适合小仓位高Beta交易；先等扩产和现金流证据",
+    summary: "数据中心收入、800G出货、非GAAP盈利和Q3指引共同转强，8月7日盘中约上涨11.6%。但GAAP亏损扩大、半年经营现金流仍为负，库存和设备投入快速上升，Q3完全摊薄股数假设也明显增加。需求很好不等于每股价值会同幅增长。",
+    playbook: [
+      {if:"财报后5日与20日守住跳空，Q3盈利预测继续上调", then:"回踩稳定后用小仓位参与", why:"价格确认产能扩张正在转成每股盈利，而非单日挤空。"},
+      {if:"Q3收入达到2.55亿至2.90亿美元、非GAAP毛利率达到29%-30.5%", then:"维持增长兑现判断", why:"800G和1.6T放量没有以毛利率崩塌为代价。"},
+      {if:"月产能向65万只推进、数据中心收入继续翻倍且经营现金流改善", then:"提高持续性评分", why:"产能、需求和现金回收形成闭环。"},
+      {if:"良率或交付延迟、毛利率跌破29%、现金消耗扩大或股数继续快速增加", then:"减仓或回避", why:"重资产扩产会把强需求转成融资和摊薄风险。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "Q3收入、毛利率与非GAAP EPS", "800G/1.6T月产能和良率", "数据中心收入与大客户部署", "经营现金流、库存与资本开支", "完全摊薄股数"],
+    invalidation: ["Q3收入低于2.55亿美元", "非GAAP毛利率低于29%", "800G/1.6T扩产明显延期", "数据中心收入不再环比增长", "经营现金流与摊薄继续恶化"],
+    timing: "短线看5日和20日能否守住跳空；Q3验证2.55亿至2.90亿美元收入、毛利率与盈利，2026年底验证月产能能否从接近20万只提升至约65万只。",
+    risk: "+11.6%为8月7日约13:28 ET盘中反应，并非正式收盘。半年经营现金流为-7,378万美元，设备采购与预付款合计超过6亿美元；库存较年初增加约52%，扩产、良率、客户集中和股本摊薄风险都很高。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"1.919亿美元", sub:"+86.4% YoY、+27.0% QoQ；处于公司1.80亿至1.98亿美元指引内", tone:"up", pct:92},
+    {label:"非GAAP EPS", value:"0.06美元", sub:"去年亏损0.16美元、Q1亏损0.07美元；超过此前-0.03至+0.03美元指引", tone:"beat", pct:88},
+    {label:"数据中心收入", value:"1.077亿美元", sub:"+140% YoY，占收入56.1%", tone:"up", pct:97},
+    {label:"CATV收入", value:"8,058万美元", sub:"+43.8% YoY，占收入42.0%", tone:"up", pct:84},
+    {label:"800G出货", value:"环比翻倍以上", sub:"1.6T客户参与也保持强劲", tone:"up", pct:96},
+    {label:"产能目标", value:"约20万→65万只/月", sub:"预计2026年底达到；需求到2027年中仍超过产能", tone:"up", pct:94},
+    {label:"非GAAP毛利率", value:"29.8%", sub:"Q1为29.2%，去年30.4%；增长尚未明显推高毛利率", tone:"flat", pct:58},
+    {label:"现金投入", value:"半年约-6.99亿美元", sub:"经营现金流-0.74亿；设备采购与预付款约-6.25亿", tone:"down", pct:25},
+    {label:"Q3收入指引", value:"2.55亿至2.90亿美元", sub:"中点约+129.7% YoY、+42.0% QoQ", tone:"up", pct:99},
+    {label:"股价反应", value:"盘中约+11.6%", sub:"光通信需求、产能稀缺与盈利拐点形成共振", tone:"up", pct:91}
+  ],
+  management_highlights: [
+    "CEO称Q2是转折季度：收入连续第五季创新高，公司重回非GAAP盈利，800G产品出货环比翻倍以上。",
+    "数据中心收入1.077亿美元、同比增长140%，CATV收入8058万美元、增长44%，本季并非只有单一终端拉动。",
+    "公司当前月产能接近20万只，目标在年底达到约65万只800G和1.6T产品；执行跨度超过三倍。",
+    "管理层预计高速光模块需求持续超过公司产能至2027年中，说明当前主要约束是制造交付而不是订单。",
+    "Q3收入中点2.725亿美元、同比约增长130%，非GAAP EPS指引0.11至0.26美元，盈利有望进一步扩大。",
+    "反面是半年经营现金流仍为负，库存、设备和预付款快速增加；Q3使用约9280万股计算EPS，较Q2此前约8070万股假设高约15%。"
+  ],
+  narrative: {
+    summary: "AAOI是AI网络光通信链的高Beta确认：数据中心收入+140%、800G出货环比翻倍、需求超过产能和Q3约+130%指引共同表明，网络瓶颈正在从交换机与芯片延伸到光模块制造能力。",
+    consensus: "GPU集群规模增加后，800G和1.6T光互连需求随端口数和带宽上升。AAOI的垂直整合与美国制造扩张让它能争取稀缺产能溢价，CATV业务同时提供第二增长来源。",
+    divergence: "反叙事是这仍是低毛利、重资本和高度集中的制造业务。收入爆发但GAAP亏损扩大，半年现金投入巨大，库存快速增加且股数上升；任何良率、客户部署或产能延误都可能把增长变成现金与摊薄压力。",
+    signals: ["800G/1.6T月产能与良率", "数据中心收入环比增速", "非GAAP毛利率能否突破30%", "经营现金流与库存", "客户集中和订单可见度", "完全摊薄股数", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"SEC财报",label:"AAOI Q2 2026 Earnings Release",url:"https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"},
+    {type:"SEC 10-Q",label:"AAOI Q2 2026 Form 10-Q",url:"https://www.sec.gov/Archives/edgar/data/1158114/000143774926026278/aaoi20260630_10q.htm"},
+    {type:"公司业绩会",label:"Applied Optoelectronics Investor Relations",url:"https://appliedoptoelectronics.gcs-web.com/"},
+    {type:"市场行情",label:"Nasdaq AAOI Quote",url:"https://www.nasdaq.com/market-activity/stocks/aaoi"}
+  ],
+  report: `【AAOI · Applied Optoelectronics】2026 Q2财报分析 · 2026-08-08
+
+结论先说：光通信需求、产能稀缺、盈利拐点和股价形成共振，但这是高现金消耗、高摊薄风险的小票，只适合小仓位。
+
+AAOI最白话的理解，是给AI数据中心制造高速光模块和激光器。GPU服务器之间要交换大量数据，铜线在距离、功耗和带宽上越来越吃力，因此需要800G、1.6T光模块把电信号转成光信号。
+
+Q2收入1.919亿美元，同比增长86%；数据中心收入1.077亿美元，同比增长140%；800G出货环比翻倍以上。公司从Q1非GAAP亏损转为每股盈利0.06美元。Q3收入指引2.55亿至2.90亿美元，中点同比约增长130%。
+
+管理层称当前月产能接近20万只，年底目标约65万只，800G和1.6T需求到2027年中仍超过产能。市场8月7日盘中上涨约11.6%，说明光模块成为AI网络瓶颈的叙事得到价格确认。
+
+但财务质量不能和ANET混为一谈。AAOI非GAAP毛利率只有29.8%，GAAP仍亏损；半年经营现金流-7378万美元，设备采购与预付款超过6亿美元，库存增加52%，Q3完全摊薄股数假设也明显上升。交易上先看5日和20日能否守住跳空，再验证产能、良率、毛利率和现金流。
+
+评分75分：财报质量33/40，股价反应28/35，持续性质量14/25。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-08",
+  ticker: "HUBS",
+  company: "HubSpot",
+  sector: "tech",
+  score: 59,
+  rec: "doubt",
+  dims: {quality: 30, marketread: 8, fundamentals: 21},
+  compare: {revenueGrowth:19.8, revenueGuidance:14.2},
+  business: {
+    plain: "HubSpot给中小企业提供一套获客和客户管理工具。公司可以把网站访客、广告线索、销售跟进、客服记录和付款信息放进同一个CRM，现在又让AI Agent自动找客户、回答问题和完成部分营销销售工作。",
+    howMakesMoney: "客户按不同Hub、功能等级、核心席位和AI credits支付订阅费。客户数量增加、购买更多Hub、升级到Professional/Enterprise或使用更多AI代理，都会提高收入。",
+    moat: "CRM中沉淀的客户数据、营销内容、销售流程、超过2000个应用集成和合作伙伴生态带来切换成本。风险是AI代理可能减少传统席位需求，HubSpot必须从按人收费平稳转向按结果和用量收费。",
+    whatChanged: "Q2收入和利润率都超出此前指引，但客户增长、每客户收入和billings增速继续放慢，Q3收入只指引约14%增长，全年收入区间还下调。市场不再奖励‘AI转型’本身，而要求证明新定价能重新拉动增长。"
+  },
+  decision: {
+    stance: "当前财务仍健康，但价格已否定增长叙事；不急着抄底，等9月分析师日和Day20确认",
+    summary: "收入+20%、EPS和利润率都很好，股价首日却下跌19.1%，第二日只小幅修复，仍较财报前低约16.9%。市场交易的是billings、客户增速、ARPC和Q3指引同步减速，以及从席位收费转向AI结果/credits收费的短期摩擦。",
+    playbook: [
+      {if:"财报后5日与20日不再创新低，分析师停止下调2027收入预测", then:"等待价格筑底后再小仓位观察", why:"先确认大跌不是新一轮持续下修的开始。"},
+      {if:"9月17日分析师日披露AI Agent采用率、credits收入和新定价的单位经济", then:"根据可量化数据重估", why:"这是下一季前最重要的中间验证事件。"},
+      {if:"Q3收入超过9.25亿美元、billings和客户增速重新加速", then:"提高基本面置信度", why:"说明Q2减速主要来自定价切换，而非需求或竞争。"},
+      {if:"billings继续低于收入、客户增长跌破12%或FY2026再下调", then:"减仓或回避", why:"AI定价转型正在损害而不是扩张收入池。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "9月17日HubSpot分析师日", "AI Agent采用率、credits与核心席位", "客户数、ARPC与billings", "Q3收入和FY2026指引", "非GAAP利润率与自由现金流"],
+    invalidation: ["Q3收入低于9.24亿美元", "billings增速继续下降并低于收入增速", "客户增长跌破12%", "FY2026收入指引再次下调", "AI credits与结果定价没有形成可验证增量"],
+    timing: "短线先看5日和20日；9月17日分析师日验证AI定价与产品采用，Q3财报最终验证客户、billings和收入是否重新加速。",
+    risk: "财报后首日收跌约19.1%，8月7日约13:28 ET虽反弹2.8%，仍较财报前收盘低约16.9%。当前价格反应不是正式Day5结果；AI可能扩大CRM价值，也可能减少传统席位并延长采购评估周期。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"9.117亿美元", sub:"+19.8% YoY、恒定汇率+17%；高于此前8.97亿至8.98亿美元指引", tone:"beat", pct:86},
+    {label:"非GAAP EPS", value:"3.26美元", sub:"去年2.19美元，+49%；高于此前3.00至3.02美元指引", tone:"beat", pct:91},
+    {label:"非GAAP经营利润率", value:"20.3%", sub:"去年17.0%，同比+330bp；GAAP利润率转正至4.8%", tone:"up", pct:90},
+    {label:"客户数", value:"306,446家", sub:"+14% YoY；Q1客户增速为16%", tone:"flat", pct:62},
+    {label:"每客户订阅收入", value:"11,800美元", sub:"+4% YoY；Q1增速为6%", tone:"flat", pct:58},
+    {label:"Calculated Billings", value:"9.297亿美元", sub:"+14%报告口径、+17%恒定汇率；Q1报告口径+19%", tone:"down", pct:52},
+    {label:"非GAAP自由现金流", value:"1.679亿美元", sub:"同比+44.5%，自由现金流率约18.4%", tone:"up", pct:82},
+    {label:"Q3收入指引", value:"9.24亿至9.25亿美元", sub:"约+14%报告口径、+15%恒定汇率，明显低于Q2增速", tone:"down", pct:45},
+    {label:"FY2026收入指引", value:"36.78亿至36.86亿美元", sub:"此前37.00亿至37.08亿美元，区间整体下调约2200万美元", tone:"down", pct:38},
+    {label:"股价反应", value:"首日约-19.1%", sub:"第二日盘中修复约2.8%，仍较财报前低约16.9%", tone:"down", pct:24}
+  ],
+  management_highlights: [
+    "CEO称公司主动加速AI转型，客户需要可衡量结果和可预测价格，因此HubSpot正在调整产品、定价与销售方式。",
+    "收入9.117亿美元、同比增长20%，非GAAP经营利润增长44%、利润率提升至20.3%，当前利润质量并不差。",
+    "客户增长降至14%，每客户订阅收入增长4%，billings报告口径增长14%；三个领先指标都较Q1放慢。",
+    "Q3收入只指引约14%增长，全年收入区间较Q1指引整体降低约2200万美元；AI转型暂时没有带来增长上修。",
+    "公司Q2回购5.319亿美元股票，并新增10亿美元回购授权；回购减少股数并提高EPS，但不能替代收入加速。",
+    "前Google Cloud Applications及广告高管Jerry Dischler加入董事会，强化AI Agent和商业化经验；真正验证点是9月17日分析师日能否披露agents、credits和结果定价数据。"
+  ],
+  narrative: {
+    summary: "HUBS是‘AI会不会重写SaaS收费模式’的重要反例。AI能提高CRM价值，但也让按席位收费转向按credits、用量和结果收费。Q2利润很好，客户、billings和指引却减速，市场用约19%的下跌要求公司先证明新模式。",
+    consensus: "HubSpot拥有统一CRM数据、营销销售客服工作流和中小企业生态，理论上比孤立AI工具更容易把Agent嵌入真实流程。利润率扩张和自由现金流增长提供转型缓冲。",
+    divergence: "反叙事是AI代理减少人工席位，客户会重新评估软件组合和价格；结果定价可能延长销售周期并降低短期可见度。客户增长、ARPC、billings与Q3指引同步放慢，说明风险已经进入数字。",
+    signals: ["9月17日分析师日的AI monetization披露", "Customer/Prospecting Agent采用率", "credits和核心席位增长", "客户数与ARPC", "billings能否重新快于收入", "FY2026指引", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"SEC财报",label:"HubSpot Q2 2026 Earnings Release",url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"},
+    {type:"SEC 10-Q",label:"HubSpot Q2 2026 Form 10-Q",url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335232/hubs-20260630.htm"},
+    {type:"公司业绩会",label:"HubSpot Events and Presentations",url:"https://ir.hubspot.com/events-presentations/events"},
+    {type:"市场行情",label:"Nasdaq HUBS Quote",url:"https://www.nasdaq.com/market-activity/stocks/hubs"}
+  ],
+  report: `【HUBS · HubSpot】2026 Q2财报分析 · 2026-08-08
+
+结论先说：公司当前仍在增长、利润率也很好，但市场已经否定“AI会立即让增长重新加速”。不要因为跌得多就急着抄底。
+
+HubSpot最白话的理解，是给中小企业提供获客、销售和客服的一体化工作台。客户资料、营销内容、销售跟进和客服记录都在CRM里，现在又加入AI Agent自动找客户、回答问题和完成部分工作。
+
+Q2收入9.117亿美元，同比增长20%；非GAAP EPS 3.26美元；非GAAP经营利润率20.3%，同比提高3.3个百分点。当前季度本身不差。
+
+真正的问题在领先指标：客户增长从Q1的16%降至14%，每客户订阅收入增速从6%降至4%，billings报告口径增速从19%降至14%。Q3收入只指引约14%增长，全年收入区间还从37.00亿至37.08亿美元下调到36.78亿至36.86亿美元。
+
+市场首日收跌约19.1%，第二日只修复一小部分。这说明投资者担心AI代理会改变按席位收费，HubSpot从seat转向credits和结果定价时可能出现销售周期、定价和收入确认摩擦。
+
+下一关键事件是9月17日分析师日。需要看到Agent采用率、credits收入、核心席位和单位经济，而不是只听AI转型故事。然后在Q3用客户、billings和收入重新加速与否裁决。
+
+评分59分：财报质量30/40，股价反应8/35，持续性质量21/25。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-07",
@@ -1194,9 +1357,9 @@ Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。
   company: "Datadog",
   sector: "tech",
   detailPage: "reports/datadog-q2-2026.html",
-  score: 68,
+  score: 67,
   rec: "doubt",
-  dims: {quality: 37, marketread: 9, fundamentals: 22},
+  dims: {quality: 37, marketread: 8, fundamentals: 22},
   compare: {revenueGrowth:36, revenueGuidance:28.7},
   business: {
     plain: "Datadog像云软件的总控室：它把服务器、应用、日志、数据库、安全事件和AI模型的运行状态集中到一张屏幕，帮工程师发现哪里坏了、为什么坏、会影响哪些客户，并逐步让AI自动修复。",
@@ -1205,8 +1368,8 @@ Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。
     whatChanged: "AI正在增加系统复杂度与机器生成流量，带动可观测性需求；Datadog同时把Bits从辅助问答推进到检测、调查和修复，但市场要求AI功能尽快变成客户扩张和收入。"
   },
   decision: {
-    stance: "好公司、强财报，但先尊重17%的负面价格信号",
-    summary: "Q2实际值、billings和指引全面高于共识，股价仍下跌约17.3%。交易的核心是判断这是高估值仓位清洗，还是大客户新增放慢与Q3增速回落正在预告更长的减速周期。",
+    stance: "好公司、强财报，但先尊重首日约19%的负面价格信号",
+    summary: "Q2实际值、billings和指引全面高于共识，股价首日仍下跌约19.0%；第二天仅小幅修复。交易的核心是判断这是高估值仓位清洗，还是大客户新增放慢与Q3增速回落正在预告更长的减速周期。",
     playbook: [
       {if:"财报后5日和20日守住低点，盈利预测继续上调，缺口开始缩小", then:"价格稳定后再考虑小仓位参与或继续持有", why:"说明大跌主要是预期和仓位重置，而不是基本面恶化。"},
       {if:"Q3收入超过11.45亿美元上沿，billings继续快于收入，10万美元以上客户净增重新加速", then:"提高基本面置信度并增加风险预算", why:"证明Q2的客户新增放慢不是需求转折。"},
@@ -1227,7 +1390,7 @@ Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。
     {label:"自由现金流", value:"2.79亿美元", sub:"FCF率24.9%；Q1为28.7%", tone:"flat", pct:71},
     {label:"Q3收入指引", value:"11.35亿至11.45亿美元", sub:"中点隐含约+28.7%；高于共识约2.9%", tone:"beat", pct:85},
     {label:"FY2026收入指引", value:"44.5亿至44.7亿美元", sub:"中点较前指引上调约3.2%", tone:"up", pct:88},
-    {label:"股价反应", value:"约-17.3%", sub:"跌至约234.23美元；好数字遭预期重定价", tone:"down", pct:92}
+    {label:"股价反应", value:"首日约-19.0%", sub:"283.17→229.29美元；次日盘中仅修复约3%", tone:"down", pct:94}
   ],
   management_highlights: [
     "Q2收入11.2亿美元、同比增长36%；调整后营业利润2.57亿美元、利润率约23%，自由现金流2.79亿美元。",
@@ -1236,16 +1399,16 @@ Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。
     "CEO Olivier Pomel表示客户正在用AI开发和部署产品，也使用Datadog观察、保护并处理AI系统；AI带来的复杂度是平台需求的新来源。",
     "DASH 2026发布100多项能力，包括可自主检测、调查和修复事故的Bits AI、AI Guard、Bring Your Own Cloud和Bits Agent Builder。",
     "公司收购Adaptive ML，加强世界模型、agentic LLM后训练与强化学习运维能力；但这些产品目前仍需要ARR、采用率和客户扩张数据证明商业价值。",
-    "官方业绩会于8月6日8:00 ET召开。当前记录以正式财报稿为主，详细问答将在官方回放或文字稿可用后继续补充。"
+    "8月6日首个完整交易日收跌约19.0%；8月7日盘中仅修复约3%，相对财报前仍低约16.6%，价格尚未确认错杀。"
   ],
   narrative: {
-    summary: "DDOG确认AI并不只增加算力需求，也增加监控、安全和自动修复复杂度；但市场拒绝仅凭AI产品发布提高估值。全面beat、raise与17%下跌并存，说明高倍数软件现在更看重大客户净增、AI货币化和下一季度增速斜率。",
+    summary: "DDOG确认AI并不只增加算力需求，也增加监控、安全和自动修复复杂度；但市场拒绝仅凭AI产品发布提高估值。全面beat、raise与首日约19%下跌并存，说明高倍数软件现在更看重大客户净增、AI货币化和下一季度增速斜率。",
     consensus: "多头证据是收入+36%、billings+38%、Q3和全年指引高于预期、自由现金流强劲，以及Bits从辅助工具向自主运维代理扩张。平台覆盖监控、日志、安全与AI工作负载，交叉销售和数据规模构成壁垒。",
     divergence: "反叙事是10万美元以上ARR客户只环比净增约170家，客户增长23%低于收入增长36%；Q3指引隐含增速降到约28.7%。在财报前已高预期和高估值背景下，市场可能认为Q2加速不可持续，AI产品尚未形成独立收入披露。",
     signals: ["Q3收入能否超过11.45亿美元上沿", "Billings是否继续快于收入", "10万美元以上ARR客户净增能否重新加速", "Bits与AI安全产品是否披露采用率或ARR", "财报后5日与20日能否守住低点", "DT、ESTC、SNOW、NOW是否同步确认企业云和AI运维需求"]
   },
   extended: {
-    coreConflict: "财务数据几乎全面超预期，股价却下跌约17.3%。市场不是否认当前需求，而是在怀疑大客户扩张速度、AI货币化和36%增长能否延续。",
+    coreConflict: "财务数据几乎全面超预期，股价首日却下跌约19.0%，第二天仅小幅修复。市场不是否认当前需求，而是在怀疑大客户扩张速度、AI货币化和36%增长能否延续。",
     growthPath: [{label:"Q1 2026实际",value:"收入 +32%"},{label:"Q2 2026实际",value:"收入 +36%"},{label:"Q3 2026指引",value:"约 +28.7%"}],
     managementClaim: "AI工作负载增加系统复杂度，客户需要统一观察、保护和自动处理；Bits、AI Guard与Agent Builder将把Datadog从监控平台推进到自主运维行动层。",
     externalEvidence: "Billings增长38.1%且快于收入，支持需求真实；但大客户环比净增放慢、FCF率下降和股价大跌说明市场要求更强的客户与货币化证据。",
@@ -1258,21 +1421,22 @@ Unity本质上把游戏引擎、玩家行为数据和广告投放连在一起。
     checkpoints: ["Q3收入和billings", "大客户净增", "AI产品商业披露", "财报后5日/20日价格", "同行订单交叉验证"]
   },
   sources: [
+    {type:"SEC",label:"Datadog Q2 2026 Financial Results",url:"https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"},
     {type:"公司公告",label:"Datadog Q2 2026 Financial Results",url:"https://investors.datadoghq.com/news-releases/news-release-details/datadog-announces-second-quarter-2026-financial-results"},
     {type:"公司业绩会",label:"Datadog Q2 2026 Earnings Conference Call",url:"https://investors.datadoghq.com/events/event-details/q2-2026-datadog-earnings-conference-call"},
-    {type:"市场数据",label:"StockStory Q2 results and market reaction",url:"https://stockstory.org/us/stocks/nasdaq/ddog/news/earnings/datadog-nasdaqddog-delivers-impressive-q2-cy2026-but-stock-drops-173percent"}
+    {type:"市场数据",label:"Nasdaq DDOG historical price",url:"https://www.nasdaq.com/market-activity/stocks/ddog"}
   ],
   report: `【DDOG · Datadog】2026 Q2财报分析 · 2026-08-06
 
 结论先说：Datadog仍是一家高质量公司，但这份强财报不是一笔自动成立的好交易。
 
-收入同比增长36%，调整后EPS、营业利润、billings、Q3和全年指引都高于市场预期，自由现金流也很强。股价却下跌约17.3%，说明市场交易的不是Q2好不好，而是大客户扩张、AI货币化和下一季增速能否继续支持高估值。
+收入同比增长36%，调整后EPS、营业利润、billings、Q3和全年指引都高于市场预期，自由现金流也很强。股价首日却下跌约19.0%，第二天只小幅修复，说明市场交易的不是Q2好不好，而是大客户扩张、AI货币化和下一季增速能否继续支持高估值。
 
 公司本质是云软件的总控室。它把服务器、应用、日志、安全和AI模型的运行数据放到一个平台，帮助工程师定位和修复问题。AI工作负载越复杂，可观测性需求越高；但Datadog必须证明Bits和AI Guard不只是产品发布，而能推动客户增加产品、使用量和ARR。
 
 最强证据是billings增长38.1%、快于收入，Q3指引也高于共识。最重要的保留项是10万美元以上ARR客户环比只净增约170家，客户增长23%低于收入36%，Q3指引增速又回落到约28.7%。
 
-因此评分为68分：财报质量37/40，股价反应9/35，持续性质量22/25。公司好不好与现在是否该追是两个答案。下一步先看财报后5日和20日，再等Q3用收入、billings、大客户净增和AI商业化逐条裁决。`,
+因此评分为67分：财报质量37/40，股价反应8/35，持续性质量22/25。公司好不好与现在是否该追是两个答案。下一步先看财报后5日和20日，再等Q3用收入、billings、大客户净增和AI商业化逐条裁决。`,
   vic_notes: "",
   outcome: ""
 },
@@ -1605,9 +1769,10 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
   company: "AppLovin",
   sector: "tech",
   detailPage: "reports/applovin-q2-2026.html",
-  score: 66,
+  score: 65,
   rec: "doubt",
-  dims: {quality: 28, marketread: 14, fundamentals: 24},
+  dims: {quality: 28, marketread: 13, fundamentals: 24},
+  compare: {revenueGrowth:52.8, revenueGuidance:47.3},
   business: {
     plain: "AppLovin像一个自动化广告配对员：它判断哪个用户更可能买东西，再把广告主的预算送到最有可能转化的游戏或应用里。预测越准，广告主赚得越多，也越愿意继续加预算。",
     howMakesMoney: "广告主为投放和效果付费，AppLovin用AXON优化广告匹配，并通过MAX连接应用流量；高度自动化让大部分新增收入变成利润和现金流。",
@@ -1635,7 +1800,7 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
     {label:"自由现金流", value:"8.63亿美元", sub:"FCF率44.9%；Q1为70.1%", tone:"down", pct:44},
     {label:"Q3收入指引", value:"20.55亿至20.85亿美元", sub:"中点隐含约+47.3% YoY；略低于共识", tone:"miss", pct:60},
     {label:"Q3 EBITDA指引", value:"17.10亿至17.40亿美元", sub:"利润率约83%；低于约17.5亿美元共识", tone:"miss", pct:59},
-    {label:"股价反应", value:"-19%至-21%", sub:"小幅miss触发增长曲线重估", tone:"down", pct:90}
+    {label:"股价反应", value:"首日约-19.7%", sub:"417.80→335.67美元；次日盘中约+2.2%", tone:"down", pct:94}
   ],
   management_highlights: [
     "Q2收入19.24亿美元，同比+53%，比约19.5亿美元共识低约1.2%；GAAP EPS 3.76美元，大致符合预期。",
@@ -1644,10 +1809,10 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
     "CEO Adam Foroughi承认没有达到公司内部标准，但把偏差归因于模型升级数量和推出时点，而非广告需求或竞争恶化。",
     "管理层称重大模型升级已在季后上线、Q3开局重新加速；消费垂直支出比Q4高峰高28%，MAX发行商收益环比双位数增长。",
     "CFO称FCF下降来自国际税款和利息付款时点，承诺Q3改善、全年现金转化回到调整后EBITDA约75%；这一说法仍需数据验证。",
-    "股价盘后下跌约19%至21%。市场惩罚的不是1.2%的收入miss，而是59%→53%→约47%的连续减速和管理层可信度风险。"
+    "股价首个完整交易日下跌约19.7%；8月7日盘中仅修复约2.2%，相对财报前仍低约17.9%。市场惩罚的不是1.2%的收入miss，而是59%→53%→约47%的连续减速和管理层可信度风险。"
   ],
   narrative: {
-    summary: "APP本季不是业务崩坏，而是高预期资产的节奏失误。收入仍+53%、利润率仍极高，但Q2落在指引低端、EBITDA不达预期、Q3指引偏软，市场立刻从“AI广告效率平台”切到“模型迭代不确定性和增长降速”。",
+    summary: "APP本季不是业务崩坏，而是高预期资产的节奏失误。收入仍+53%、利润率仍极高，但Q2落在指引低端、EBITDA不达预期、Q3指引偏软，股价首日约-19.7%、第二天仅小幅修复，市场立刻从“AI广告效率平台”切到“模型迭代不确定性和增长降速”。",
     consensus: "多头逻辑仍在：APP的AI广告引擎能提高广告投放效率，把模型优化转化为广告主ROI和平台EBITDA，利润率远高于多数互联网平台。只要模型迭代重新加速，增长可能恢复。",
     divergence: "反叙事是APP太依赖AI模型迭代节奏，且市场预期过高；一旦Axon/广告模型改善推迟，就会同时影响收入、EBITDA和指引。监管、广告客户集中和竞争也会放大估值波动。",
     signals: [
@@ -1658,7 +1823,7 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
     ]
   },
   extended: {
-    coreConflict: "收入只低于共识约1.2%，股价却跌近20%。真正被重估的是增长二阶导数、FCF转换率与管理层解释的可信度，而不是当季绝对盈利能力。",
+    coreConflict: "收入只低于共识约1.2%，股价首日却跌约19.7%，第二天仅修复约2.2%。真正被重估的是增长二阶导数、FCF转换率与管理层解释的可信度，而不是当季绝对盈利能力。",
     growthPath: [
       {label:"Q1 2026实际", value:"收入 +59%"},
       {label:"Q2 2026实际", value:"收入 +53%"},
@@ -1681,12 +1846,13 @@ SHOP证明AI应用层不是只能烧钱，也可以直接变成商户流量、�
     ]
   },
   sources: [
+    {type:"SEC", label:"AppLovin Q2 2026 Financial Results", url:"https://www.sec.gov/Archives/edgar/data/1751008/000175100826000057/exhibit991-2q26earningspre.htm"},
     {type:"公司公告", label:"AppLovin Q2 2026 Financial Results", url:"https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Second-Quarter-2026-Financial-Results/default.aspx"},
     {type:"财务附件", label:"AppLovin Q2 2026 Financial Update", url:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"},
     {type:"业绩会视频", label:"AppLovin Q2 2026 Earnings Call", url:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/2026-Q2-Earnings-Call-w-QandA-02-Final-720.mp4"},
     {type:"扩展参考", label:"AppLovin Q2 2026研究与交易整合版", url:"https://sintszkay.github.io/market-reports/reports/applovin-q2-2026-earnings.html"},
     {type:"市场反应", label:"WSJ: AppLovin Q2 results fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
-    {type:"市场反应", label:"Barron's: AppLovin stock sinks on soft earnings", url:"https://www.barrons.com/articles/applovin-earnings-stock-price-eaafd6d3"}
+    {type:"市场数据", label:"Nasdaq APP historical price", url:"https://www.nasdaq.com/market-activity/stocks/app"}
   ],
   report: `【APP · AppLovin】2026 Q2财报与AI广告平台节奏风险 · 2026-08-05
 
@@ -1777,7 +1943,7 @@ META和SHOP都用AI证明了广告/商户转化效率，而APP这季反而暴露
 
 增长仍强，但收入、EBITDA和指引都没有达到高预期，且管理层承认执行 timing 问题。
 
-股价反应：14/35
+股价反应：13/35
 
 盘后大跌，说明市场明显不满意。
 
@@ -1785,7 +1951,7 @@ META和SHOP都用AI证明了广告/商户转化效率，而APP这季反而暴露
 
 APP的AI广告平台护城河和盈利能力仍强，问题是节奏和估值。
 
-综合分：66/100
+综合分：65/100
 
 类型：市场存疑
 
