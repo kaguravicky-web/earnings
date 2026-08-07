@@ -302,14 +302,16 @@ const NARRATIVES = [
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","BE","VECO","NET"],
+    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","BE","VECO","ONTO","NET","AKAM"],
     thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，并给出下一季约+42%至+49%的收入增长指引；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单并称2027可见度增强；NET收入增速重新加速至36%、大客户增长27%，说明AI流量也在把边缘网络、安全和开发平台变成基础设施层。信号共同说明AI支出已从“买GPU”变成整套物理基础设施投资，但WDC与SNDK财报后下跌也说明存储链的强基本面已被高预期提前计价。",
+    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，并给出下一季约+42%至+49%的收入增长指引；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单；ONTO先进节点收入环比+50%、先进封装创新高、积压订单首次超过10亿美元，Q3收入中点隐含约+79%；NET收入增速重新加速至36%；AKAM云基础设施收入+39%，年内签署的多年CIS合同合计超过28亿美元。信号共同说明AI支出已从“买GPU”扩散到检测量测、先进封装、网络、安全和边缘云，但WDC与SNDK财报后下跌、AKAM在合同很强时仍下跌，也说明市场会区分收入质量、利润与资本强度。",
     disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
     sources: [
       {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
       {type:"公司公告", label:"Microsoft FY2026 Q4 Results", url:"https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast"},
       {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
+      {type:"SEC财报", label:"Onto Innovation Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"},
+      {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"},
       {type:"市场反应", label:"IBD：Arista AI cloud networking beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"}
     ]
   },
@@ -400,14 +402,15 @@ const NARRATIVES = [
     strength: "8/10",
     horizon: "中长期",
     direction: "强化",
-    tickers: ["PANW","CRWD","FTNT","IBM","PLTR","ANET","NET"],
+    tickers: ["PANW","CRWD","FTNT","IBM","PLTR","ANET","NET","AKAM"],
     thesis: "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。",
-    evidence: "IBM已确认快速变化的网络安全环境影响客户交易签约；Karp和Axios围绕数据归属、缓存位置、提示词安全和控制层的讨论，说明AI部署越深入，安全和权限越靠近采购核心。ANET把网络可观测与AI fabric放在一起，也说明安全/网络/AI正在融合；NET收入+36%、10万美元以上大客户+27%、净留存率120%，进一步验证企业把安全、边缘网络和Agent流量控制放进同一采购平台。",
+    evidence: "IBM已确认快速变化的网络安全环境影响客户交易签约；Karp和Axios围绕数据归属、缓存位置、提示词安全和控制层的讨论，说明AI部署越深入，安全和权限越靠近采购核心。ANET把网络可观测与AI fabric放在一起，也说明安全/网络/AI正在融合；NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%，继续验证企业在扩建AI云时会同步采购边缘安全与流量治理。",
     disconfirm: "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。",
     sources: [
       {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
       {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"},
-      {type:"公司资料", label:"Arista AI networking overview", url:"https://investors.arista.com/"}
+      {type:"公司资料", label:"Arista AI networking overview", url:"https://investors.arista.com/"},
+      {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"}
     ]
   },
   {
@@ -478,6 +481,162 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-07",
+  ticker: "ONTO",
+  company: "Onto Innovation",
+  sector: "tech",
+  score: 86,
+  rec: "resonance",
+  dims: {quality: 38, marketread: 30, fundamentals: 18},
+  compare: {revenueGrowth:35.3, revenueGuidance:78.7},
+  business: {
+    plain: "Onto Innovation卖的是芯片制造中的‘质量检测尺和显微镜’。芯片厂在先进制程、HBM和先进封装生产过程中，用它的检测、量测和工厂软件发现缺陷、测量极细结构，并尽早修正工艺，避免昂贵晶圆做到最后才报废。",
+    howMakesMoney: "晶圆厂、存储厂和先进封装客户购买检测量测设备、光刻设备、软件与后续服务。设备认证周期长，订单通常领先收入；当新制程、HBM层数、Chiplet和2.5D/3D封装复杂度提高，每一步需要测量的项目也会增加。",
+    moat: "护城河来自长期客户认证、工艺数据库、量测精度以及从前端先进节点延伸到后端封装的组合。弱点是客户集中、半导体资本开支有周期，且KLA、Applied Materials等大型设备商也在相邻市场竞争。",
+    whatChanged: "Q2收入同比增长35%、先进节点收入环比增长50%，先进封装与特殊器件收入也创纪录；积压订单首次超过10亿美元，Q3收入指引中点接近同比增长79%。ONTO从‘先进封装受益概念’升级为订单、收入、利润率和股价同时验证。"
+  },
+  decision: {
+    stance: "公司与财报都很好，价格也确认；但单日大涨后等回踩，不用在第一根阳线追",
+    summary: "收入、EPS、毛利率、经营利润率、先进节点、先进封装和Q3指引全面超过此前预期，8月7日盘中约上涨14.4%。这是AI/HBM设备链里非常干净的共振财报。交易风险主要来自预期迅速抬高、客户集中、半导体设备周期，以及Rigaku投资与可转债带来的资本配置复杂度。",
+    playbook: [
+      {if:"财报后5日与20日守住大部分跳空，2027收入和EPS预测继续上调", then:"回踩稳定后分批参与", why:"价格和盈利预测共同确认订单不是一次性提前拉货。"},
+      {if:"Q3收入达到3.80亿至4.00亿美元、非GAAP经营利润率达到31.5%-32.5%", then:"维持高质量增长判断", why:"订单能够转成收入，同时经营杠杆继续改善。"},
+      {if:"先进节点与先进封装继续增长，10亿美元以上积压订单没有明显回落", then:"提高2027持续性评分", why:"前端GAA、HBM和2.5D封装构成多条需求来源。"},
+      {if:"收入低于3.80亿美元、积压订单快速下降，或跳空在20日内完全回补", then:"减仓并重新评估周期位置", why:"高预期环境无法容忍订单或交付斜率转弱。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "Q3收入和非GAAP经营利润率", "先进节点、HBM与2.5D封装收入", "积压订单和客户资本开支", "Rigaku交易审批与资本回报"],
+    invalidation: ["Q3收入低于3.80亿美元", "非GAAP经营利润率低于31.5%", "积压订单显著跌破10亿美元", "先进节点或先进封装订单转弱", "财报跳空20日内完全回补并伴随预测下修"],
+    timing: "短线看5日和20日能否守住跳空；Q3验证3.80亿至4.00亿美元收入和利润率，2027验证10亿美元积压订单的兑现与HBM/先进封装持续性。",
+    risk: "+14.4%为8月7日约11:34 ET盘中反应，并非当日正式收盘。公司2025年前三大客户合计约占收入49%，同时已发行约15亿美元可转债并计划投资Rigaku，需求强劲不代表资本回报没有风险。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"3.431亿美元", sub:"+35.3% YoY、+17.5% QoQ；高于此前3.20亿至3.30亿美元指引", tone:"beat", pct:97},
+    {label:"非GAAP EPS", value:"1.93美元", sub:"去年1.25美元，+54%；高于此前1.65至1.73美元指引", tone:"beat", pct:96},
+    {label:"先进节点收入", value:"环比+50%", sub:"创季度纪录，逻辑与存储客户需求同步增强", tone:"up", pct:97},
+    {label:"先进封装", value:"创历史新高", sub:"由2.5D逻辑、HBM和硅光应用共同推动", tone:"up", pct:95},
+    {label:"积压订单", value:"超过10亿美元", sub:"公司历史首次，支持2026下半年并延伸至2027", tone:"up", pct:98},
+    {label:"非GAAP毛利率", value:"57.0%", sub:"去年54.5%，同比+250bp", tone:"up", pct:91},
+    {label:"非GAAP经营利润率", value:"30.0%", sub:"去年25.9%，同比+410bp", tone:"up", pct:94},
+    {label:"Q3收入指引", value:"3.80亿至4.00亿美元", sub:"中点约+78.7% YoY，较Q2中点环比约+13.7%", tone:"up", pct:99},
+    {label:"Q3非GAAP EPS", value:"2.18至2.38美元", sub:"去年0.92美元，指引中点同比约+148%", tone:"up", pct:98},
+    {label:"股价反应", value:"盘中约+14.4%", sub:"数字、指引与HBM/先进封装叙事形成强共振", tone:"up", pct:95}
+  ],
+  management_highlights: [
+    "CEO称公司正处于下一代AI与高性能计算的多项关键技术拐点，先进节点和先进封装收入同时创纪录。",
+    "先进节点收入环比增长50%，需求并非只来自单一逻辑客户，而是逻辑与存储客户广泛增强。",
+    "2.5D逻辑、HBM和硅光共同推动特殊器件与先进封装收入创纪录，说明检测量测需求正在随封装复杂度上升。",
+    "积压订单首次超过10亿美元；客户仍维持多年扩产计划，管理层预计强势延续至2027。",
+    "Q3收入中点3.90亿美元、非GAAP经营利润率中点32%，表明增长不仅来自交付，产品组合和经营杠杆也在改善。",
+    "公司持有18.8亿美元现金与短期投资，但其中一部分来自可转债融资；Rigaku 27%股权投资的协同和资本回报仍要单独验证。"
+  ],
+  narrative: {
+    summary: "ONTO把‘AI资本开支向HBM与先进封装设备扩散’从行业故事升级为财务确认。先进节点+50% QoQ、先进封装创新高、积压订单超过10亿美元和Q3约+79%收入指引同时出现，说明良率控制与量测正成为GPU之外的硬瓶颈。",
+    consensus: "AI芯片越来越复杂，GAA、HBM堆叠、Chiplet和2.5D/3D封装增加了缺陷密度和量测步骤。客户如果不能及时发现微小缺陷，昂贵晶圆和封装价值会在后段一次性损失，因此检测量测支出具有较强必要性。",
+    divergence: "反方认为设备订单可能受少数大客户扩产、提前采购和HBM景气推动；2025年前三大客户占比约49%，Q3的极高增长也建立在去年低基数上。若积压订单转化后没有持续补单，当前重估可能接近周期高点。",
+    signals: ["10亿美元积压订单能否继续增长", "先进节点与先进封装收入拆分", "HBM和2.5D客户扩产", "Q3毛利率与经营利润率", "客户集中度", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"SEC财报",label:"Onto Innovation Q2 2026 Earnings Release",url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"},
+    {type:"SEC 10-Q",label:"Onto Innovation Q2 2026 Form 10-Q",url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526338401/onto-20260630.htm"},
+    {type:"公司业绩会",label:"Onto Innovation Investor Relations",url:"https://investors.ontoinnovation.com/"},
+    {type:"市场行情",label:"Nasdaq ONTO Quote",url:"https://www.nasdaq.com/market-activity/stocks/onto"}
+  ],
+  report: `【ONTO · Onto Innovation】2026 Q2财报分析 · 2026-08-07
+
+结论先说：这是一份全面加速、并得到价格确认的强财报。公司很好，但单日大涨后不要在第一根阳线追。
+
+ONTO最白话的理解，是芯片厂里的质量检测尺和显微镜。先进制程、HBM和2.5D/3D封装越复杂，制造过程中越需要反复找缺陷、测结构和修正工艺，否则昂贵晶圆做到最后才报废，损失会非常大。
+
+Q2收入3.431亿美元，同比增长35.3%、环比增长17.5%；非GAAP EPS 1.93美元，同比增长54%。先进节点收入环比增长50%，先进封装、HBM和硅光相关收入也创纪录。非GAAP毛利率57%，经营利润率30%，说明增长同时转成了利润。
+
+最重要的前瞻证据是积压订单首次超过10亿美元。Q3收入指引3.80亿至4.00亿美元，中点同比约增长79%；非GAAP EPS指引2.18至2.38美元。市场8月7日盘中上涨约14.4%，数字、指引与先进封装叙事形成共振。
+
+反方需要盯住客户集中、去年低基数、积压订单是否持续补充，以及约15亿美元可转债和Rigaku投资的资本回报。交易上等5日和20日价格确认，再看Q3收入、利润率与积压订单。
+
+评分86分：财报质量38/40，股价反应30/35，持续性质量18/25。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-07",
+  ticker: "AKAM",
+  company: "Akamai Technologies",
+  sector: "tech",
+  score: 62,
+  rec: "doubt",
+  dims: {quality: 25, marketread: 15, fundamentals: 22},
+  compare: {revenueGrowth:5.4, revenueGuidance:6.0},
+  business: {
+    plain: "Akamai可以理解成互联网的老牌高速公路、仓库和保安。它把视频与网页内容缓存到离用户更近的服务器，替企业挡攻击；现在还把分布式机房改造成云计算和AI算力平台，让客户在靠近用户的位置运行应用和推理。",
+    howMakesMoney: "企业为网络安全、内容分发和云基础设施付费。安全与云基础设施是增长业务，传统内容分发正在下降；公司正在用旧CDN网络、GPU采购和多年大合同，把收入结构逐步转向AI云与安全。",
+    moat: "全球分布式网络、与大型互联网企业的长期关系、边缘节点和威胁情报构成壁垒。弱点是传统Delivery业务萎缩，云计算要面对AWS、Azure、Google Cloud、CoreWeave和Cloudflare，扩建GPU也会显著提高资本强度。",
+    whatChanged: "云基础设施收入增长39%，年内签署的多年CIS合同总额超过28亿美元，并新增一份四年超过6亿美元的机器人开发合同；但总收入只增长5%，非GAAP EPS下降8%、经营利润率下降5个百分点，市场开始追问大合同何时转成高回报收入。"
+  },
+  decision: {
+    stance: "AI云订单值得跟踪，但当前财报没有形成利润共振；先观察，不因大合同数字追涨",
+    summary: "CIS收入+39%、安全收入+10%以及超过28亿美元多年合同证明Akamai正在获得AI基础设施需求；但传统Delivery收入-6%，非GAAP经营利润-12%、EPS-8%，全年收入和EPS指引上沿还略有下调。8月7日盘中约下跌3.6%，市场明确要求公司证明GPU扩产和大合同能够带来利润与现金回报。",
+    playbook: [
+      {if:"财报后5日与20日收复跌幅，CIS收入继续加速并带动总收入增速超过指引", then:"小仓位跟踪转型", why:"价格开始认可多年合同从积压转为收入。"},
+      {if:"Q3收入达到11.05亿至11.30亿美元，同时非GAAP经营利润率保持25%以上", then:"维持转型可执行判断", why:"扩产投入没有造成进一步利润率下滑。"},
+      {if:"CIS合同转化、GPU利用率与AI客户收入披露改善，Delivery降幅收窄", then:"提高持续性评分", why:"增长业务足以覆盖旧业务衰退并改善资产回报。"},
+      {if:"CIS仍增长但总利润、现金流继续下降，或FY2026指引再次下调", then:"减仓或回避", why:"大合同可能是低利润、重资本收入，不能自动获得软件估值。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "CIS收入与合同转化节奏", "GPU利用率和资本开支", "安全收入与Delivery降幅", "非GAAP经营利润率和自由现金流", "FY2026收入与EPS指引"],
+    invalidation: ["Q3收入低于11.05亿美元", "非GAAP经营利润率跌破24%", "CIS增速明显跌破30%", "Delivery降幅扩大且安全增长降至个位数", "FY2026收入或EPS再次下调"],
+    timing: "短线看5日和20日能否收复财报跌幅；Q3验证收入、利润率和CIS合同转化，未来数季验证GPU扩产后的自由现金流和资本回报。",
+    risk: "-3.6%为8月7日约11:34 ET盘中反应，并非当日正式收盘。多年合同总额不等于当期收入或利润；GPU扩产、客户集中、传统Delivery下滑、约76亿美元可转债和高额回购都会影响资本回报。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"11.00亿美元", sub:"+5.4% YoY；达到此前10.75亿至11.00亿美元指引上沿", tone:"beat", pct:75},
+    {label:"安全收入", value:"6.04亿美元", sub:"+10% YoY，占总收入约55%", tone:"up", pct:82},
+    {label:"云基础设施收入", value:"9930万美元", sub:"+39% YoY；增长业务仍只占总收入约9%", tone:"up", pct:90},
+    {label:"Delivery等收入", value:"3.96亿美元", sub:"-6% YoY，继续拖累总公司增速", tone:"down", pct:38},
+    {label:"多年CIS合同", value:"超过28亿美元", sub:"年内签署；其中新机器人客户四年承诺超过6亿美元", tone:"up", pct:95},
+    {label:"非GAAP EPS", value:"1.59美元", sub:"略高于市场约1.57美元，但同比下降8%", tone:"flat", pct:56},
+    {label:"非GAAP经营利润率", value:"25%", sub:"去年30%，同比下降约500bp", tone:"down", pct:36},
+    {label:"Q3收入指引", value:"11.05亿至11.30亿美元", sub:"中点约+6.0% YoY，较Q2环比约+1.6%", tone:"flat", pct:58},
+    {label:"FY2026收入指引", value:"44.45亿至45.30亿美元", sub:"此前44.45亿至45.50亿美元，上沿下调2000万美元", tone:"down", pct:45},
+    {label:"股价反应", value:"盘中约-3.6%", sub:"合同强，但利润下降与重资本转型未获共振", tone:"down", pct:35}
+  ],
+  management_highlights: [
+    "CEO称安全和CIS保持动能，年初以来签署的多年CIS合同总价值超过28亿美元，验证Akamai正在成为AI基础设施供应商。",
+    "新增一份四年超过6亿美元的合同，客户是一家美国科技公司，将使用Akamai云基础设施支持机器人开发。",
+    "CIS收入9930万美元、同比增长39%；安全收入6.04亿美元、增长10%，但传统Delivery与其他云应用收入下降6%。",
+    "非GAAP经营利润率从30%降至25%，EPS下降8%；GPU容量采购、研发和销售投入正在提前发生，而大合同收入按多年逐步确认。",
+    "Q3收入中点约同比增长6%，全年收入和EPS指引下沿不变、上沿略降，管理层没有把大合同直接转化成当年全面上修。",
+    "Q2以平均134.54美元回购约4.10亿美元股票，而财报次日股价约114美元；资本配置与扩建AI容量之间需要更严格的回报检验。"
+  ],
+  narrative: {
+    summary: "AKAM验证AI基础设施正在从核心数据中心扩散到分布式云和边缘：CIS收入+39%，多年合同超过28亿美元。但它同时提醒我们，大合同不等于高利润——传统业务下降、利润率收缩和股价下跌说明市场正在区分‘AI订单’与‘AI资本回报’。",
+    consensus: "Akamai已有全球边缘网络、安全客户和低延迟位置，适合承接分布式AI推理、机器人及需要靠近用户的工作负载。安全与算力可以交叉销售，多年合同提高收入可见度。",
+    divergence: "反叙事是CIS目前仅占收入约9%，需要大量GPU和数据中心投资；云竞争激烈，合同期限长、收入确认慢，利润率可能低于传统CDN和安全业务。若Delivery继续下降，新增AI云收入可能只是在替换旧收入。",
+    signals: ["28亿美元合同转成收入的速度", "CIS增速与收入占比", "GPU利用率和资本开支", "安全增长与Delivery降幅", "非GAAP经营利润率", "自由现金流与回购纪律", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"SEC财报",label:"Akamai Q2 2026 Earnings Release",url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"},
+    {type:"公司业绩会",label:"Akamai Q2 2026 Earnings Call",url:"https://www.ir.akamai.com/events/event-details/q2-2026-akamai-technologies-inc-earnings-conference-call"},
+    {type:"公司财报",label:"Akamai Quarterly Results",url:"https://www.ir.akamai.com/financial-information/quarterly-results"},
+    {type:"市场行情",label:"Nasdaq AKAM Quote",url:"https://www.nasdaq.com/market-activity/stocks/akam"}
+  ],
+  report: `【AKAM · Akamai】2026 Q2财报分析 · 2026-08-07
+
+结论先说：AI云订单很强，但利润和股价没有共振。这不是坏公司，却仍是一场需要证明资本回报的重资产转型。
+
+Akamai最白话的理解，是互联网的老牌高速公路、仓库和保安。它原本靠内容分发和网络安全赚钱，现在把遍布全球的边缘机房升级为云计算和AI基础设施，让客户在更靠近用户的位置运行推理与机器人工作负载。
+
+Q2收入11.00亿美元，同比增长5%；安全收入6.04亿美元，增长10%；云基础设施收入9930万美元，增长39%。公司年内签署的多年CIS合同超过28亿美元，其中新增一份四年超过6亿美元的机器人开发合同。
+
+问题是总公司的利润没有同步。Delivery等收入下降6%，非GAAP经营利润下降12%，经营利润率从30%降至25%，非GAAP EPS下降8%。全年收入指引上沿从45.50亿美元降到45.30亿美元，市场8月7日盘中下跌约3.6%。
+
+市场要验证的不是合同新闻，而是合同转化、GPU利用率、CIS毛利率和自由现金流。如果CIS继续增长、总收入加速且经营利润率止跌，这次转型才会成立；如果大合同只带来资本开支和低利润收入，估值不会因为AI标签自然上升。
+
+评分62分：财报质量25/40，股价反应15/35，持续性质量22/25。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-07",
