@@ -109,6 +109,10 @@ h1{font-size:26px;margin:0 0 4px}
 .strength{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .narrative-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
 .narrative-card h3{font-size:16px;margin:0 0 6px}.narrative-card p{font-size:13px;margin:5px 0;color:#334155}
+.narrative-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.trend-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:10px;line-height:1;font-weight:900;letter-spacing:.04em;vertical-align:middle}
+.trend-badge.new{color:#1556a0;background:#eaf3ff;border:1px solid #bed8fa}
+.trend-badge.uptrending{color:#8a4b08;background:#fff4df;border:1px solid #f3cf91}
 .strength-pill{display:inline-flex;border-radius:999px;padding:3px 9px;background:#eef2f7;color:#334155;font-size:12px;font-weight:800}
 .ticker-list{font-size:12px;color:var(--blue);font-weight:800}
 .inline-sources{border-top:1px solid var(--line);margin-top:10px;padding-top:8px;color:var(--muted);font-size:11.5px;line-height:1.6}
@@ -187,6 +191,7 @@ h1{font-size:26px;margin:0 0 4px}
     <h2>当前市场叙事与主线</h2>
     <p class="hint">综合财报、业绩会、X、采访和视频提炼。叙事强度不是看多/看空，而是衡量“这条主线是否被多家公司、多个数据点和市场价格共同验证”。</p>
     <p class="hint">强度口径：9分以上 = 多家公司财报和价格同时确认；8分以上 = 有强证据但还需后续季度交叉验证；7分左右 = 正在形成但证据仍偏单点；低于7分 = 仅作为观察线索。</p>
+    <p class="hint"><b>状态标签：</b><span class="trend-badge new">NEW</span> = 本轮财报首次形成、仍需同行验证；<span class="trend-badge uptrending">UPTRENDING</span> = 最近一轮至少新增两项独立财报、订单或价格证据，且没有触发主要证伪条件。状态按新证据更新，不代表追涨建议。</p>
   </div>
   <div id="narratives-list"></div>
 </section>
@@ -299,6 +304,8 @@ const NARRATIVES = [
   {
     rank: 1,
     theme: "AI基础设施从芯片扩散为全栈瓶颈",
+    status: "uptrending",
+    statusAsOf: "2026-08-08",
     strength: "9.5/10",
     horizon: "当前至未来数季",
     direction: "强化",
@@ -319,6 +326,8 @@ const NARRATIVES = [
   {
     rank: 2,
     theme: "AI网络层成为新瓶颈：Ethernet Fabric重定价",
+    status: "uptrending",
+    statusAsOf: "2026-08-08",
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "快速强化",
@@ -336,6 +345,8 @@ const NARRATIVES = [
   {
     rank: 3,
     theme: "AI电力、冷却与现场供电成为硬瓶颈",
+    status: "uptrending",
+    statusAsOf: "2026-08-08",
     strength: "9/10",
     horizon: "当前至未来数年",
     direction: "强化",
@@ -418,6 +429,8 @@ const NARRATIVES = [
   {
     rank: 8,
     theme: "AI应用层开始分化：交易转化胜过模型故事",
+    status: "uptrending",
+    statusAsOf: "2026-08-08",
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
@@ -486,6 +499,8 @@ const NARRATIVES = [
   {
     rank: 12,
     theme: "消费金融增长开始接受信用质量与获客成本审判",
+    status: "new",
+    statusAsOf: "2026-08-08",
     strength: "7.5/10",
     horizon: "当前至未来数季",
     direction: "待交叉验证",
@@ -7862,7 +7877,14 @@ function renderNarratives(){
     return;
   }
   const rows = NARRATIVES.slice();
-  list.innerHTML = rows.map(n=>'<div class="narrative-card"><h3>'+esc(n.rank)+'. '+esc(n.theme)+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+inlineSourcesHtml(n.sources)+'</div>').join("");
+  list.innerHTML = rows.map(n=>{
+    const trend = n.status==="new"
+      ? '<span class="trend-badge new" title="本轮首次形成 · '+esc(n.statusAsOf||"")+'">NEW</span>'
+      : n.status==="uptrending"
+        ? '<span class="trend-badge uptrending" title="近期证据持续强化 · '+esc(n.statusAsOf||"")+'">UPTRENDING</span>'
+        : '';
+    return '<div class="narrative-card"><h3 class="narrative-title"><span>'+esc(n.rank)+'. '+esc(n.theme)+'</span>'+trend+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div><p><b>当前叙事：</b>'+esc(n.thesis)+'</p><p><b>多信源证据：</b>'+esc(n.evidence)+'</p><p><b>证伪条件：</b>'+esc(n.disconfirm)+'</p>'+inlineSourcesHtml(n.sources)+'</div>';
+  }).join("");
 }
 
 function renderMergers(){
