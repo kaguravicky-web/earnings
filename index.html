@@ -421,9 +421,9 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["PLTR","DDOG","SHOP","APP","TEAM","HUBS","META","GOOG","CRM","NOW","ADBE"],
+    tickers: ["PLTR","DDOG","SHOP","APP","TEAM","HUBS","TWLO","META","GOOG","CRM","NOW","ADBE"],
     thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
-    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，首日却下跌约19%；SHOP收入+34%、GMV+32%；APP收入仍+53%，但首日同样下跌约20%；TEAM云收入+31%、RPO +44%、盘后大涨；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日下跌约19%。共同结论是：AI应用与软件正按可验证收入、客户扩张、指引斜率和估值重新分层，当前强数字本身已经不够。",
+    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，首日却下跌约19%；SHOP收入+34%、GMV+32%；APP收入仍+53%，但首日同样下跌约20%；TEAM云收入+31%、RPO +44%、盘后大涨；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日下跌约19%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日上涨24.9%。共同结论是：AI应用与软件正按可验证收入、客户扩张、指引斜率和估值重新分层，当前强数字本身已经不够。",
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
     sources: [
       {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
@@ -431,6 +431,7 @@ const NARRATIVES = [
       {type:"市场反应", label:"WSJ：AppLovin says Q2 fell short of standards", url:"https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"},
       {type:"SEC财报", label:"Datadog Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"},
       {type:"SEC财报", label:"HubSpot Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"},
+      {type:"公司财报", label:"Twilio Q2 2026 Results", url:"https://investors.twilio.com/news-releases/news-release-details/twilio-announces-second-quarter-2026-results"},
       {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"}
     ]
   },
@@ -481,11 +482,176 @@ const NARRATIVES = [
       {type:"公司公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
       {type:"业绩会", label:"JNJ Q2 2026 Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"}
     ]
+  },
+  {
+    rank: 12,
+    theme: "消费金融增长开始接受信用质量与获客成本审判",
+    strength: "7.5/10",
+    horizon: "当前至未来数季",
+    direction: "待交叉验证",
+    tickers: ["SEZL","AFRM","KLAR","PYPL","SOFI"],
+    thesis: "BNPL和消费金融平台不能只用GMV与用户增长证明价值。市场开始同时审查信用损失、获客成本、资金成本和每用户货币化；只有增长、信用质量与利润率一起改善，才会获得持续估值。",
+    evidence: "SEZL Q2收入+51.7%、GMV +37.9%、活跃订阅用户+76.4%，全年利润指引第三次上调，但信用损失准备率从Q1的1.2%升至2.4%、营销费用同比增长121%，调整后EBITDA率从Q1的52.5%降至38.8%。股价在财报后首日下跌33.9%，说明市场认为高速增长尚不足以抵消获客和信用成本上升。",
+    disconfirm: "SEZL未来两个季度把信用损失准备率稳定在2.5%–3.0%目标内、营销回收期维持六个月以内，同时订阅留存、GMV和利润率重新改善；或AFRM、KLAR等同行也显示信用成本稳定而增长加速。",
+    sources: [
+      {type:"公司财报", label:"Sezzle Q2 2026 Earnings Release", url:"https://assets.ctfassets.net/6d085vujy22q/3CK27pSQwJ0YgJOVsqgGH9/3921bf19ede88b12c795af979fe65388/Sezzle_Q2_2026_Earnings_Release.pdf"},
+      {type:"公司演示", label:"Sezzle Q2 2026 Earnings Presentation", url:"https://assets.ctfassets.net/6d085vujy22q/53CbMKsZ9uIqO8HcWKWNnb/31d580bbead5a077afb34674a1f96184/Sezzle_Q2_2026_Earnings_Presentation.pdf"},
+      {type:"市场行情", label:"Nasdaq SEZL Quote", url:"https://www.nasdaq.com/market-activity/stocks/sezl"}
+    ]
   }
 ];
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-08",
+  ticker: "TWLO",
+  company: "Twilio",
+  sector: "tech",
+  score: 85,
+  rec: "resonance",
+  dims: {quality: 37, marketread: 31, fundamentals: 17},
+  compare: {revenueGrowth:22, revenueGuidance:16.25},
+  business: {
+    plain: "Twilio 是互联网公司的通信管道。应用程序或 AI 助手想给用户发短信、打电话、发邮件、做身份验证或接入客服，不必自己逐个连接全球运营商，只需调用 Twilio 的接口。",
+    howMakesMoney: "客户按短信、通话、邮件和验证等使用量付费，也购买 Segment 客户数据平台、Flex 联络中心及更高层的编排产品。AI 助手产生更多客户对话、企业采用更多通信渠道，都会增加用量；但部分收入需要转付运营商，不能把每一美元收入都当作高毛利软件收入。",
+    moat: "全球运营商连接、送达率、号码与身份数据、合规能力及开发者生态构成主要壁垒。风险是短信和语音接口可能商品化，运营商成本压低毛利，云平台与专业通信厂商也能争夺客户。",
+    whatChanged: "Twilio 已经从低增长、重组中的通信 API 公司，转为有机增长重新加速、客户扩张改善且能够稳定产生自由现金流的平台。Q2 有机增长升至17%，DBNE升至116%，显示现有客户不仅留下来，还在扩大用量；AI也开始从宣传词变成可量化的通信流量与大额订单来源。"
+  },
+  decision: {
+    stance: "公司明显变好，财报形成强共振；但首日跳涨近25%，等待缺口消化后再做交易",
+    summary: "收入、有机增速、非GAAP营业利润、DBNE、自由现金流和全年指引同时改善，股价也用放量大涨确认。最重要的是有机增长和客户扩张，而不是被一次性税务利益抬高的GAAP EPS。当前主要矛盾从‘转型是否成功’变成‘17%的有机增速能否跨过Q3指引中的降速并持续到2027年’。",
+    playbook: [
+      {if:"财报后第5日与第20日仍守住大部分跳空缺口，且分析师继续上调未来收入与现金流预期", then:"等横盘或首次有序回踩时分批参与", why:"确认首日上涨不是单日挤仓，而是机构重新定价增长斜率。"},
+      {if:"Q3有机增长达到或超过12%、DBNE维持115%以上，非GAAP毛利增长与有机收入大致同步", then:"维持强基本面判断", why:"证明Q2并非单一大客户或一次性通信流量造成的高点。"},
+      {if:"Conversation Relay、Agent Connect等AI产品持续出现七位数订单，并能说明转化率、成本或收入效果", then:"提高AI商业化置信度", why:"AI代理正在创造真实通信量与交叉销售，而不是只增加演示案例。"},
+      {if:"有机增长低于11%、DBNE跌破112%、非GAAP毛利率低于48.5%，或股价完全回补财报缺口", then:"降低仓位或回避", why:"增长加速、单位经济与市场确认三项中至少一项失效。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "Q3有机收入增长", "DBNE与大客户用量", "非GAAP毛利和毛利率", "AI通信产品七位数订单", "运营商转付费用与消息业务组合", "Q2业绩会文字稿补录"],
+    invalidation: ["Q3有机增长低于11%", "DBNE跌破112%", "非GAAP毛利率持续低于48.5%", "全年有机增长或自由现金流指引下调", "AI案例无法转化为持续用量和续约", "股价在20个交易日内完全回补缺口"],
+    timing: "首日从193.20美元升至241.28美元，不在第一根大阳线追价。先观察第5日和第20日能否守住缺口，再用Q3有机增速、DBNE和毛利验证持续性。",
+    risk: "报告收入增长22%包含运营商费用转付影响，有机增长17%更接近真实业务；Q3有机增长指引中值只有11.5%，明显低于Q2。GAAP EPS 6.68美元中约5.91美元来自递延所得税估值准备释放，不能年化；通信业务49.1%的非GAAP毛利率也显著低于纯软件。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"14.99亿美元", sub:"+22% YoY；较公司指引上限14.30亿美元高4.8%", tone:"beat", pct:92},
+    {label:"有机收入增长", value:"+17%", sub:"公司此前指引+10%至+11%；Q1为+16%、去年同期为+13%", tone:"beat", pct:94},
+    {label:"非GAAP EPS", value:"1.47美元", sub:"公司此前指引1.27至1.32美元；高于上限11.4%", tone:"beat", pct:91},
+    {label:"DBNE", value:"116%", sub:"Q1为114%、去年同期108%；现有客户扩张继续加速", tone:"up", pct:90},
+    {label:"非GAAP毛利", value:"7.357亿美元", sub:"+18% YoY；毛利率49.1%，仍受运营商成本约束", tone:"up", pct:79},
+    {label:"非GAAP营业利润", value:"2.846亿美元", sub:"+29% YoY；营业利润率约19.0%", tone:"up", pct:86},
+    {label:"自由现金流", value:"3.526亿美元", sub:"+34% YoY；利润率24%，Q1曾受1.41亿美元奖金付款影响", tone:"up", pct:91},
+    {label:"Q3收入指引", value:"15.05至15.15亿美元", sub:"报告增长+16%至+16.5%；有机增长仅+11%至+12%", tone:"flat", pct:62},
+    {label:"FY2026指引", value:"有机+13%至+13.5%", sub:"此前+9.5%至+10.5%；自由现金流上调至11.35至11.55亿美元", tone:"up", pct:89},
+    {label:"股价反应", value:"首日+24.9%", sub:"193.20→241.28美元；成交量约为前一日1.8倍", tone:"beat", pct:97}
+  ],
+  management_highlights: [
+    "管理层把Twilio定位为人与AI代理之间的客户互动基础设施，SIGNAL平台把通信、客户数据、身份验证和智能编排放在同一层。",
+    "Q2报告收入增长22%、有机增长17%、非GAAP毛利增长18%，增长与盈利不再互相牺牲。",
+    "DBNE从去年同期108%升至116%，连续数季改善，是本季最重要的客户扩张信号之一。",
+    "Car Finance 247的AI助手Carla已处理约28.8万次对话；与其互动的客户，进入获批贷款申请的比例超过未互动客户两倍。",
+    "Eltropy为信用合作社构建AI代理平台，并签下涵盖Messaging、RCS、Voice、Branded Calling和Conversation Relay的七位数协议，证明AI可带动多产品交叉销售。",
+    "全年报告收入增长指引从14%至15%上调到18%至18.5%，有机增长从9.5%至10.5%上调到13%至13.5%，营业利润和自由现金流指引也同步上调。",
+    "GAAP EPS 6.68美元包含每股约5.91美元的非现金递延税项利益，评估持续盈利能力应使用1.47美元非GAAP EPS与现金流；业绩会问答待官方文字稿可用后补录。"
+  ],
+  narrative: {
+    summary: "TWLO验证了AI应用层不必直接出售模型，也可以通过代理与客户之间更高频的短信、语音、验证和联络中心交互获益。市场奖励的不是‘用了AI’，而是AI带来的真实通信量、客户扩张、七位数交叉销售和现金流。",
+    consensus: "多头证据是有机增长连续加速至17%、DBNE升至116%、非GAAP毛利增长18%、自由现金流增长34%，并且全年指引大幅上调。AI案例已经能给出对话量、转化率和订单金额，而不只是概念。",
+    divergence: "反方认为22%的报告增速受运营商转付费用影响，Q3有机指引11%至12%暗示Q2可能接近短期高点；49.1%的毛利率也限制估值上限。需要区分管理层保守指引、基数效应和真实需求减速。",
+    signals: ["Q3有机增速能否达到12%以上", "DBNE能否保持115%以上", "非GAAP毛利增长", "Conversation Relay与Agent Connect订单", "AI代理产生的通信用量", "运营商费用转付影响", "自由现金流利润率", "财报后5日与20日价格结构"]
+  },
+  sources: [
+    {type:"公司财报", label:"Twilio Q2 2026 Results", url:"https://investors.twilio.com/news-releases/news-release-details/twilio-announces-second-quarter-2026-results"},
+    {type:"公司演示", label:"Twilio Q2 2026 Earnings Presentation", url:"https://investors.twilio.com/static-files/7f468de7-8d16-4581-9a85-38e5b317f3ab"},
+    {type:"SEC财报", label:"Twilio Q2 2026 Form 10-Q", url:"https://www.sec.gov/Archives/edgar/data/1447669/000144766926000092/twlo-20260630.htm"},
+    {type:"业绩会", label:"Twilio Q2 2026 Earnings Conference Call", url:"https://investors.twilio.com/events/event-details/twilio-second-quarter-2026-earnings-conference-call"},
+    {type:"市场行情", label:"Nasdaq TWLO Quote", url:"https://www.nasdaq.com/market-activity/stocks/twlo"}
+  ]
+},
+{
+  type: "earnings",
+  date: "2026-08-08",
+  ticker: "SEZL",
+  company: "Sezzle",
+  sector: "financials",
+  score: 55,
+  rec: "doubt",
+  dims: {quality: 33, marketread: 5, fundamentals: 17},
+  compare: {revenueGrowth:51.7, revenueGuidance:35},
+  business: {
+    plain: "Sezzle让消费者把一笔购物款拆成几次支付，也提供付费会员、虚拟卡、现金预支和转账功能。最白话地说，它一边帮商家提高成交率，一边向愿意获得更多支付能力和权益的消费者收费。",
+    howMakesMoney: "收入来自商家和合作伙伴费用、消费者订阅与服务费，以及分期贷款相关收入。Q2约74%的收入来自消费者端，说明它已经不只是商家付费的传统BNPL，而是越来越依赖会员、服务费与信贷货币化。",
+    moat: "交易与还款数据帮助公司逐笔评估风险，订阅权益和高频使用提高用户粘性；但支付网络效应弱于大型银行卡组织，竞争、监管和信用周期都可能迅速压缩利润。",
+    whatChanged: "收入、GMV和订阅用户继续高速增长，但营销投入和信用损失准备同步上升，利润率较Q1明显回落。市场从奖励用户增长切换到追问这些用户需要花多少钱获得、会不会按时还款、增长能否转成可持续利润。"
+  },
+  decision: {
+    stance: "基本面没有崩，但价格已经否定当前预期；不接首日飞刀，先看信用和获客效率",
+    summary: "收入与EPS都高于公开共识，全年利润指引也上调，股价却从178.53美元跌到118.02美元、首日下跌33.9%。这不是普通业绩miss，而是财报前高估值、下半年增速隐含放缓、信用损失率回升和营销驱动增长共同触发的质量重估。",
+    playbook: [
+      {if:"财报后5日与20日不再创新低，并收复至少一半跳空缺口", then:"只在价格稳定后考虑小仓位", why:"先证明首日抛售是预期出清，而非机构持续下修。"},
+      {if:"Q3信用损失准备率保持在2.5%–3.0%目标内，营销回收期仍低于六个月", then:"维持增长投资有效的判断", why:"新订阅用户没有以失控坏账或过高获客成本换来。"},
+      {if:"活跃订阅用户继续增长、总活跃消费者重新加速，且调整后EBITDA率回升", then:"提高持续性评分", why:"订阅转化、用户广度与利润率能够同时成立。"},
+      {if:"信用损失准备率突破3%、营销费用继续快于收入，或全年指引下调", then:"减仓或回避", why:"用户增长正在变成信用风险与获客成本，而非高质量利润。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "8月13日Needham金融科技会议", "Q2正式10-Q与业绩会文字稿", "信用损失准备率与逾期表现", "营销回收期和订阅留存", "Q3收入、利润率与全年指引"],
+    invalidation: ["信用损失准备率持续高于3%", "营销回收期明显超过六个月", "活跃订阅增长但总活跃消费者停滞", "调整后EBITDA率继续下降", "FY2026收入或调整后净利润指引下调"],
+    timing: "首日跌幅过大，短线先观察5日和20日；8月13日会议是中间验证，下一季用信用损失、订阅留存、获客效率和利润率作最终裁决。",
+    risk: "SEZL成交量和波动率都很高，首日成交量约423万股、约为前一日3.6倍。公司进入现金预支和P2P转账后，信贷、合规与资金风险都会扩大；执行前必须重新核对价格与期权隐含波动。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"1.497亿美元", sub:"+51.7% YoY；高于约1.378亿美元公开共识约8.6%", tone:"beat", pct:92},
+    {label:"GMV", value:"12.785亿美元", sub:"+37.9% YoY、+15.1% QoQ；购买频次升至7.2次", tone:"up", pct:88},
+    {label:"调整后EPS", value:"1.13美元", sub:"+61.4% YoY；高于约1.04美元公开共识约8.7%", tone:"beat", pct:89},
+    {label:"活跃订阅用户", value:"85.4万", sub:"+76.4% YoY、+19.6% QoQ；总活跃消费者仅+10.5%", tone:"up", pct:84},
+    {label:"信用损失准备", value:"GMV的2.4%", sub:"Q1为1.2%、去年同期2.2%；金额同比+48.3%", tone:"down", pct:38},
+    {label:"营销费用", value:"1,940万美元", sub:"同比+121%；公司称营销回收期低于六个月", tone:"down", pct:42},
+    {label:"调整后EBITDA率", value:"38.8%", sub:"去年38.9%，但Q1为52.5%；环比下降13.7个百分点", tone:"down", pct:48},
+    {label:"FY2026收入指引", value:"增长35%", sub:"只是此前30%–35%区间上沿；隐含下半年约+31%", tone:"flat", pct:58},
+    {label:"FY2026调整后EPS", value:"5.25美元", sub:"此前5.10美元，仅上调约2.9%", tone:"up", pct:67},
+    {label:"股价反应", value:"首日-33.9%", sub:"178.53→118.02美元；成交量约为前一日3.6倍", tone:"down", pct:99}
+  ],
+  management_highlights: [
+    "CEO把SezzleCash和8月推出的Sezzle Send视为从BNPL走向一体化金融平台的下一步，并称新3亿美元信贷额度降低资金成本、支持扩张。",
+    "Q2 GMV增长37.9%、收入增长51.7%，收入占GMV比例从10.6%升至11.7%，说明货币化速度快于交易量。",
+    "活跃订阅用户增长76.4%至85.4万，MODS增长31.3%至98.2万；但总活跃消费者只增长10.5%，增长更依赖把现有用户转成付费和高频用户。",
+    "信用损失准备率从Q1的1.2%升至2.4%。管理层称这是季节性回升，并仍预计全年处于2.5%至3.0%，但市场要求后续用真实逾期和损失数据验证。",
+    "营销费用从去年同期880万美元升至1940万美元，用于订阅用户获取；管理层称回收期低于六个月，下一步要验证成熟用户群留存而非持续靠加大投放。",
+    "全年收入增长指引定在35%，调整后净利润从1.80亿上调至1.85亿美元，调整后EPS从5.10上调至5.25美元。数字上调，但幅度没有追上市场在财报前计入的高预期。",
+    "截至当前官方季度页面尚未发布Q2文字稿与10-Q；本记录以正式公告和演示稿为主，业绩会问答将在文件可用后补录。"
+  ],
+  narrative: {
+    summary: "SEZL验证了BNPL可以同时实现高GMV、高收入增长和盈利，但也验证了消费金融的估值最终受信用成本与获客效率约束。收入+52%和股价-34%同时出现，是市场从追逐增长切换到审查增长质量。",
+    consensus: "多头证据是订阅用户+76%、购买频次创新高、收入增长快于GMV、净利润率仍有27%，并且低成本信贷额度与新产品扩大长期收入池。",
+    divergence: "反叙事是约74%的收入已来自消费者端，信用损失率环比翻倍、营销费用同比翻倍，而总活跃消费者只增长10.5%。如果高增长依赖更激进收费、更大广告投入或更高信用风险，当前利润率与估值都不可直接外推。",
+    signals: ["信用损失准备率和逾期率", "营销回收期与订阅留存", "总活跃消费者和MODS", "消费者收入占比", "调整后EBITDA率", "FY2026指引", "财报后5日与20日价格结构", "AFRM与KLAR信用指标交叉验证"]
+  },
+  sources: [
+    {type:"公司财报",label:"Sezzle Q2 2026 Earnings Release",url:"https://assets.ctfassets.net/6d085vujy22q/3CK27pSQwJ0YgJOVsqgGH9/3921bf19ede88b12c795af979fe65388/Sezzle_Q2_2026_Earnings_Release.pdf"},
+    {type:"公司演示",label:"Sezzle Q2 2026 Earnings Presentation",url:"https://assets.ctfassets.net/6d085vujy22q/53CbMKsZ9uIqO8HcWKWNnb/31d580bbead5a077afb34674a1f96184/Sezzle_Q2_2026_Earnings_Presentation.pdf"},
+    {type:"公司业绩会",label:"Sezzle Q2 2026 Earnings Conference Call",url:"https://event.choruscall.com/mediaframe/webcast.html?webcastid=GWa5dtPX"},
+    {type:"公司IR",label:"Sezzle Quarterly Earnings",url:"https://investors.sezzle.com/en-ca/financials/quarterly-reports/"},
+    {type:"市场行情",label:"Nasdaq SEZL Quote",url:"https://www.nasdaq.com/market-activity/stocks/sezl"}
+  ],
+  report: `【SEZL · Sezzle】2026 Q2财报分析 · 2026-08-08
+
+结论先说：Sezzle的业务没有崩，标题数字甚至很强；股价暴跌是市场对增长质量、信用成本和财报前高预期的重新定价。第一天不要因为跌得多就自动抄底。
+
+Sezzle最白话的理解，是让消费者把购物款拆成几次支付，再通过会员、服务费、虚拟卡和信贷产品提高每个用户的收入。Q2约74%的收入来自消费者端，所以它已不只是商家为成交率付费的BNPL，也是一家高度依赖消费者货币化和信用管理的金融平台。
+
+Q2收入1.497亿美元，同比增长51.7%；GMV 12.785亿美元，增长37.9%；调整后EPS 1.13美元，增长61.4%；活跃订阅用户增长76.4%至85.4万。全年收入增长指引定在35%，调整后净利润从1.80亿上调至1.85亿美元，调整后EPS从5.10上调至5.25美元。
+
+问题藏在增长成本里。信用损失准备率从Q1的1.2%升到2.4%，营销费用同比增长121%至1940万美元，调整后EBITDA率从Q1的52.5%降到38.8%。总活跃消费者只增长10.5%，明显慢于订阅用户和收入，说明增长很大一部分来自把现有消费者转成付费、高频和更深度金融用户。
+
+全年收入35%的指引也只是此前30%至35%区间上沿。按上半年收入计算，它隐含下半年增长约31%，较Q2的52%明显减速；EPS指引只上调约2.9%。对财报前已经连续上涨、并被分析师因估值降级的股票，这样的上修不够满足预期。
+
+所以股价从178.53美元跌到118.02美元，首日下跌33.9%，成交量约为前一日3.6倍。市场不是说公司马上亏钱，而是在问：新用户是否靠翻倍营销买来？信用损失会不会继续升？消费者收费和现金预支会不会带来监管与坏账风险？
+
+下一步不要猜底。先看Day5和Day20能否不再创新低，再跟踪信用损失率是否守在2.5%至3.0%、营销回收期是否仍低于六个月、订阅留存和总活跃消费者能否同时增长，以及利润率是否重新回升。
+
+评分55分：财报质量33/40，股价反应5/35，持续性质量17/25。公司仍有高增长和高利润，但当前交易信号明确属于市场存疑。`,
+  vic_notes: "",
+  outcome: ""
+},
 {
   type: "earnings",
   date: "2026-08-08",
@@ -7482,7 +7648,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
