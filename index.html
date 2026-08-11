@@ -437,15 +437,16 @@ const NARRATIVES = [
     strength: "8/10",
     horizon: "中长期",
     direction: "强化",
-    tickers: ["PANW","CRWD","FTNT","IBM","PLTR","ANET","NET","AKAM"],
+    tickers: ["PANW","CRWD","FTNT","IBM","PLTR","ANET","NET","AKAM","OKTA"],
     thesis: "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。",
-    evidence: "IBM已确认快速变化的网络安全环境影响客户交易签约；Karp和Axios围绕数据归属、缓存位置、提示词安全和控制层的讨论，说明AI部署越深入，安全和权限越靠近采购核心。ANET把网络可观测与AI fabric放在一起，也说明安全/网络/AI正在融合；NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%，继续验证企业在扩建AI云时会同步采购边缘安全与流量治理。",
+    evidence: "IBM已确认快速变化的网络安全环境影响客户交易签约；Karp和Axios围绕数据归属、缓存位置、提示词安全和控制层的讨论，说明AI部署越深入，安全和权限越靠近采购核心。ANET把网络可观测与AI fabric放在一起，也说明安全/网络/AI正在融合；NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%，继续验证企业在扩建AI云时会同步采购边缘安全与流量治理。OKTA提供了这条主线目前最直接的交叉验证：FY27 Q1收入仅+11%，但RPO +16%、cRPO +12%都快于当期收入，说明身份与权限的长约累积速度快于收入确认速度——这正是“从合规功能升级为基础设施预算”的会计表现；CEO McKinnon把AI agent定义为“每个组织内部正在出现的新员工，产生必须与人类用户一同被治理的大量身份”，把这条主线从人的身份扩展到机器与代理的身份。裁决点是cRPO：如果agentic identity是真需求，它应该先于收入加速。",
     disconfirm: "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。",
     sources: [
       {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
       {type:"媒体", label:"Axios：企业如何控制自己的AI大脑", url:"https://www.axios.com/2026/07/13/sovereign-ai-data-protection"},
       {type:"公司资料", label:"Arista AI networking overview", url:"https://investors.arista.com/"},
-      {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"}
+      {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"},
+      {type:"公司公告", label:"Okta FY2027 Q1 Results", url:"https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-Announces-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx"}
     ]
   },
   {
@@ -456,9 +457,9 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["PLTR","DDOG","SHOP","APP","TEAM","HUBS","TWLO","META","GOOG","CRM","NOW","ADBE"],
+    tickers: ["PLTR","DDOG","SHOP","APP","ZETA","TEAM","HUBS","TWLO","META","GOOG","CRM","NOW","ADBE"],
     thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
-    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，首日却下跌约19%；SHOP收入+34%、GMV+32%；APP收入仍+53%，但首日同样下跌约20%；TEAM云收入+31%、RPO +44%、盘后大涨；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日下跌约19%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日上涨24.9%。共同结论是：AI应用与软件正按可验证收入、客户扩张、指引斜率和估值重新分层，当前强数字本身已经不够。",
+    evidence: "PLTR Q2收入+93%、美国商业收入+149%且股价次日+29.5%，证明客户愿意为可落地的控制层和经营结果付费；DDOG收入+36%、billings+38%、指引高于共识，首日却下跌约19%；SHOP收入+34%、GMV+32%；APP收入仍+53%，但首日同样下跌约20%；TEAM云收入+31%、RPO +44%、盘后大涨；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日下跌约19%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日上涨24.9%。ZETA Q2收入4.43亿美元、+44%（剔除并购后有机+28%），调整后EBITDA利润率20.7%、GAAP首次转正，第20个连续beat-and-raise且全年指引全线上调，首日股价上涨——与APP“略微低于共识、首日跌约20%”构成同一层内的对照组：两家都是AI驱动的广告与营销变现、都被同一家做空机构Culper攻击过数据来源，本季结果却完全相反。共同结论是：AI应用与软件正按可验证收入、客户扩张、指引斜率和估值重新分层，当前强数字本身已经不够，分化的判据是当期数字能否兑现已经计入的预期，而不是是否属于AI应用层。",
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
     sources: [
       {type:"CEO股东信", label:"Palantir Q2 2026 Letter to Shareholders", url:"https://www.palantir.com/q2-2026-letter/en/"},
@@ -467,7 +468,8 @@ const NARRATIVES = [
       {type:"SEC财报", label:"Datadog Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"},
       {type:"SEC财报", label:"HubSpot Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"},
       {type:"公司财报", label:"Twilio Q2 2026 Results", url:"https://investors.twilio.com/news-releases/news-release-details/twilio-announces-second-quarter-2026-results"},
-      {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"}
+      {type:"市场反应", label:"MarketWatch：Shopify left no doubt", url:"https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"},
+      {type:"SEC财报", label:"Zeta Global Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1851003/000119312526066951/zeta-ex99_1.htm"}
     ]
   },
   {
@@ -540,6 +542,74 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-04",
+  ticker: "ZETA",
+  company: "Zeta Global",
+  sector: "tech",
+  score: 78,
+  rec: "resonance",
+  dims: {quality: 33, marketread: 28, fundamentals: 17},
+  compare: {revenueGrowth:44, revenueGuidance:39.5},
+  business: {
+    plain: "Zeta 卖给大企业一套“AI 营销云”。大公司每年花几亿美元做营销，最头疼两件事：不知道该找谁，找到了不知道该在哪个渠道用什么话术找。Zeta 先用自有消费者数据库告诉你“这批人下个月可能换车”，再用它的平台把邮件、短信、网站弹窗、App 推送和付费广告一次性投出去。自有数据云约有 2.4 亿美国消费者档案、每人 2,500 多个属性。",
+    howMakesMoney: "约 30% 是订阅，约 70% 是用量计费——按发出多少封邮件、投出多少次展示、处理多少数据信号收钱。所以它不是纯 SaaS：客户砍营销预算，收入会立刻跟着掉，没有席位年约那种缓冲；反过来客户投得越多它赚得越多。客户约 500 家企业，其中 Super-Scaled 客户 197 家、单季 ARPU 达 180 万美元。",
+    moat: "壁垒是消费者身份数据、预测模型和已经嵌进客户营销流程的切换成本。风险有两条且都不小：一是约 59% 的毛利率说明这门生意背后压着真实数据成本与执行成本，规模效应远弱于纯软件；二是 2024 年 11 月 Culper Research 指控其经营“consent farms”并存在收入 round-tripping，公司明确否认并称被点名的 Apptness 与 ArcaMax 合计年内收入贡献不到 3%、占数据资产不到 1%，但争议至今没有各方都认可的了结。",
+    whatChanged: "本季是它第 20 个连续 beat-and-raise 季度，而且质变点是 GAAP 转正：净利润 820 万美元、每股 0.03 美元，去年同期还是净亏 1,280 万；全年 GAAP EPS 指引从 0.02–0.04 直接上调到 0.09–0.11。利润率、现金流和客户 ARPU 同步改善。真正需要盯住的不是增速好不好看，而是增速的构成——报告口径 +44% 里含并购，剔除后 +28%；全年 +39% 里还含政治候选人收入，剔除并购与政治后是 +25%。"
+  },
+  decision: {
+    stance: "数字与股价同向确认，属共振；但必须把报告增速和有机增速分开看，2027 年政治收入基数是已知逆风",
+    summary: "收入 4.43 亿美元超共识约 5.3%、调整后 EBITDA 9,170 万超共识约 6.1%、GAAP 每股 0.03 美元对 GAAP 共识 -0.03 美元也是超预期，全年指引全线上调，首日股价上涨——这是四项同向的共振，不是背离。当前矛盾不在本季，而在明年：+44% 里有并购、+39% 全年指引里还有 2026 中期选举带来的政治候选人收入，这部分在 Q4 冲顶后会归零。",
+    playbook: [
+      {if:"Q3 实际收入落在 4.69 至 4.72 亿指引区间内，且剔除并购的有机增速仍维持在 25% 以上", then:"确认增长质量，维持共振判断", why:"本季有机口径是 +28%；只要不跌破 25%，说明并购只是加速器而不是增长的替代品。"},
+      {if:"调整后 EBITDA 利润率按指引升到 24.4% 至 24.7%，同时自由现金流率继续高于 13%", then:"提高持续性评分", why:"利润率扩张必须同时出现在现金流上，否则只是把成本挪进了调整项。"},
+      {if:"Super-Scaled 客户数与季度 ARPU 继续同步双位数增长", then:"维持客户质量判断", why:"197 家客户、ARPU 180 万美元、两项都 +17%，是量价齐升；只要有一项停下，增长就开始依赖单边。"},
+      {if:"有机增速跌破 25%、股权激励占调整后 EBITDA 比例继续上升，或做空指控出现监管层面的新进展", then:"降低仓位或回避", why:"前两者说明利润质量在退化，第三者会直接改变数据资产的可用性假设。"}
+    ],
+    triggers: ["Q3 收入与有机增速（剔除并购口径）", "调整后 EBITDA 利润率是否达到 24.4%–24.7%", "Super-Scaled 客户数与 ARPU", "自由现金流率能否维持 13% 以上", "股权激励占调整后 EBITDA 的比例", "2027 年政治收入基数缺口的管理层口径", "Culper 指控相关的诉讼或监管进展"],
+    invalidation: ["剔除并购后的有机增速跌破 25%", "调整后 EBITDA 利润率低于 24%", "自由现金流率跌回 10% 以下", "Super-Scaled 客户数或 ARPU 任一停止增长", "全年指引下调", "做空指控出现监管调查等实质进展"],
+    timing: "财报 8/4 盘后发布，首日为 8/5。口径提醒：8/4 盘后一度走弱，但 8/5 正式交易日明显上涨，媒体口径在约 +5.9% 到 +12% 之间不一致，本记录按“首日上涨、幅度待官方行情复核”处理。价格锚点：财报前 8/4 收盘约 25.56 美元，8/10 收盘 27.54 美元，涨幅基本守住。下一个裁决点是 Q3 财报的有机增速与利润率。",
+    risk: "最大的记账风险是股权激励：本季 5,210 万美元，相当于调整后 EBITDA 9,170 万的约 57%——这正是 GAAP 每股 0.03 美元与调整后 EBITDA 9,170 万之间那道口子的主要来源。它不是现金成本，但是真实稀释，公司六个月内已用 5,560 万美元回购部分对冲。此外约 70% 的用量计费收入直接暴露在客户营销预算周期上，59.2% 的毛利率也限制了估值上限。做空指控尚未了结，属于不可量化但不可忽略的尾部风险。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"4.43亿美元", sub:"+44% YoY；高于约4.2066亿美元共识约5.3%，超公司指引中点2,300万美元", tone:"beat", pct:88},
+    {label:"有机增速", value:"+28%", sub:"Q2剔除并购口径；全年指引剔除并购与政治候选人收入后为+25%——排序用的44%是报告口径", tone:"up", pct:72},
+    {label:"GAAP净利润", value:"820万美元／每股0.03美元", sub:"去年同期净亏1,280万；GAAP共识约-0.03美元，实为超预期而非市场初期传的“大幅miss”", tone:"beat", pct:80},
+    {label:"调整后EBITDA", value:"9,170万美元", sub:"+56% YoY；利润率20.7%、同比扩张170个基点；高于约8,644万共识约6.1%", tone:"beat", pct:85},
+    {label:"股权激励", value:"5,210万美元", sub:"约占调整后EBITDA的57%——GAAP与调整后之间最大的一道口子；六个月内回购5,560万美元部分对冲", tone:"down", pct:57},
+    {label:"毛利率", value:"约59.2%", sub:"收入成本（不含折旧摊销）1.81亿美元；显著低于纯软件公司，用量与数据成本是主因", tone:"flat", pct:55},
+    {label:"自由现金流", value:"5,800万美元", sub:"+73% YoY；FCF率13.1%；经营现金流6,900万美元、+65%", tone:"up", pct:78},
+    {label:"Super-Scaled客户", value:"197家", sub:"+17% YoY；季度ARPU 180万美元、同样+17%——量价齐升", tone:"up", pct:82},
+    {label:"Q3收入指引", value:"4.69至4.72亿美元", sub:"+39%至40%；调整后EBITDA 1.15至1.16亿美元，利润率升至24.4%–24.7%", tone:"beat", pct:86},
+    {label:"FY2026指引", value:"18.11至18.24亿美元", sub:"+39%至40%，中点上调3,300万；调整后EBITDA 4.041至4.063亿（+45%–46%）；FCF 2.548至2.558亿（+55%）；GAAP EPS 0.09–0.11，较此前0.02–0.04上调三倍以上", tone:"beat", pct:90},
+    {label:"股价反应", value:"首日上涨", sub:"财报8/4盘后发布，首日8/5；盘后一度走弱但正式交易日明显上涨，媒体口径+5.9%至约+12%不一致，待官方行情复核。财报前8/4收盘约25.56，8/10收盘27.54", tone:"beat", pct:76}
+  ],
+  management_highlights: [
+    "本季是第 20 个连续 beat-and-raise 季度，收入超自身指引中点 2,300 万美元。",
+    "公司用“rule of 64”概括本季（44% 收入增长 + 20.7% 调整后 EBITDA 利润率），强调增长与利润率不再互相牺牲。",
+    "GAAP 首次实现有意义的盈利：净利润 820 万美元，全年 GAAP EPS 指引从 0.02–0.04 上调到 0.09–0.11。",
+    "Super-Scaled 客户增至 197 家、同比 +17%，季度 ARPU 180 万美元、同比 +17%，客户数与单客户价值同步提升。",
+    "收入 +44% 中约 16 个百分点来自并购，剔除后有机增长 +28%；全年 +39% 指引在剔除并购与政治候选人收入后为 +25%。",
+    "自由现金流 5,800 万美元、同比 +73%，全年 FCF 指引 2.548 至 2.558 亿美元、同比约 +55%；六个月内已回购 5,560 万美元股票。",
+    "截至 6 月 30 日现金及等价物 3.10 亿美元。业绩会围绕 AI 产品采用与合作扩张展开，具体产品口径待官方文字稿核对后补录。"
+  ],
+  narrative: {
+    summary: "ZETA 是叙事第 9 条“AI 应用层开始分化”里站在被奖励一侧的样本：收入、利润率、现金流、指引和股价五项同向。它和 APP 构成同一层里的对照组——两家都是 AI 驱动的广告/营销变现、都被做空机构（同一家 Culper）攻击过数据来源，但本季一个 beat 后被买、一个略微 miss 后被砸近 20%。市场分化的不是“有没有用 AI”，而是当期数字能否兑现已经计入的预期。",
+    consensus: "多头证据是四项同时超预期：收入超共识约 5.3%、调整后 EBITDA 超约 6.1%、GAAP 每股 0.03 美元对 -0.03 美元共识也是超预期、全年指引全线上调且 GAAP EPS 指引上调三倍以上。客户侧 Super-Scaled 197 家与 ARPU 180 万美元同步 +17%，自由现金流 +73%，是量、价、现金三条线一起改善。",
+    divergence: "反叙事集中在增长的构成与利润的成色：+44% 里含并购，有机为 +28%；全年 +39% 里还含 2026 中期选举的政治候选人收入，剔除后 +25%，而这部分会在 Q4 冲顶后归零，2027 年是已知的基数逆风。股权激励 5,210 万美元约占调整后 EBITDA 的 57%，毛利率 59.2% 也远低于纯软件；约 70% 的用量计费收入直接暴露在客户营销预算上。Culper 关于 consent farms 与收入 round-tripping 的指控公司已否认，但至今没有各方认可的了结。",
+    signals: ["Q3 剔除并购后的有机增速能否守住25%", "调整后EBITDA利润率是否达到24.4%–24.7%", "Super-Scaled客户数与ARPU是否继续同步增长", "自由现金流率能否维持13%以上", "股权激励占调整后EBITDA比例", "管理层对2027年政治收入基数缺口的口径", "与APP在同一叙事层内的相对表现"]
+  },
+  vic_notes: "Vic 提出 ZETA 应与 APP 可比。结论：叙事层面成立（同属 AI 应用层变现、同被 Culper 攻击数据来源），单位经济层面不成立——调整后 EBITDA 利润率 20.7% 对 APP 的 83.9%，FCF 率 13.1% 对 44.9%。正确对拍口径是三件套：①剔除并购与一次性后的有机增速（ZETA 28% / APP 53%）②增量收入转化为 EBITDA 与 FCF 的比例 ③数字与股价的背离方向。本季两家结果相反：ZETA beat 后被买，APP 略微 miss 后被砸约 20%。按 HANDOVER 规则不把 APP 当永久 benchmark，用跨公司分位比较。",
+  sources: [
+    {type:"SEC财报", label:"Zeta Global Q2 2026 Results（8-K 附件99.1）", url:"https://www.sec.gov/Archives/edgar/data/1851003/000119312526066951/zeta-ex99_1.htm"},
+    {type:"公司演示", label:"Zeta 2Q26 Earnings Supplemental", url:"https://s202.q4cdn.com/623583957/files/doc_financials/2026/q2/v2/2Q-26-Earnings-Supplemental_Final-1.pdf"},
+    {type:"业绩会", label:"Zeta Global Q2 2026 Earnings Call Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-zeta-global-tops-revenue-forecasts-in-q2-2026-shares-slip-93CH-4836115"},
+    {type:"财报解读", label:"StockStory：Q2 CY2026 拆解", url:"https://stockstory.org/us/stocks/nyse/zeta/news/earnings/zeta-global-nysezeta-surprises-with-strong-q2-cy2026-but-stock-drops"},
+    {type:"市场反应", label:"Benzinga：连续 beat-and-raise，股价上涨", url:"https://www.benzinga.com/trading-ideas/movers/26/08/60954258/zeta-global-continues-streak-of-beat-and-raise-quarters-stock-rises"},
+    {type:"公司回应", label:"Zeta 对做空报告的正式回应（2024-11）", url:"https://investors.zetaglobal.com/news/news-details/2024/Zeta-Global-Responds-to-Short-Seller-Report/default.aspx"}
+  ]
+},
 {
   type: "earnings",
   date: "2026-08-10",
@@ -2293,7 +2363,7 @@ APP的AI广告平台护城河和盈利能力仍强，问题是节奏和估值。
 一句话：
 
 APP这季告诉我们，AI应用公司不能只讲模型强，必须每个季度把模型改进稳定翻译成收入、EBITDA和指引。`,
-  vic_notes: "",
+  vic_notes: "Vic 提出 ZETA 应与 APP 可比（2026-08-11）。结论：叙事层面成立，单位经济层面不成立。可比处有三条——同属叙事第9条“AI应用层开始分化”、同为AI驱动的广告与营销变现、且被同一家做空机构 Culper 攻击过数据来源与归因真实性（APP 另有 Fuzzy Panda 与 CapitalWatch），两家都否认。不可比处是量级：调整后 EBITDA 利润率 83.9% 对 ZETA 的 20.7%，FCF 率 44.9% 对 13.1%，季度收入 19.24 亿对 4.43 亿。增速也不能直接比——APP 的 +53% 是有机的，ZETA 报告口径 +44% 含并购、有机为 +28%。本季两家结果相反：APP 略低于共识、首日跌约 19.7%，ZETA 四项超预期、首日上涨。正确对拍口径是三件套：①剔除并购与一次性后的有机增速 ②增量收入转化为 EBITDA 与 FCF 的比例 ③数字与股价的背离方向。按 HANDOVER 规则不把任一只当永久 benchmark，用跨公司分位。",
   outcome: ""
 },
 {
@@ -7817,7 +7887,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
@@ -8141,7 +8211,7 @@ function render(){
     const decisionBlock = decisionHtml(r);
     const detailPageBlock = detailPageHtml(r);
     const researchBody = r.detailPage
-      ? businessBlock+dimsHtml+metricsHtml+historyBlock
+      ? businessBlock+dimsHtml+metricsHtml+historyBlock+notesHtml+outcomeHtml
       : businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+fullReportHtml+sourcesHtml;
     return '<div class="record">'+
       '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
