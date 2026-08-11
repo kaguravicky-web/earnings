@@ -542,6 +542,73 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-10",
+  ticker: "RKLB",
+  company: "Rocket Lab",
+  sector: "industrials",
+  score: 55,
+  rec: "doubt",
+  dims: {quality: 28, marketread: 12, fundamentals: 15},
+  compare: {revenueGrowth:62},
+  business: {
+    plain: "Rocket Lab 做两件事：把别人的卫星送上天，以及替别人造卫星和卫星零件。Electron 是它的小型火箭，已经是全球发射次数第二多的美国火箭；Neutron 是还没首飞的中型可回收火箭，用来抢 SpaceX 猎鹰九号那一档的生意。另一半业务是太空系统——卫星平台、反应轮、太阳能板、星间激光通信终端，卖给美国政府、国防承包商和商业星座客户。",
+    howMakesMoney: "发射按单次任务收费，太空系统按合同分阶段确认收入。政府和国防订单周期长、可见度高，但确认节奏受项目进度约束；本季收入中产品（太空系统）1.813亿美元、服务（发射）5,270万美元，说明公司现在更像一家卫星制造商而不是纯发射公司。真正的杠杆点是 Neutron：首飞成功前，客户不会把大单放进积压订单。",
+    moat: "自有发射场、自有火箭、自有卫星部件的垂直整合，加上美国政府供应商资质与响应式发射能力，构成主要壁垒。风险是 Neutron 是一次性技术验证，失败或延期会直接改变估值逻辑；同时公司靠增发和并购扩张，股本和债务都在变重。",
+    whatChanged: "本季收入创纪录、积压订单同比增137%、Q3 收入指引明显高于共识，但盈利路径同时被推后：Q3 毛利率指引从 GAAP 36.1% 降到 29%–31%，调整后 EBITDA 亏损指引从本季的 880 万扩大到 1,700 万–2,300 万美元。公司还在推进 80 亿美元企业价值收购 Iridium，配套 36 亿美元过桥贷款。需求端在加速，现金端在恶化。"
+  },
+  decision: {
+    stance: "需求和积压订单是真的，被卖的是利润路径与股本；不接盘后第一根跌棒，先等 8/11 正式交易日给出真实反应",
+    summary: "收入 2.341 亿美元创纪录、同比+62%、环比+16.8%，毛利率还超了自己的指引上限，但每股亏损 0.08 美元差于约 0.05 美元的预期，Q3 毛利率与 EBITDA 指引双双下修，盘后一度跌至 72.75 美元。核心矛盾已经从“订单够不够”变成“在 Neutron 首飞、Mynaric/Motiv 整合和 Iridium 并购同时进行时，这家公司要烧多久才能自给”。",
+    playbook: [
+      {if:"8/11 正式交易日收盘跌幅明显小于盘后的-7.2%，且成交量未放大到前日两倍以上", then:"视为盘后流动性错价而非机构下修，可等横盘后小仓位观察", why:"盘后 372.9 万股的成交只有正式盘 3,401.5 万股的约十分之一，定价权不在盘后。"},
+      {if:"Neutron 在 2026 年内完成推上发射台并给出明确首飞窗口", then:"提高持续性评分并重新评估估值框架", why:"首飞前客户不把 Neutron 任务放进积压订单，CFO 已明确说要等飞行验证；首飞是把积压订单从 23.6 亿推向下一档的唯一开关。"},
+      {if:"Q3 实际非 GAAP 毛利率落在 35%–37% 指引上沿，且调整后 EBITDA 亏损小于 1,700 万美元", then:"确认毛利下滑只是产品组合而非结构性", why:"公司把 Q3 毛利下修解释为转向低毛利卫星平台的组合变化，这个说法必须用实际数字兑现。"},
+      {if:"Neutron 首飞滑出 2026 年、Q3 毛利率低于 35%、或再次启用 ATM 大额增发", then:"减仓或回避", why:"三者任一都意味着‘烧钱窗口延长 + 股本继续变重’，而当前估值依赖的是 2027 年运营杠杆。"}
+    ],
+    triggers: ["8/11 正式交易日的价格与成交量", "Neutron 推上发射台与首飞窗口", "Q3 非 GAAP 毛利率是否守住 35%", "调整后 EBITDA 亏损是否按指引收敛", "Iridium 交易 S-4 与换股比例", "SDA Tranche 3 是否中标", "经营现金流与 ATM 使用情况"],
+    invalidation: ["Neutron 首飞滑出 2026 年", "Q3 非 GAAP 毛利率低于 35%", "调整后 EBITDA 亏损超过 2,300 万美元指引上限", "再次大额 ATM 增发或过桥贷款条件恶化", "积压订单环比停止增长", "Iridium 交易被监管或股东否决"],
+    timing: "口径日 2026-08-10：正式盘收 80.04 美元（-3.37%），盘后 74.24 美元（较收盘-7.24%，盘后低点 72.75）。首日正式反应要等 8/11 收盘才成立，本记录的股价反应分是按盘后暂评，需在 8/11 后复核。下一个硬催化剂是 Neutron 推上发射台，时间窗口在 2026 Q4。",
+    risk: "本季每股亏损扩大部分来自 Mynaric、Motiv 并表带来的费用，与经营恶化不是同一回事，但两者都消耗现金：上半年经营性现金流出 1.344 亿美元。加权股本已达 6.41 亿股（含约 4,100 万优先股），且报告期内通过 ATM 募得 15.3 亿美元。Iridium 交易 36 亿美元过桥贷款会把一家净现金公司变成带杠杆公司，交易预计 2027 年中才交割，中间是长期不确定窗口。精确仓位与期权定价需刷新当日行情与期权链。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"2.341亿美元", sub:"+62% YoY、+16.8% QoQ；高于约2.31亿美元公开共识约1.3%", tone:"beat", pct:78},
+    {label:"积压订单", value:"23.6亿美元", sub:"+137% YoY；约40%发射、60%太空系统；发射积压90+次任务", tone:"beat", pct:95},
+    {label:"季后新签合同", value:"超过10亿美元", sub:"Q3 已签；含创纪录2.66亿美元美国太空军最多18次亚轨道任务", tone:"up", pct:92},
+    {label:"GAAP毛利率", value:"36.1%", sub:"高于公司33%–35%指引；非GAAP 41.5%，高于38%–40%指引", tone:"beat", pct:82},
+    {label:"每股亏损", value:"-0.08美元", sub:"净亏损4,930万美元，去年同期6,640万；但差于约-0.05美元预期", tone:"down", pct:45},
+    {label:"调整后EBITDA", value:"亏损880万美元", sub:"Q1为亏损1,180万，好于公司指引", tone:"up", pct:70},
+    {label:"Q3收入指引", value:"2.50至2.65亿美元", sub:"中点2.575亿美元，较约2.41亿美元共识高约7%", tone:"beat", pct:88},
+    {label:"Q3毛利率指引", value:"GAAP 29%–31%", sub:"非GAAP 35%–37%；较本季36.1%/41.5%明显下滑，公司解释为产品组合转向卫星平台", tone:"down", pct:35},
+    {label:"Q3调整后EBITDA指引", value:"亏损1,700至2,300万美元", sub:"较本季880万亏损扩大；市场此前预期约亏损1,020万美元", tone:"down", pct:30},
+    {label:"现金与股本", value:"21.3亿美元现金", sub:"含有价证券与受限现金约24亿；上半年经营现金流出1.344亿；ATM募资15.3亿；加权股本6.41亿股", tone:"flat", pct:52},
+    {label:"股价反应", value:"盘后-7.24%", sub:"口径日8/10：正式盘收80.04（-3.37%），盘后74.24、低点72.75；首日正式反应待8/11确认", tone:"down", pct:72}
+  ],
+  management_highlights: [
+    "Beck 称发射服务需求“极端”，季内及季后 Electron、HASTE 与 Neutron 合计签下超过 4.37 亿美元发射订单，其中 2.66 亿美元美国太空军合同是公司史上最大发射合同。",
+    "Neutron 飞行硬件正进入维吉尼亚 LC-3 的总装与集成，累计完成 400 次以上发动机热试；公司维持 2026 Q4 推上发射台的目标，但 Beck 明确表示“年内完成首飞的窗口正在收窄”。",
+    "CFO Adam Spice 说更多 Neutron 任务要等首飞成功后才会进入积压订单——客户在等飞行验证，这解释了为什么 23.6 亿积压订单里 Neutron 贡献有限。",
+    "Spice 表示当前现金储备足以支撑扩张，除非再出现并购机会；同时公司正在推进 80 亿美元企业价值的 Iridium 收购，配套 36 亿美元过桥贷款。",
+    "VICTUS HAZE 任务展示响应式发射能力：接到通知后 16 小时 42 分内完成 Electron 发射，38 小时完成航天器在轨调试，59 小时内完成对非合作目标卫星的跟踪与成像。",
+    "SDA Tranche 2 收入将进入爬坡；管理层称若拿下 Tranche 3，将成为公司有史以来最大合同。",
+    "Q3 毛利率指引下滑被解释为产品组合转向毛利较低的卫星平台，而非定价或良率问题；这一说法需要用 Q3 实际毛利率验证。"
+  ],
+  narrative: {
+    summary: "RKLB 这份财报把“订单叙事”和“利润叙事”彻底分开了：收入、积压订单、政府合同全部创纪录，而毛利率指引、EBITDA 指引和股本同时向坏的方向走。市场卖的不是需求，是从现在到 Neutron 首飞、Iridium 交割之间那段没有现金流的时间。",
+    consensus: "多头证据是收入同比+62%创纪录、积压订单+137%至23.6亿美元、季后已签超10亿美元新合同、发射积压90+次任务、本季毛利率还超了自己的指引上限，且 Q3 收入指引比共识高约7%。响应式发射能力已被 VICTUS HAZE 实测验证，国防需求提供了长周期可见度。",
+    divergence: "反叙事是每股亏损差于预期、Q3 GAAP 毛利率指引从36.1%降至29%–31%、调整后 EBITDA 亏损指引扩大到1,700万–2,300万美元（市场原预期约1,020万），上半年经营现金流出1.344亿美元，同时通过 ATM 募资15.3亿、加权股本已达6.41亿股。Iridium 交易带来36亿美元过桥贷款和2027年中才交割的长窗口。需求是真的，问题是股东要为这段时间承担多少稀释和杠杆。",
+    signals: ["8/11 正式交易日的跌幅与成交量", "Neutron 是否在 2026 Q4 推上发射台", "Q3 非 GAAP 毛利率能否守住 35%", "调整后 EBITDA 亏损是否按指引收敛", "Iridium S-4 与换股比例", "SDA Tranche 3 结果", "是否再次启用 ATM"]
+  },
+  sources: [
+    {type:"公司财报", label:"Rocket Lab Q2 2026 Financial Results", url:"https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-announces-second-quarter-2026-financial-results-posts"},
+    {type:"公司公告", label:"Rocket Lab to Acquire Iridium", url:"https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-acquire-iridium-historic-deal-creating-fully"},
+    {type:"SEC", label:"Rocket Lab Form 8-K 附件", url:"https://www.sec.gov/Archives/edgar/data/0001819994/000175392626001085/g085783_ex99-1.htm"},
+    {type:"业绩会", label:"Rocket Lab Q2 2026 Earnings Call Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-rocket-lab-q2-2026-revenue-tops-forecasts-shares-fall-93CH-4850558"},
+    {type:"市场反应", label:"Investing.com：录得纪录收入但股价下跌", url:"https://www.investing.com/news/company-news/rocket-lab-q2-2026-slides-record-revenue-iridium-deal-shares-fall-93CH-4850575"},
+    {type:"市场反应", label:"CNBC：80亿美元太空整合交易", url:"https://www.cnbc.com/2026/06/29/rocket-lab-buys-iridium.html"}
+  ]
+},
+{
+  type: "earnings",
   date: "2026-08-08",
   ticker: "TWLO",
   company: "Twilio",
@@ -7686,7 +7753,7 @@ const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech",
-  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials",
+  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
