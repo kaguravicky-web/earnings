@@ -543,6 +543,71 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-08-10",
+  ticker: "ASTS",
+  company: "AST SpaceMobile",
+  sector: "industrials",
+  score: 60,
+  rec: "repricing",
+  dims: {quality: 22, marketread: 20, fundamentals: 18},
+  business: {
+    plain: "AST SpaceMobile 想让你手上这台普通手机，不换卡不换机、直接连上天上的卫星。它把巨大的相控阵天线送上低轨，让卫星在太空里扮演一座基站，把运营商的地面信号覆盖不到的地方补上——海上、山区、沙漠、灾后断网区域。用户端不需要任何专用设备，这是它和传统卫星电话最根本的区别。",
+    howMakesMoney: "不直接向消费者收费，而是把容量批发给电信运营商，由 AT&T、Verizon、Vodafone、Rakuten 等把它做成套餐里的一项功能，双方分成。另一条腿是政府与国防：美国政府已授出三份合同，2026–2027 年已拨付近期价值超过 1 亿美元，日本 J-LEO 项目的初步入选还可能带来约 10 亿美元非稀释性政府资金。本季 3,150 万美元收入里，产品 2,443 万来自商用网关交付，服务 709 万来自政府服务里程碑——都还不是消费者订阅收入。",
+    moat: "壁垒是频谱、专利和已经签下的运营商关系：全球可调谐低频与中频频谱约 1,150 MHz，60 多家运营商合计覆盖超过 30 亿用户，美国境内已部署 3,000 多个低频蜂窝小区。风险同样清晰：整套逻辑要靠几十颗大型卫星按时上天并正常工作，任何发射失败、制造延迟或运营商推迟商用都会直接推后收入。",
+    whatChanged: "本季公司从“讲故事”正式切换到“搬砖阶段”：50 天内连续发射 BlueBird 8 至 13，在轨达到 13 颗，单季资本开支从 2.568 亿暴增到 6.104 亿美元。代价是收入和每股亏损双双差于预期，季度烧钱（资本开支＋运营费用）接近 7.3 亿美元。全年 1.5 亿至 2 亿美元收入指引维持不变，但明确说权重压在 Q4。"
+  },
+  decision: {
+    stance: "市场没有按当季损益给它定价，而是按在轨卫星数和商用时点定价；不用财报数字做交易依据，用发射节奏和 Q3 收入做",
+    summary: "收入 3,152 万美元低于约 3,518 万共识约 10%，调整后每股亏损 0.77 美元远差于 -0.26 美元预期，但盘后只跌约 1%——这说明当前定价锚点不是利润表，而是“45 颗星、2027 年初、能不能开商用”。真正的矛盾是：全年 1.5 亿下限需要下半年做出约 1.027 亿美元，而 Q3 公司只给了资本开支和费用指引、没有给收入指引，全年兑现压力被整体推给 Q4。",
+    playbook: [
+      {if:"Q3 收入达到约 4,500 万至 5,000 万美元以上", then:"维持全年指引可兑现的判断", why:"上半年合计仅 4,730 万美元；若 Q3 低于这个区间，1.5 亿下限就需要 Q4 单季接近翻倍，指引质量要打折。"},
+      {if:"发射节奏维持每 1 至 2 个月一次，且 BlueBird 14 至 16 如期出货", then:"提高持续性评分", why:"已订 10 次发射（两家供应商，不含 Blue Origin）、目标月产六颗，是 45 星目标唯一可验证的中间量。"},
+      {if:"运营商侧宣布消费者 beta 正式开放并给出商用时间表", then:"才认为收入模型开始成立", why:"公司自己说 beta 时点要与运营商共同决定；没有运营商背书的时间表只是产能计划。"},
+      {if:"45 星目标滑出 2027 年初、Q3 资本开支超过 4.25 亿指引上限、或在 J-LEO 落地前再次大额股权融资", then:"回避", why:"三者任一都意味着‘部署周期拉长 + 稀释加重’，而当前估值完全建立在按时部署上。"}
+    ],
+    triggers: ["8/11 正式交易日的价格与成交量", "Q3 收入是否达到约4,500万至5,000万美元", "BlueBird 14至16出货与后续发射节奏", "消费者 beta 与运营商商用时间表", "日本 J-LEO 最终结果（约10亿美元非稀释资金）", "Q3 资本开支是否落在3.5亿至4.25亿指引内", "美国5,600个蜂窝小区部署进度"],
+    invalidation: ["Q3 收入明显低于4,500万美元且全年指引未下调", "45颗星目标滑出2027年初", "发射节奏拉长到三个月以上", "Q3 资本开支超过4.25亿美元上限", "J-LEO 落选且随即启动大额股权融资", "运营商推迟消费者商用"],
+    timing: "口径日 2026-08-10：正式盘收 68.76 美元（-4.42%，该跌幅发生在财报前），盘后 68.039 美元（较收盘-1.05%，盘后区间 65.75 至 72.25）。首日正式反应要等 8/11 收盘确认。下一个硬催化剂是下一次 BlueBird 发射与 Q3 收入。",
+    risk: "这是典型的重资产部署期公司：本季资本开支 6.104 亿＋运营费用 1.191 亿，单季消耗约 7.3 亿美元；按 Q3 指引口径（资本开支3.5至4.25亿＋费用1.05至1.15亿）季度消耗约 4.55 至 5.4 亿美元。截至 6 月 30 日含 7 月 11.5 亿美元可转债在内的备考流动性超过 37 亿美元，大致覆盖约七个季度，但 45 星部署完成前不会有规模收入，再融资是基准假设而非风险情形。ASTS 波动极大，正式盘成交 1,503 万股、约 10.4 亿美元，任何仓位与期权定价必须用当日行情重新计算。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"3,152万美元", sub:"Q1为1,580万，环比约+99%；低于约3,518万美元共识约10%", tone:"down", pct:45},
+    {label:"收入构成", value:"产品2,443万／服务709万", sub:"产品来自商用网关交付，服务来自美国政府里程碑；均非消费者订阅", tone:"flat", pct:50},
+    {label:"调整后每股亏损", value:"-0.77美元", sub:"市场预期约-0.26美元；差幅约196%，主因部署与制造投入", tone:"down", pct:88},
+    {label:"资本开支", value:"6.104亿美元", sub:"Q1为2.568亿，环比+137.7%；Q3指引3.5亿至4.25亿", tone:"down", pct:82},
+    {label:"运营费用", value:"1.191亿美元", sub:"Q1为9,120万，环比+30.6%；Q3指引1.05亿至1.15亿", tone:"down", pct:60},
+    {label:"备考流动性", value:"超过37亿美元", sub:"截至6月30日，含7月11.5亿美元可转债；按Q3指引口径约覆盖七个季度", tone:"up", pct:75},
+    {label:"在轨卫星", value:"13颗", sub:"50天内连续发射BlueBird 8至13；14至16即将出货，17至46在产", tone:"beat", pct:90},
+    {label:"部署目标", value:"2027年初约45颗", sub:"已订10次发射（两家供应商，不含Blue Origin），节奏约每1至2个月；目标月产6颗", tone:"up", pct:80},
+    {label:"收入积压", value:"约13亿美元", sub:"60多家运营商覆盖超30亿用户；美国政府合同已授出超1.25亿美元", tone:"up", pct:78},
+    {label:"FY2026收入指引", value:"1.5亿至2亿美元", sub:"维持不变，但明确权重压在Q4；上半年合计仅4,730万美元", tone:"flat", pct:48},
+    {label:"股价反应", value:"盘后-1.05%", sub:"口径日8/10：正式盘收68.76（-4.42%，跌幅发生在财报前），盘后68.039、区间65.75至72.25；首日正式反应待8/11确认", tone:"flat", pct:35}
+  ],
+  management_highlights: [
+    "50 天内完成 BlueBird 8 至 13 的连续发射，在轨达到 13 颗；总裁 Scott Wisniewski 称平均发射节奏目标是每一到两个月一次，已订 10 次发射、分属两家供应商（不含 Blue Origin）。",
+    "目标 2027 年初在轨约 45 颗，制造端目标月产六颗全组装卫星；公司称最少 45 颗即可具备开启商用服务的条件。",
+    "消费者 beta 能力预计 2026 年晚些时候开始，但明确说具体时点要与运营商伙伴共同决定——时间表不掌握在公司单方手里。",
+    "美国境内已部署 3,000 多个低频蜂窝小区，计划在 2026 年内完成全国约 5,600 个小区的剩余部署；全球近 50 个网关分布在五大洲，处于不同完工阶段。",
+    "三份美国政府合同 2026–2027 年已拨付近期价值超过 1 亿美元；日本 J-LEO 项目的初步入选可能带来约 10 亿美元非稀释性政府资金——这是最重要的潜在非稀释资金来源。",
+    "全球可调谐低频与中频频谱约 1,150 MHz；Block 2 卫星峰值速率接近 200 Mbps；制造面积扩张至超过 100 万平方英尺。",
+    "Avellan 强调网络定位是延伸运营商的地面网络而不是与其竞争；同时提到美国雷达类应用使用政府频谱，依赖公司的大型相控阵天线与卫星灵敏度。"
+  ],
+  narrative: {
+    summary: "ASTS 这份财报最有信息量的地方不是数字，而是市场对数字的无视：收入低于共识 10%、每股亏损差了近两倍，盘后只跌约 1%。当前定价锚点已经完全不在利润表，而在“在轨 13 颗、2027 年初 45 颗、然后能不能开商用”。这不是市场犯错，而是市场承认这家公司现在只有部署进度一个变量。",
+    consensus: "多头证据是物理进度而非财务进度：50 天内连发六颗、在轨 13 颗、14 至 16 即将出货、17 至 46 在产、已订 10 次发射、月产六颗目标、备考流动性超过 37 亿美元、积压订单约 13 亿美元、60 多家运营商覆盖 30 亿用户，加上日本 J-LEO 可能带来约 10 亿美元非稀释资金。",
+    divergence: "反叙事是收入与亏损同时差于预期，单季消耗接近 7.3 亿美元，而全年 1.5 亿至 2 亿指引在上半年只完成 4,730 万，且公司没有给出 Q3 收入指引，把兑现压力全部推给 Q4。消费者 beta 的开闸权在运营商手里而不在公司手里。只要部署或商用时点滑一格，靠“45 星商用”支撑的估值就没有缓冲。",
+    signals: ["Q3 收入是否达到4,500万至5,000万美元", "8/11 正式交易日反应", "BlueBird 14至16出货与发射节奏", "运营商侧的消费者beta时间表", "日本 J-LEO 最终结果", "Q3 资本开支是否守住4.25亿上限", "45星目标是否维持2027年初"]
+  },
+  sources: [
+    {type:"SEC财报", label:"AST SpaceMobile Q2 2026 Results（8-K 附件99.1）", url:"https://www.sec.gov/Archives/edgar/data/1780312/000178031226000005/asts-ex99_1.htm"},
+    {type:"SEC", label:"AST SpaceMobile Q2 2026 Form 10-Q", url:"https://www.stocktitan.net/sec-filings/ASTS/10-q-ast-space-mobile-inc-quarterly-earnings-report-c641903c08c1.html"},
+    {type:"业绩会", label:"AST SpaceMobile Q2 2026 Earnings Call Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-ast-spacemobile-q2-2026-misses-estimates-as-shares-slip-93CH-4850555"},
+    {type:"业绩会摘要", label:"MarketBeat：Q2 业绩会要点", url:"https://www.marketbeat.com/instant-alerts/ast-spacemobile-q2-earnings-call-highlights-2026-08-10/"},
+    {type:"市场反应", label:"Investing.com：卫星如期上天但业绩不及预期", url:"https://www.investing.com/news/company-news/ast-spacemobile-q2-2026-slides-satellites-launch-despite-earnings-miss-93CH-4850570"}
+  ]
+},
+{
+  type: "earnings",
+  date: "2026-08-10",
   ticker: "RKLB",
   company: "Rocket Lab",
   sector: "industrials",
@@ -7753,7 +7818,7 @@ const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech",
-  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials",
+  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
