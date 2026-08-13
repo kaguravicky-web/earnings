@@ -315,7 +315,12 @@ const NARRATIVES = [
     direction: "快速强化",
     tickers: ["ANET","ALAB","AAOI","CRDO","MRVL","AMD","NVDA","CSCO","AVGO","AEVA"],
     thesis: "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
-    evidence: "ANET Q2收入和EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数。管理层把网络称为AI基础设施的central nervous system；ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连和fabric switch需求；AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍，管理层称800G/1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%；CRDO和MRVL分别验证AEC/高速连接与光互连DSP、交换硅需求。AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线，但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。",
+    evidence: [
+      "ANET Q2收入与EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数；管理层把网络称为AI基础设施的中枢神经系统。",
+      "ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连与fabric switch需求；CRDO与MRVL分别验证AEC高速连接、光互连DSP与交换硅需求。",
+      "AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍；管理层称800G与1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%。",
+      "AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线——但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。"
+    ],
     disconfirm: "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     sources: [
       {type:"市场反应", label:"IBD：AI Cloud Networking Growth Drives Arista Beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"},
@@ -489,7 +494,8 @@ const NARRATIVES = [
     evidence: [
       "被奖励的一侧：PLTR收入+93%、美国商业+149%，次日股价+29.5%；SHOP收入+34%、GMV +32%；TEAM云收入+31%、RPO +44%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日+24.9%。",
       "被惩罚的一侧：DDOG收入+36%、billings +38%、指引高于共识，首日仍跌约19%；APP收入+53%但增速从59%降下来、Q3指引约47%，首日跌约20%；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日跌约19%。",
-      "同层对照最能说明判据。APP与ZETA都是AI驱动的广告与营销变现、都被同一家做空机构Culper攻击过数据来源，本季结果却相反：ZETA收入4.43亿美元、+44%（剔除并购+28%），调整后EBITDA利润率20.7%、GAAP首次转正、第20个连续beat-and-raise，首日上涨。U则是第三种结果：战略收入+38%、Strategic Grow +63%，调整后EBITDA 1.602亿美元、利润率29%（原指引仅1.30至1.35亿），Q3战略收入再指引+44%至+47%，是三家里唯一下季指引斜率比本季更陡的。",
+      "同层对照最能说明判据。APP与ZETA都是AI驱动的广告与营销变现、都被同一家做空机构Culper攻击过数据来源，本季结果却相反：ZETA收入4.43亿美元、+44%（剔除并购+28%），调整后EBITDA利润率20.7%、GAAP首次转正、第20个连续beat-and-raise，首日上涨。",
+      "U则是第三种结果：战略收入+38%、Strategic Grow +63%，调整后EBITDA 1.602亿美元、利润率29%（原指引仅1.30至1.35亿），Q3战略收入再指引+44%至+47%，是三家里唯一下季指引斜率比本季更陡的。",
       "结论：分化的判据是当期数字能否兑现已经计入的预期、以及下季指引的斜率方向，而不是是否属于AI应用层，也不是绝对增速——本轮增速最高的APP跌得最惨。"
     ],
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
@@ -506,22 +512,6 @@ const NARRATIVES = [
   },
   {
     rank: 9,
-    theme: "SaaS与咨询预算被基础设施挤出",
-    strength: "7.5/10负面",
-    horizon: "当前至未来数季",
-    direction: "待交叉验证",
-    tickers: ["IBM","ACN","CRM","NOW","ADBE","TEAM","HUBS"],
-    thesis: "当企业预算优先投向GPU、服务器、网络、电力、存储和安全，传统软件席位、咨询项目和非核心数字化支出可能被延迟、压缩或重新议价。",
-    evidence: "IBM已确认客户资本开支向供应受限的基础设施转移，同时Software增速仅5%、Consulting持平，并有多笔大单延迟。AI硬件链和电力链连续强验证，提高了预算挤出假设的可信度，但仍需要ACN、CRM、NOW等后续财报确认。",
-    disconfirm: "软件与咨询公司RPO、签约周期、净留存率和AI增购同步改善，证明AI没有挤出而是带动软件预算。TEAM本季云收入+31%、RPO +44%、盘后约+33%，构成重要反证；但HUBS billings增速降至14%、Q3收入只指引约+14%且全年收入区间下调，说明部分SaaS公司仍在承受预算、席位定价和AI转型摩擦，需后续CRM、NOW、ADBE继续裁决。",
-    sources: [
-      {type:"公司公告", label:"IBM CEO致投资者信", url:"https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"},
-      {type:"SEC", label:"IBM 8-K附件", url:"https://www.sec.gov/Archives/edgar/data/51143/000005114326000070/ibm-20260714xex991.htm"},
-      {type:"SEC财报", label:"HubSpot Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"}
-    ]
-  },
-  {
-    rank: 10,
     theme: "国防与关键基础设施AI",
     strength: "8/10",
     horizon: "长期",
@@ -537,23 +527,7 @@ const NARRATIVES = [
     ]
   },
   {
-    rank: 11,
-    theme: "医疗成本挤压保险利润率",
-    strength: "8/10负面",
-    horizon: "当前至2027",
-    direction: "待验证",
-    tickers: ["ELV","MOH","UNH","JNJ","ISRG"],
-    thesis: "医保公司的定价核心从收入增长转向医疗成本率、政府业务费率与核心盈利质量；医疗服务量和药械需求如果保持韧性，保险端利润率会继续承压。",
-    evidence: "ELV虽然EPS超预期并小幅上调指引，股价仍大跌，benefit expense ratio升至89.7%；JNJ表示没有看到手术量系统性放缓，ISRG也显示手术机器人需求仍有韧性。这意味着不能简单指望医疗利用率自然回落来缓解保险成本。",
-    disconfirm: "医疗成本率连续改善，Medicaid费率追上成本，保险公司核心经营利润率回升，或大型医疗供应商普遍观察到手术量明显转弱。",
-    sources: [
-      {type:"公告", label:"Elevance Q2 2026 Results", url:"https://www.elevancehealth.com/newsroom/elv-quarterly-earnings-q2-2026"},
-      {type:"公司公告", label:"JNJ Q2 2026 Results", url:"https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q2-2026-results-raises-2026-outlook"},
-      {type:"业绩会", label:"JNJ Q2 2026 Transcript", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-johnson--johnson-tops-q2-2026-estimates-and-lifts-outlook-93CH-4793625"}
-    ]
-  },
-  {
-    rank: 12,
+    rank: 10,
     theme: "消费金融增长开始接受信用质量与获客成本审判",
     status: "new",
     statusAsOf: "2026-08-08",

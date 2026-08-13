@@ -42,6 +42,9 @@
 - 评分要吝啬。优秀数字不等于优秀股价结果，也不等于叙事可持续。
 - 不使用某一只股票作为永久 benchmark；采用跨季度、跨公司的分位标准。
 - 同一叙事只保留一个展开区，不要拆成“摘要”和“详情”两套重复内容。
+- 叙事不写负面主线。`strength` 不允许出现“负面”字样；只写正向、可执行、能被证伪的主线，看空判断放进个股记录的证伪清单，不单独立叙事。
+- 叙事正文按段落写：`thesis`、`evidence`、`disconfirm` 用字符串数组，一项一段，单段不超过 220 字。渲染层会为每项输出独立段落，写成一整块长字符串会被闸门拒绝。
+- 叙事不是板块标签。一条主线如果大部分成分股在别的叙事里已经出现，或者没有任何数据能推翻它，就应该收窄或删除，而不是留着凑数。
 
 ## 4. 评分框架
 
@@ -97,9 +100,12 @@
 
 ```powershell
 node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\s\S]*?)<\/script>/);new Function(m[1]);console.log('script ok')"
+node check-narratives.js
 git diff --check
 git status -sb
 ```
+
+`check-narratives.js` 是叙事闸门，返回非零就不许推送。它会拒绝：`strength` 含“负面”、`thesis`/`evidence`/`disconfirm` 写成超过 220 字的单个字符串、任一段落超过 220 字、`rank` 不连续、缺少证伪条件。改这些规则时改脚本，不要只改本文档。
 
 还要在浏览器检查：记录数量、主页到独立页链接、两层标签切换、展开/收起、板块筛选、两个排序和移动端横向溢出。
 
