@@ -550,6 +550,70 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-11",
+  ticker: "VELO",
+  company: "Velo3D",
+  sector: "industrials",
+  score: 72,
+  rec: "resonance",
+  dims: {quality: 32, marketread: 26, fundamentals: 14},
+  compare: {revenueGrowth:52.3},
+  business: {
+    plain: "Velo3D 卖金属 3D 打印机，以及用这些机器替客户打零件。它的机器强在能直接打出传统方法做不出来的形状——不需要支撑结构就能打悬空、内部流道复杂的部件，所以火箭发动机喷注器、燃气轮机叶片、导弹结构件这类东西是它的主战场。客户集中在国防、航天、能源和半导体设备，媒体报道 SpaceX 是其客户之一（公司财报未点名）。",
+    howMakesMoney: "两条腿：一是卖设备（本季 3D 打印机与零件收入 1,900 万美元、同比+57%，占总收入九成以上，公司明说系统销售在 2026 年仍是主要收入来源）；二是 Rapid Production Services，即用自有机器替客户代工生产零件，加上支持服务 150 万美元，属于逐步累积的经常性收入。设备是一次性大单、确认节奏波动大，代工才是能反复收钱的部分。",
+    moat: "壁垒在无支撑打印工艺与航天国防客户的资格认证——这类零件一旦通过认证，客户不会轻易换供应商，本季复购订单占比按管理层口径维持在八成以上。风险是设备销售单价高、客户数量少，单季少签一两台就会明显影响收入；同时它仍在靠融资扩产，经营本身还没有产生现金。",
+    whatChanged: "这一季是真正的拐点验证：毛利率从去年同期的 -11.7% 转正到 21.5%，全年收入指引从 6,000 万至 7,000 万美元上调到 6,500 万至 7,500 万美元，积压订单从去年同期 1,600 万升至 3,100 万美元，债务减少超过 70% 至 820 万美元。但拐点还没走完——公司要在下半年同时做到毛利率超过 30% 和调整后 EBITDA 转正，这是两个大跳。"
+  },
+  decision: {
+    stance: "毛利率转正与指引上调是真拐点，但现金来自融资而非经营，扩产赌注下半年就要见分晓",
+    summary: "收入 2,070 万美元、同比+52.3%，比约 1,352 万至 1,395 万美元的共识高出约五成；毛利率从 -11.7% 翻到 21.5%；全年指引上调且高于华尔街约 6,416 万美元的预期。矛盾在现金结构：上半年通过直接发行与 ATM 募得约 1.094 亿美元毛额，季末现金 9,110 万美元几乎全部来自融资，而全年资本开支指引 4,000 万至 5,000 万美元，接近全年收入指引的六成。Livermore 园区要把产能翻三倍——赌的是下半年订单能填满新产能。",
+    playbook: [
+      {if:"Q3 毛利率进入 25% 以上、并给出通向 30% 的明确路径", then:"确认拐点成立，可按里程碑观察", why:"从 21.5% 到全年下半年超过 30% 是这份指引里最大的一跳，必须先看到中间值。"},
+      {if:"Q3 新签订单继续维持在 2,000 万美元以上，且积压不低于 3,100 万美元", then:"维持增长可持续判断", why:"6月底积压只相当于约1.5个季度收入，缓冲很薄，全年指引的达成高度依赖季内新签而不是存量。"},
+      {if:"Livermore 园区如期在 2026 年内投运，且调整后 EBITDA 在下半年转正", then:"提高持续性评分", why:"产能翻三倍与 EBITDA 转正必须同时发生，否则就是先背上折旧再等订单。"},
+      {if:"继续大额使用 ATM 增发、或 Q3 毛利率停在 22% 以下、或积压环比下降", then:"回避", why:"流通股本仅约1,124万股，任何增发对小流通盘的稀释与波动都会被放大；毛利率与积压任一失速，扩产就会变成负担。"}
+    ],
+    triggers: ["Q3 毛利率能否进入25%以上", "Q3 新签订单与期末积压", "Livermore 园区投运时间", "下半年调整后 EBITDA 是否转正", "ATM 增发使用节奏", "Rapid Production Services 收入占比", "国防与航天客户的复购率"],
+    invalidation: ["Q3 毛利率停在22%以下", "积压订单环比下降", "全年收入指引回调", "下半年调整后EBITDA未能转正", "Livermore 园区投运延期", "继续大额ATM增发稀释小流通盘"],
+    timing: "口径日 2026-08-11：财报盘后发布，盘后一度上涨逾19%。首日 8/12 收 15.10 美元，较财报前约 13.69 美元的收盘（媒体口径，未经行情源核实）约 +10.3%——盘后涨幅回吐了一部分。8/13 美东盘中报 15.75 美元，本记录写于盘中，8/13 收盘不在本记录内。",
+    risk: "现金质量是最大的隐忧：季末 9,110 万美元现金主要来自上半年约 1.094 亿美元的融资，调整后 EBITDA 仍为 -810 万美元，经营本身尚未产生现金。全年资本开支指引 4,000 万至 5,000 万美元，接近全年收入指引的六成，且运营费用已从 1,000 万升到 1,550 万美元。总股本约 2,979 万股而流通股仅约 1,124 万股，小流通盘叠加 ATM 增发，波动与稀释都会被放大。设备销售占收入九成以上，单季少签一两台系统就会明显影响业绩。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"2,070万美元", sub:"+52.3% YoY；高于约1,352万至1,395万美元共识约五成", tone:"beat", pct:95},
+    {label:"收入构成", value:"打印机与零件1,900万", sub:"+57.0% YoY，占比逾九成；支持服务150万、其他20万。公司称系统销售2026年仍是主要收入来源", tone:"up", pct:70},
+    {label:"毛利率", value:"21.5%", sub:"去年同期为-11.7%——从负毛利转正；毛利440万美元，去年同期亏损160万", tone:"beat", pct:90},
+    {label:"GAAP净亏损", value:"1,150万美元", sub:"去年同期1,330万；每股-0.39美元，去年-0.94美元。非GAAP净亏900万", tone:"up", pct:55},
+    {label:"调整后EBITDA", value:"-810万美元", sub:"去年同期-890万；改善有限，公司预期下半年转正", tone:"flat", pct:45},
+    {label:"运营费用", value:"1,550万美元", sub:"去年同期1,000万、增长55%；非GAAP调整后1,310万（剔除240万股权激励）", tone:"down", pct:42},
+    {label:"积压订单", value:"3,100万美元", sub:"去年同期1,600万、接近翻倍；Q2新签订单2,900万美元", tone:"up", pct:80},
+    {label:"现金与债务", value:"现金9,110万美元", sub:"2025年底为3,900万；债务降至820万、降幅逾70%。但上半年通过直接发行与ATM募得约1.094亿美元毛额——现金主要来自融资", tone:"flat", pct:50},
+    {label:"FY2026收入指引", value:"6,500万至7,500万美元", sub:"上调自6,000万至7,000万；高于华尔街约6,416万美元预期", tone:"beat", pct:88},
+    {label:"下半年目标", value:"毛利率>30%、EBITDA转正", sub:"全年非GAAP调整后运营费用4,500万至5,500万、资本开支4,000万至5,000万美元——接近全年收入指引的六成", tone:"flat", pct:52},
+    {label:"股价反应", value:"首日约+10.3%", sub:"口径日8/11：盘后一度涨逾19%；首日8/12收15.10美元，较财报前约13.69美元（媒体口径，未经行情源核实）约+10.3%。8/13盘中15.75，未收盘、不在本记录内", tone:"beat", pct:82}
+  ],
+  management_highlights: [
+    "CEO 称公司正进入重要的增长阶段；国防与航天是本季管道增长的主要来源，复购订单按管理层口径持续维持在总订单的八成以上。",
+    "Livermore 生产园区预计将公司制造产能提升至三倍，计划在 2026 年晚些时候投运，并成为主要生产中心。",
+    "毛利率改善来自更高的平均售价与 Rapid Production Services 收入增加，即代工生产这条经常性收入线开始起作用。",
+    "与 Mears Machine 的合作扩大到第五台系统订单；与 Aurelia Technologies 就燃气轮机应用建立新合作。",
+    "公司已被纳入 Russell 3000 与 Russell Microcap 指数。官方公告未点名 SpaceX，也未在公告中披露复购率数字——这两项来自媒体与业绩会口径，需与后续 10-Q 交叉核对。"
+  ],
+  narrative: {
+    summary: "VELO 这一季完成了增材制造公司最难的一步：毛利率从 -11.7% 转正到 21.5%，同时把全年指引往上调。但它同时暴露了这类小市值制造公司的真实结构——现金来自融资而不是经营，产能扩张的赌注要在下半年兑现。市场买账但没有全额买账：盘后涨逾19%，首日只收 +10.3%。",
+    consensus: "多头证据是四项同时改善：收入超共识约五成、毛利率由负转正、积压订单接近翻倍至3,100万美元、债务减少逾70%至820万美元，全年指引上调且高于华尔街预期。国防与航天客户的高复购率与 Livermore 园区三倍产能，构成明确的中期增长路径。",
+    divergence: "反叙事集中在现金与结构：季末9,110万美元现金主要来自上半年约1.094亿美元融资，调整后EBITDA仍为-810万美元；全年资本开支指引4,000万至5,000万美元接近收入指引六成；运营费用同比增长55%。下半年要同时做到毛利率超过30%与EBITDA转正，是两个大跳。收入九成以上来自设备销售，单季少签一两台就会明显影响业绩，而流通股仅约1,124万股，稀释与波动都被放大。",
+    signals: ["Q3毛利率能否进入25%以上", "Q3新签订单与期末积压", "Livermore园区投运时间", "下半年调整后EBITDA是否转正", "ATM增发使用节奏", "Rapid Production Services收入占比"]
+  },
+  sources: [
+    {type:"公司公告", label:"Velo3D Q2 2026 Financial Results", url:"https://www.prnewswire.com/news-releases/velo3d-announces-second-quarter-2026-financial-results-302848813.html"},
+    {type:"SEC财报", label:"Velo3D Q2 2026 8-K 附件", url:"https://www.sec.gov/Archives/edgar/data/0001825079/000119312526344537/velo-ex99_2.htm"},
+    {type:"业绩会", label:"Velo3D Q2 2026 业绩会要点", url:"https://finance.yahoo.com/markets/stocks/articles/velo3d-inc-velo-q2-2026-050048967.html"},
+    {type:"市场反应", label:"Benzinga：财报后股价上涨", url:"https://www.benzinga.com/trading-ideas/movers/26/08/61150197/velo3d-stock-jumps-after-upbeat-q2-earnings"},
+    {type:"行业媒体", label:"3DPrint.com：收入+52%、全年指引上调", url:"https://3dprint.com/330310/3d-printing-financials-velo3d-revenue-climbs-52-2026-forecast-raised/"}
+  ]
+},
+{
+  type: "earnings",
   date: "2026-08-12",
   ticker: "COHR",
   company: "Coherent",
@@ -8206,7 +8270,7 @@ const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
-  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials",
+  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
