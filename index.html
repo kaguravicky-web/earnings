@@ -303,28 +303,6 @@ h1{font-size:26px;margin:0 0 4px}
 const NARRATIVES = [
   {
     rank: 1,
-    theme: "AI基础设施从芯片扩散为全栈瓶颈",
-    status: "uptrending",
-    statusAsOf: "2026-08-08",
-    strength: "9.5/10",
-    horizon: "当前至未来数季",
-    direction: "强化",
-    tickers: ["MSFT","GOOG","META","TSM","ASML","SNDK","WDC","AMD","ANET","ALAB","AAOI","BE","VECO","ONTO","NET","AKAM"],
-    thesis: "市场正在交易的不是单一AI软件故事，而是AI资本开支从GPU扩散到先进制程、服务器、网络、电力、冷却、存储和现场供电的全栈瓶颈。谁能把瓶颈变成当期收入和利润，谁就获得更高确定性溢价。",
-    evidence: "MSFT的Azure增长43%、商业RPO大增，GOOG和META继续高强度AI资本开支；TSMC上修资本开支且HPC占比继续提高；SNDK收入同比约+372%、数据中心收入接近30亿美元；拆分闪存业务后的WDC只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元；AMD Data Center收入同比+107%；ANET收入同比约+38%并给出强Q3指引；ALAB收入同比+104%且Q3指引大幅高于预期；AAOI数据中心收入+140%、800G出货环比翻倍，Q3收入中点隐含约+130%；BE收入首次超过10亿美元、产品收入同比+215%；VECO取得2亿美元先进封装订单；ONTO先进节点收入环比+50%、先进封装创新高、积压订单首次超过10亿美元；NET收入增速重新加速至36%；AKAM云基础设施收入+39%，多年CIS合同超过28亿美元。信号共同说明AI支出已从“买GPU”扩散到检测量测、先进封装、光通信、网络、安全和边缘云，但WDC、SNDK与AKAM的价格反应也说明市场会区分收入质量、利润与资本强度。",
-    disconfirm: "云厂商资本开支下修，AI训练/推理需求降速，或芯片、网络、电力、设备公司的订单无法继续互相验证。",
-    sources: [
-      {type:"公司公告", label:"AMD Q2 2026 Results", url:"https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"},
-      {type:"公司公告", label:"Microsoft FY2026 Q4 Results", url:"https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast"},
-      {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
-      {type:"SEC财报", label:"AAOI Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"},
-      {type:"SEC财报", label:"Onto Innovation Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"},
-      {type:"SEC财报", label:"Akamai Q2 2026 Results", url:"https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"},
-      {type:"市场反应", label:"IBD：Arista AI cloud networking beat", url:"https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"}
-    ]
-  },
-  {
-    rank: 2,
     theme: "AI网络层成为新瓶颈：Ethernet Fabric重定价",
     status: "uptrending",
     statusAsOf: "2026-08-08",
@@ -343,7 +321,7 @@ const NARRATIVES = [
     ]
   },
   {
-    rank: 3,
+    rank: 2,
     theme: "光通讯产业链：需求闭环已验证，最弱信号在估值与自由现金流",
     status: "new",
     statusAsOf: "2026-08-10",
@@ -365,7 +343,7 @@ const NARRATIVES = [
     ]
   },
   {
-    rank: 4,
+    rank: 3,
     theme: "AI电力、冷却与现场供电成为硬瓶颈",
     status: "uptrending",
     statusAsOf: "2026-08-08",
@@ -380,6 +358,27 @@ const NARRATIVES = [
       {type:"公司公告", label:"Bloom Energy Q2 2026 Results", url:"https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"},
       {type:"市场反应", label:"IBD：Bloom Energy AI infrastructure winner", url:"https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"},
       {type:"市场观察", label:"Axios：SpaceX, Caterpillar and AI", url:"https://www.axios.com/newsletters/axios-closer-f8186890-7ddf-4084-b60d-d84a9e794345"}
+    ]
+  },
+  {
+    rank: 4,
+    theme: "存储与设备层：市场开始区分结构性瓶颈与周期性提价",
+    status: "new",
+    statusAsOf: "2026-08-13",
+    strength: "8.5/10",
+    horizon: "当前至未来数季",
+    direction: "分化加剧",
+    tickers: ["ASML","ONTO","TSM","SNDK","WDC","VECO"],
+    thesis: "AI资本开支确实外溢到了存储、先进制程与先进封装量测，但市场给这一层定价的方式已经变了：它不再为“收入暴涨”本身付钱，而是要先判断这是新平台带来的结构性瓶颈，还是又一轮存储与设备的周期高点。前者给估值倍数，后者只给一次性利润。",
+    evidence: "本站记录里，同属这一层的六家结论完全分裂。被当成结构性瓶颈定价的一侧：ASML 90分共振确认，ONTO 86分共振——先进节点收入环比+50%、先进封装收入创新高、积压订单首次超过10亿美元，TSM 83分共振——上修资本开支且HPC占比继续提高。被当成周期定价的一侧全部落在市场存疑：SNDK收入同比约+372%、数据中心收入接近30亿美元，仍只给86分且判为存疑；WDC拆分闪存业务后只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，数字很硬却只有67分存疑；VECO拿到2亿美元先进封装订单，同样存疑、68分。分裂点很清晰：卖光刻、量测与先进封装能力的被按结构性瓶颈定价，卖存储颗粒与设备订单的被按周期定价——哪怕后者的当期收入与现金流数字更漂亮。这条主线的用处不是判断“AI资本开支会不会外溢”，那已经是共识；而是判断这一层里哪一半的溢价能留下来。",
+    disconfirm: "①SNDK与WDC连续两个季度维持毛利率与自由现金流改善，且股价开始跟随数字，说明市场接受这是新平台而非周期高点，分化叙事失效；②反向证伪是ONTO积压订单或先进封装收入环比转负、ASML订单指引下修，则结构性一侧的溢价同样不成立；③NAND与HDD价格明显回落，或云厂商存储采购节奏放缓；④先进封装产能从紧缺转为充裕，量测与设备订单的稀缺性溢价随之消失。",
+    sources: [
+      {type:"SEC财报", label:"Onto Innovation Q2 2026 Earnings Release", url:"https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"},
+      {type:"公司公告", label:"Western Digital Q4 FY2026 Results", url:"https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-fourth-quarter-and-fiscal-year-2026-financial"},
+      {type:"市场反应", label:"IBD：Sandisk 超预期但指引平淡", url:"https://www.investors.com/news/technology/sandisk-stock-sndk-fiscal-q4-2026-earnings/"},
+      {type:"公司公告", label:"Veeco Q2 2026 Financial Results", url:"https://ir.veeco.com/news-and-events/news-details/2026/Veeco-Reports-Second-Quarter-2026-Financial-Results/default.aspx"},
+      {type:"公告", label:"TSMC 2026 Q2 Results", url:"https://investor.tsmc.com/english/quarterly-results/2026/q2"},
+      {type:"公告", label:"ASML Q2 2026 Results", url:"https://www.asml.com/en/investors/financial-results/quarterly-results"}
     ]
   },
   {
