@@ -393,12 +393,13 @@ const NARRATIVES = [
     strength: "8.5/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["ASML","TSM","SNDK","WDC"],
+    tickers: ["ASML","AMAT","TSM","SNDK","WDC"],
     thesis: "AI资本开支确实外溢到了存储与先进制程，但市场给这一层定价的方式已经变了：它不再为“收入暴涨”本身付钱，而是先判断这是新平台带来的结构性瓶颈，还是又一轮存储周期的高点。前者给估值倍数，后者只给一次性利润。",
     evidence: [
       "被当成结构性瓶颈定价的一侧：ASML本站90分共振确认；TSM 83分共振——上修资本开支且HPC占比继续提高。两家卖的都是别人短期做不出来的能力。",
       "被当成周期定价的一侧全部落在市场存疑：SNDK收入同比约+372%、数据中心收入接近30亿美元，仍判存疑；WDC拆分闪存后只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，40TB ePMR已开始出货、下季仍指引约+45.5%收入增长，却只有67分存疑。",
-      "分裂点很清晰：市场对前者问“这个能力还能稀缺多久”，对后者问“这个价格和毛利还能维持多久”。这条主线的用处不是判断AI资本开支会不会外溢，而是判断这一层里哪一半的溢价能留下来。"
+      "分裂点很清晰：市场对前者问“这个能力还能稀缺多久”，对后者问“这个价格和毛利还能维持多久”。这条主线的用处不是判断AI资本开支会不会外溢，而是判断这一层里哪一半的溢价能留下来。",
+      "AMAT补上第三种情形：收入91.2亿美元、非GAAP EPS 3.50美元、毛利率50.4%与经营现金流全部创纪录，Q4再指引同比+51%，盘后仍跌逾5%。它站在结构性一侧，被卖的却是价格——年内涨幅接近100%。结构性溢价本身也开始受估值约束。"
     ],
     disconfirm: [
       "SNDK与WDC连续两季维持毛利率与自由现金流改善，且股价开始跟随数字——分化叙事失效。",
@@ -548,6 +549,70 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-13",
+  ticker: "AMAT",
+  company: "Applied Materials",
+  sector: "semis",
+  score: 71,
+  rec: "doubt",
+  dims: {quality: 38, marketread: 13, fundamentals: 20},
+  compare: {revenueGrowth:24.8, revenueGuidance:51},
+  business: {
+    plain: "Applied Materials 卖造芯片的机器。芯片是在硅片上一层层堆出来的——沉积一层材料、蚀刻掉不要的部分、再检测有没有做错，AMAT 的设备就负责这几步里的沉积、蚀刻、离子注入和部分量测。台积电、三星、美光要扩产或换新制程，就得先向它下单。",
+    howMakesMoney: "三块：半导体系统（卖设备，本季70.4亿美元、占77%）、全球服务（替客户维护设备、卖备件与升级，17.8亿美元、占19%，是随装机量累积的经常性收入）、显示业务（2.94亿美元）。设备是周期性大单，服务才是穿越周期的压舱石。",
+    moat: "壁垒是多道工序的设备组合与几十年积累的制程配方，客户换供应商要重新验证整条产线，代价极高。风险是这门生意天然跟着客户的资本开支周期走，且长期受出口管制影响——本季中国收入占比已从35%降到28%。",
+    whatChanged: "本季收入、EPS、毛利率、营业利润率、经营现金流全部创纪录，半导体系统的利润率从33.2%扩到38.0%。更关键的是下季指引：收入102.5亿美元、同比+51%，非GAAP EPS 4.02美元、同比+85%。管理层称AI带来“前所未有的需求”，并把2026日历年的半导体系统增长预期上调到30%以上。"
+  },
+  decision: {
+    stance: "这是一份几乎挑不出毛病的财报，被卖的是价格不是基本面；但正因为如此，追价的容错空间极小",
+    summary: "收入91.2亿美元、同比+24.8%，高于约89.9亿美元共识；非GAAP EPS 3.50美元创纪录，高于约3.38至3.40美元共识；非GAAP毛利率50.4%、营业利润率34.0%、经营现金流30.4亿美元同为纪录。Q4指引收入102.5亿美元、同比+51%，EPS 4.02美元、同比+85%。这样一份财报盘后仍跌逾5%，说明市场早已把加速计入价格——股价年内涨幅接近100%。矛盾不在这一季，在明年的基数。",
+    playbook: [
+      {if:"财报后第5日与第20日守住大部分跌幅，且分析师继续上调FY27预期", then:"视为估值消化而非基本面转向", why:"数字面找不到瑕疵时，价格调整通常是预期重置；只有分析师同步下修才说明是基本面问题。"},
+      {if:"Q4实际收入落在102.5亿指引区间内，且半导体系统利润率维持在38%附近", then:"确认利润率扩张是结构性的", why:"从33.2%到38.0%是一次大跳，需要连续季度验证是产品组合还是一次性。"},
+      {if:"DRAM、先进制程逻辑与先进封装三条线在Q4继续同步放量，且中国占比不再回升", why:"地域结构改善降低了出口管制的尾部风险，是这轮周期与上一轮最大的不同。", then:"提高持续性评分"},
+      {if:"Q4指引未达成、半导体系统利润率回落到35%以下，或自由现金流再度被营运资本吞掉", then:"减仓或回避", why:"同比+51%的指引意味着FY27将面对极高基数，任何一次未达成都会被放大。"}
+    ],
+    triggers: ["财报后第5日与第20日价格结构", "Q4实际收入与半导体系统利润率", "DRAM与先进封装订单节奏", "中国收入占比走向", "自由现金流与营运资本", "FY2027初步指引口径"],
+    invalidation: ["Q4收入低于102.5亿减5亿的指引下限", "半导体系统利润率回落到35%以下", "自由现金流再度大幅低于经营现金流", "中国占比重新升回35%以上", "2026日历年半导体系统增长指引从30%以上下修"],
+    timing: "口径日 2026-08-13：正式盘收534.54美元（当日-2.48%，跌幅发生在财报前），盘中区间531.79至563.755。财报盘后发布，盘后报507.693美元、较收盘约-5.02%，盘后低点501.66（-6.15%）。首日正式反应为8/14交易日，不在本记录内。",
+    risk: "最大的风险是价格而非经营：股价年内涨幅接近100%，Q4同比+51%的收入指引与+85%的EPS指引意味着FY2027要面对极高基数。设备业务本身仍是周期性的，客户资本开支一旦放缓，装机增长会先于服务收入回落。本次未取得Q4毛利率指引与订单积压数字，短期利润率路径的判断因此不完整。中国占比降到28%虽降低了管制风险，但也意味着少了一块过去的缓冲需求。"
+  },
+  metrics: [
+    {label:"Q3收入", value:"91.2亿美元", sub:"+24.8% YoY；高于约89.9亿美元共识。创纪录", tone:"beat", pct:88},
+    {label:"非GAAP EPS", value:"3.50美元", sub:"+41% YoY，创纪录；高于约3.38至3.40美元共识。GAAP EPS 3.17美元、+43%", tone:"beat", pct:90},
+    {label:"非GAAP毛利率", value:"50.4%", sub:"GAAP 50.3%；非GAAP营业利润率34.0%、GAAP 33.7%，均创纪录", tone:"beat", pct:92},
+    {label:"半导体系统", value:"70.4亿美元", sub:"占总收入77%；该分部利润率从33.2%扩大到38.0%", tone:"beat", pct:94},
+    {label:"全球服务", value:"17.8亿美元", sub:"占19%，随装机量累积的经常性收入；显示业务2.94亿美元、占3%", tone:"up", pct:70},
+    {label:"经营现金流", value:"30.4亿美元", sub:"创纪录；自由现金流23.3亿美元、同比+14%，资本开支7.07亿美元", tone:"beat", pct:86},
+    {label:"股东回报与现金", value:"季内回购4.40亿＋分红4.20亿", sub:"现金及等价物70.4亿美元", tone:"up", pct:74},
+    {label:"中国收入占比", value:"28%", sub:"上年同期为35%，金额25.1亿美元；台湾22%、韩国17%、美国15%（贡献近乎翻倍）", tone:"up", pct:72},
+    {label:"Q4收入指引", value:"102.5亿美元±5亿", sub:"同比约+51%；管理层将2026日历年半导体系统增长预期上调至30%以上", tone:"beat", pct:98},
+    {label:"Q4 EPS指引", value:"4.02美元±0.20", sub:"同比约+85%", tone:"beat", pct:97},
+    {label:"股价反应", value:"盘后-5.02%", sub:"口径日8/13：正式盘收534.54（当日-2.48%，跌幅在财报前），盘后507.693、低点501.66（-6.15%）。股价年内涨幅接近100%。首日正式反应为8/14，不在本记录内", tone:"down", pct:78}
+  ],
+  management_highlights: [
+    "管理层称 AI 采用带来“对我们材料工程前所未有的需求”，并把 2026 日历年半导体系统业务的增长预期上调到 30% 以上。",
+    "点名下半年的三条主力：DRAM、先进制程逻辑，以及先进封装——与本站“先进封装与测试”主线的机制一致。",
+    "半导体系统分部利润率从 33.2% 扩大到 38.0%，是本季利润率创纪录的主要来源。",
+    "中国收入占比从 35% 降到 28%，美国贡献接近翻倍——地域结构的改善降低了出口管制的尾部风险。",
+    "本次记录未取得 Q4 毛利率指引与订单积压数字；市场对“近端利润率路径”的疑虑需待业绩会文字稿与 10-Q 交叉核对。"
+  ],
+  narrative: {
+    summary: "AMAT 这一季在数字上几乎挑不出毛病：收入、EPS、毛利率、营业利润率、经营现金流全部创纪录，下季再指引同比+51%的收入与+85%的EPS。它盘后仍跌逾5%，说明这轮设备股的定价矛盾已经不在“需求够不够”，而在“价格里还剩多少容错”。",
+    consensus: "多头证据是全面创纪录：收入91.2亿超共识，非GAAP EPS 3.50美元超共识，非GAAP毛利率50.4%、营业利润率34.0%，半导体系统利润率从33.2%扩到38.0%，经营现金流30.4亿、自由现金流23.3亿并同比+14%。Q4指引收入102.5亿、同比+51%，2026日历年半导体系统增长预期上调到30%以上；中国占比从35%降到28%，地域结构同步改善。",
+    divergence: "反叙事几乎全在价格与基数：股价年内涨幅接近100%，市场早已把加速计入；Q4同比+51%的收入与+85%的EPS指引，意味着FY2027要在极高基数上再增长。设备业务仍是周期性生意，本次也未给出Q4毛利率指引与订单积压，近端利润率路径无法量化。这与同一层的SNDK、WDC被按周期定价是同一种怀疑，只是AMAT的数字更硬，所以怀疑落在估值而不是基本面。",
+    signals: ["财报后第5日与第20日价格结构", "Q4实际收入与半导体系统利润率能否维持38%", "DRAM与先进封装订单节奏", "中国占比是否继续下降", "自由现金流与营运资本", "FY2027初步指引"]
+  },
+  sources: [
+    {type:"公司公告", label:"Applied Materials Q3 FY2026 Results", url:"https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-second-quarter-2026-results"},
+    {type:"业绩会", label:"AMAT Q3 FY2026 业绩会讲稿", url:"https://ir.appliedmaterials.com/static-files/e9985149-77c2-4cf3-aaad-a579178cbfe4"},
+    {type:"SEC财报", label:"AMAT Q3 FY2026 8-K 与分部明细", url:"https://www.stocktitan.net/sec-filings/AMAT/8-k-applied-materials-inc-de-reports-material-event-d6a2ddc12eac.html"},
+    {type:"业绩会", label:"Investing.com：超预期但股价下跌（文字稿）", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-applied-materials-beats-q3-2026-estimates-shares-fall-93CH-4859444"},
+    {type:"市场反应", label:"Benzinga：超预期、强指引、“前所未有”的需求", url:"https://www.benzinga.com/markets/earnings/26/08/61193840/applied-materials-beats-q3-estimates-issues-strong-guidance-unprecedented-demand"}
+  ]
+},
 {
   type: "earnings",
   date: "2026-08-11",
@@ -8271,7 +8336,7 @@ const TICKER_SECTOR = {
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials",
-  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis",
+  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis", AMAT:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
