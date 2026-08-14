@@ -552,6 +552,128 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-08-13",
+  ticker: "LUNR",
+  company: "Intuitive Machines",
+  sector: "industrials",
+  score: 60,
+  rec: "repricing",
+  dims: {quality: 18, marketread: 23, fundamentals: 19},
+  compare: {revenueGrowth:300},
+  business: {
+    plain: "Intuitive Machines 造月球着陆器，也替 NASA 和国防客户造卫星、做太空任务工程。它是目前唯一成功在月球软着陆过的美国商业公司（IM-1任务），现在业务已经从“造一次登月器”扩展到批量造地球轨道卫星、管理太空任务、以及承接国家安全项目。",
+    howMakesMoney: "四条线：航天器生产（本季承接超6亿美元的3颗地球同步轨道商业卫星订单）、商业月球有效载荷服务(CLPS，帮NASA把仪器送上月球)、轨道任务工程服务(OMES)、以及国家安全与太空服务(NSNS，含7月拿到的18颗卫星、支持“金穹”导弹防御星座的合同)。收入确认节奏跟着具体任务里程碑走，波动天然很大。",
+    moat: "壁垒是登月这件事本身极少公司做成过——IM-1是美国商业公司首次月球软着陆，这个履历本身就是拿NASA和国防合同的门槛。风险也在这里：单个任务的工程变更、进度延误会直接冲击当季利润表，本季就有一笔与IM-4任务相关的$1470万完工成本调整。",
+    whatChanged: "营收$206.2M创纪录（同比+300%以上），但低于约$216-224M的市场预期；EPS -$0.29大幅miss约-$0.10的预期，主因是IM-4任务的$1470万一次性完工成本调整。真正的变化在backlog和订单：本季新签合同$920M（含超6亿美元的3颗GEO卫星订单和7月的18颗卫星“金穹”星座合同），backlog冲到$1.8B，管理层同时重申全年营收$900M-$1B指引和“全年调整后EBITDA转正”的展望，没有因为这一季miss而退缩。"
+  },
+  decision: {
+    stance: "账面miss但backlog翻倍且指引未撤——这是一次典型的“市场选择相信订单、不相信这一季数字”的重定价",
+    summary: "营收$206.2M同比+300%以上但低于约$216-224M共识；EPS -$0.29大幅低于约-$0.10预期，其中$1470万来自IM-4任务的一次性完工成本调整。backlog从Q1的$1.1B（不同口径下，公司本次称较2025年末+$1.5B至$1.8B，两个基数不完全可比，如实标注）扩大到$1.8B，本季新签$920M。指引未下调：全年营收$900M-$1B、全年调整后EBITDA转正的展望都被重申。矛盾在于：这是不是一次性成本超支的开始，还是IM-4这一个项目的孤立事件？",
+    playbook: [
+      {if:"下季度调整后EBITDA如指引所说转正，且IM-4任务未再出现追加成本调整", then:"确认这是孤立项目事件而非系统性执行问题，可提高持续性评分", why:"$1470万的完工成本调整如果只发生一次，miss的质量就和“广泛需求走弱”完全不同。"},
+      {if:"backlog向实际营收的转化率达到管理层给出的60%-65%目标区间", then:"确认订单能见度可以兑现为真实现金流，维持当前评分", why:"$1.8B backlog本身不是收入，转化率不达标的话，这一轮乐观定价会落空。"},
+      {if:"Q3或Q4再度出现项目级完工成本调整，或backlog环比转为下降", then:"下调评分，减仓或回避", why:"这会说明IM-4不是孤例，而是公司在多任务并行时的系统性执行风险。"},
+      {if:"国家安全/国防类合同（如金穹星座）占比持续提升且没有对应的利润率压缩", then:"提高对该业务线的确定性权重", why:"国防合同通常账期更稳定，但也可能压低毛利率，需要连续几季验证。"}
+    ],
+    triggers: ["下季度调整后EBITDA能否转正", "IM-4任务是否有进一步成本调整", "backlog到营收的转化率（管理层目标60%-65%）", "国家安全/国防合同占比与利润率", "IM-4任务后续进展"],
+    invalidation: ["Q3或Q4再度出现类似规模的项目完工成本调整", "backlog环比下降", "全年营收指引$900M-$1B或EBITDA转正展望被撤回", "backlog到营收转化率显著低于60%目标"],
+    timing: "口径日 2026-08-13：正式盘收$17.56（较前收盘$16.95约+3.6%；财报公布后盘中一度下跌约9.4%，收盘前完全收复并转正）。盘后进一步报$17.69（较收盘+0.74%）。次日(8/14)盘前报$18.30（较8/13收盘+4.2%），8/14正式收盘数据本记录写作时尚未取得，不计入本记录。",
+    risk: "最大的风险是backlog与营收之间的转化节奏——$1.8B backlog如果转化慢于60%-65%的目标，市场这次“选择相信订单”的定价会被证伪。其次，$1470万的IM-4项目成本调整目前只能定性为“看起来是孤立事件”，本次未取得管理层对该任务后续风险敞口的量化说明，也没有找到同期可比的航天同业财报做交叉验证（Rocket Lab/Redwire同季数据缺失），这两项都是明确的数据缺口。"
+  },
+  metrics: [
+    {label:"Q2营收", value:"$206.2M", sub:"同比+300%以上，创纪录；低于约$216-224M共识（约-5%至-8%）", tone:"down", pct:42},
+    {label:"EPS", value:"-$0.29", sub:"大幅低于约-$0.10预期；其中$1470万来自IM-4任务完工成本调整", tone:"down", pct:22},
+    {label:"新签合同", value:"$920M", sub:"含超$600M的3颗GEO商业卫星订单，及7月18颗卫星“金穹”导弹防御星座合同", tone:"beat", pct:90},
+    {label:"Backlog", value:"$1.8B", sub:"公司口径较2025年末+$1.5B；较Q1'26披露的$1.1B也大幅扩张（两个基数口径可能不完全一致）", tone:"beat", pct:92},
+    {label:"全年指引", value:"$900M-$1B", sub:"未因本季miss下调，管理层同时重申全年调整后EBITDA转正展望", tone:"flat", pct:68},
+    {label:"股价反应", value:"首日+3.6%", sub:"口径日8/13：盘中一度跌9.4%，收盘转正+3.6%；盘后+0.74%，次日8/14盘前+4.2%（较8/13收盘），8/14正式收盘未取得", tone:"up", pct:76}
+  ],
+  management_highlights: [
+    "管理层将miss的主因归结为IM-4任务的一笔$1470万完工成本调整，属于项目级别的会计估计变更，而非广泛需求走弱。",
+    "重申全年营收$900M-$1B指引，并维持“全年调整后EBITDA转正”的展望——没有因为本季miss而退缩。",
+    "7月拿到18颗卫星、支持“金穹”导弹防御星座建设的合同，是国家安全/国防业务线本季最重要的新增订单。",
+    "backlog口径存在跨报告不完全一致的情况（本次称较2025年末+$1.5B，Q1'26披露口径为$1.1B），本站未独立核实两个口径的可比性，标注为数据缺口。"
+  ],
+  narrative: {
+    summary: "LUNR这一季账面上是三连miss（营收、EPS都不及预期），但backlog翻倍加上管理层没有撤回全年指引，市场选择相信订单能见度，股价从盘中大跌9.4%一路收复转正。这是一次典型的“数字弱、市场买账”的预期重定价。",
+    consensus: "多头证据集中在前瞻信号：backlog达$1.8B、本季新签$920M（含金穹星座合同），管理层维持全年营收与EBITDA转正指引未变。IM-4的$1470万成本调整被定性为项目级别的一次性因素，不是需求问题。",
+    divergence: "反叙事在于backlog口径本身存在跨报告不一致（较2025年末+$1.5B vs Q1'26披露的$1.1B基数），转化率能否达到60%-65%目标尚未验证，且本次没有同期航天同业数据做交叉对照，“市场选择相信订单”这个判断目前主要建立在管理层单方面的表态上。",
+    signals: ["下季度调整后EBITDA能否转正", "backlog到营收的转化率", "IM-4任务是否有后续成本调整", "国家安全合同占比与利润率"]
+  },
+  sources: [
+    {type:"公司公告", label:"Intuitive Machines Q2 2026 Financial Results", url:"https://investors.intuitivemachines.com/news-releases/news-release-details/intuitive-machines-reports-second-quarter-2026-financial-results"},
+    {type:"市场反应", label:"Invezz：$14.7M charge解释股价下跌原因", url:"https://invezz.com/news/2026/08/13/a-14-7m-reason-why-intuitive-machines-stock-is-sinking-today/"},
+    {type:"市场反应", label:"Investing.com：Q2 loss和revenue miss", url:"https://www.investing.com/news/earnings/intuitive-machines-slides-9-on-widerthanexpected-q2-loss-revenue-miss-93CH-4857811"},
+    {type:"市场反应", label:"Yahoo Finance：Shares drop 9% before recovering", url:"https://finance.yahoo.com/markets/stocks/articles/intuitive-machines-shares-drop-9-133031331.html"},
+    {type:"公司公告", label:"Intuitive Machines Q4/FY2025 Results（历史对比口径）", url:"https://www.alphaspread.com/market-news/earnings/intuitive-machines-reports-fy25-results-misses-q4-estimates-as-stock-falls-company-points-to-lanteris-deal-and-big-2026-guidance"}
+  ],
+  report: `【LUNR · Intuitive Machines】2026 Q2财报分析\n\n结论先说：账面miss（营收、EPS均不及预期），但backlog翻倍到$1.8B、管理层未撤回全年指引，市场选择相信订单能见度而不是这一季的亏损数字。核心矛盾是backlog能否按60%-65%的目标转化为真实营收，以及IM-4任务的一次性成本调整是否真的只是孤立事件——本次数据不足以完全排除是系统性执行风险的开端。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-13",
+  ticker: "ONDS",
+  company: "Ondas Holdings",
+  sector: "industrials",
+  score: 44,
+  rec: "deterioration",
+  dims: {quality: 13, marketread: 14, fundamentals: 17},
+  compare: {revenueGrowth:1230, revenueGuidance:900},
+  business: {
+    plain: "Ondas 卖两类东西：给关键基础设施（铁路、能源、工业）用的私有无线网络，以及无人机与反无人机系统（防御场景为主，通过American Robotics和Iron Drone等业务线）。近几个季度增长几乎全部来自国防订单，本季是公司历史上第一次单季营收突破$80M。",
+    howMakesMoney: "收入靠具体订单和系统交付确认，本季营收$83.8M，同比因基数极低（去年同期仅$6.3M）而暴涨超13倍，更有参考意义的是环比+67%（较Q1的$50.1M）。backlog代表未来可确认收入的储备，本季达$613M。",
+    moat: "壁垒在于反无人机系统的军方/政府认证门槛和先发的backlog积累。风险同样明显：客户高度集中于国防预算周期，且公司仍处在快速烧钱扩张阶段，收入确认节奏和利润率会随单个大合同的时点剧烈波动。",
+    whatChanged: "营收$83.8M大幅超越约$68M的市场预期（+23%），backlog从Q1 pro forma的$457M扩大到$613M，管理层把全年营收指引上调到$525M-$550M（较2025年增长逾10倍）。但EPS -$0.19大幅miss约-$0.07的预期，调整后EBITDA亏损从Q1的-$10.9M暴增到-$50.6M（4.6倍），毛利率从49.2%降到43.1%——增长的代价是盈利质量明显恶化。"
+  },
+  decision: {
+    stance: "收入和backlog的故事仍然性感，但这一季用真金白银的方式告诉你：增长正在吃掉利润率和现金，追价的容错空间在缩小",
+    summary: "营收$83.8M同比+23%超预期、环比+67%，backlog扩大到$613M，全年指引上调至$525M-$550M（逾10倍增长）。但EPS -$0.19 miss约-$0.07的预期，调整后EBITDA亏损4.6倍扩大到-$50.6M，毛利率6.1个百分点下滑到43.1%。股价当日收盘-8.8%，说明市场在意的不是收入够不够快，而是这个增长是不是用不成比例的亏损换来的。矛盾还在于：上调后的全年指引意味着下半年要冲到$391M-$416M营收，相对上半年$134M的基数是个很激进的跳跃。",
+    playbook: [
+      {if:"下季度调整后EBITDA亏损能够收窄（而不是继续以Q2的速度扩大）", then:"确认利润率恶化是扩张期的暂时现象，可提高评分", why:"如果亏损持续以4倍以上速度扩大，“高增长”这个多头叙事就撑不住估值。"},
+      {if:"下半年营收如期冲向$391M-$416M区间，验证上调后的全年指引", then:"确认backlog向收入的转化能力，维持当前评分", why:"这个指引本身就是本季最大的执行风险，能否兑现是检验管理层信誉的直接证据。"},
+      {if:"毛利率继续跌破40%，或调整后EBITDA亏损环比再度扩大", then:"下调评分，回避或减仓", why:"这会确认增长是靠牺牲单位经济效益换来的，不是规模效应带来的改善。"},
+      {if:"公司或第三方来源澄清Q1'26那笔+$0.81 EPS的具体构成（是否为一次性非经营性项目）", then:"根据澄清结果重新评估历史盈利质量趋势的可信度", why:"这笔异常盈利和同期持续的EBITDA亏损完全对不上，是本次分析里最大的未解数据缺口。"}
+    ],
+    triggers: ["下季度调整后EBITDA亏损能否收窄", "下半年营收能否兑现$391M-$416M激进目标", "毛利率能否止跌", "Q1'26异常EPS的构成是否有官方澄清", "CEO是否继续大额减持"],
+    invalidation: ["调整后EBITDA亏损环比继续以类似倍数扩大", "下半年营收明显低于$391M-$416M目标区间", "毛利率进一步跌破40%", "全年营收指引被下修"],
+    timing: "口径日 2026-08-13：正式盘收$8.91（较前收盘$9.77约-8.8%）。盘后报$9.05（较收盘+1.6%）。次日(8/14)盘前报$9.23（较8/13收盘+3.6%），8/14正式收盘数据本记录写作时尚未取得，不计入本记录。",
+    risk: "最大的风险是盈利质量：调整后EBITDA亏损4.6倍扩大、毛利率6.1个百分点下滑，与“营收创纪录、指引上调”的表面叙事明显背离。CEO Eric Brock在6/1卖出238万股（约$3190万，持仓减少约24.5%），规模不小，值得持续关注。Q1'26单季+$0.81 EPS这个异常数字与同期持续的EBITDA亏损完全对不上，本次未能查到公司对该笔盈利的具体构成说明，是需要在下一份10-Q里核实的数据缺口。上调后的全年指引隐含下半年营收要比上半年翻近3倍，执行风险不小。"
+  },
+  metrics: [
+    {label:"Q2营收", value:"$83.8M", sub:"同比+超13倍（低基数效应，去年同期$6.3M）；环比+67%；高于约$68M共识（+23%），创纪录", tone:"beat", pct:85},
+    {label:"EPS", value:"-$0.19", sub:"低于约-$0.07预期，miss", tone:"down", pct:20},
+    {label:"调整后EBITDA", value:"-$50.6M", sub:"较Q1的-$10.9M扩大4.6倍", tone:"down", pct:12},
+    {label:"毛利率", value:"43.1%", sub:"较Q1的49.2%下滑6.1个百分点", tone:"down", pct:30},
+    {label:"Backlog", value:"$613M", sub:"较Q1 pro forma的$457M继续扩张；本季新签订单$175M", tone:"beat", pct:88},
+    {label:"FY2026营收指引", value:"$525M-$550M", sub:"上调，较2025年增长逾10倍；隐含下半年需营收$391M-$416M（较上半年$134M基数是激进跳跃）", tone:"beat", pct:65},
+    {label:"股价反应", value:"首日-8.8%", sub:"口径日8/13：正式盘收$8.91（较前收$9.77约-8.8%）；盘后+1.6%，次日8/14盘前+3.6%（较8/13收盘），8/14正式收盘未取得", tone:"down", pct:22}
+  ],
+  management_highlights: [
+    "CEO称公司正处于“sustained momentum”，把全年营收指引从此前水平上调至$525M-$550M。",
+    "backlog从年初约$68M（2025年末）扩大到本季$613M，管理层将其归因于国防订单持续流入。",
+    "本次记录未取得管理层对调整后EBITDA亏损扩大、毛利率下滑的直接解释，市场对盈利质量的疑虑需待下一次业绩会文字稿核实。",
+    "CEO Eric Brock 6/1卖出238万股（约$3190万），持仓减少约24.5%，来自SEC Form 4披露，非公司公告口径。"
+  ],
+  narrative: {
+    summary: "ONDS这一季是“标题数字漂亮、底层盈利质量恶化”的典型样本：营收创纪录、backlog扩大、指引上调，但EBITDA亏损4.6倍扩大、毛利率下滑、CEO大额减持。市场没有为标题数字买账，股价当日跌8.8%。",
+    consensus: "多头证据是收入端全面向好：营收超预期23%、backlog扩大到$613M、全年指引上调逾10倍增长，处在美国国防预算加码的顺风里。",
+    divergence: "反叙事集中在盈利质量：调整后EBITDA亏损4.6倍扩大、毛利率下滑6.1个百分点、上调后的指引隐含下半年要接近上半年3倍的激进跳跃，叠加CEO大额减持和一笔未解释的异常Q1 EPS，这些信号让市场对“增长质量”打了折扣。",
+    signals: ["下季度EBITDA亏损能否收窄", "下半年营收能否兑现$391M-$416M目标", "毛利率能否止跌", "Q1'26异常EPS构成是否有官方澄清"]
+  },
+  sources: [
+    {type:"公司公告", label:"Ondas Posts Record Q2 2026 Revenue（IR）", url:"https://ir.ondas.com/press-releases/detail/326/ondas-posts-record-q2-2026-revenue-of-83-8-million-on"},
+    {type:"市场反应", label:"Yahoo Finance：ONDS股价下跌原因", url:"https://finance.yahoo.com/markets/stocks/articles/onds-stock-drops-earnings-ceo-125513927.html"},
+    {type:"市场反应", label:"Ondas Q2 2026 earnings: record revenue, raised outlook", url:"https://finance.yahoo.com/markets/stocks/articles/ondas-q2-2026-earnings-record-123040859.html"},
+    {type:"内部人交易", label:"Eric A. Brock内部人交易记录（gurufocus）", url:"https://www.gurufocus.com/insider/125052/eric-a-brock"}
+  ],
+  report: `【ONDS · Ondas Holdings】2026 Q2财报分析\n\n结论先说：营收创纪录、backlog扩大、全年指引上调逾10倍，但调整后EBITDA亏损4.6倍扩大、毛利率下滑6.1个百分点，股价当日跌8.8%。市场在意的不是增长够不够快，而是这个增长是不是靠不成比例的亏损换来的。核心待验证问题是下半年能否兑现激进的$391M-$416M营收目标，以及Q1'26那笔与EBITDA表现完全对不上的异常EPS该如何解释。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-13",
   ticker: "AMAT",
   company: "Applied Materials",
   sector: "semis",
@@ -8335,7 +8457,7 @@ const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
-  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials",
+  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis", AMAT:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
