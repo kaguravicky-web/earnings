@@ -552,6 +552,69 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-08-13",
+  ticker: "TPR",
+  company: "Tapestry",
+  sector: "consumer",
+  score: 49,
+  rec: "deterioration",
+  dims: {quality: 19, marketread: 13, fundamentals: 17},
+  compare: {revenueGrowth:14, revenueGuidance:5.6},
+  business: {
+    plain: "Tapestry 是手袋与配饰集团，旗下三个牌子：Coach（平价轻奢，公司几乎全部增长来自这里）、Kate Spade（女性配饰，持续下滑）、Stuart Weitzman（鞋履，体量最小）。生意本质是靠品牌溢价和“可负担的奢侈品”定位，把成本不高的皮具卖出比制造成本高得多的价格。",
+    howMakesMoney: "批发+直营零售+电商三条渠道卖手袋、钱包、鞋履和配饰，Coach一个牌子撑起公司几乎全部营收增长和盈利改善；Kate Spade全年收入下滑10%（Q4单季-11%），拖累整体；Stuart Weitzman体量小，非本季叙事重点。",
+    moat: "壁垒是品牌认知和价格定位的稀缺性——Coach在“入门级奢侈品”这个区间几乎没有直接对手。风险是时尚品牌天然会过时，Kate Spade现在的持续下滑就是活生生的例子：一个牌子从增长引擎变成拖累，可能只需要几年。",
+    whatChanged: "Q4营收18.8亿美元同比+9%，非GAAP EPS 1.32美元同比+27%，超过约1.28美元的共识；全年营收80亿美元同比+14%，非GAAP EPS 7.05美元同比+38%，全年营业利润率扩大340个基点到23%以上——三年投资者日目标提前两年达成，管理层称为创纪录的一年。但FY2027指引给出营收84亿至85亿美元（中点约+5.6%）、非GAAP EPS 7.80至7.90美元（约+11%至+12%），相对这一年38%的EPS增速是明显减速，且营收指引中点略低于约84.7亿美元的市场预期。财报前股价已从52周低点93美元涨到164.78美元的历史新高（+77%），这份“体面但不再加速”的指引，配上继续下滑的Kate Spade，让市场把过去一年积累的乐观情绪回吐了一大块。"
+  },
+  decision: {
+    stance: "这一季本身没有明显硬伤，但财报前77%的涨幅把容错空间压缩到了极限，指引一旦从加速变成温和增长，估值消化就会很剧烈——这更接近估值重定价，而不是经营恶化",
+    summary: "Q4营收18.8亿美元、EPS 1.32美元均超预期，全年提前两年达成三年目标，营业利润率扩大340个基点。但FY2027指引（营收+5.6%中点、EPS+11%至12%）相对本财年38%的EPS增速是明显减速，Kate Spade全年收入再降10%。股价当日收盘较财报前一交易日暴跌约16.5%，次日(8/14)企稳、收盘+0.46%。矛盾在于：这是Coach真实增长放缓的信号，还是财报前77%涨幅积累的估值泡沫在指引不够激进时自然回吐？本季的历史惊喜对比给出一个客观提示——近四季EPS超预期幅度从+140%的边际扩大，收窄到本季-90%的骤降，beat的“含金量”确实在明显变薄。",
+    playbook: [
+      {if:"Q1 FY2027 Coach收入增速维持在两位数，且Kate Spade降幅收窄至个位数", then:"倾向于把这次下跌定性为估值消化而非基本面转向，可视为回补机会", why:"如果核心引擎没有失速，这次抛售更像是给77%的涨幅挤泡沫，不是生意变差。"},
+      {if:"Kate Spade连续两季降幅维持在两位数（本季-11%）", then:"上调对该品牌结构性衰退的确定性，下调评分", why:"从增长引擎变拖累，一旦确认是结构性而非周期性，会持续压低集团整体增速中枢。"},
+      {if:"下季度实际EPS超预期幅度重新回到20%以上量级", then:"确认Q4只是单季度beat收窄的noise，而非趋势反转", why:"本季历史对比得分极低主要来自单季度的边际收窄，需要下一季数据排除这只是短期波动。"},
+      {if:"股价在T+5、T+20未能守住$128附近的企稳区间，反而向52周低点$93方向进一步破位", then:"说明市场在为比guidance更严重的问题定价，需要重新评估Coach增长的可持续性", why:"如果只是估值消化，价格应该能在合理区间企稳；持续破位说明市场怀疑的不只是估值。"}
+    ],
+    triggers: ["Q1 FY2027 Coach收入增速", "Kate Spade降幅是否收窄", "T+5与T+20价格结构", "下季度EPS超预期幅度能否回升", "全年利润率扩张是否延续"],
+    invalidation: ["Coach收入增速跌破两位数", "Kate Spade降幅扩大或连续两季两位数下滑", "股价跌破52周低点区域", "管理层下修FY2027指引"],
+    timing: "口径日 2026-08-13：财报前一交易日(8/12)收盘$153.74，为52周高点$164.78（8/10创下）之后的高位。正式盘收$128.39，较前一交易日约-16.5%（盘中一度跌约15%至$130附近）。次日(8/14)正式收盘$128.98，较8/13收盘+0.46%，基本企稳；8/14盘后$128.47，较当日收盘-0.40%。",
+    risk: "最大的风险是分不清“估值消化”和“基本面转向”——本次的量化证据（近四季EPS超预期幅度从扩大到骤降90%）支持“beat含金量在下降”这个更谨慎的解读，不能简单归为纯粹的价格现象。Kate Spade连续下滑是真实存在的结构性问题，本次未取得该品牌具体的止跌计划或时间表。本次也未取得8/13实际成交量的精确倍数，仅能定性描述为“暴跌”级别的放量，是明确的数据缺口。"
+  },
+  metrics: [
+    {label:"Q4营收", value:"18.8亿美元", sub:"同比+9%；市场反应描述为与预期基本一致（非明显超预期）", tone:"flat", pct:55},
+    {label:"Q4非GAAP EPS", value:"1.32美元", sub:"同比+27%；高于约1.28美元共识（+3.1%），但beat幅度远低于近三季", tone:"up", pct:52},
+    {label:"全年营收", value:"80亿美元", sub:"同比+14%（固定汇率+13%）", tone:"beat", pct:78},
+    {label:"全年非GAAP EPS", value:"7.05美元", sub:"同比+38%；GAAP摊薄EPS 7.27美元。三年投资者日目标提前两年达成", tone:"beat", pct:85},
+    {label:"全年营业利润率", value:"23%以上", sub:"同比扩大340个基点", tone:"beat", pct:82},
+    {label:"Coach vs Kate Spade", value:"Coach +15%", sub:"Kate Spade全年-10%（Q4单季-11%），Stuart Weitzman体量小非重点", tone:"flat", pct:48},
+    {label:"FY2027营收指引", value:"84亿至85亿美元", sub:"中点约+5.6%，略低于约84.7亿美元市场预期", tone:"down", pct:28},
+    {label:"FY2027 EPS指引", value:"7.80至7.90美元", sub:"约+11%至+12%，相对本财年+38%是明显减速", tone:"down", pct:25},
+    {label:"股价反应", value:"首日-16.5%", sub:"口径日8/13：较前一交易日$153.74收盘$128.39（财报前股价刚创52周高点$164.78）；次日8/14收盘+0.46%，基本企稳", tone:"down", pct:15}
+  ],
+  management_highlights: [
+    "管理层将本财年称为创纪录的一年，三年投资者日设定的营收、营业利润率与EPS目标均提前两年达成。",
+    "公开承认Kate Spade的复苏比预期更慢（媒体标题直引“Kate Spade recovery is taking longer”），把增长完全押注在Coach的定价能力上。",
+    "FY2027指引强调把营收和EPS双双再往上推，但增速中枢相对本财年明显放缓，管理层未在公开材料中给出Kate Spade具体的止跌时间表。"
+  ],
+  narrative: {
+    summary: "TPR这一季的数字本身不差——Q4小幅超预期、全年提前两年达成三年目标、利润率结构性改善，但财报前77%的涨幅让市场对“体面但不加速”的指引毫无耐心，股价单日跌去16.5%。这更像一次估值消化，而不是经营真的恶化，但近四季EPS超预期幅度骤降的量化证据也说明，beat的成色确实在变薄，不能完全归咎于市场情绪化。",
+    consensus: "多头证据是Coach的持续强势：品牌收入+15%撑起集团几乎全部增长，全年营业利润率扩大340个基点，三年目标提前两年达成，管理层执行力得到验证。",
+    divergence: "反叙事集中在两点：一是FY2027指引增速中枢（营收+5.6%、EPS+11%至12%）相对本财年+38%的EPS增速是明显减速；二是Kate Spade全年-10%的下滑还没有看到止跌迹象，公司自己也承认复苏比预期慢。近四季EPS超预期幅度从扩大到本季骤降90%，进一步佐证增长动能确实在减弱，不完全是市场对77%涨幅的情绪化回吐。",
+    signals: ["Q1 FY2027 Coach收入增速", "Kate Spade降幅能否收窄", "T+5与T+20价格结构", "下季度EPS超预期幅度"]
+  },
+  sources: [
+    {type:"公司公告", label:"Tapestry Reports Fiscal 2026 Fourth Quarter and Full Year Results", url:"https://investors.tapestry.com/news-releases/news-release-details/tapestry-inc-reports-fiscal-2026-fourth-quarter-and-full-year"},
+    {type:"市场反应", label:"StockStory：Sales in line but stock drops on weak guidance", url:"https://stockstory.org/us/stocks/nyse/tpr/news/earnings/tapestry-nysetpr-posts-q2-cy2026-sales-in-line-with-estimates-but-stock-drops-on-weak-guidance"},
+    {type:"市场反应", label:"Benzinga：Tapestry admits Kate Spade recovery is taking longer", url:"https://www.benzinga.com/markets/earnings/26/08/61178321/tapestry-admits-kate-spade-recovery-is-taking-longer-as-coach-keeps-winning"},
+    {type:"市场反应", label:"24/7 Wall St.：Tapestry crushed earnings but the stock plunged", url:"https://247wallst.com/investing/2026/08/14/tapestry-crushed-earnings-but-the-stock-plunged-buy-sell-or-hold-now/"},
+    {type:"市场数据", label:"TradingKey：TPR opened down 14.60% on Aug 13", url:"https://www.tradingkey.com/news/market-movers/262102773-market-movers-tpr-20260813"}
+  ],
+  report: `【TPR · Tapestry】2026 Q4/FY财报分析\n\n结论先说：数字本身不差（Q4小幅超预期、全年提前两年达成三年目标），但财报前77%的涨幅让市场对"体面但不加速"的FY2027指引毫无耐心，叠加Kate Spade持续下滑，股价单日跌16.5%。核心矛盾是这属于估值消化还是Coach增长真的在减速——近四季EPS超预期幅度骤降90%的量化证据说明不能完全归为情绪化，下季度Coach增速和Kate Spade降幅是否收窄是关键验证点。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
+  date: "2026-08-13",
   ticker: "LUNR",
   company: "Intuitive Machines",
   sector: "industrials",
@@ -8464,7 +8527,7 @@ const TICKER_SECTOR = {
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", TRV:"financials",
-  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer",
+  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", TPR:"consumer",
   CLF:"materials"
 };
 const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
