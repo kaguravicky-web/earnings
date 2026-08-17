@@ -119,6 +119,13 @@ h1{font-size:26px;margin:0 0 4px}
 .trend-badge.uptrending{color:#8a4b08;background:#fff4df;border:1px solid #f3cf91}
 .strength-pill{display:inline-flex;border-radius:999px;padding:3px 9px;background:#eef2f7;color:#334155;font-size:12px;font-weight:800}
 .ticker-list{font-size:12px;color:var(--blue);font-weight:800}
+.layer-stack{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.layer-box{border:1px solid var(--line);border-radius:12px;background:#fafafa;padding:10px 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.layer-head{min-width:104px;flex:0 0 auto}
+.layer-name{font-size:13px;font-weight:800;color:#0f172a;white-space:nowrap}
+.layer-desc{font-size:11px;color:var(--muted);white-space:nowrap}
+.layer-chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.layer-chip{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700;color:#334155;background:#fff}
 .inline-sources{border-top:1px solid var(--line);margin-top:10px;padding-top:8px;color:var(--muted);font-size:11.5px;line-height:1.6}
 .inline-sources a{color:#475569;text-decoration:none}.inline-sources a:hover{color:var(--blue);text-decoration:underline}
 .collapse-record{display:block;margin:16px auto 0;border:1px solid #cbd5e1;background:#f8fafc;color:#334155;border-radius:8px;padding:8px 24px;font:700 12.5px/1.2 inherit;cursor:pointer}
@@ -337,10 +344,18 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来2–4季",
     direction: "需求强化，估值容错收窄",
-    tickers: ["AVGO","ANET","CRDO","GLW","MTSI","FN","LITE","MRVL","CIEN","COHR","AAOI","POET"],
+    tickers: ["AXTI","TSEM","GFS","FORM","AEHR","TSM","UMC","KLIC","AMKR","VECO","LITE","COHR","AAOI","POET","MKSI","MTSI","MRVL","FN","CRDO","ALAB","SMTC","GLW","AVGO","NVDA","CIEN","APH","ANET","CLS","CSCO"],
+    layers: [
+      {name:"上游材料", desc:"基板与晶体", tickers:["AXTI"]},
+      {name:"代工与测试", desc:"矽光晶圆、量测", tickers:["TSEM","GFS","FORM","AEHR","TSM","UMC","KLIC","AMKR","VECO"]},
+      {name:"光源与模组", desc:"雷射、光模组", tickers:["LITE","COHR","AAOI","POET","MKSI"]},
+      {name:"光电IC与封装", desc:"DSP、TIA、代工", tickers:["MTSI","MRVL","FN","CRDO","ALAB","SMTC"]},
+      {name:"连接与网络", desc:"光纤、交换机、系统", tickers:["GLW","AVGO","NVDA","CIEN","APH","ANET","CLS","CSCO"]}
+    ],
     thesis: [
       "AI集群把800G、1.6T、AEC、CPO与高速交换推进同一条需求曲线，但“需求真实”不等于“任何价格都值得买”。真正的研究问题是瓶颈在哪一层、现金何时回来、市场已经预支了多少年。",
-      "同一条需求链上的商业模型差异极大：高速类比与SerDes毛利约60%–68%、交换系统可维持60%以上、光模组约44%–48%、制造与组装只有10%–15%——利润最厚的环节不一定是光模组。垂直整合既是供应护城河也是现金黑洞：扩产先推高库存与资本开支，损益改善必须用现金流验证。"
+      "同一条需求链上的商业模型差异极大：高速类比与SerDes毛利约60%–68%、交换系统可维持60%以上、光模组约44%–48%、制造与组装只有10%–15%——利润最厚的环节不一定是光模组。垂直整合既是供应护城河也是现金黑洞：扩产先推高库存与资本开支，损益改善必须用现金流验证。",
+      "分层清单来自老师最新的产业链图示（上游材料→代工与测试→光源与模组→光电IC与封装→连接与网络），个别标的在图中标了不同底色，具体含义等老师完整报告出来再补充，本站暂不据此做核心/规避的区分。"
     ],
     evidence: [
       "外部数据五层同向，闭环强度4.5/5：四大云2026年资本开支合计约7350–7600亿美元；Dell'Oro统计2025 Q1以太网数据中心交换机销售增长逾40%、800G单季超10亿美元；LightCounting估算2026 Q1光收发器销售约100亿美元、增长逾90%，当前需求高于供应约30%；IEA指2025年数据中心用电增长17%。",
@@ -8735,6 +8750,15 @@ function narrativeBlock(label, val){
     rows.map(t=>'<p class="narr-para">'+esc(t)+'</p>').join("");
 }
 
+function layersHtml(layers){
+  if(!Array.isArray(layers) || !layers.length) return "";
+  return '<p class="narr-lead">产业链分层</p><div class="layer-stack">'+
+    layers.map(l=>'<div class="layer-box"><div class="layer-head"><div class="layer-name">'+esc(l.name||"")+'</div><div class="layer-desc">'+esc(l.desc||"")+'</div></div><div class="layer-chips">'+
+      (l.tickers||[]).map(t=>'<span class="layer-chip">'+esc(t)+'</span>').join("")+
+    '</div></div>').join("")+
+  '</div>';
+}
+
 function renderNarratives(){
   const list = document.getElementById("narratives-list");
   if(!NARRATIVES.length){
@@ -8748,7 +8772,7 @@ function renderNarratives(){
       : n.status==="uptrending"
         ? '<span class="trend-badge uptrending" title="近期证据持续强化 · '+esc(n.statusAsOf||"")+'">UPTRENDING</span>'
         : '';
-    return '<div class="narrative-card"><h3 class="narrative-title"><span>'+esc(n.rank)+'. '+esc(n.theme)+'</span>'+trend+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div>'+narrativeBlock("当前叙事", n.thesis)+narrativeBlock("多信源证据", n.evidence)+narrativeBlock("证伪条件", n.disconfirm)+inlineSourcesHtml(n.sources)+'</div>';
+    return '<div class="narrative-card"><h3 class="narrative-title"><span>'+esc(n.rank)+'. '+esc(n.theme)+'</span>'+trend+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div>'+layersHtml(n.layers)+narrativeBlock("当前叙事", n.thesis)+narrativeBlock("多信源证据", n.evidence)+narrativeBlock("证伪条件", n.disconfirm)+inlineSourcesHtml(n.sources)+'</div>';
   }).join("");
 }
 
