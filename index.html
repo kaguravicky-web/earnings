@@ -566,6 +566,69 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-19",
+  ticker: "ADI",
+  company: "Analog Devices",
+  sector: "semis",
+  score: 77,
+  rec: "resonance",
+  dims: {quality: 38, marketread: 18, fundamentals: 21},
+  compare: {revenueGrowth:40, revenueGuidance:7},
+  business: {
+    plain: "ADI 做模拟芯片——负责把真实世界的信号和数字世界接起来。温度、压力、电流、声音、光，这些都是连续变化的物理量，计算机只认0和1，中间那一层转换就是 ADI 的活：数据转换器、电源管理、信号调理、精密放大。它不做最先进制程，做的是精度、稳定性和寿命。",
+    howMakesMoney: "按芯片出货收费，客户极度分散——工厂自动化、汽车、通信设备、医疗仪器、仪器仪表都要用。单颗价格不高但型号数以万计、生命周期长达十几年，客户一旦设计进产品就很难替换。本季工业19.72亿美元占49%、汽车9.98亿占25%、通信6.55亿占16%、消费3.97亿占10%。",
+    moat: "壁垒是几十年积累的模拟设计人才、产品型号库与客户设计导入。模拟芯片不靠制程微缩取胜，靠的是工程经验，因此不容易被追赶，也让它的毛利率能长期维持在70%以上。风险是这门生意仍跟着工业与汽车的资本开支周期走，且AI相关需求目前集中在通信与工业两块。",
+    whatChanged: "本季是模拟龙头被AI重新加速的直接证据：收入40.22亿美元创纪录、同比+40%，通信分部同比+84%、工业+53%，管理层称增长由数据中心与工业带动。更关键的是利润率——调整后毛利率72.5%、调整后营业利润率首次达到50.0%，去年同期分别是69.2%和42.2%。一家增速40%的公司同时把营业利润率做到一半，这在半导体里很少见。"
+  },
+  decision: {
+    stance: "数字与利润率同时创纪录且指引继续向上；这是本轮少数增长、毛利与现金流三线同时兑现的标的，问题只在周期位置",
+    summary: "收入40.22亿美元、同比+40%，高于约39.2亿美元共识；调整后EPS 3.45美元、同比+68%，高于约3.33美元共识；调整后营业利润率50.0%，同比扩张780个基点。Q4再指引收入43亿美元±1亿、调整后营业利润率约52.0%、调整后EPS 3.86美元±0.15。矛盾不在这一季，而在增长的集中度：通信+84%与工业+53%贡献了几乎全部加速，汽车只有+16%、消费+6%。",
+    playbook: [
+      {if:"Q4实际收入落在43亿±1亿区间内，且调整后营业利润率达到约52%", then:"确认利润率扩张是结构性的", why:"从42.2%到50.0%再到指引52%是连续三级跳，需要实际值兑现才能排除产品组合的一次性影响。"},
+      {if:"通信与工业分部在Q4继续维持50%以上增长，同时汽车与消费不再拖后腿", then:"提高持续性评分", why:"当前加速高度集中在两块业务，四条腿同时走才说明是周期整体回暖而不是AI单点拉动。"},
+      {if:"自由现金流维持在收入的35%以上，且股东回报节奏不放缓", then:"维持质量判断", why:"过去十二个月经营现金流55.45亿、自由现金流49.37亿美元，分别是收入的40%和36%，这是模拟龙头最硬的护城河证明。"},
+      {if:"通信分部增速掉到30%以下、调整后营业利润率回落到48%以下，或Q4指引未达成", then:"减仓或回避", why:"三者任一都说明这轮由AI数据中心带动的加速正在见顶，而当前估值已按连续扩张定价。"}
+    ],
+    triggers: ["Q4实际收入与调整后营业利润率", "通信与工业分部增速", "汽车与消费分部能否回暖", "自由现金流占收入比例", "FY2027初步指引口径", "工业客户库存与订单节奏"],
+    invalidation: ["通信分部增速掉到30%以下", "调整后营业利润率回落到48%以下", "Q4收入低于42亿指引下限", "自由现金流占收入比例跌破30%", "工业分部增长明显放缓"],
+    timing: "口径日 2026-08-19：财报于美东开盘前发布。前一交易日8/18收376.63美元（当日-3.50%，跌幅发生在财报前），8/19盘前报378.86美元、较前收盘约+0.59%，盘前区间372.70至389.40美元。本记录写于美东时间上午约7:55、美股尚未开盘，首日正式反应不在本记录内。",
+    risk: "增长集中度是主要风险：通信+84%与工业+53%贡献了几乎全部加速，汽车+16%、消费+6%明显更慢，意味着这轮加速对AI数据中心相关需求的依赖度高于表面上的“广泛需求”。总债务81.16亿美元对现金21.66亿美元，虽有49.37亿美元的年度自由现金流覆盖，但在利率变化时仍是约束。模拟芯片的客户库存周期较长，一旦工业客户开始去库存，收入回落会滞后但持续。本次未取得订单积压与交期数字，周期位置的判断因此不完整。"
+  },
+  metrics: [
+    {label:"Q3收入", value:"40.22亿美元", sub:"+40% YoY，创纪录；高于约39.2亿美元共识约2.6%", tone:"beat", pct:88},
+    {label:"工业", value:"19.72亿美元", sub:"占总收入49%、同比+53%；是绝对金额最大的一块", tone:"beat", pct:90},
+    {label:"通信", value:"6.55亿美元", sub:"占16%、同比+84%——增速最快的分部，管理层称增长由数据中心与工业带动", tone:"beat", pct:95},
+    {label:"汽车与消费", value:"9.98亿／3.97亿美元", sub:"分别占25%和10%，同比仅+16%和+6%——加速高度集中在另外两块", tone:"flat", pct:48},
+    {label:"调整后毛利率", value:"72.5%", sub:"去年同期69.2%；GAAP毛利率67.3%，去年62.1%", tone:"beat", pct:92},
+    {label:"调整后营业利润率", value:"50.0%", sub:"去年同期42.2%、扩张780个基点；GAAP营业利润率40.1%，去年28.4%", tone:"beat", pct:96},
+    {label:"调整后EPS", value:"3.45美元", sub:"+68% YoY；高于约3.33美元共识。GAAP EPS 2.74美元、+163%", tone:"beat", pct:90},
+    {label:"现金流（TTM）", value:"经营55.45亿／自由49.37亿", sub:"分别为收入的40%和36%；资本开支6.08亿美元", tone:"beat", pct:93},
+    {label:"股东回报", value:"本季16.92亿美元", sub:"过去十二个月合计51.70亿美元；季度股息1.10美元/股", tone:"up", pct:85},
+    {label:"Q4收入指引", value:"43亿美元±1亿", sub:"较本季环比约+7%；调整后营业利润率约52.0%（±100基点）、调整后EPS 3.86美元±0.15", tone:"beat", pct:94},
+    {label:"股价反应", value:"盘前+0.59%", sub:"口径日8/19：财报盘前发布。8/18收376.63（当日-3.50%，跌幅在财报前），8/19盘前378.86、区间372.70至389.40。本记录写于美东7:55、美股未开盘，首日正式反应不在本记录内", tone:"flat", pct:40}
+  ],
+  management_highlights: [
+    "CEO Vincent Roche 称本季超过了收入、利润率与盈利指引的中值，受益于广泛的需求；CFO Richard Puccio 称需求在整个季度内跨产品线、跨地区持续增强，并反映在创纪录的第四季度展望里。",
+    "增长由数据中心与工业带动。分部披露中通信同比+84%、工业同比+53%，数据中心相关需求未被单列为独立分部。",
+    "调整后营业利润率首次达到50.0%，同比扩张780个基点；Q4指引进一步升至约52.0%。",
+    "过去十二个月经营现金流55.45亿美元、自由现金流49.37亿美元，分别相当于收入的40%和36%；本季向股东返还16.92亿美元，十二个月合计51.70亿美元。",
+    "董事会宣布季度股息每股1.10美元，9月15日支付。本次记录未取得订单积压、交期与客户库存数字，周期位置需待10-Q与业绩会文字稿交叉核对。"
+  ],
+  narrative: {
+    summary: "ADI 说明了AI这轮外溢已经走到模拟芯片：一家增速40%的公司同时把调整后营业利润率做到50%，并指引下季再升到约52%。它和设备、光模块那几层的区别在于——它的毛利扩张同时出现在现金流量表上，过去十二个月自由现金流相当于收入的36%。",
+    consensus: "多头证据是三线同时兑现：收入40.22亿超共识并创纪录、同比+40%；调整后毛利率72.5%、调整后营业利润率50.0%分别扩张330和780个基点；调整后EPS 3.45美元超共识、同比+68%。现金端同样硬，TTM经营现金流55.45亿、自由现金流49.37亿美元，本季返还股东16.92亿。Q4指引收入43亿、调整后营业利润率约52%，斜率继续向上。",
+    divergence: "反叙事是增长的集中度与周期位置：通信同比+84%、工业+53%贡献了几乎全部加速，而汽车只有+16%、消费+6%，说明“广泛需求”里真正在加速的是与AI数据中心相关的两块。模拟芯片的客户库存周期长，工业一旦转入去库存，收入回落会滞后但持续。总债务81.16亿美元对现金21.66亿美元；本次也未披露订单积压与交期，无法判断当前处在周期的哪个位置。",
+    signals: ["Q4实际收入与调整后营业利润率能否达到约52%", "通信与工业分部增速", "汽车与消费能否回暖", "自由现金流占收入比例", "工业客户库存与交期", "FY2027初步指引"]
+  },
+  sources: [
+    {type:"公司公告", label:"Analog Devices Q3 FY2026 Results", url:"http://www.prnewswire.com/news-releases/analog-devices-reports-record-fiscal-third-quarter-2026-financial-results-302854642.html"},
+    {type:"财报明细", label:"StockTitan：ADI Q3 分部与现金流明细", url:"https://www.stocktitan.net/news/ADI/analog-devices-reports-record-fiscal-third-quarter-2026-financial-5wzzi4jqwpk2.html"},
+    {type:"公司IR", label:"Analog Devices Investor Relations", url:"https://investor.analog.com/news-releases/news-release-details/analog-devices-report-third-quarter-fiscal-year-2026-financial"},
+    {type:"市场反应", label:"Investing.com：超预期且指引高于预期", url:"https://www.investing.com/news/earnings/analog-devices-beats-estimates-guides-above-expectations-4701023"}
+  ]
+},
+{
+  type: "earnings",
   date: "2026-08-18",
   ticker: "FN",
   company: "Fabrinet",
@@ -8600,7 +8663,7 @@ const TICKER_SECTOR = {
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
-  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", FN:"semis",
+  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", FN:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
