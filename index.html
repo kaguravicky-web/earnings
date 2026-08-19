@@ -566,6 +566,69 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-18",
+  ticker: "FN",
+  company: "Fabrinet",
+  sector: "semis",
+  score: 60,
+  rec: "doubt",
+  dims: {quality: 26, marketread: 16, fundamentals: 18},
+  compare: {revenueGrowth:45, revenueGuidance:43},
+  business: {
+    plain: "Fabrinet是光通讯和精密光电子产品的代工厂——客户设计好光模块、激光器这些产品，Fabrinet负责精密制造和封装。它是“光通讯产业链”里连接光源/IC设计公司和最终客户（云厂商、电信运营商）之间的关键一环，本站NARRATIVES里“光电IC与封装”这一层的成员之一。",
+    howMakesMoney: "按客户订单代工制造光收发模块、激光雷达、医疗器械等精密光电子产品，数据中心相关产品是本季最大驱动力（收入6.69亿美元、占比51%、同比+68%），电信、工业激光等其他业务体量较小但更稳定。",
+    moat: "壁垒是精密光电子封装的良率和规模化代工能力，客户换代工厂需要重新验证产线，转换成本高。风险是资本开支强度极大——这一季自由现金流转负，说明规模扩张需要持续烧钱，不是轻资产生意。",
+    whatChanged: "Q4营收13.16亿美元同比+45%、创纪录，非GAAP EPS 4.10美元同比约+55%，超出约3.81美元的市场预期约7.6%，双双超出公司自己给的指引上限。数据中心收入6.69亿美元同比+68%、环比+13%，占比升到51%。但营业利润率10.9%（三年新高）背后，自由现金流转为-3690万美元（经营现金流5500万，资本开支高达9190万），全年自由现金流同比暴跌98%至仅422万美元；另有一笔5670万美元的非上市股权证券亏损拖累GAAP结果。Q1 FY2027指引营收13.75亿至14.25亿美元（约+43% YoY），相对本季环比增幅明显放缓，被市场解读为增长降速的信号。"
+  },
+  decision: {
+    stance: "核心经营数字（营收、EPS、历史beat趋势、数据中心占比）全部走强，被砸的是自由现金流转负和指引环比放缓——这更接近AMAT那种“数字没问题、市场对价格和现金质量存疑”的形态，而不是真正的经营恶化，但FCF转负是实打实的量化信号，不能完全归为情绪化抛售",
+    summary: "Q4营收、EPS双双创纪录并超预期，数据中心收入占比升至51%、同比+68%。但自由现金流转负3690万美元（全年FCF暴跌98%），叠加一次性非上市股权亏损5670万美元，以及Q1指引的环比放缓，股价单日暴跌约19.4%，并带崩MRVL、APH、COHR、LITE等同链条个股。同一天Anthropic ARR不及预期、30年期美债收益率创19年新高，放大了整个AI硬件板块的抛售——不是FN独有的信息冲击。本站此前在光通讯主线的证伪清单里专门标注过“FN营益率<9.5%或FCF再为负（08.17）”这条门槛：营业利润率10.9%远高于9.5%门槛（未触发），但FCF确实转负（触发）——两个条件是OR关系，这次实际触发了。",
+    playbook: [
+      {if:"Q1 FY2027实际FCF转正，且资本开支强度较Q4回落", then:"倾向于把这次下跌定性为一次性扩产周期的现金流波动，而非结构性问题，可视为板块联动错杀的回补机会", why:"如果FCF能在下一季回正，说明本季是产能扩张的阶段性现金消耗，不是持续性的资本回报恶化。"},
+      {if:"数据中心收入占比连续两季维持在50%以上且同比增速不跌破50%", then:"确认这是结构性驱动而非单季拉货，维持当前评分", why:"数据中心业务的持续性是这份财报里最强的多头证据，需要下一季数据交叉确认不是单季异动。"},
+      {if:"下季度FCF继续为负或资本开支占收入比例进一步上升", then:"下调评分，对现金质量的担忧从“待验证”升级为“确认”", why:"连续两季FCF为负会印证增长是靠不断加杠杆的资本开支堆出来的，而不是规模效应改善。"},
+      {if:"T+5、T+20价格结构显示与MRVL、APH、COHR、LITE等同链条个股同步修复", then:"支持“这次是板块性抛售、非FN独有问题”的判断", why:"如果只有FN持续破位而同链条个股修复，说明市场认为问题是FN特有的（比如FCF/资本开支），而非宏观联动。"}
+    ],
+    triggers: ["Q1 FY2027自由现金流能否转正", "数据中心收入占比与增速能否维持", "资本开支强度是否见顶", "T+5与T+20相对同链条个股的价格结构", "5670万美元非上市股权亏损是否会重复"],
+    invalidation: ["连续两季自由现金流为负", "数据中心收入占比或增速明显回落", "资本开支占收入比例持续上升且无营收对应加速", "管理层下修Q1指引"],
+    timing: "口径日 2026-08-18：财报于上一交易日(8/17)盘后发布，8/18盘前一度跌至约$510（较前收盘$598.58约-14.7%），正式盘收$482.59，较财报前收盘约-19.4%。8/18盘后进一步报$480.62（较当日收盘-0.4%）。次日数据本记录写作时尚未取得，不计入本记录。",
+    risk: "最大的风险是把“数字没问题”这个判断过度延伸到“抛售就是错杀”——自由现金流转负、全年FCF暴跌98%是真实发生的量化事实，不是市场情绪臆造出来的，这次不能完全套用AMAT“纯估值消化”的框架。5670万美元的非上市股权亏损具体构成本次未取得细节，资本开支的具体投向（是否可持续产生对应营收）也需要下一季数据验证。本次未取得8/18实际成交量相对均量的精确倍数，仅能定性判断为放量下跌。"
+  },
+  metrics: [
+    {label:"Q4营收", value:"13.16亿美元", sub:"同比+45%，创纪录；超公司指引上限，超约共识$40M", tone:"beat", pct:88},
+    {label:"非GAAP EPS", value:"4.10美元", sub:"同比约+55%；高于约3.81美元共识（+7.6%），超指引上限", tone:"beat", pct:82},
+    {label:"数据中心收入", value:"6.69亿美元", sub:"同比+68%，环比+13%，占总收入51%", tone:"beat", pct:90},
+    {label:"营业利润率", value:"10.9%", sub:"三年新高；此前“证伪门槛”为<9.5%触发关注，本次未触发", tone:"beat", pct:80},
+    {label:"自由现金流", value:"-3690万美元", sub:"经营现金流5500万，资本开支9190万；全年FCF同比暴跌98%至422万美元", tone:"down", pct:12},
+    {label:"一次性项目", value:"非上市股权亏损5670万美元", sub:"拖累GAAP结果，具体构成本次未取得细节", tone:"down", pct:25},
+    {label:"Q1 FY2027营收指引", value:"13.75亿至14.25亿美元", sub:"约+43% YoY，但环比增幅明显低于本季，被解读为降速信号", tone:"flat", pct:50},
+    {label:"股价反应", value:"首日约-19.4%", sub:"口径日8/18：较财报前收盘$598.58跌至$482.59；同日MRVL、APH、COHR、LITE等同链条个股同步大跌，叠加当日AI硬件板块宏观扰动", tone:"down", pct:10}
+  ],
+  management_highlights: [
+    "管理层强调数据中心业务加速（占比51%、同比+68%），称为本季最强驱动力。",
+    "本次记录未取得管理层对自由现金流转负、资本开支节奏的具体解释，市场对现金质量的疑虑需待业绩会文字稿逐字核实。",
+    "本站此前在“光通讯产业链”主线的证伪清单里已预设“FN营益率<9.5%或FCF再为负”这条门槛（08.17截止），本次实际是FCF转负触发，营益率未触发——属于此前设定门槛的部分兑现，而非临时归因。"
+  ],
+  narrative: {
+    summary: "FN这一季的核心经营数字（营收、EPS、历史beat趋势、数据中心占比）全部走强，但自由现金流转负、指引环比放缓，叠加同日AI硬件板块的宏观扰动，股价单日暴跌约19.4%并带崩同链条个股。这更接近“数字没问题、现金质量和板块情绪被重新定价”，但FCF转负是真实的量化信号，跟本站“光通讯产业链”主线此前设定的证伪门槛直接对应。",
+    consensus: "多头证据是核心业务持续走强：营收/EPS双双创纪录超预期，历史beat幅度稳定在5%-8%区间没有收窄，数据中心收入占比升至51%、同比+68%，营业利润率创三年新高。分析师财报后普遍维持买入评级，目标价$650-750区间远高于现价。",
+    divergence: "反叙事集中在现金质量：自由现金流转负3690万美元、全年FCF暴跌98%，资本开支强度远超经营现金流，说明增长在靠持续加码资本开支堆出来，尚未看到规模效应改善现金回报。这正是本站此前在该主线证伪清单里预设的门槛（FN营益率<9.5%或FCF再为负），这次FCF一侧被触发，属于此前分层框架的实际验证，而非事后归因。",
+    signals: ["Q1 FY2027自由现金流能否转正", "数据中心收入占比与增速能否维持", "资本开支强度是否见顶", "相对同链条个股的价格结构修复"]
+  },
+  sources: [
+    {type:"公司公告", label:"Fabrinet Q4 FY2026 Results", url:"https://investor.fabrinet.com/press-releases"},
+    {type:"业绩会", label:"Investing.com：Fabrinet beats Q4 2026 estimates, shares fall after hours（文字稿）", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-fabrinet-beats-q4-2026-estimates-shares-fall-after-hours-93CH-4864059"},
+    {type:"市场反应", label:"The Motley Fool：Why Fabrinet Stock Just Plummeted", url:"https://www.fool.com/investing/2026/08/18/why-fabrinet-stock-just-plummeted/"},
+    {type:"市场反应", label:"Yahoo Finance：Shares slide despite earnings beat as margins and cash flow disappoint", url:"https://finance.yahoo.com/markets/stocks/articles/fabrinet-shares-slide-despite-earnings-102815774.html"},
+    {type:"市场反应", label:"24/7 Wall St.：Fabrinet drops after earnings, dragging down peers", url:"https://247wallst.com/investing/2026/08/18/fabrinet-drops-after-earnings-dragging-down-peers-like-marvell-and-amphenol/"},
+    {type:"分析师评级", label:"Benzinga：Fabrinet shares slip, Nvidia datacom weakness overshadows", url:"https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/08/61280260/fabrinet-shares-nvidia-datacom-weakness-q2"}
+  ],
+  report: `【FN · Fabrinet】2026 Q4财报分析\n\n结论先说：营收、EPS双双创纪录超预期，数据中心收入占比升至51%，历史beat幅度没有收窄，核心经营数字很强。但自由现金流转负、全年FCF暴跌98%，叠加Q1指引环比放缓和同日AI硬件板块的宏观抛售，股价单日暴跌19.4%。这正好对应本站“光通讯产业链”主线此前预设的证伪门槛（FN营益率<9.5%或FCF再为负）——这次FCF一侧被触发。核心矛盾是这属于扩产周期的阶段性现金消耗，还是资本回报结构性恶化的开始，下季度FCF能否转正是关键验证点。`,
+  vic_notes: "",
+  outcome: ""
+},
+{
+  type: "earnings",
   date: "2026-08-13",
   ticker: "TPR",
   company: "Tapestry",
@@ -8536,7 +8599,7 @@ const TICKER_SECTOR = {
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
-  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis", AMAT:"semis",
+  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", FN:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
