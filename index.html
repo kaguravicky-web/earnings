@@ -566,6 +566,71 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-08-20",
+  ticker: "WMT",
+  company: "Walmart",
+  sector: "consumer",
+  score: 53,
+  rec: "doubt",
+  dims: {quality: 28, marketread: 8, fundamentals: 17},
+  compare: {revenueGrowth:5.9, revenueGuidance:3.4},
+  business: {
+    plain: "沃尔玛是全球最大的实体零售商——卖食品、日用品、服装、药品。它的商业模式最朴素：把东西大批量买进来、用极低的价格卖出去，靠巨大的周转量赚薄利。美国每周有上亿人进它的店。",
+    howMakesMoney: "主体仍是卖货的差价，但真正在改变利润结构的是三块新业务：广告（Walmart Connect，让品牌商在它的货架和App上买曝光）、会员费（Walmart+ 与山姆会员店）、以及电商履约与第三方市场服务。这三块的毛利率远高于卖货，本季全球广告收入+38%、美国Walmart Connect（剔除VIZIO）+43%、全球会员费收入+17%。",
+    moat: "壁垒是规模带来的采购议价权与遍布全国的门店网络——门店同时是仓库，让它能做到当日送达，这是纯电商难以复制的。风险在需求端而不是竞争端：它的客户群对油价、食品通胀最敏感，宏观一紧，客单价和购物频次立刻反映出来。",
+    whatChanged: "这一季是典型的“结构在变好、当期在变弱”。收入超预期、全年指引上调，广告、会员、电商三块高毛利业务全面加速；但最核心的美国同店销售只增长2.6%，远低于市场预期的约3.8%，是六年来最慢的一个季度。管理层把原因指向消费者：超过每加仑4美元的油价正在让顾客做取舍。"
+  },
+  decision: {
+    stance: "beat-and-raise 却单日跌约9%，市场卖的不是这一季的数字，是同店增速六年最慢所代表的消费者状态",
+    summary: "收入1,879亿美元、同比+5.9%，公司上调全年净销售增速指引至4%–5%、调整后每股收益指引至2.80–2.87美元。但美国同店销售（剔除燃油）只增长2.6%，低于市场约3.8%的预期，为六年来最慢。营业利润报告口径增长28.8%，其中含关税退款，有分析师指出剔除后约为10%。核心矛盾是：高毛利的广告与会员业务在加速，而带来客流的基本盘在减速。",
+    playbook: [
+      {if:"下季美国同店销售回到3%以上，且交易笔数继续增长", then:"确认本季减速是油价带来的阶段性取舍而非趋势", why:"公司称增长仍由交易笔数带动；只要客流没丢，客单价可以随油价回落修复。"},
+      {if:"广告增速维持在30%以上、会员费收入维持双位数，且这两块的占比继续提升", then:"维持利润结构改善的判断", why:"广告与会员是把低毛利零售改造成高毛利平台的关键，它们的加速可以在同店放缓时托住利润率。"},
+      {if:"剔除关税退款后的营业利润增速能连续两季维持在10%以上", then:"确认利润质量", why:"本季报告口径28.8%与剔除后约10%的差距太大，必须用后续季度证明不是一次性因素撑起来的。"},
+      {if:"下季同店销售继续低于3%、或全年指引回调，或管理层再度下调消费者预期", then:"回避，并按此下调整个必需消费板块的判断", why:"沃尔玛是美国消费者最广泛的样本，它减速通常意味着中低收入人群的可支配收入在收紧。"}
+    ],
+    triggers: ["下季美国同店销售能否回到3%以上", "交易笔数与客单价的分解", "广告与会员费收入增速", "剔除关税退款后的营业利润增速", "汽油价格走向", "全年指引4%–5%的兑现进度"],
+    invalidation: ["下季同店销售继续低于3%", "交易笔数转为负增长", "广告增速跌破30%", "全年净销售或每股收益指引下调", "剔除关税退款后营业利润增速跌破10%"],
+    timing: "口径日 2026-08-20：财报于美东开盘前发布。据媒体口径，股价自前一交易日114.30美元跌至约104美元、跌幅约9%（另有口径为9.8%），本站行情接口当时连接受限，该价格未经行情源独立核实。当日跌幅同时拖累道指与标普，是当天大盘走弱的主要单一来源之一。",
+    risk: "最需要分清的是两种“利润增长”：报告口径营业利润+28.8%，但有分析师指出其中含关税退款，剔除后约为10%——本记录未取得公司对该项的官方拆分，这个差距无法精确量化。本次也未取得当季调整后每股收益的实际值、毛利率变化与库存数据。风险的另一半在宏观而非公司：客户群对油价与食品通胀高度敏感，公司自身无法控制。作为美国消费者最广泛的样本，它的同店减速对整个必需消费与可选消费板块都有传导含义。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"1,879亿美元", sub:"+5.9%（固定汇率+5.1%）；去年同期1,774亿美元，高于市场预期", tone:"beat", pct:72},
+    {label:"美国同店销售", value:"+2.6%", sub:"剔除燃油；市场预期约+3.7%至+3.8%（LSEG口径3.8%）——六年来最慢的一个季度，含健康与保健业务80个基点的拖累", tone:"down", pct:22},
+    {label:"山姆会员店同店", value:"+4.4%", sub:"剔除燃油；明显好于沃尔玛美国本部", tone:"up", pct:68},
+    {label:"电商", value:"全球+23%／美国+24%", sub:"山姆美国+26%、国际+19%；增长来自门店发货配送、广告与第三方市场", tone:"beat", pct:85},
+    {label:"广告业务", value:"全球+38%", sub:"美国Walmart Connect（剔除VIZIO）+43%——高毛利业务，是利润结构改善的核心", tone:"beat", pct:90},
+    {label:"会员费收入", value:"全球+17%", sub:"经常性收入，随会员基数累积", tone:"up", pct:76},
+    {label:"营业利润", value:"报告口径+28.8%", sub:"调整后固定汇率+17.4%。有分析师指出报告口径含关税退款，剔除后约+10%——本记录未取得官方拆分", tone:"flat", pct:50},
+    {label:"现金流", value:"经营19.7亿／自由5.5亿美元", sub:"公司披露口径；投资回报率15.4%、资产回报率8.0%", tone:"up", pct:64},
+    {label:"全年指引（上调）", value:"净销售+4%至+5%", sub:"此前为+3.5%至+4.5%；调整后每股收益2.80至2.87美元，此前2.75至2.85美元", tone:"beat", pct:80},
+    {label:"Q3指引", value:"净销售+3%至+3.75%", sub:"调整后每股收益0.62至0.64美元——增速低于本季，隐含减速延续", tone:"flat", pct:46},
+    {label:"股价反应", value:"当日约-9%", sub:"口径日8/20：媒体口径自114.30美元跌至约104美元（另有口径-9.8%），本站行情接口连接受限、未独立核实。该跌幅同时拖累道指与标普", tone:"down", pct:96}
+  ],
+  management_highlights: [
+    "CEO John Furner 在业绩会上称“顾客告诉我们，他们仍然感受到一些压力”；公司把同店减速指向每加仑超过4美元的汽油价格正在促使消费者做取舍。",
+    "公司称美国同店的2.6%增长仍由交易笔数带动，并包含健康与保健业务80个基点的拖累——客流没有流失，减速主要来自客单与品类结构。",
+    "高毛利业务全面加速：全球广告收入+38%、美国Walmart Connect（剔除VIZIO）+43%、全球会员费收入+17%、全球电商+23%。",
+    "公司上调全年指引：净销售增速从3.5%–4.5%上调至4%–5%，调整后每股收益从2.75–2.85美元上调至2.80–2.87美元。",
+    "多数卖方在财报后维持买入：Jefferies目标价150美元、摩根士丹利140美元、RBC 137美元，Guggenheim小幅下调至135美元；RBC提到剔除关税退款后的营业利润增长接近10%。"
+  ],
+  narrative: {
+    summary: "沃尔玛这一季是典型的beat-and-raise却被重砸：收入超预期、全年指引上调、广告与会员这些高毛利业务全面加速，股价却单日跌约9%。市场卖的不是这一季的损益表，而是美国同店只增2.6%、六年最慢所代表的消费者状态——以及公司自己把原因归到了4美元油价上。",
+    consensus: "多头证据是结构性的：全球电商+23%、美国+24%，全球广告+38%、Walmart Connect美国+43%，会员费收入+17%，山姆会员店同店+4.4%。这三块都是毛利率远高于卖货的业务，占比提升会持续改善利润结构。公司同时上调了全年净销售与每股收益指引，多数卖方维持买入评级。",
+    divergence: "反叙事有两条。一是基本盘：美国同店+2.6%远低于约3.8%的预期，是六年来最慢，而沃尔玛是美国中低收入消费者最广泛的样本，它减速的含义超出公司本身；Q3指引净销售只增3%–3.75%，隐含减速延续。二是利润质量：报告口径营业利润+28.8%中含关税退款，有分析师指出剔除后约为10%，两个数字差距太大，需要后续季度厘清。",
+    signals: ["下季美国同店能否回到3%以上", "交易笔数与客单价的分解", "广告与会员费增速能否维持", "剔除关税退款后的营业利润增速", "汽油价格走向", "对必需消费与可选消费板块的传导"]
+  },
+  sources: [
+    {type:"公司公告", label:"Walmart Q2 FY27 业绩发布", url:"https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings"},
+    {type:"公司财报", label:"Walmart Q2 FY27 Earnings Release（PDF）", url:"https://corporate.walmart.com/content/dam/corporate/documents/newsroom/2026/08/20/walmart-releases-q2-fy27-earnings/q2-fy27-earnings-release.pdf"},
+    {type:"市场反应", label:"Yahoo Finance：同店放缓、顾客因高油价做取舍", url:"https://finance.yahoo.com/markets/stocks/article/walmart-stock-drops-9-as-sales-growth-slows-customers-make-trade-offs-amid-high-fuel-costs-182327744.html"},
+    {type:"财报解读", label:"Beststocks：beat-and-raise、同店放缓与关税带动的利润", url:"https://beststocks.com/research/walmart-wmt-stock-drop-q2-earnings-slowing-comps-tariff-beat"},
+    {type:"市场反应", label:"Motley Fool：沃尔玛暴跌拖累三大指数", url:"https://www.fool.com/investing/2026/08/20/walmart-plunge-weighs-on-all-three-major-indexes/"}
+  ]
+},
+
+{
+  type: "earnings",
   date: "2026-05-28",
   ticker: "PATH",
   company: "UiPath",
@@ -8793,7 +8858,7 @@ const TICKER_SECTOR = {
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", TRV:"financials",
-  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", TPR:"consumer",
+  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
   CLF:"materials"
 };
 const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
