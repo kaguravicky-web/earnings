@@ -565,6 +565,70 @@ const NARRATIVES = [
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
+  type: "earnings",
+  date: "2026-05-28",
+  ticker: "PATH",
+  company: "UiPath",
+  sector: "tech",
+  score: 65,
+  rec: "resonance",
+  dims: {quality: 28, marketread: 22, fundamentals: 15},
+  compare: {revenueGrowth:17},
+  business: {
+    plain: "UiPath 卖“软件机器人”。企业里有大量重复劳动——从邮件附件抄发票号、把A系统的数据一条条录进B系统、每月对账。这些活步骤明确却没有接口可打通，只能人手点。它的机器人像人一样去点鼠标、读屏幕、填表单，因此不需要改造原有的老系统。行业里叫RPA，机器人流程自动化。",
+    howMakesMoney: "按订阅收费，主要按机器人数量与服务器授权，而不是按人头席位，所以核心指标是ARR与净留存率——客户买了之后每年续不续、加不加机器人。头部客户开始出现按流程数、按结果计价的模式。典型客户是银行、保险、电信、医院这类老系统多、流程繁琐又不能推倒重来的大机构。",
+    moat: "壁垒是已经嵌进客户核心流程的部署与合规审计记录，换掉要重新验证整条流程。但RPA本身正在被平台厂商的自动化工具商品化，微软等大厂的同类能力是长期威胁；这也是它必须把自己重新定位成AI编排层的原因。",
+    whatChanged: "本季是转型的第一个财务确认点：公司史上首次实现第一财季GAAP盈利，经营利润2,800万美元，去年同期还是亏损。管理层称前20大单里有16单含AI，且含AI的扩单规模是不含的6倍。但转型的成色还没体现在订阅底盘上——ARR只增长12%，慢于收入的17%，净留存率109%。"
+  },
+  decision: {
+    stance: "GAAP转正与agentic叙事都成立，但ARR增速慢于收入、净留存率仅109%，说明转型还没走到续费端；先看这两个数",
+    summary: "收入4.18亿美元、同比+17%，ARR 19.01亿美元、同比+12%，净新增ARR 4,900万美元，净留存率109%，非GAAP每股收益0.15美元、高于约0.13美元预期，首次实现第一财季GAAP盈利。核心矛盾是ARR增速比收入慢5个百分点——订阅生意的真实底盘长得比报告收入慢，说明当期收入里含较多一次性或提前确认成分，agentic大单目前还集中在少数头部客户。",
+    playbook: [
+      {if:"下季ARR增速回升到与收入增速接近，且净留存率升到112%以上", then:"确认agentic已经进入续费端，可按转型成功重新评估", why:"公司称含AI的扩单规模是不含的6倍；如果属实且具规模，最先反映的地方就是净留存率。"},
+      {if:"含AI的大单从前20大扩散到中腰部客户，且净新增ARR连续两季高于4,900万美元", then:"提高持续性评分", why:"目前AI贡献集中在头部，只有向中腰部扩散才说明是产品力而不是几个灯塔客户。"},
+      {if:"GAAP盈利在后续季度延续，而非一次性费用节省带来的单季现象", then:"维持质量判断", why:"首次第一财季GAAP盈利是里程碑，但必须排除是靠削减开支换来的。"},
+      {if:"ARR增速跌破10%、净留存率回落到105%以下，或全年ARR指引下修", then:"回避", why:"三者任一都说明老RPA的续费流失快于agentic带来的新增，转型故事就无法支撑估值。"}
+    ],
+    triggers: ["下季ARR增速与收入增速之差", "净留存率能否升到112%以上", "净新增ARR是否高于4,900万美元", "含AI大单是否扩散到中腰部客户", "GAAP盈利能否延续", "FY2027全年ARR指引20.58至20.63亿美元的兑现进度"],
+    invalidation: ["ARR增速跌破10%", "净留存率回落到105%以下", "净新增ARR连续两季低于4,000万美元", "全年收入或ARR指引下修", "GAAP重新转亏"],
+    timing: "本记录于2026-08-21补建，财报日为2026-05-28（FY2027第一财季，截至2026年4月30日）。财报当日股价上涨约4.5%、收于12.10美元。补建时点的价格为2026-08-20收盘15.92美元，但该涨幅不计入本记录的股价反应评分。下一个催化剂是FY2027第二财季财报，按往年节奏在9月上旬。",
+    risk: "最大的风险是转型的时间差：agentic叙事在订单侧已有证据（前20大单16单含AI），但在续费侧还没有——ARR增速12%低于收入17%，净留存率109%明显低于本站记录中TWLO的116%。这意味着老RPA的自然流失正在抵消新增。竞争上，平台厂商把自动化能力打包进套件是长期压力。本次记录未取得自由现金流、客户数与分地区明细，判断因此不完整。作为补建记录，未复核财报当日的成交量与后续5日、20日价格结构。"
+  },
+  metrics: [
+    {label:"Q1收入", value:"4.18亿美元", sub:"+17% YoY；公司称超过其各项指引", tone:"beat", pct:72},
+    {label:"ARR", value:"19.01亿美元", sub:"+12% YoY——比收入增速慢5个百分点，是本季最需要盯的数字", tone:"down", pct:45},
+    {label:"净新增ARR", value:"4,900万美元", sub:"订阅底盘的季度增量", tone:"flat", pct:52},
+    {label:"净留存率", value:"109%", sub:"老客户几乎只是持平微增；对比本站TWLO为116%，增长更依赖新客户", tone:"down", pct:42},
+    {label:"非GAAP EPS", value:"0.15美元", sub:"高于约0.13美元预期约15%", tone:"beat", pct:70},
+    {label:"GAAP经营利润", value:"2,800万美元", sub:"去年同期为亏损；公司史上首次实现第一财季GAAP盈利", tone:"beat", pct:85},
+    {label:"AI大单渗透", value:"前20大单中16单含AI", sub:"管理层称含AI的扩单规模是不含AI的6倍——但目前集中在头部客户", tone:"up", pct:68},
+    {label:"FY2027收入指引", value:"17.76至17.81亿美元", sub:"公司在本季上调了全年收入预期", tone:"up", pct:66},
+    {label:"FY2027 ARR指引", value:"20.58至20.63亿美元", sub:"较当前19.01亿隐含全年净增约1.6亿美元", tone:"flat", pct:58},
+    {label:"股价反应", value:"首日约+4.5%", sub:"口径日2026-05-28：财报后股价上涨约4.5%、收于12.10美元。本记录为2026-08-21补建，补建时点价格15.92美元（8/20收盘）不计入本项评分", tone:"up", pct:60}
+  ],
+  management_highlights: [
+    "COO兼CFO Ashim Gupta 称第一季度在所有关键财务指标上都超过了公司指引，并首次实现公司历史上的第一财季GAAP盈利。",
+    "公司称agentic产品在正式商用一年后正从试点走向生产，客户开始把UiPath作为企业AI转型的编排层与执行层标准。",
+    "前20大交易中有16笔包含AI，且包含AI的扩单规模是不含AI扩单的6倍。",
+    "定价以订阅与服务器授权为主，而非按席位或纯用量；面向头部客户的按结果、按流程计价模式仍在演进。",
+    "本次记录未取得自由现金流、客户数与分地区收入明细；作为补建记录，也未复核财报后第5日与第20日的价格结构。"
+  ],
+  narrative: {
+    summary: "PATH这一季给出了转型的第一个财务确认——史上首次第一财季GAAP盈利，加上前20大单里16单含AI。但它同时暴露了转型的时间差：订单侧已经有AI，续费侧还没有。ARR只增12%、慢于收入17%，净留存率109%，说明老RPA的流失还在抵消新增。",
+    consensus: "多头证据是收入+17%超指引、非GAAP EPS 0.15美元超预期、首次第一财季GAAP盈利、经营利润2,800万美元，以及AI渗透的直接证据——前20大单16单含AI、含AI扩单规模是不含的6倍。公司同时上调了FY2027全年收入预期，市场当日以约+4.5%回应。",
+    divergence: "反叙事集中在订阅底盘：ARR增速12%低于收入增速17%，意味着当期收入里含较多一次性或提前确认成分；净留存率109%明显低于本站记录中TWLO的116%，说明老客户扩单乏力，增长更依赖获取新客户，而新客户的获取成本高于老客户扩单。AI贡献目前集中在前20大客户，尚未证明能向中腰部扩散。平台厂商把自动化打包进套件是长期竞争压力。",
+    signals: ["下季ARR增速与收入增速之差", "净留存率能否升到112%以上", "净新增ARR是否高于4,900万美元", "AI大单能否扩散到中腰部客户", "GAAP盈利能否延续", "FY2027 ARR指引兑现进度"]
+  },
+  sources: [
+    {type:"公司公告", label:"UiPath FY2027 Q1 Results", url:"https://ir.uipath.com/news/detail/452/uipath-reports-first-quarter-fiscal-2027-financial-results"},
+    {type:"公司公告", label:"UiPath Q1 FY2027 Results（Businesswire）", url:"https://www.businesswire.com/news/home/20260528430194/en/UiPath-Reports-First-Quarter-Fiscal-2027-Financial-Results"},
+    {type:"业绩会", label:"UiPath Q1 FY2027 业绩会文字稿", url:"https://www.fool.com/earnings/call-transcripts/2026/05/28/uipath-path-q1-2027-earnings-transcript/"},
+    {type:"公司演示", label:"UiPath Q1 FY2027 业绩会演示", url:"https://seekingalpha.com/article/4909890-uipath-inc-2027-q1-results-earnings-call-presentation"},
+    {type:"市场反应", label:"GuruFocus：财报后上涨4.5%", url:"https://www.gurufocus.com/news/8889769/uipath-path-sees-45-increase-following-q1-earnings-and-revenue-forecast-update"}
+  ]
+},
+
+{
   type: "event",
   date: "2026-08-20",
   ticker: "BULL·FUTU",
@@ -8721,7 +8785,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", PATH:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", FN:"semis",
   CSCO:"tech",
