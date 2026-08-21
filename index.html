@@ -113,6 +113,18 @@ h1{font-size:26px;margin:0 0 4px}
 .narrative-card .narr-lead:first-of-type{margin-top:11px}
 .narrative-card .narr-para{margin:0 0 8px;line-height:1.8;color:#334155}
 .narrative-card .narr-para:last-of-type{margin-bottom:0}
+.sector-card{border:1px solid var(--line);background:#fff;border-radius:14px;margin-bottom:12px;padding:16px 18px}
+.sector-card h3{font-size:16px;margin:0 0 4px}
+.sector-meta{font-size:12px;color:#64748b;margin:0 0 10px}
+.sector-members{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.sector-chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12px;background:#f8fafc}
+.sector-chip b{font-size:12px}
+.sector-chip .chip-score{color:#0f172a;font-weight:700}
+.sector-chip.watch{color:#94a3b8;background:#fff;border-style:dashed}
+.sector-verdict{border-left:3px solid var(--blue);background:#f5f9ff;padding:10px 13px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 10px}
+.sector-card .narr-lead{font-weight:700;color:#0f172a;margin:12px 0 5px;font-size:13px}
+.sector-card .narr-para{margin:0 0 8px;line-height:1.8;color:#334155;font-size:13px}
+.sector-card .narr-para:last-of-type{margin-bottom:0}
 .narrative-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .trend-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:10px;line-height:1;font-weight:900;letter-spacing:.04em;vertical-align:middle}
 .trend-badge.new{color:#1556a0;background:#eaf3ff;border:1px solid #bed8fa}
@@ -161,6 +173,7 @@ h1{font-size:26px;margin:0 0 4px}
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
     <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
+    <button class="tab-btn" data-tab="tab-sectors">🧩 板块小结</button>
     <button class="tab-btn" data-tab="tab-mergers">🤝 并购跟踪</button>
     <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
   </div>
@@ -207,6 +220,15 @@ h1{font-size:26px;margin:0 0 4px}
   <div id="narratives-list"></div>
 </section>
 
+<!-- ============ TAB: SECTORS ============ -->
+<section id="tab-sectors" style="display:none">
+  <div class="panel">
+    <h2>板块小结</h2>
+    <p class="hint">把同一板块的公司放在一起，评论本季财报的共同结论。个股细节看分析记录，跨板块的长期主线看叙事主线；这里回答的是「这个板块这一季到底发生了什么」。</p>
+    <p class="hint">成员标的的分数与结论直接取自分析记录，不重复维护。灰色标的是同板块但本站尚未建记录的观察名单。</p>
+  </div>
+  <div id="sectors-list"></div>
+</section>
 <!-- ============ TAB: MERGERS ============ -->
 <section id="tab-mergers" style="display:none">
   <div class="panel">
@@ -311,6 +333,69 @@ h1{font-size:26px;margin:0 0 4px}
  * }
  * ============================================================
  */
+const SECTOR_REVIEWS = [
+  {
+    title: "零售券商",
+    quarter: "2026 Q2",
+    updated: "2026-08-21",
+    tickers: ["FUTU","BULL"],
+    watch: ["HOOD","SOFI","TIGR"],
+    verdict: "两家都在赚市场活跃度的钱，不是赚用户黏性的钱。",
+    points: [
+      "同一周加速，来源却完全不同：Webull 靠 PDT 规则取消这一外生监管解锁，富途靠交易量与杠杆同时放大（成交量+78.8%、两融余额+85.1%）。两样都是市场活跃度的函数。",
+      "规模差距必须先摆正再比增速：富途季度收入9.18亿美元、客户资产约1,785亿美元；Webull 1.99亿美元、285亿美元。收入差约4.6倍、资产差约6.3倍，所以Webull的+51%和富途的+35.6%不能直接比。",
+      "盈利能力是另一个数量级：富途净利率50.6%，Webull调整后经营利润率31.3%。券商的经营杠杆双向放大，收入上行期利润率必然扩张，真正的考验是收入回落时能守住多少。",
+      "富途的隐忧在量价背离与利润结构：交易量+78.8%但佣金收入只+30.3%，费率在降；利息收入31.24亿港元已几乎追平佣金33.61亿港元，近一半利润依赖客户加杠杆的意愿。销售费用+53.1%也快于收入。",
+      "8月20日的验证：BULL高开+15%收成+2.43%，FUTU高开+7.5%收成+3.03%，HOOD、SOFI同步高开低走。当日大盘低开、小盘IWM-1.34%——活跃度是Beta，财报再好也扛不住盘面转弱。"
+    ]
+  },
+  {
+    title: "AI 光通讯与算力",
+    quarter: "2026 Q2 / FY26",
+    updated: "2026-08-21",
+    tickers: ["LITE","COHR","FN","CRWV","NBIS"],
+    watch: ["AAOI","MRVL","CRDO","GLW","CIEN"],
+    verdict: "需求端已被同晚交叉验证，分歧全部转移到现金与估值。",
+    points: [
+      "供给端确认定价权：LITE 收入+109%、非GAAP毛利率一次突破50%，下季再指引环比+22%至+26%。紧缺已经从能多卖变成能卖更贵。",
+      "需求端同步加速：CRWV积压订单1,040亿美元、+246%，合同电力从3.7扩到4.2吉瓦；NBIS收入+454%、调整后EBITDA利润率40.6%，年底ARR目标70至90亿美元。",
+      "但毛利扩张没有穿透到现金：COHR 全年自由现金流-10.23亿美元、库存同比+79.5%而收入仅+22.5%；CRWV账上350亿美元债务、经营利润率仅5%；NBIS单季资本开支接近收入的10倍。",
+      "分层结论：卡在物理瓶颈的一端在提价（LITE），垂直整合扩产的一端在垫钱（COHR），做系统集成的一端在让价（CSCO下季非GAAP毛利率只指引65%至66%）。",
+      "需求端的强度没有被推翻，被推翻的是需求强就等于股东回报好这个默认假设。下一个裁决点是COHR与FN的经营现金流能否转正。"
+    ]
+  },
+  {
+    title: "半导体设备与模拟",
+    quarter: "2026 Q2 / FY26 Q3",
+    updated: "2026-08-21",
+    tickers: ["AMAT","ADI","ONTO","VECO"],
+    watch: ["ASML","TSM","TER","SNDK","WDC"],
+    verdict: "数字全面创纪录的一层，但市场开始区分结构性稀缺与周期性提价。",
+    points: [
+      "AMAT 收入、EPS、毛利率、营业利润率、经营现金流五项创纪录，下季再指引同比+51%，盘后仍跌逾5%——被卖的是价格不是基本面，股价年内涨幅接近100%。",
+      "ADI 更罕见：一家增速40%的公司把调整后营业利润率做到50.0%，下季指引约52%，且TTM自由现金流相当于收入的36%。它的毛利扩张同时出现在现金流量表上。",
+      "但ADI的加速高度集中：通信+84%、工业+53%贡献几乎全部增量，汽车只有+16%、消费+6%。所谓广泛需求里，真正在加速的是与AI数据中心相关的两块。",
+      "同一层内部结论分裂：ASML、TSM、ONTO被按结构性瓶颈定价并获得共振，SNDK、WDC、VECO数字很硬却被判市场存疑——市场对前者问能力还能稀缺多久，对后者问价格还能维持多久。",
+      "封装与测试是这层里最直接的验证口：TER 收入+104%、AI相关收入占比超60%、book-to-bill高于2；但其Q3指引转为环比下滑，爆发式增长阶段可能已经结束。"
+    ]
+  },
+  {
+    title: "消费与零售",
+    quarter: "2026 Q2 / FY27 Q2",
+    updated: "2026-08-21",
+    tickers: ["WMT"],
+    watch: ["COST","TGT","KR","CVS","TPR"],
+    verdict: "本季最重要的一课：同店口径正在被政策性药价通缩扭曲。",
+    points: [
+      "沃尔玛是beat-and-raise却单日跌约9%：收入超预期、全年指引上调、广告+38%、会员费+17%、电商+24%，但美国同店只增2.6%，远低于约3.8%的预期，是六年来最慢。",
+      "关键在于那2.6%的构成。公司只写了含健康与保健业务80个基点的拖累，没有说明原因——而原因是处方药价格的政策性通缩，剔除后同店约3.4%至3.5%。",
+      "机制是两股政策叠加：IRA下Medicare药价谈判的maximum fair price条款（公司提到约900个基点影响），以及MFN与TrumpRx框架。公司点名GLP-1：处方量继续增长，但被价格与组合逆风完全抵消。",
+      "所以1.2个百分点的预期缺口里，约三分之二来自政策而非消费者。CFO称药价谈判影响超出预期且很可能延续到明年——这是股价与业绩脱钩的真正原因。",
+      "传导含义：不应据此直接下调整个消费板块，而应把药房收入占比高的零售商单独归为一类，看剔除处方药后的可比口径。CVS、KR、COST 的同店都会被同一股通缩扭曲。"
+    ]
+  }
+];
+
 const NARRATIVES = [
   {
     rank: 1,
@@ -567,6 +652,128 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-08-20",
+  ticker: "FUTU",
+  company: "富途控股",
+  sector: "financials",
+  score: 71,
+  rec: "resonance",
+  dims: {quality: 34, marketread: 20, fundamentals: 17},
+  compare: {revenueGrowth:35.6},
+  business: {
+    plain: "富途是把股票交易搬进手机的券商，以港澳与东南亚华人用户起家，moomoo 是它的国际品牌。用户开户、入金，然后买卖美股港股与期权。它卖的不是投资建议，是交易通道本身。",
+    howMakesMoney: "三条腿：交易佣金按笔收；利息收入来自客户闲置现金生息与借钱给客户加杠杆买股票（两融）的利差；其他收入包括汇兑、IPO打新融资与财富管理分销。本季佣金33.61亿港元、利息31.24亿港元——利息已经几乎追平佣金，意味着近一半利润来自融资利差而不是交易本身。",
+    moat: "壁垒是牌照、清算能力与客户资产的迁移成本，把大额持仓搬到另一家券商很麻烦。但佣金正在长期商品化，护城河更多体现在产品体验与获客效率，而不是定价权。券商的隐藏特点是经营杠杆极高：收入涨时成本几乎不动，利润率会跳升，反过来也一样。",
+    whatChanged: "本季收入与利润同时加速，净利率升到50.6%。但要看清加速的来源：交易量同比+78.8%、两融余额同比+85.1%，也就是量与杠杆一起放大。这两样都是市场活跃度的函数，不是用户黏性。管理层自己说，美股交易的加速来自客户对半导体与AI产业链标的的高度兴趣——它是AI行情的下游变现。"
+  },
+  decision: {
+    stance: "赚的是市场活跃度的钱，不是用户黏性的钱；财报很好，但下季裁决点在活跃度能否延续，不在这一季的数字",
+    summary: "收入72.00亿港元（9.18亿美元）、同比+35.6%，净利36.42亿港元、同比+41.6%，净利率50.6%。客户资产1.40万亿港元、+43.6%，入金账户384.3万、+33.6%。核心矛盾是量价背离：交易量+78.8%但佣金收入只+30.3%，费率在降，增长靠量堆；同时销售费用+53.1%明显快于收入+35.6%，获客成本在上升。",
+    playbook: [
+      {if:"下季交易量环比回落但佣金收入基本持平", then:"确认货币化在改善而非纯靠量堆", why:"本季交易量+78.8%对佣金+30.3%，费率明显在降；量价背离持续下去，增长的含金量会越来越低。"},
+      {if:"两融余额继续两位数环比增长，且在市场回调期间未出现明显坏账或强平损失", then:"提高对利息收入质量的判断", why:"两融余额同比+85.1%既是当期利润来源，也是回调时的风险敞口，必须用一次真实回调验证。"},
+      {if:"入金账户净增维持在25万以上，且客户资产增速继续快于收入增速", then:"维持增长质量判断", why:"客户资产增速快于收入，说明新增用户带得来钱；反过来则说明在买量。"},
+      {if:"销售费用增速连续两季快于收入，或佣金收入同比增速跌破20%", then:"减仓或回避", why:"前者说明增长靠买量，后者说明费率下行已经吃掉了成交量带来的全部好处。"}
+    ],
+    triggers: ["下季交易量与佣金收入的量价背离是否收敛", "两融余额与回调期的坏账表现", "销售费用增速与收入增速之差", "入金账户净增与客户资产净流入", "美股成交活跃度与AI板块交易热度", "香港与中国的监管环境变化"],
+    invalidation: ["佣金收入同比增速跌破20%", "两融余额环比大幅收缩", "销售费用增速连续两季快于收入", "客户资产增速低于收入增速", "入金账户净增明显低于25万"],
+    timing: "口径日 2026-08-20：财报于美东开盘前发布。8/19收109.42美元（+0.77%）；8/20高开117.65美元（+7.5%）、盘中最高117.81，随后回落至最低107.268（一度低于前收），收112.73美元、+3.03%。当日大盘低开低走、IWM小盘-1.34%，高开缺口在弱势盘面里被大幅回吞——同业Webull当日从+15%高开收成+2.43%，形态一致。",
+    risk: "券商的经营杠杆是双向的：成交量萎缩时，同样的杠杆会把利润率打回去。近一半利润来自利息（利息收入31.24亿港元对佣金33.61亿港元），而两融余额同比+85.1%意味着这部分利润高度依赖客户加杠杆的意愿，回调时余额收缩与潜在坏账会同时发生。表面上本季低于市场共识，据第三方报道差异来自分析师模型中的货币与单位换算错配而非经营层面，本站未独立复核模型细节。本次未取得分地区收入与客户结构明细。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"72.00亿港元（9.18亿美元）", sub:"+35.6% YoY；去年同期53.11亿港元", tone:"beat", pct:82},
+    {label:"净利润", value:"36.42亿港元（4.64亿美元）", sub:"+41.6% YoY；净利率50.6%，去年48.4%。非GAAP净利37.25亿港元、+40.1%", tone:"beat", pct:90},
+    {label:"收入结构", value:"佣金33.61／利息31.24亿港元", sub:"佣金+30.3%、利息+36.5%、其他7.16亿+61.2%（汇兑与IPO融资）。利息已几乎追平佣金", tone:"flat", pct:58},
+    {label:"⚠️ 量价背离", value:"交易量+78.8% vs 佣金+30.3%", sub:"每笔交易赚得更少，增长靠量堆——本季最需要盯住的一条，费率下行会侵蚀成交量带来的好处", tone:"down", pct:40},
+    {label:"交易量", value:"6.42万亿港元", sub:"+78.8% YoY、环比+54.6%；美股5.02万亿（环比+67.2%）、港股1.17万亿（环比+15.9%）", tone:"beat", pct:95},
+    {label:"两融余额", value:"951亿港元", sub:"+85.1% YoY、环比+30.5%——增速最猛的一项，是利润来源也是回调时的风险敞口", tone:"up", pct:68},
+    {label:"客户资产", value:"1.40万亿港元", sub:"+43.6% YoY、环比+14.5%；日均客户资产1.39万亿、+55.6%", tone:"beat", pct:88},
+    {label:"入金账户", value:"384.3万户", sub:"+33.6% YoY，季内净增25.2万；开户663.0万（+26.6%）、注册用户3,130万（+15.2%）", tone:"up", pct:80},
+    {label:"获客成本", value:"销售费用+53.1%", sub:"明显快于收入+35.6%；研发仅+13.4%、管理+39.6%。总运营费用17.51亿港元、+35.1%", tone:"down", pct:44},
+    {label:"股东回报", value:"回购380万ADS／4.18亿美元", sub:"截至6月30日累计；财富管理客户资产1,802亿港元、+10.4%；IPO分销客户累计683家、+32.1%", tone:"up", pct:70},
+    {label:"股价反应", value:"当日+3.03%（高开+7.5%）", sub:"口径日8/20：8/19收109.42，8/20高开117.65、最高117.81、最低107.268（一度低于前收）、收112.73。高开缺口在当日弱势盘面里被大幅回吞", tone:"up", pct:60}
+  ],
+  management_highlights: [
+    "管理层称美股交易的加速来自客户对半导体与其他 AI 产业链标的的高度兴趣——这意味着富途的业绩是本站 AI 主线的下游变现，属于二阶 Beta，而非独立的金融股。",
+    "马来西亚连续第三个季度领跑新增入金账户；香港与新加坡的货币化指标改善，管理层将其描述为成熟市场的质量提升。",
+    "交易量同比+78.8%创纪录，其中美股环比+67.2%远快于港股的+15.9%，说明本季增量几乎全部来自美股。",
+    "两融余额951亿港元、同比+85.1%、环比+30.5%，是各项指标中增速最快的一项。",
+    "截至6月30日已回购约380万份ADS、金额4.18亿美元。本次记录未取得分地区收入与客户结构明细。"
+  ],
+  narrative: {
+    summary: "富途本季把收入、利润率、客户资产三条线一起做上去了，净利率升到50.6%。但加速的来源是交易量与杠杆——量+78.8%、两融+85.1%，这两样都是市场活跃度的函数，不是用户黏性。它更像AI行情的二阶Beta，而不是独立的金融股。",
+    consensus: "多头证据是收入+35.6%、净利+41.6%、净利率升至50.6%、客户资产1.40万亿港元+43.6%、日均客户资产+55.6%、交易量+78.8%创纪录、入金账户384.3万+33.6%且季内净增25.2万。券商的高经营杠杆把收入增长放大成了利润增长，公司同时在持续回购。",
+    divergence: "反叙事三条：一是量价背离，交易量+78.8%但佣金只+30.3%，费率在降；二是利润结构，利息收入31.24亿港元几乎追平佣金33.61亿港元，而两融余额+85.1%意味着近一半利润依赖客户加杠杆的意愿，回调时余额收缩与坏账会同时来；三是获客成本，销售费用+53.1%明显快于收入+35.6%。此外表面低于共识（据报道为分析师模型换算错配），本站未独立复核。",
+    signals: ["下季佣金收入与交易量的量价背离是否收敛", "两融余额与回调期坏账表现", "销售费用增速与收入增速之差", "入金账户净增与客户资产净流入", "美股成交活跃度", "同业Webull的相对表现"]
+  },
+  sources: [
+    {type:"公司公告", label:"Futu Q2 2026 未经审计业绩", url:"https://www.manilatimes.net/2026/08/20/tmt-newswire/globenewswire/futu-announces-second-quarter-2026-unaudited-financial-results/2408990"},
+    {type:"公司IR", label:"Futu Holdings 季度业绩", url:"https://ir.futuholdings.com/financials/quarterly-results"},
+    {type:"财报解读", label:"RTTNews：净利+41.6%、收入+35.6%", url:"https://www.rttnews.com/3682460/futu-q2-profit-jumps-41-6-revenue-up-35-6-shares-rise-in-pre-market.aspx"},
+    {type:"财报解读", label:"24/7：创纪录交易量与误导性 miss", url:"https://247wallst.com/cards/futu-holdings-ltd-q2-2026-earnings-futu-01m0faag40ssb3s3fsxw704s3y"}
+  ]
+},
+{
+  type: "earnings",
+  date: "2026-08-19",
+  ticker: "BULL",
+  company: "Webull",
+  sector: "financials",
+  score: 62,
+  rec: "resonance",
+  dims: {quality: 30, marketread: 18, fundamentals: 14},
+  compare: {revenueGrowth:51},
+  business: {
+    plain: "Webull 是面向美国零售客户的手机券商，用户开户、入金，买卖股票与期权。和富途一样，它卖的是交易通道，不是投资建议——界面做得像交易终端，主打图表、盘前盘后与期权工具，用户结构比传统券商更偏活跃交易者。",
+    howMakesMoney: "交易相关收入（含订单流与期权）、利息收入（客户现金与融资），以及增值服务。用户越活跃、交易越频繁，收入越高——这意味着它的收入直接挂钩市场情绪，而不是客户资产的自然增值。",
+    moat: "壁垒偏弱：牌照与清算能力是门槛，但零售券商的佣金正在长期商品化，用户在多家券商同时开户的成本很低。真正的竞争力在产品体验与获客效率，这也是它的费用结构最需要被盯住的原因。",
+    whatChanged: "本季收入与利润率同时跳升——收入+51%、调整后经营利润+169%、利润率升到31.3%，客户资产+79%。但要看清驱动因素：公司口径把加速归因于 Pattern Day Trader 规则取消带来的交易活跃度提升。这是一次外生的监管解锁，不是内生的用户增长，明年同期会遇到高基数。"
+  },
+  decision: {
+    stance: "利润率跳升是券商经营杠杆的正常表现，但收入加速来自一次性监管解锁；下季能否在高基数上继续走高才是关键",
+    summary: "收入1.988亿美元、同比+51%，高于约1.873亿美元共识；调整后经营利润6,260万美元、同比+169%，调整后经营利润率31.3%；每股收益0.07美元，高于约0.03美元预期；客户资产285亿美元、+79%。核心矛盾是驱动因素的性质：PDT规则取消属于外生一次性事件，它带来的活跃度是否会沉淀成用户行为改变，要用下一两个季度回答。",
+    playbook: [
+      {if:"下季在PDT效应形成的高基数上，收入仍能环比增长", then:"认为规则解锁已转化为持续活跃，可按成长股观察", why:"只有在高基数上继续走高，才能证明它带来的是用户行为改变而不是一次脉冲。"},
+      {if:"客户资产净流入维持高位，且人均交易频次不随行情降温而大幅回落", then:"提高持续性评分", why:"资产净流入是黏性的直接证据，交易频次则区分了真实活跃与行情驱动。"},
+      {if:"调整后经营利润率维持在30%以上，且费用增速慢于收入", then:"确认经营杠杆是结构性的", why:"券商在收入上行期利润率必然扩张，关键是收入回落时它能守住多少。"},
+      {if:"下季收入环比转负、或利润率回落到25%以下", then:"回避", why:"券商的经营杠杆是双向的，成交量萎缩时同样的杠杆会把利润率打回去。"}
+    ],
+    triggers: ["下季收入能否在PDT高基数上环比增长", "客户资产净流入", "人均交易频次", "调整后经营利润率能否守住30%", "费用增速与收入增速之差", "美股零售成交活跃度"],
+    invalidation: ["下季收入环比转负", "调整后经营利润率回落到25%以下", "客户资产净流入明显放缓", "费用增速连续两季快于收入", "PDT带来的活跃度在高基数上无法延续"],
+    timing: "口径日 2026-08-19：财报盘后发布。当日正式盘收8.64美元（+8.95%），盘后一度报9.85美元、高点9.993。次日8/20高开9.94美元（+15.0%）、最高9.95，随后一路走低至8.82，收8.85美元、仅+2.43%——高开缺口被完全回吞，实体自开盘价跌约10.9%。当日大盘低开低走、小盘IWM-1.34%，这根阴线是弱势盘面吞掉高开缺口，不是财报本身出问题。",
+    risk: "最大的问号是驱动因素的持续性：PDT规则取消是外生一次性事件，明年同期将面对高基数。券商的经营杠杆双向放大，成交量萎缩时利润率会同样快速回落。客户资产285亿美元的绝对规模仍远小于同业富途的约1,785亿美元，抗周期能力更弱。本次记录未取得收入分项拆分、活跃用户数与人均资产明细，收入质量的判断因此不完整。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"1.988亿美元", sub:"+51% YoY；高于约1.873亿美元共识约6%", tone:"beat", pct:88},
+    {label:"调整后经营利润", value:"6,260万美元", sub:"+169% YoY；调整后经营利润率31.3%——券商经营杠杆的典型表现", tone:"beat", pct:92},
+    {label:"每股收益", value:"0.07美元", sub:"高于约0.03美元预期一倍以上", tone:"beat", pct:85},
+    {label:"客户资产", value:"285亿美元", sub:"+79% YoY；但绝对规模仍远小于同业富途的约1,785亿美元", tone:"up", pct:78},
+    {label:"⚠️ 驱动因素", value:"PDT规则取消", sub:"公司把收入加速归因于 Pattern Day Trader 规则取消带来的交易活跃度提升——外生的一次性监管解锁，不是内生用户增长，明年同期面对高基数", tone:"flat", pct:45},
+    {label:"股价反应", value:"当日+8.95%，次日吞掉高开", sub:"口径日8/19：正式盘收8.64（+8.95%），盘后9.85、高9.993。次日8/20高开9.94（+15.0%）、最高9.95，收8.85（+2.43%）——自开盘价跌约10.9%，缺口被完全回吞", tone:"down", pct:72}
+  ],
+  management_highlights: [
+    "公司将本季的收入与利润率跳升归因于 Pattern Day Trader 规则取消带来的交易活跃度提升，以及期权与股票成交量的增长。",
+    "客户资产同比增长79%至285亿美元，期权与股票交易量均有显著提升。",
+    "调整后经营利润6,260万美元、同比+169%，调整后经营利润率达到31.3%，是券商高经营杠杆的直接体现。",
+    "收入1.988亿美元与每股收益0.07美元均高于市场预期（分别约1.873亿美元与0.03美元）。",
+    "本次记录未取得收入分项拆分、活跃用户数与人均资产明细，需待后续文件补充核对。"
+  ],
+  narrative: {
+    summary: "Webull 本季交出收入+51%、调整后经营利润率31.3%的成绩，但加速来自 PDT 规则取消这一外生事件。它和同业富途放在一起看才清楚：两家在同一周加速，来源却不同——一个靠监管解锁，一个靠交易量与杠杆，两者都不是用户黏性。",
+    consensus: "多头证据是四项同时超预期：收入+51%高于共识、调整后经营利润+169%、利润率31.3%、每股收益0.07美元远超0.03美元预期，客户资产+79%。规则解锁打开了此前被限制的日内交易需求，券商的高经营杠杆把它直接放大成了利润。",
+    divergence: "反叙事集中在可持续性：PDT规则取消是一次性外生事件，明年同期面对高基数；收入直接挂钩市场情绪而非客户资产的自然增值；客户资产285亿美元的规模远小于富途，抗周期能力更弱。8/20高开15%后收成+2.43%，说明市场对这份财报的定价在一天之内就完成了往返。",
+    signals: ["下季收入能否在PDT高基数上环比增长", "客户资产净流入", "人均交易频次", "调整后经营利润率能否守住30%", "费用增速与收入增速之差", "与富途在同一板块内的相对表现"]
+  },
+  sources: [
+    {type:"业绩会", label:"Webull Q2 2026 业绩会文字稿", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-webull-tops-q2-2026-estimates-as-trading-surge-lifts-shares-93CH-4868393"},
+    {type:"公司演示", label:"Webull Q2 2026 财报幻灯片", url:"https://uk.investing.com/news/company-news/webull-q2-2026-slides-record-profit-as-trading-surge-lifts-margins-93CH-4839952"},
+    {type:"业绩会摘要", label:"MarketBeat：Webull Q2 业绩会要点", url:"https://marketbeat.com/instant-alerts/webull-q2-earnings-call-highlights-2026-08-19/"},
+    {type:"财报解读", label:"Quiver：Webull 发布 Q2 业绩、股价上涨", url:"https://www.quiverquant.com/news/WEBULL+%28%24BULL%29+Releases+Q2+2026+Earnings%2C+Stock+Rises"}
+  ]
+},
+
+{
+  type: "earnings",
+  date: "2026-08-20",
   ticker: "WMT",
   company: "Walmart",
   sector: "consumer",
@@ -596,7 +803,7 @@ const RECORDS = [
   },
   metrics: [
     {label:"Q2收入", value:"1,879亿美元", sub:"+5.9%（固定汇率+5.1%）；去年同期1,774亿美元，高于市场预期", tone:"beat", pct:72},
-    {label:"美国同店销售", value:"+2.6%", sub:"剔除燃油；市场预期约+3.7%至+3.8%（LSEG口径3.8%）——六年来最慢的一个季度，含健康与保健业务80个基点的拖累", tone:"down", pct:22},
+    {label:"🔑 美国同店销售", value:"+2.6%", sub:"剔除燃油；市场预期约+3.7%至+3.8%（LSEG口径3.8%）——六年来最慢的一个季度。🔑 财报只写了「含健康与保健业务80个基点的拖累」却没说原因，而原因正是股价与业绩脱钩的关键：处方药政策性通缩，剔除后同店约3.4%至3.5%。详见下方Vic观点", tone:"down", pct:22},
     {label:"山姆会员店同店", value:"+4.4%", sub:"剔除燃油；明显好于沃尔玛美国本部", tone:"up", pct:68},
     {label:"电商", value:"全球+23%／美国+24%", sub:"山姆美国+26%、国际+19%；增长来自门店发货配送、广告与第三方市场", tone:"beat", pct:85},
     {label:"广告业务", value:"全球+38%", sub:"美国Walmart Connect（剔除VIZIO）+43%——高毛利业务，是利润结构改善的核心", tone:"beat", pct:90},
@@ -694,66 +901,6 @@ const RECORDS = [
   ]
 },
 
-{
-  type: "event",
-  date: "2026-08-20",
-  ticker: "BULL·FUTU",
-  company: "零售券商同业对拍：Webull 与富途",
-  sector: "financials",
-  business: {
-    plain: "两家都是把股票交易搬进手机的零售券商：用户开户、入金，然后买卖美股港股与期权。Webull 主要面向美国零售客户，富途以港澳与东南亚华人用户起家、moomoo 是它的国际品牌。它们卖的不是投资建议，是交易通道本身。",
-    howMakesMoney: "三条腿：一是交易佣金与手续费，按笔收；二是利息——把客户闲置现金拿去生息，以及借钱给客户加杠杆买股票（两融）赚利差；三是其他，例如汇兑、IPO 打新融资、财富管理分销。券商的隐藏特点是经营杠杆极高：收入涨的时候成本几乎不动，所以利润率会跳升，反过来也一样。",
-    moat: "壁垒主要是牌照、清算能力和用户资产的迁移成本——把几十万美元的持仓搬到另一家券商很麻烦。但佣金本身正在长期商品化，两家的护城河更多体现在产品体验与获客效率上，而不是定价权。",
-    whatChanged: "两家在同一周交出加速的季报，但加速的来源完全不同：Webull 靠一次性的监管解锁（PDT 规则取消），富途靠交易量与杠杆同时放大（交易量同比+78.8%、两融余额同比+85.1%）。把它们放在一起看才会发现——这两样都不是黏性用户增长，都是市场活跃度的函数。"
-  },
-  decision: {
-    stance: "两家都在赚市场活跃度的钱，不是赚用户黏性的钱；下一季的裁决点不是增速，是这轮活跃度能否延续",
-    summary: "富途Q2收入9.18亿美元、同比+35.6%，净利率50.6%；Webull收入1.99亿美元、同比+51%，调整后经营利润率31.3%。规模差约4.6倍（收入）与6.3倍（客户资产），所以不能直接比51%和35.6%。真正的对拍口径是三件套：加速来源是否可持续、增量收入转化成利润的比例、以及增长要用多少获客成本换。",
-    playbook: [
-      {if:"Webull下季在PDT效应的高基数上仍维持收入环比增长", then:"认为规则解锁已转化为持续活跃，可按成长股观察", why:"PDT取消是一次性事件；只有在高基数上继续走高，才能证明它带来的是用户行为改变而不是一次脉冲。"},
-      {if:"富途下季交易量环比回落但佣金收入基本持平", then:"确认货币化在改善而非纯靠量堆", why:"本季交易量+78.8%但佣金收入只+30.3%，费率明显在降；量价背离持续下去，增长的含金量会越来越低。"},
-      {if:"两融余额继续两位数环比增长，且在市场回调期间未出现明显坏账或强平损失", then:"提高对富途利息收入质量的判断", why:"两融余额同比+85.1%既是当期利润来源，也是回调时的风险敞口，必须用一次真实回调来验证。"},
-      {if:"任一家的销售费用增速持续快于收入，或客户资产增速掉到收入增速以下", then:"回避", why:"前者说明增长在靠买量，后者说明新增用户带不来资产——两者都会让当前的高利润率难以维持。"}
-    ],
-    triggers: ["Webull下季收入能否在PDT高基数上环比增长", "富途交易量与佣金收入的量价背离是否收敛", "富途两融余额与回调期的坏账表现", "两家的销售费用增速与收入增速之差", "客户资产净流入", "美股整体成交活跃度"],
-    invalidation: ["Webull下季收入环比转负", "富途佣金收入同比增速跌破20%", "两融余额环比大幅收缩", "销售费用增速连续两季快于收入", "客户资产增速低于收入增速"],
-    timing: "口径日 2026-08-20：Webull于8/19盘后发布，当日正式盘收8.64美元（+8.95%），盘后9.85美元；8/20盘前报9.783美元、较8/19收盘约+13.2%，盘前高点10.24。富途于8/20盘前发布，8/19收109.42美元（+0.77%），8/20盘前报119.523美元、约+9.23%，盘前高点122.452。同业老虎证券8/19收4.84美元、8/20盘前5.14美元（约+6.2%），本记录未取其财报。两家的首日正式反应均不在本记录内。",
-    risk: "券商的经营杠杆是双向的：收入涨的时候利润率跳升，成交量一旦萎缩，同样的杠杆会把利润率打回去。富途近一半利润来自利息（利息收入HK$31.24亿对佣金收入HK$33.61亿），而两融余额同比+85.1%意味着这部分利润高度依赖客户加杠杆的意愿；市场回调时余额收缩与潜在坏账会同时发生。Webull的加速来自PDT规则取消这一外生事件，高基数效应会在明年同期出现。两家的佣金率都在长期下行。本记录未取得老虎证券财报，同业对照只覆盖两家。"
-  },
-  metrics: [
-    {label:"季度收入", value:"富途9.18亿／Webull 1.99亿美元", sub:"富途+35.6%、Webull+51%；规模差约4.6倍——增速不能直接比，这是基数问题", tone:"up", pct:75},
-    {label:"盈利能力", value:"富途净利率50.6%", sub:"Webull调整后经营利润率31.3%（+169% YoY）；口径不同但差距明显。富途净利HK$36.42亿、+41.6%", tone:"beat", pct:88},
-    {label:"客户资产", value:"富途约1,785亿／Webull 285亿美元", sub:"富途HK$1.40万亿、+43.6%（环比+14.5%）；Webull +79%。规模差约6.3倍", tone:"up", pct:80},
-    {label:"富途交易量", value:"HK$6.42万亿", sub:"同比+78.8%、环比+54.6%；其中美股HK$5.02万亿、环比+67.2%，港股HK$1.17万亿、环比+15.9%", tone:"beat", pct:95},
-    {label:"富途两融余额", value:"HK$951亿", sub:"同比+85.1%、环比+30.5%——增速最猛的一项，是利润来源也是回调时的风险敞口", tone:"up", pct:70},
-    {label:"量价背离", value:"交易量+78.8% vs 佣金+30.3%", sub:"富途每笔交易赚得更少，增长靠量堆；佣金收入HK$33.61亿", tone:"down", pct:45},
-    {label:"富途收入结构", value:"佣金33.61／利息31.24亿港元", sub:"其他收入HK$7.16亿、+61.2%（汇兑与IPO融资）。利息已几乎追平佣金，近一半利润来自融资利差", tone:"flat", pct:55},
-    {label:"获客成本", value:"销售费用+53.1%", sub:"明显快于收入+35.6%；研发仅+13.4%、管理+39.6%。增长要用多少代价换，是这条的核心判据", tone:"down", pct:42},
-    {label:"富途账户", value:"入金账户384.3万", sub:"+33.6%，季内净增25.2万；开户663.0万（+26.6%）、注册用户3,130万（+15.2%）", tone:"up", pct:78},
-    {label:"Webull驱动因素", value:"PDT规则取消", sub:"公司口径称为收入加速主因；EPS 0.07美元、高于约0.03美元预期，收入1.988亿超约1.873亿共识", tone:"beat", pct:82},
-    {label:"股价反应", value:"盘前 Webull+13.2%／富途+9.23%", sub:"口径日8/20：Webull 8/19收8.64（+8.95%）、盘后9.85，8/20盘前9.783、高10.24；富途8/19收109.42，8/20盘前119.523、高122.452。同业TIGR盘前约+6.2%。首日正式反应不在本记录内", tone:"beat", pct:90}
-  ],
-  management_highlights: [
-    "富途管理层称美股交易的加速来自“客户对半导体与其他 AI 产业链标的的高度兴趣”——这意味着它的业绩是本站 AI 主线的下游变现，属于二阶 Beta，而不是独立的金融股。",
-    "富途称马来西亚连续第三个季度领跑新增入金账户，香港与新加坡的货币化指标改善，管理层将其描述为成熟市场的“质量提升”。",
-    "富途截至6月30日已回购约380万份ADS、金额4.18亿美元。",
-    "Webull 将本季的收入与利润率跳升归因于 Pattern Day Trader 规则取消带来的交易活跃度提升，客户资产同比+79%至285亿美元。",
-    "富途表面上低于市场共识，但据第三方报道，差异来自分析师模型中的货币与单位换算错配而非经营层面；本站未独立复核模型细节，仅作媒体口径记录。分析师共识目标价同期从162.88美元上调至182.62美元。"
-  ],
-  narrative: {
-    summary: "把这两家放在同一张卡里，最有价值的发现不是谁更快，而是它们的加速来自完全不同的原因：Webull 靠一次性的监管解锁，富途靠交易量与杠杆同时放大。两者都不是黏性用户增长，都是市场活跃度的函数——所以下一季要裁决的不是增速，而是这轮活跃度能否延续。",
-    consensus: "多头证据在两边都成立：富途收入+35.6%、净利+41.6%、净利率升至50.6%、客户资产HK$1.40万亿+43.6%、交易量+78.8%创纪录、入金账户384.3万+33.6%；Webull收入+51%超共识、调整后经营利润+169%、利润率31.3%、客户资产+79%、EPS 0.07美元远超0.03美元预期。券商的高经营杠杆让收入增长被放大成利润增长。",
-    divergence: "反叙事有三条。一是量价背离：富途交易量+78.8%但佣金收入只+30.3%，费率在降，增长靠量堆。二是利润结构：利息收入HK$31.24亿几乎追平佣金HK$33.61亿，而两融余额同比+85.1%，意味着近一半利润依赖客户加杠杆的意愿，回调时余额收缩与坏账会同时来。三是获客成本：富途销售费用+53.1%明显快于收入+35.6%。Webull 这边最大的问号则是 PDT 规则取消属于外生一次性事件，明年同期会遇到高基数。",
-    signals: ["Webull下季能否在PDT高基数上环比增长", "富途佣金收入与交易量的量价背离是否收敛", "两融余额与回调期的坏账表现", "两家销售费用增速与收入增速之差", "客户资产净流入", "美股成交活跃度与AI板块交易热度"]
-  },
-  sources: [
-    {type:"公司公告", label:"Futu Q2 2026 未经审计业绩", url:"https://www.manilatimes.net/2026/08/20/tmt-newswire/globenewswire/futu-announces-second-quarter-2026-unaudited-financial-results/2408990"},
-    {type:"公司IR", label:"Futu Holdings 季度业绩", url:"https://ir.futuholdings.com/financials/quarterly-results"},
-    {type:"财报解读", label:"RTTNews：富途净利+41.6%、收入+35.6%", url:"https://www.rttnews.com/3682460/futu-q2-profit-jumps-41-6-revenue-up-35-6-shares-rise-in-pre-market.aspx"},
-    {type:"业绩会", label:"Webull Q2 2026 业绩会文字稿", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-webull-tops-q2-2026-estimates-as-trading-surge-lifts-shares-93CH-4868393"},
-    {type:"公司演示", label:"Webull Q2 2026 财报幻灯片", url:"https://uk.investing.com/news/company-news/webull-q2-2026-slides-record-profit-as-trading-surge-lifts-margins-93CH-4839952"}
-  ]
-},
 {
   type: "earnings",
   date: "2026-08-19",
@@ -9076,6 +9223,34 @@ function layersHtml(layers){
   '</div>';
 }
 
+function renderSectors(){
+  const list = document.getElementById("sectors-list");
+  if(!list) return;
+  if(!(typeof SECTOR_REVIEWS !== "undefined" && SECTOR_REVIEWS.length)){
+    list.innerHTML = '<div class="panel"><div class="empty"><b>还没有板块小结</b>同一板块累积两家以上记录后，会在这里汇总本季共同结论。</div></div>';
+    return;
+  }
+  const byTicker = {};
+  RECORDS.forEach(r=>{ if(!byTicker[r.ticker] || String(r.date) > String(byTicker[r.ticker].date)) byTicker[r.ticker] = r; });
+  list.innerHTML = SECTOR_REVIEWS.map(sec=>{
+    const chips = (sec.tickers||[]).map(t=>{
+      const r = byTicker[t];
+      if(!r) return '<span class="sector-chip watch"><b>'+esc(t)+'</b>未建记录</span>';
+      const meta = REC_META[recKey(r)] || REC_META.doubt;
+      const score = r.score!=null ? '<span class="chip-score">'+esc(r.score)+'</span>' : "";
+      return '<span class="sector-chip"><b>'+esc(t)+'</b>'+score+'<span>'+esc(meta.label)+'</span></span>';
+    }).join("");
+    const watch = (sec.watch||[]).map(t=>'<span class="sector-chip watch"><b>'+esc(t)+'</b>观察'+(byTicker[t]?"":"·未建记录")+'</span>').join("");
+    const points = (sec.points||[]).map(x=>'<p class="narr-para">'+esc(x)+'</p>').join("");
+    return '<article class="sector-card">'+
+      '<h3>'+esc(sec.title)+'</h3>'+
+      '<p class="sector-meta">'+esc(sec.quarter||"")+'　更新：'+esc(sec.updated||"")+'</p>'+
+      '<div class="sector-members">'+chips+watch+'</div>'+
+      (sec.verdict? '<div class="sector-verdict"><b>本季结论：</b>'+esc(sec.verdict)+'</div>' : "")+
+      '<p class="narr-lead">本季小结</p>'+points+
+    '</article>';
+  }).join("");
+}
 function renderNarratives(){
   const list = document.getElementById("narratives-list");
   if(!NARRATIVES.length){
@@ -9247,6 +9422,9 @@ function render(){
 }
 
 renderNarratives();
+
+renderSectors();
+
 renderMergers();
 render();
 }());
