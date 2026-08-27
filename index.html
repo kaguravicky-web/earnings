@@ -653,13 +653,14 @@ const NARRATIVES = [
     strength: "9/10",
     horizon: "当前至未来数季",
     direction: "分化加剧",
-    tickers: ["PLTR","DDOG","SHOP","APP","ZETA","U","TEAM","HUBS","TWLO","META","GOOG","CRM","NOW","ADBE"],
+    tickers: ["PLTR","DDOG","SHOP","APP","ZETA","U","INTU","TEAM","HUBS","TWLO","META","GOOG","CRM","NOW","ADBE"],
     thesis: "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
     evidence: [
       "被奖励的一侧：PLTR收入+93%、美国商业+149%，次日股价+29.5%；SHOP收入+34%、GMV +32%；TEAM云收入+31%、RPO +44%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日+24.9%。",
       "被惩罚的一侧：DDOG收入+36%、billings +38%、指引高于共识，首日仍跌约19%；APP收入+53%但增速从59%降下来、Q3指引约47%，首日跌约20%；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日跌约19%。",
       "同层对照最能说明判据。APP与ZETA都是AI驱动的广告与营销变现、都被同一家做空机构Culper攻击过数据来源，本季结果却相反：ZETA收入4.43亿美元、+44%（剔除并购+28%），调整后EBITDA利润率20.7%、GAAP首次转正、第20个连续beat-and-raise，首日上涨。",
       "U则是第三种结果：战略收入+38%、Strategic Grow +63%，调整后EBITDA 1.602亿美元、利润率29%（原指引仅1.30至1.35亿），Q3战略收入再指引+44%至+47%，是三家里唯一下季指引斜率比本季更陡的。",
+      "INTU补上第三种情形，也是最少被讨论的一种：在位者主动降价防守。Q4收入+14%、每股收益双超预期，FY2027每股收益指引却比共识低约16%——CEO承认把优质DIY报税客户丢给低价对手，线上付费客户仅+3%，公司选择让渡ARPC换客户增长。",
       "结论：分化的判据是当期数字能否兑现已经计入的预期、以及下季指引的斜率方向，而不是是否属于AI应用层，也不是绝对增速——本轮增速最高的APP跌得最惨。"
     ],
     disconfirm: "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
@@ -712,6 +713,70 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-25",
+  ticker: "INTU",
+  company: "Intuit",
+  sector: "tech",
+  score: 56,
+  rec: "doubt",
+  dims: {quality: 25, marketread: 16, fundamentals: 15},
+  compare: {revenueGrowth:14, revenueGuidance:9.5},
+  business: {
+    plain: "Intuit 做的是普通人和小公司的钱与税。TurboTax 让你自己在网上报税，QuickBooks 让小生意主记账、开发票、发工资，Credit Karma 帮你看信用分和挑信用卡，Mailchimp 帮小商家发营销邮件。它靠的是这些事复杂又年年都要做，用户一旦把数据放进去就懒得搬。",
+    howMakesMoney: "按订阅与按次收费：QuickBooks 按月订阅并叠加工资、支付等模块；TurboTax 按报税季一次性收费，价格随申报复杂度上升；Credit Karma 按撮合的金融产品收佣金。核心指标是付费客户数与单客户收入（ARPC）——本季的问题正好出在这两个数字的取舍上。",
+    moat: "壁垒是数据沉淀与转换成本：几年的账目、往年报税记录、工资与银行连接都在里面，搬家很痛苦。但这道护城河正在被两件事同时试探——低价竞争对手抢走DIY报税客户，以及生成式AI让报税与记账这类结构化工作更容易被重做一遍。",
+    whatChanged: "这一季本身很好：收入43.5亿美元、同比+14%，调整后每股收益4.03美元，双双超预期；全年收入+14%、GAAP与非GAAP每股收益各+20%。但公司同时给出了一份主动收缩的FY2027指引——收入增速降到9%至10%，调整后每股收益22.88至23.12美元，比约27.30美元的共识低约16%。这不是需求崩了，是公司选择用当期利润去换客户。"
+  },
+  decision: {
+    stance: "在位者主动降价防守被AI侵蚀的漏斗；这个选择可能是对的，但它把估值锚从利润换成了客户数，需要重新定价",
+    summary: "Q4收入43.5亿美元、+14%，高于约42.7亿预期；调整后每股收益4.03美元、远高于约3.58美元预期。但FY2027指引收入只增9%至10%（FY26为14%），调整后每股收益22.88至23.12美元、比约27.30美元共识低约16%。公司把原因说清楚了：Mailchimp增长疲软、Desktop生态萎缩，以及主动降低TurboTax单客户收入来换客户增长——CEO承认把优质DIY报税客户丢给了低价对手，线上付费客户只增长3%至890万。",
+    playbook: [
+      {if:"QuickBooks Free与Lite的客户数在两三个季度内转化出可观的付费升级率", then:"确认降价换漏斗的策略成立，可按客户数重估", why:"首月20,000多客户只是起点；免费层的价值全在后续转化，转化率不出来就是纯粹的收入让渡。"},
+      {if:"下一个报税季的线上付费客户增速从3%明显回升，且ARPC降幅小于客户增幅", then:"确认份额换回来了", why:"公司主动牺牲ARPC换客户，只有客户增速显著快于ARPC降幅，这笔交易才划算。"},
+      {if:"Big Bets（辅助报税、money、中端市场）继续保持30%以上增速并提高收入占比", then:"提高持续性评分", why:"本季Big Bets+34%、占总收入30%、中端市场+39%，是唯一在加速的部分，它能否接棒决定FY2027之后的斜率。"},
+      {if:"线上付费客户增速仍停在个位数低端、或FY2027指引再度下修", then:"回避", why:"届时说明降价既没换来客户也没保住利润，而生成式AI报税竞争只会更强。"}
+    ],
+    triggers: ["QuickBooks Free与Lite的付费转化率", "下一个报税季的线上付费客户增速", "TurboTax的ARPC降幅与客户增幅之比", "Big Bets收入占比与增速", "Mailchimp能否止跌", "生成式AI报税竞品的市场份额"],
+    invalidation: ["线上付费客户增速仍停在3%附近", "FY2027收入或每股收益指引再度下修", "Big Bets增速跌破25%", "免费层未能产生可观付费转化", "Mailchimp继续下滑且拖累整体增速"],
+    timing: "口径日 2026-08-25：财报于当日盘后发布。8/25收357.46美元。次日8/26盘前一度跌约11%，开盘323.465美元（较前收约-9.5%），盘中最低322.57、最高351.39，收345.88美元、较8/25收盘-3.24%——低开后被买回大半。8/26盘后348.216美元。财报前股价已自高点回落约47%。",
+    risk: "这份指引把估值锚从利润换成了客户数，而客户数的回升要等下一个报税季才验证得了，中间是一整个季度的空窗。三条侵蚀同时发生：Mailchimp增长疲软、Desktop生态萎缩、DIY报税客户流向低价对手，而生成式AI让报税与记账这类结构化工作更容易被重做。本次记录未取得分部收入明细、ARPC的具体降幅与免费层的转化假设，降价换份额这笔交易的性价比因此无法量化。"
+  },
+  metrics: [
+    {label:"Q4收入", value:"43.5亿美元", sub:"+14% YoY；高于约42.7亿美元预期", tone:"beat", pct:80},
+    {label:"Q4调整后每股收益", value:"4.03美元", sub:"远高于约3.58美元预期，超出约13%", tone:"beat", pct:86},
+    {label:"FY2026全年", value:"收入+14%", sub:"GAAP与非GAAP摊薄每股收益各增长20%", tone:"up", pct:78},
+    {label:"🔑 FY2027每股收益指引", value:"22.88至23.12美元", sub:"市场共识约27.30美元——低约16%。这是本季股价下跌的直接原因，也是整份财报里最需要解释的数字", tone:"down", pct:12},
+    {label:"🔑 指引下调的原因", value:"主动降价换客户", sub:"公司说明：Mailchimp增长疲软、Desktop生态萎缩，以及主动降低TurboTax单客户收入以加速客户增长。CEO承认把优质DIY报税客户丢给了低价对手", tone:"down", pct:25},
+    {label:"FY2027收入指引", value:"232.8至235.1亿美元", sub:"增速9%至10%，明显低于FY2026的14%；低于约237.4亿美元预期", tone:"down", pct:30},
+    {label:"线上付费客户", value:"890万，仅+3%", sub:"这是降价策略要解决的核心问题——客户数几乎没动，公司因此选择让渡ARPC换增长", tone:"down", pct:20},
+    {label:"Big Bets", value:"+34%，占收入30%", sub:"辅助报税、money与中端市场；其中中端市场收入+39%——这是唯一在加速的部分", tone:"beat", pct:84},
+    {label:"免费层进展", value:"QuickBooks Free与Lite", sub:"首月已吸引超过20,000名活跃客户或转化；价值全在后续付费转化率，本次未披露转化假设", tone:"flat", pct:50},
+    {label:"股价反应", value:"次日-3.24%（低开-9.5%后收回）", sub:"口径日8/25盘后发布：8/25收357.46。8/26盘前一度跌约11%、开盘323.465、最低322.57，收345.88——低开后被买回大半。财报前已自高点回落约47%", tone:"down", pct:70}
+  ],
+  management_highlights: [
+    "CEO Sasan Goodarzi 承认公司把优质的DIY报税客户丢给了低价竞争对手，线上付费客户仅增长3%至890万。",
+    "公司主动降低TurboTax的单客户收入，以加速客户增长与市场份额——这是FY2027指引大幅低于共识的主要原因之一。",
+    "FY2027收入指引增速9%至10%，公司列出的减速来源为：Mailchimp增长疲软、Desktop生态萎缩，以及上述TurboTax的主动让价。",
+    "推出 QuickBooks Free 与 QuickBooks Lite，首月已吸引超过20,000名活跃客户或转化；公司计划用AI、更广分销与Credit Karma的交叉销售提升留存与生命周期价值。",
+    "Big Bets（辅助报税、money、中端市场）合计增长34%、已占总收入30%，其中中端市场收入增长39%——是本季唯一明显加速的部分。"
+  ],
+  narrative: {
+    summary: "Intuit这季给出的是AI应用层里最少被讨论的一种情形：在位者主动降价，用当期利润去防守正在被侵蚀的客户漏斗。Q4双超预期，FY2027每股收益指引却比共识低约16%——不是需求崩了，是公司选择把估值锚从利润换成客户数。",
+    consensus: "多头证据是本季与全年都很扎实：Q4收入43.5亿美元+14%、调整后每股收益4.03美元均超预期，全年收入+14%、每股收益+20%；Big Bets合计+34%、已占收入30%，中端市场+39%。降价换漏斗是主动选择而非被动失守，QuickBooks Free与Lite首月已获超过20,000客户或转化。",
+    divergence: "反叙事是护城河正在被同时试探：线上付费客户只增长3%，CEO直接承认优质DIY报税客户流向低价对手；Mailchimp增长疲软、Desktop生态萎缩；生成式AI让报税与记账这类结构化工作更容易被重做。降价的回报要等下一个报税季才验证，中间是一整个季度空窗，而FY2027每股收益指引已经比共识低约16%。",
+    signals: ["QuickBooks Free与Lite的付费转化率", "下一个报税季的线上付费客户增速", "ARPC降幅与客户增幅之比", "Big Bets占比与增速", "Mailchimp能否止跌", "生成式AI报税竞品的份额"]
+  },
+  sources: [
+    {type:"公司公告", label:"Intuit FY2026 Q4 与全年结果、FY2027 指引", url:"https://investors.intuit.com/news-events/press-releases/detail/1320/intuit-reports-fourth-quarter-and-full-year-fiscal-2026-results-sets-fiscal-2027-guidance"},
+    {type:"业绩会", label:"Intuit Q4 2026 业绩会文字稿", url:"https://www.benzinga.com/news/26/08/61424191/transcript-intuit-q4-2026-earnings-conference-call"},
+    {type:"业绩会摘要", label:"BigGo：FY2027 指引9%至10%，重建报税与QuickBooks漏斗", url:"https://finance.biggo.com/news/US_INTU_2026-08-25"},
+    {type:"公司演示", label:"Investing.com：FY26 幻灯片与 FY27 减速信号", url:"https://uk.investing.com/news/stock-market-news/intuit-fy26-slides-show-margin-gains-but-fy27-outlook-signals-slowdown-93CH-4846808"},
+    {type:"市场反应", label:"Benzinga：财报后股价下跌", url:"https://www.benzinga.com/markets/earnings/26/08/61422278/intuit-reports-q4-earnings-shares-slide"}
+  ]
+},
+
 {
   type: "earnings",
   date: "2026-08-05",
@@ -9422,7 +9487,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis",
   CSCO:"tech",
