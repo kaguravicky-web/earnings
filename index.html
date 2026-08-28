@@ -718,6 +718,67 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-08-27",
+  ticker: "PURR",
+  company: "Hyperliquid Strategies",
+  sector: "financials",
+  score: 62,
+  rec: "resonance",
+  dims: {quality: 22, marketread: 30, fundamentals: 10},
+  business: {
+    plain: "这不是一家有生意的公司，是一个在纳斯达克上市的HYPE代币持仓工具。它的全部动作就是：发股融资、拿钱买HYPE（Hyperliquid区块链的原生代币）、把币拿去质押、然后继续融资继续买。行业里叫数字资产金库公司（DAT），MicroStrategy持有比特币是同一套打法。",
+    howMakesMoney: "严格说它几乎不赚钱——本财年5.53亿美元的金库收入里，绝大部分是HYPE持仓的未实现重估收益，真正的经营性收入只有质押与验证者的950万美元，占比约1.7%。它的盈利模式其实是资本运作：只要股价相对每股含币量存在溢价，发新股买币就能提高每股含币量，形成飞轮。",
+    moat: "它没有传统意义上的护城河。唯一的结构性优势是无债务——不像部分同类公司靠可转债加杠杆，币价下跌时不会被追加保证金或被迫抛售。风险高度集中：币价、溢价率、以及Hyperliquid本身的监管地位，任何一条出问题都直接击穿估值。",
+    whatChanged: "本财年它把HYPE持仓从初始的1,250万枚做到2,930万枚，靠承诺股权融资工具募了6.47亿美元，同时回购了2,780万美元自家股票，账上无债务、现金及类现金1.499亿美元。以6月30日币价65.04美元计，持仓市值19.04亿、总资产20.6亿美元。本季股价创历史新高，同时受益于Hyperliquid可能获得美国市场准入的监管进展。"
+  },
+  decision: {
+    stance: "买它等于买HYPE并额外付一层溢价；判据不是财报，是溢价率与币价，飞轮只在溢价存在时转得动",
+    summary: "本财年净利3.055亿美元、摊薄每股收益3.21美元，但其中绝大部分来自HYPE未实现重估——真正的经营性收入只有质押与验证者的950万美元。持仓从1,250万枚增至2,930万枚，无债务，现金1.499亿。核心判据是溢价：每股约含0.130枚HYPE加约0.44美元现金，而8月27日收盘12.83美元，意味着股价隐含HYPE需在约95美元才算平价，而6月30日币价为65.04美元。",
+    playbook: [
+      {if:"HYPE币价上涨且股价溢价率不扩大", then:"视为跟随币价的正常波动，按持币工具对待", why:"溢价不扩大说明市场没有额外定价公司本身，风险回报接近直接持币。"},
+      {if:"公司继续用溢价发股买币，且每股含币量（当前约0.130枚）持续上升", then:"确认飞轮在运转", why:"每股含币量是这类公司唯一有意义的经营指标——它上升才说明融资对老股东是增值而非稀释。"},
+      {if:"质押与验证者收入从950万美元的基数明显放大，占比开始有意义", then:"提高持续性评分", why:"这是它唯一的真实经营性现金流；占比从1.7%起来，才谈得上有业务而不只是持仓。"},
+      {if:"股价跌到每股含币量之下（按当前0.130枚计约等于HYPE价格的0.13倍加0.44美元）、或公司在折价状态下继续发股", then:"回避", why:"折价发股直接稀释老股东的每股含币量，飞轮会反向运转。"}
+    ],
+    triggers: ["HYPE币价", "股价相对每股含币量的溢价率", "每股含币量能否持续上升", "质押与验证者收入的规模与占比", "承诺股权融资工具的使用节奏与稀释幅度", "Hyperliquid的美国市场准入进展"],
+    invalidation: ["股价跌破每股含币量对应的净值", "在折价状态下继续发股", "每股含币量停止上升或下降", "公司开始使用债务杠杆", "Hyperliquid监管地位出现负面进展"],
+    timing: "口径日 2026-08-27：财报当日发布（美东上午8点电话会）。8月26日收11.56美元，8月27日收12.83美元、当日+10.99%，盘中最高14.14、最低11.961，成交4,284万股约5.73亿美元；盘后13.271美元、较收盘约+3.44%。8月25日曾创12.10美元的历史新高，本季再度刷新。公司称股价表现同时受益于Hyperliquid潜在获得美国市场准入的监管进展。",
+    risk: "这是一只风险高度集中的单一资产工具，标准的财报质量框架对它并不完全适用——本记录的评分应按此理解。净利3.055亿美元中绝大部分是未实现重估，不产生现金，币价回落时会同样快速反向。溢价是全部逻辑的支点：股价12.83美元对应每股0.130枚HYPE加0.44美元现金，隐含HYPE约95美元才平价，而6月30日为65.04美元——溢价一旦收敛，即使币价不跌股价也会跌。无债务是真实的结构性优势，但监管风险无法量化。本记录未取得查询时点的HYPE实时币价，因此未计算当前精确溢价率。"
+  },
+  metrics: [
+    {label:"🔑 每股含币量", value:"约0.130枚HYPE＋0.44美元现金", sub:"以8月27日收盘12.83美元计，股价隐含HYPE需在约95美元才算平价；而6月30日币价为65.04美元。溢价是这只票全部逻辑的支点", tone:"down", pct:30},
+    {label:"HYPE持仓", value:"2,930万枚", sub:"较初始1,250万枚大幅增加；以6月30日币价65.04美元计，市值19.04亿美元", tone:"beat", pct:88},
+    {label:"总资产与债务", value:"20.6亿美元，无债务", sub:"含现金及类现金1.499亿美元。无杠杆是相对同类公司的结构性优势——币价下跌时不会被迫抛售", tone:"up", pct:80},
+    {label:"🔑 收入构成", value:"金库5.53亿／经营0.095亿", sub:"金库收入绝大部分是HYPE未实现重估；真正的经营性收入只有质押与验证者的950万美元，占比约1.7%，且大部分在Q4确认", tone:"down", pct:18},
+    {label:"净利与每股收益", value:"3.055亿美元／3.21美元", sub:"由HYPE价格上涨驱动，不产生现金流；币价回落时会同样快速反向", tone:"flat", pct:45},
+    {label:"融资与回购", value:"募资6.47亿／回购2,780万", sub:"通过承诺股权融资工具募集，用于增持HYPE；同时回购自家股票2,780万美元", tone:"up", pct:70},
+    {label:"股价反应", value:"当日+10.99%", sub:"口径日8/27：11.56→12.83美元，盘中高14.14、低11.961，成交4,284万股约5.73亿美元；盘后13.271、约+3.44%。刷新8月25日创下的历史新高。公司称同时受益于Hyperliquid潜在美国市场准入的监管进展", tone:"beat", pct:92}
+  ],
+  management_highlights: [
+    "本财年（截至2026年6月30日）HYPE持仓从初始1,250万枚增至2,930万枚，通过承诺股权融资工具募集6.47亿美元。",
+    "总资产20.6亿美元，其中HYPE按6月30日币价65.04美元计值19.04亿，现金及类现金1.499亿美元，公司无债务。",
+    "金库相关收入5.53亿美元，主要来自HYPE持仓的未实现收益；质押与验证者收入950万美元，其中大部分在第四季度确认。",
+    "净利润3.055亿美元、摊薄每股收益3.21美元；同期回购自家股票2,780万美元。",
+    "每股约对应0.130枚HYPE加约0.44美元现金。公司称股价表现亦受益于Hyperliquid潜在获得美国市场准入的监管进展。"
+  ],
+  narrative: {
+    summary: "PURR不是一份可以按常规框架评判的财报——它是一个上市的HYPE持仓工具，3.21美元的每股收益几乎全部来自代币未实现重估，真正的经营性收入只有950万美元、占比1.7%。判断它的唯一有效指标是溢价率：股价12.83美元对应每股0.130枚HYPE加0.44美元现金，隐含币价需约95美元才平价，而6月30日为65.04美元。",
+    consensus: "多头证据是执行与结构：本财年把HYPE持仓从1,250万枚做到2,930万枚，募资6.47亿美元并同步回购2,780万美元自家股票，账上无债务、现金1.499亿美元。无杠杆意味着币价下跌时不会被追加保证金或被迫抛售，这是相对部分同类数字资产金库公司的实质优势。质押与验证者收入开始产生，且大部分在Q4确认。",
+    divergence: "反叙事是这门生意的本质：5.53亿美元金库收入绝大部分是未实现重估，不产生现金，币价回落会同样快速反向；真实经营收入只占1.7%。溢价是全部逻辑的支点——它支撑发股买币的飞轮，一旦收敛，即使币价不跌股价也会跌，而在折价状态下继续发股会直接稀释老股东的每股含币量。Hyperliquid的监管地位是无法量化的尾部风险。",
+    signals: ["HYPE币价", "股价相对每股含币量的溢价率", "每股含币量能否持续上升", "质押与验证者收入的规模与占比", "股权融资节奏与稀释", "Hyperliquid美国市场准入进展"]
+  },
+  vic_notes: "口径提醒：本记录的三维度评分对数字资产金库公司并不完全适用——它没有收入、毛利与客户，财报质量一栏实际衡量的是资产端执行（持仓增长、无债务、融资与回购），持续性一栏则被币价与溢价率主导。真正该盯的两个数字是每股含币量（当前约0.130枚HYPE加0.44美元现金）与溢价率；本记录未取得查询时点的HYPE实时币价，故未计算当前精确溢价，仅给出平价所需的隐含币价约95美元与6月30日实际币价65.04美元作对照。",
+  sources: [
+    {type:"公司公告", label:"Hyperliquid Strategies FY2026 业绩（截至2026年6月30日）", url:"https://www.prnewswire.com/news-releases/hyperliquid-strategies-inc-reports-financial-results-for-the-fiscal-year-ended-june-30-2026-302861372.html"},
+    {type:"业绩会", label:"Hyperliquid Strategies Q4 2026 业绩会文字稿", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-hyperliquid-strategies-posts-strong-q4-2026-results-stock-rises-premarket-93CH-4879485"},
+    {type:"财报解读", label:"TradingView：3.055亿美元净利来自HYPE升值、19亿美元持仓与监管风险", url:"https://www.tradingview.com/news/urn:summary_document_report:quartr.com:3888323:0-purr-305-5m-net-income-driven-by-hype-appreciation-1-9b-in-hype-holdings-high-regulatory-risk/"},
+    {type:"市场反应", label:"Yahoo Finance：披露19亿美元HYPE持仓后股价上涨", url:"https://finance.yahoo.com/markets/crypto/articles/hyperliquid-strategies-shares-rise-reporting-015300070.html"},
+    {type:"业绩会摘要", label:"MarketBeat：Q4 业绩会要点", url:"https://www.marketbeat.com/instant-alerts/transcript-hyperliquid-strategies-q4-earnings-call-highlights-2026-08-27/"}
+  ]
+},
+
+{
+  type: "earnings",
+  date: "2026-08-27",
   ticker: "RBRK",
   company: "Rubrik",
   sector: "tech",
@@ -9799,7 +9860,7 @@ const TICKER_SECTOR = {
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
-  GS:"financials", AFRM:"financials", TRV:"financials",
+  GS:"financials", AFRM:"financials", PURR:"financials", TRV:"financials",
   SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
   CLF:"materials"
 };
