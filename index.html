@@ -338,7 +338,7 @@ const SECTOR_REVIEWS = [
     title: "企业软件与安全",
     quarter: "2026 Q2 / FY27 Q2",
     updated: "2026-08-27",
-    tickers: ["CRWD","OKTA","CRM","PATH","ZETA"],
+    tickers: ["CRWD","S","RBRK","OKTA","CRM","PATH","ZETA"],
     watch: ["PANW","NOW","DDOG","TEAM"],
     verdict: "这一季的分水岭不是收入，是领先指标有没有先动——以及利润里有多少不是经营赚来的。",
     points: [
@@ -715,6 +715,68 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-27",
+  ticker: "RBRK",
+  company: "Rubrik",
+  sector: "tech",
+  score: 66,
+  rec: "doubt",
+  dims: {quality: 34, marketread: 14, fundamentals: 18},
+  compare: {revenueGrowth:38, revenueGuidance:33},
+  business: {
+    plain: "Rubrik 做数据的备份与恢复，但卖的其实是「被勒索软件打了之后还能爬起来」这件事。它把企业的数据做成不可篡改的副本，攻击发生时能快速判断哪些数据被污染、回滚到干净的时点。所以它不是传统备份软件，而是被归到网络安全里的「数据韧性」。",
+    howMakesMoney: "按订阅收费，客户按保护的数据量与模块付年费。核心指标是订阅ARR与云ARR——它正在把客户从本地部署迁到自家云服务，云ARR的增速快于总ARR就说明迁移在推进。这个迁移同时会带来收入确认口径的扰动，公司称之为material rights的调整。",
+    moat: "壁垒是数据本身的黏性：备份系统一旦接管了企业的全部数据副本与恢复流程，替换意味着重建整套灾备体系。风险是这个赛道竞争激烈，既有传统备份厂商下沉，也有安全平台厂商横向扩张，产品周期的领先窗口不长。",
+    whatChanged: "本季数字几乎每一项都超预期：收入4.2726亿美元高出约3.9628亿共识7.8%，非GAAP每股收益0.22美元是0.04美元共识的五倍多，订阅ARR 16.6亿美元、同比+33%——比上季的+32%还微幅加速，云ARR 14.8亿、同比+39%快于总ARR。全年四项指引全面上调，包括自由现金流3.23至3.33亿美元。但股价在财报当日已先涨11.33%，盘后走出+13%到-13%的巨幅来回。"
+  },
+  decision: {
+    stance: "数字与指引都很强、ARR增速还微幅加速，被卖的是持仓位置不是基本面；但公司自列的三条收入端逆风值得单独跟踪",
+    summary: "收入4.2726亿美元、超共识7.8%；非GAAP每股收益0.22美元对0.04美元共识；订阅ARR 16.6亿、同比+33%（上季+32%，环比+5.7%），云ARR 14.8亿、同比+39%快于总ARR；净新增订阅ARR同比+35%。全年指引全面上调至订阅ARR 18.8至18.85亿、收入16.85至16.93亿、非GAAP每股收益0.47至0.53美元、自由现金流3.23至3.33亿美元。核心矛盾不在数字，在股价已先涨11.33%的持仓位置，以及公司自己列出的收入端逆风。",
+    playbook: [
+      {if:"Q3订阅ARR同比增速维持在32%以上，且云ARR增速继续快于总ARR", then:"确认云迁移在推进且没有牺牲整体增速", why:"本季云ARR +39%对总ARR +33%的差距就是迁移进度的度量；差距收窄说明迁移接近尾声或遇阻。"},
+      {if:"全年自由现金流兑现3.23至3.33亿美元，对应约19%的自由现金流率", then:"确认盈利拐点是结构性的", why:"非GAAP每股收益从0.04共识跳到0.22，必须由现金流佐证才算数，否则可能只是费用时点。"},
+      {if:"material rights调整与ARR组合变化对收入的影响在后续季度收敛，且管理层给出量化口径", then:"解除收入确认口径的不确定性", why:"公司主动列出这三条逆风却未量化，是当前最大的信息缺口。"},
+      {if:"订阅ARR同比增速跌破30%、云ARR增速掉到与总ARR持平，或全年指引回调", then:"减仓或回避", why:"三者任一都说明这轮加速见顶，而竞争对手的产品周期正在追上来。"}
+    ],
+    triggers: ["Q3订阅ARR同比增速能否维持32%以上", "云ARR与总ARR的增速差", "全年自由现金流3.23至3.33亿美元的兑现", "material rights调整的量化影响", "净新增订阅ARR增速", "竞品产品周期与份额变化"],
+    invalidation: ["订阅ARR同比增速跌破30%", "云ARR增速与总ARR持平或更低", "全年任一项指引回调", "自由现金流明显低于3.23亿下限", "净新增订阅ARR同比转为下滑"],
+    timing: "口径日 2026-08-27：财报盘后发布。正式盘收107.02美元、当日+11.33%——该涨幅发生在财报前。盘后先冲高至121.00美元（较收盘约+13.1%），随后砸到93.02美元（约-13.1%），最终报99.523美元、较收盘约-7.01%，盘后区间跨度接近28美元。首日正式反应为8/28交易日，不在本记录内。",
+    risk: "最需要跟踪的是公司自己列出却未量化的三条收入端逆风：云转型带来的material rights调整、ARR组合变化，以及竞品产品周期。公司主动提示却没有给出影响幅度，这是当前最大的信息缺口。持仓位置也是短期风险：股价在财报当日已先涨11.33%，盘后从+13%到-13%的来回说明获利了结的压力集中。数据韧性赛道竞争激烈，传统备份厂商下沉与安全平台厂商横向扩张同时发生。本次记录未取得净留存率与客户数明细。"
+  },
+  metrics: [
+    {label:"Q2收入", value:"4.2726亿美元", sub:"高于约3.9628亿美元共识7.8%；订阅收入4.072亿美元、同比+37%（去年同期2.97亿）", tone:"beat", pct:90},
+    {label:"🔑 订阅ARR", value:"16.6亿美元，+33%", sub:"上季（4月30日）为15.7亿、同比+32%——是微幅加速而非减速，环比+5.7%。净新增订阅ARR同比+35%", tone:"beat", pct:88},
+    {label:"云ARR", value:"14.8亿美元，+39%", sub:"快于总订阅ARR的+33%，说明本地到云的迁移仍在推进——两者的增速差就是迁移进度的度量", tone:"beat", pct:86},
+    {label:"非GAAP每股收益", value:"0.22美元", sub:"市场共识0.04美元，超出逾五倍；盈利拐点比预期提前到来", tone:"beat", pct:92},
+    {label:"FY2027指引（全面上调）", value:"订阅ARR 18.8至18.85亿", sub:"收入16.85至16.93亿、非GAAP每股收益0.47至0.53美元、自由现金流3.23至3.33亿美元（对应约19%的自由现金流率）", tone:"beat", pct:89},
+    {label:"🔑 公司自列逆风", value:"三条，均未量化", sub:"云转型带来的material rights调整、ARR组合变化、竞品产品周期。公司主动提示却未给影响幅度，是当前最大的信息缺口", tone:"down", pct:35},
+    {label:"股价反应", value:"盘后-7.01%（先+13%再-13%）", sub:"口径日8/27：正式盘收107.02、当日+11.33%（涨幅在财报前）。盘后冲高121.00（+13.1%）后砸至93.02（-13.1%），收99.523。区间跨度近28美元。首日正式反应为8/28，不在本记录内", tone:"down", pct:82}
+  ],
+  management_highlights: [
+    "订阅ARR 16.6亿美元、同比+33%，净新增订阅ARR同比+35%；云ARR 14.8亿美元、同比+39%，快于总订阅ARR。",
+    "订阅收入4.072亿美元、同比+37%，去年同期为2.97亿美元；总收入4.2726亿美元大幅超出约3.9628亿美元共识。",
+    "全年指引四项全面上调：订阅ARR 18.8至18.85亿、总收入16.85至16.93亿、非GAAP每股收益0.47至0.53美元、自由现金流3.23至3.33亿美元。",
+    "非GAAP每股收益0.22美元远超0.04美元共识，公司口径下盈利能力的到来早于此前预期。",
+    "公司同时提示三条收入端逆风：云转型相关的material rights调整、ARR组合变化与竞品产品周期，但均未给出量化影响——本次记录也未取得净留存率与客户数明细。"
+  ],
+  narrative: {
+    summary: "Rubrik这季在数字上几乎无懈可击：收入超共识7.8%、非GAAP每股收益是共识的五倍、订阅ARR同比+33%还比上季的+32%微幅加速、云ARR +39%快于总ARR、全年四项指引全面上调。它盘后仍跌7%，而且走出+13%到-13%的来回——被卖的是持仓位置，不是基本面。",
+    consensus: "多头证据是量、价、现金三线同向：收入4.2726亿超共识7.8%，订阅收入+37%，订阅ARR 16.6亿、同比+33%且环比+5.7%，净新增订阅ARR +35%，云ARR +39%快于总ARR说明迁移在推进；非GAAP每股收益0.22美元对0.04美元共识，全年自由现金流指引3.23至3.33亿美元对应约19%的自由现金流率，盈利拐点提前到来。",
+    divergence: "反叙事有两条。一是持仓位置：股价在财报当日已先涨11.33%，盘后从+13%冲高到-13%再收在-7%，区间跨度近28美元，说明获利了结的压力高度集中。二是公司自己列出却未量化的三条收入端逆风——云转型的material rights调整、ARR组合变化、竞品产品周期；主动提示而不给幅度，是目前最大的信息缺口。数据韧性赛道同时面对传统备份厂商下沉与安全平台厂商横向扩张。",
+    signals: ["Q3订阅ARR增速能否维持32%以上", "云ARR与总ARR的增速差", "全年自由现金流兑现", "material rights调整的量化影响", "净新增订阅ARR增速", "与CRWD、S在安全预算中的相对表现"]
+  },
+  sources: [
+    {type:"公司IR", label:"Rubrik Investor Relations", url:"https://ir.rubrik.com/news-events/press-releases"},
+    {type:"财报明细", label:"StockTitan：Rubrik Q2 FY2027 结果", url:"https://www.stocktitan.net/news/RBRK/rubrik-reports-second-quarter-fiscal-year-2027-financial-0ru6sfyuq6xe.html"},
+    {type:"业绩会", label:"Rubrik Q2 FY2027 业绩会文字稿", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-rubrik-tops-q2-2026-estimates-but-stock-slips-after-hours-93CH-4880299"},
+    {type:"财报解读", label:"Seeking Alpha：上调订阅ARR与自由现金流展望", url:"https://seekingalpha.com/news/4637741-rubrik-expects-323m-333m-in-fiscal-2027-free-cash-flow-while-raising-subscription-arr-outlook"},
+    {type:"市场反应", label:"Benzinga：数据很强股价仍大跌", url:"https://www.benzinga.com/markets/earnings/26/08/61481897/rubrik-stock-plunges-despite-strong-q2-print"},
+    {type:"上季对照", label:"Rubrik Q1 FY2027 结果（订阅ARR 15.7亿、+32%）", url:"https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Reports-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx"}
+  ]
+},
+
 {
   type: "earnings",
   date: "2026-08-27",
@@ -9730,7 +9792,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis",
   CSCO:"tech",
