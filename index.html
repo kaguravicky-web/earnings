@@ -338,7 +338,7 @@ const SECTOR_REVIEWS = [
     title: "企业软件与安全",
     quarter: "2026 Q2 / FY27 Q2",
     updated: "2026-08-27",
-    tickers: ["CRWD","S","RBRK","OKTA","CRM","PATH","ZETA"],
+    tickers: ["CRWD","S","RBRK","OKTA","CRM","VEEV","PATH","ZETA"],
     watch: ["PANW","NOW","DDOG","TEAM"],
     verdict: "这一季的分水岭不是收入，是领先指标有没有先动——以及利润里有多少不是经营赚来的。",
     points: [
@@ -715,6 +715,68 @@ const NARRATIVES = [
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-08-26",
+  ticker: "VEEV",
+  company: "Veeva Systems",
+  sector: "healthcare",
+  score: 79,
+  rec: "resonance",
+  dims: {quality: 34, marketread: 26, fundamentals: 19},
+  compare: {revenueGrowth:18},
+  business: {
+    plain: "Veeva 是专门服务药企的软件公司。一款新药从临床试验、监管申报、质量管理到最后销售给医生，每一步都受严格监管、每份文件都要留痕可追溯。通用软件做不了这些合规细节，Veeva 把整套流程做成了云端系统。它的客户几乎就是全球制药行业本身。",
+    howMakesMoney: "按订阅收费，分两大块：商业云（面向药代与市场，核心产品是Vault CRM）和研发云（临床、监管、质量）。此外还有数据与咨询业务。本季订阅收入7.668亿美元占总收入83%，服务及其他约1.612亿。核心看点是Vault CRM的迁移进度——它已从Salesforce平台独立出来，自建平台。",
+    moat: "壁垒是行业垂直的合规知识与转换成本：药企的系统一旦通过验证并写进标准操作流程，更换需要重新验证整条链路，代价极高。风险是客户高度集中于制药行业，行业本身的研发预算周期会直接传导；同时通用软件厂商也在尝试用AI降低垂直行业的定制门槛。",
+    whatChanged: "本季是加速的一季，而且是可验证的加速：总收入同比+18%、订阅+16%，均高于上一季度的+16%与+15%。Vault CRM录得历史最好的一个季度，礼来与Biogen在本季选择Vault CRM、再生元也已承诺，前二十大生物制药公司中已有12家承诺该平台。同时公司把Falcon定义为一个新品类——用AI代理直接完成工作，CEO称之为agentic labor。"
+  },
+  decision: {
+    stance: "增长加速是真的且经过上季对照验证，利润率也没有为增长让路；关键在Falcon能否从新品类叙事变成可量化收入",
+    summary: "总收入9.28亿美元、同比+18%，订阅收入7.668亿、同比+16%，两项均较上一季度的+16%与+15%加速；非GAAP经营利润4.16亿美元、经营利润率约44.8%；全年指引上调。Vault CRM史上最佳季度，前二十大生物制药中已有12家承诺。核心矛盾在于两点：总收入增速快于订阅增速，差额来自毛利更低的服务收入；以及Falcon这个agentic labor新品类至今没有独立的收入披露。",
+    playbook: [
+      {if:"下季订阅收入增速维持在16%或继续提升，且服务收入占比不再上升", then:"确认加速由订阅驱动而非服务拉动", why:"本季总收入+18%快于订阅+16%，差额来自同比约+24%的服务及其他收入，而服务毛利远低于订阅——含金量在这个差值里。"},
+      {if:"Vault CRM在前二十大生物制药中的承诺家数从12家继续增加，且开始转化为订阅收入", then:"提高持续性评分", why:"承诺与上线之间有时间差，12家是签约口径；只有转成订阅收入才进入财务报表。"},
+      {if:"Falcon开始有独立的收入或客户数披露，且规模有意义", then:"重估增长斜率", why:"agentic labor目前只是定性定义；参照本站其他记录，AI叙事只有出现可量化披露才计入基本面。"},
+      {if:"订阅收入增速回落到14%以下、经营利润率跌破42%，或全年指引回调", then:"减仓或回避", why:"这家公司的估值建立在高利润率下的稳定加速上，两者任一失守都会重定价。"}
+    ],
+    triggers: ["下季订阅收入增速能否维持16%", "服务收入占比是否继续上升", "Vault CRM承诺家数与上线转化", "Falcon是否出现可量化披露", "非GAAP经营利润率能否守住44%以上", "制药行业研发预算周期"],
+    invalidation: ["订阅收入增速回落到14%以下", "非GAAP经营利润率跌破42%", "全年指引回调", "Vault CRM承诺家数停滞", "服务收入增速持续大幅快于订阅"],
+    timing: "口径日 2026-08-26：财报盘后发布。首日8/27股价上涨约9.43%、收282.13美元（据媒体口径反推，财报前8/26收盘约257.8美元，本站未独立核实该前收）。次日8/28收276.69美元、-1.93%，当日区间276.45至284.68，收在接近全天最低——首日涨幅回吐一小部分。",
+    risk: "收入结构是本季最需要留意的地方：总收入+18%快于订阅+16%，差额来自同比约+24%的服务及其他收入，而服务毛利远低于订阅——不过该差距在上一季度同样存在（服务约+23%），属于稳定状态而非新出现的恶化，且经营利润率仍保持在44.8%。Falcon作为agentic labor新品类尚无独立收入披露，无法计入基本面。客户高度集中于制药行业，行业研发预算周期会直接传导。本次记录未取得剩余履约义务、客户数与分部利润明细。",
+  },
+  metrics: [
+    {label:"🔑 Q2总收入", value:"9.28亿美元，+18%", sub:"去年同期7.891亿。上一季度（4/30）为8.829亿、+16%——是可验证的加速，不是单季读数", tone:"beat", pct:88},
+    {label:"订阅收入", value:"7.668亿美元，+16%", sub:"去年同期6.592亿；上一季度为7.302亿、+15%，同样加速。占总收入约83%", tone:"beat", pct:85},
+    {label:"🔑 服务收入增速差", value:"服务约+24% vs 订阅+16%", sub:"服务及其他约1.612亿美元（总收入减订阅），增速快于订阅——总收入18%的含金量低于订阅的16%。但上季已存在同样差距（约+23%），属稳定状态", tone:"flat", pct:48},
+    {label:"非GAAP经营利润", value:"4.16亿美元", sub:"经营利润率约44.8%，公司称结果超出自身指引；利润率没有为增长让路", tone:"beat", pct:90},
+    {label:"Vault CRM", value:"史上最好的一个季度", sub:"礼来与Biogen本季选择Vault CRM、再生元承诺；前二十大生物制药公司中已有12家承诺该平台", tone:"beat", pct:92},
+    {label:"Veeva Falcon", value:"新品类：agentic labor", sub:"CEO Peter Gassner 称其不同于传统软件、数据与咨询业务，是用AI代理直接完成工作。目前无独立收入披露", tone:"up", pct:60},
+    {label:"全年指引", value:"上调", sub:"公司在本季上调了FY2027全年指引；本记录未取得具体区间", tone:"up", pct:72},
+    {label:"股价反应", value:"首日约+9.43%", sub:"口径日8/26盘后发布：首日8/27涨约9.43%、收282.13美元（前收约257.8为媒体口径反推，未独立核实）。次日8/28收276.69、-1.93%，收在接近全天最低", tone:"beat", pct:86}
+  ],
+  management_highlights: [
+    "总收入9.28亿美元、同比+18%，订阅收入7.668亿、同比+16%，CEO Peter Gassner 称结果超出公司指引；非GAAP经营利润4.16亿美元、利润率约44.8%。",
+    "Vault CRM录得历史最好的一个季度：礼来与Biogen在本季选择Vault CRM，再生元也已承诺，前二十大生物制药公司中已有12家承诺该平台。",
+    "Gassner 把 Veeva Falcon 描述为公司的一个新品类——agentic labor，即由AI代理直接完成工作，区别于传统的云软件、数据与咨询业务。",
+    "公司上调了FY2027全年指引，管理层将其归因于商业云的广泛动能与客户对AI产品的兴趣。",
+    "本次记录未取得剩余履约义务、客户数、分部利润明细与全年指引的具体区间。"
+  ],
+  narrative: {
+    summary: "Veeva这季的加速是经得起对照的：总收入+18%、订阅+16%，分别高于上一季度的+16%与+15%，而非GAAP经营利润率仍守在44.8%——增长没有靠利润换。Vault CRM史上最佳季度、前二十大药企中12家承诺，说明脱离Salesforce平台后的自建路线已经站住。",
+    consensus: "多头证据是加速与利润率并存：总收入9.28亿、+18%，订阅7.668亿、+16%，两项均较上季加速；非GAAP经营利润4.16亿、利润率约44.8%；全年指引上调。Vault CRM录得史上最佳季度，礼来、Biogen本季选择该平台，再生元承诺，前二十大生物制药中已有12家承诺——这是多年期的确定性收入来源。",
+    divergence: "反叙事有两条。一是收入结构：总收入+18%快于订阅+16%，差额来自同比约+24%的服务及其他收入，而服务毛利远低于订阅，所以头条的18%含金量低于订阅的16%；不过上季已存在同样差距，属稳定而非新恶化。二是Falcon：agentic labor被定义为新品类，但至今没有独立收入或客户披露，按本站标准尚不能计入基本面。客户高度集中于制药行业，研发预算周期会直接传导。",
+    signals: ["下季订阅收入增速能否维持16%", "服务收入占比是否继续上升", "Vault CRM承诺家数与上线转化", "Falcon能否出现可量化披露", "经营利润率能否守住44%以上", "制药行业研发预算周期"]
+  },
+  sources: [
+    {type:"公司公告", label:"Veeva FY2027 Q2 业绩发布", url:"http://www.prnewswire.com/news-releases/veeva-announces-fiscal-2027-second-quarter-results-302860933.html"},
+    {type:"公司财报", label:"Veeva Q2 FY27 Earnings Release（PDF）", url:"https://s206.q4cdn.com/200001835/files/doc_financials/2027/q2/VEEV-Q2-27-Earnings-Release.pdf"},
+    {type:"公司演示", label:"Investing.com：Q2 FY27 幻灯片，收入超预期带动指引上调", url:"https://in.investing.com/news/stock-market-news/veeva-q227-slides-revenue-beats-drive-raised-guidance-margins-hold-93CH-5572990"},
+    {type:"业绩会", label:"BigGo：Vault CRM 创纪录季度与 Falcon", url:"https://finance.biggo.com/news/US_VEEV_2026-08-26"},
+    {type:"上季对照", label:"Veeva FY2027 Q1 结果（总收入+16%、订阅+15%）", url:"https://www.prnewswire.com/news-releases/veeva-announces-fiscal-2027-first-quarter-results-302790659.html"}
+  ]
+},
+
 {
   type: "earnings",
   date: "2026-08-27",
@@ -9859,7 +9921,7 @@ const TICKER_SECTOR = {
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
-  MOH:"healthcare", JNJ:"healthcare", ELV:"healthcare",
+  MOH:"healthcare", VEEV:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", AFRM:"financials", PURR:"financials", TRV:"financials",
   SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
   CLF:"materials"
