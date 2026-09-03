@@ -83,6 +83,23 @@ NARRATIVES.forEach(n => {
   }
 });
 
+
+// 8) 叙事只从专题来（2026-09-03 Vic 定）：Vic 先做专题，再由专题写主线。
+//    每条叙事必须引用一篇专题；没有专题的旧条目要显式挂 pendingSpecial 记账，
+//    两者都没有就直接失败——防止再从财报里自己凑一条主线出来。
+NARRATIVES.forEach(n => {
+  const where = 'rank ' + n.rank + '「' + n.theme + '」';
+  const hasSpecial = (n.sources || []).some(x => /专题/.test(x.type || ''));
+  if (hasSpecial) return;
+  if (n.pendingSpecial) {
+    console.warn('  ! ' + where + '：无专题支撑（早期由财报归纳），待补专题后重写或下架。');
+    return;
+  }
+  errors.push(where + '：没有专题支撑。叙事主线只能从 Vic 的专题报告来——' +
+    '请在 sources 里加一条 {type:"专题", label:"日期《标题》"}，' +
+    '或先请 Vic 做专题。不要从财报自行归纳主线。');
+});
+
 if (errors.length) {
   console.error('叙事闸门未通过（' + errors.length + ' 项）：');
   errors.forEach(e => console.error('  - ' + e));

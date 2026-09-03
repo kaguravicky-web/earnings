@@ -100,12 +100,18 @@
 
 ```powershell
 node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\s\S]*?)<\/script>/);new Function(m[1]);console.log('script ok')"
-node check-narratives.js
+node check-narratives.js && node check-records.js
 git diff --check
 git status -sb
 ```
 
-`check-narratives.js` 是叙事闸门，返回非零就不许推送。它会拒绝：`strength` 含“负面”、`thesis`/`evidence`/`disconfirm` 写成超过 220 字的单个字符串、任一段落超过 220 字、`rank` 不连续、缺少证伪条件。改这些规则时改脚本，不要只改本文档。
+发布前两道闸门都要跑，返回非零就不许推送。改规则时改脚本，不要只改本文档。
+
+`check-narratives.js`（叙事）会拒绝：`strength` 含“负面”；`thesis`/`evidence`/`disconfirm` 写成超过 220 字的单个字符串，或任一段落超过 220 字；`rank` 不连续；缺少证伪条件；`reviewedAt` 缺失或超过 7 天未复盘；排名与 `strength` 不一致（最强的必须排最前）；**没有专题支撑**。
+
+最后一条是 2026-09-03 定的：**叙事主线只能从 Vic 的专题报告来。Vic 先做专题，再由专题写主线——不要从财报自行归纳一条主线出来。**每条叙事的 `sources` 里必须有一条 `{type:专题, label:日期《标题》}`。专题只存在本地、不发布，所以这条来源**不写 url**（渲染层会出纯文字引用而不是死链），也**不要把本地路径写进本文件或 index.html**（见第 10 节）。早期由财报归纳、尚无专题的条目挂 `pendingSpecial` 记账，闸门会持续警告直到补上专题或下架。
+
+`check-records.js`（记录）会拒绝：同一个百分比或金额出现在 3 个以上字段组。数字住在 `metrics`，其他字段引用它、不要重讲。只对 `GATE_FROM`（2026-09-01）起的新记录强制，更早的记录不回头改。
 
 还要在浏览器检查：记录数量、主页到独立页链接、两层标签切换、展开/收起、板块筛选、两个排序和移动端横向溢出。
 

@@ -148,6 +148,7 @@ h1{font-size:26px;margin:0 0 4px}
 .dec-list li.inv:before{content:"×";color:#dc2626;font-size:12px;top:0}
 .dec-timing{margin:11px 0 0;font-size:12.5px;color:#475569;line-height:1.7}
 .dec-risk{margin:8px 0 0;font-size:12.5px;color:#64748b;line-height:1.7}
+.src-offline{color:#64748b}
 .narrative-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .trend-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:10px;line-height:1;font-weight:900;letter-spacing:.04em;vertical-align:middle}
 .trend-badge.new{color:#1556a0;background:#eaf3ff;border:1px solid #bed8fa}
@@ -514,8 +515,7 @@ const NARRATIVES = [
     "sources": [
       {
         "type": "专题",
-        "label": "mRNA 个体化肿瘤疫苗深度：机制 × 结构 × 生产 × 股价复盘（2026-08-30，9/2 更新）",
-        "url": "special/2026-08-30-mrna-manufacturing-special.html"
+        "label": "2026-08-30《mRNA 个体化肿瘤疫苗深度：机制 × 结构 × 生产 × 股价复盘》（2026-09-02 更新）"
       },
       {
         "type": "公司公告",
@@ -570,7 +570,8 @@ const NARRATIVES = [
     ],
     "reviewedAt": "2026-09-03",
     "status": "unreviewed",
-    "statusAsOf": "待复盘"
+    "statusAsOf": "待复盘",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 3,
@@ -601,6 +602,10 @@ const NARRATIVES = [
     ],
     "disconfirm": "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
     "sources": [
+      {
+        "type": "专题",
+        "label": "2026-08-05《AI 网络层成为新瓶颈：Ethernet Fabric》"
+      },
       {
         "type": "市场反应",
         "label": "IBD：AI Cloud Networking Growth Drives Arista Beat",
@@ -747,6 +752,10 @@ const NARRATIVES = [
     ],
     "sources": [
       {
+        "type": "专题",
+        "label": "2026-08-11《光通信叙事主线》（老师 8/10 专题归档 ＋ 我方检验，2026-09-03 更新）"
+      },
+      {
         "type": "外部研究",
         "label": "老师：光速之后｜美股光通讯产业链深度分析 v1.1",
         "url": "https://sintszkay.github.io/market-reports/reports/2026-08-10-optical-communications-deep-dive-special.html"
@@ -820,7 +829,8 @@ const NARRATIVES = [
         "url": "https://www.axios.com/newsletters/axios-closer-f8186890-7ddf-4084-b60d-d84a9e794345"
       }
     ],
-    "reviewedAt": "2026-09-03"
+    "reviewedAt": "2026-09-03",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 6,
@@ -899,7 +909,8 @@ const NARRATIVES = [
         "url": "https://www.sec.gov/Archives/edgar/data/1851003/000119312526066951/zeta-ex99_1.htm"
       }
     ],
-    "reviewedAt": "2026-09-03"
+    "reviewedAt": "2026-09-03",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 7,
@@ -960,7 +971,8 @@ const NARRATIVES = [
         "url": "https://www.asml.com/en/investors/financial-results/quarterly-results"
       }
     ],
-    "reviewedAt": "2026-09-03"
+    "reviewedAt": "2026-09-03",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 8,
@@ -1012,7 +1024,8 @@ const NARRATIVES = [
         "url": "https://ir.veeco.com/news-and-events/news-details/2026/Veeco-Reports-Second-Quarter-2026-Financial-Results/default.aspx"
       }
     ],
-    "reviewedAt": "2026-09-03"
+    "reviewedAt": "2026-09-03",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 9,
@@ -1045,6 +1058,10 @@ const NARRATIVES = [
       "超大规模客户的AI资本开支整体下修，算力与电力采购节奏放缓。"
     ],
     "sources": [
+      {
+        "type": "专题",
+        "label": "2026-08-27《Neocloud 深度：基本面拆解 × 十个月股价复盘》"
+      },
       {
         "type": "公司公告",
         "label": "CoreWeave Q2 2026 Results",
@@ -1095,6 +1112,10 @@ const NARRATIVES = [
     ],
     "disconfirm": "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。",
     "sources": [
+      {
+        "type": "专题",
+        "label": "2026-08-03《CIBR × XSW 成分股新叙事》"
+      },
       {
         "type": "公司公告",
         "label": "IBM CEO致投资者信",
@@ -1160,7 +1181,8 @@ const NARRATIVES = [
     ],
     "reviewedAt": "2026-09-03",
     "status": "unreviewed",
-    "statusAsOf": "待复盘"
+    "statusAsOf": "待复盘",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   },
   {
     "rank": 12,
@@ -1197,7 +1219,8 @@ const NARRATIVES = [
         "url": "https://www.nasdaq.com/market-activity/stocks/sezl"
       }
     ],
-    "reviewedAt": "2026-09-03"
+    "reviewedAt": "2026-09-03",
+    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
   }
 ];
 
@@ -11058,13 +11081,22 @@ function reportHtml(text){
 function footnotesHtml(sources){
   const rows = sources || [];
   if(!rows.length) return "";
-  return '<div class="footnotes"><b>来源</b><ol>'+rows.map(s=>'<li><a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">'+esc((s.type? s.type+" · ":"")+(s.label||s.url||"打开"))+'</a></li>').join("")+'</ol></div>';
+  return '<div class="footnotes"><b>来源</b><ol>'+rows.map(s=>{
+    const txt = esc((s.type? s.type+" · ":"")+(s.label||s.url||"打开"));
+    return '<li>'+(s.url ? '<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+txt+'</a>'
+                         : '<span class="src-offline">'+txt+'</span>')+'</li>';
+  }).join("")+'</ol></div>';
 }
 
 function inlineSourcesHtml(sources){
   const rows = sources || [];
   if(!rows.length) return "";
-  return '<div class="inline-sources"><b>来源：</b>'+rows.map((s,i)=>'<a href="'+esc(s.url||"#")+'" target="_blank" rel="noopener noreferrer">['+(i+1)+'] '+esc(s.label||s.url||"打开")+'</a>').join('　')+'</div>';
+  return '<div class="inline-sources"><b>来源：</b>'+rows.map((s,i)=>{
+    const txt = '['+(i+1)+'] '+esc((s.type?s.type+" · ":"")+(s.label||s.url||"打开"));
+    // 本地专题没有可公开访问的 URL，出纯文字引用而不是死链接
+    return s.url ? '<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+txt+'</a>'
+                 : '<span class="src-offline">'+txt+'</span>';
+  }).join('　')+'</div>';
 }
 
 function comparable(r){
