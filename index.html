@@ -11118,9 +11118,8 @@ function decisionHtml(r){
     const then = String(x.then||"");
     if(POS.test(then)) return;              // 正反重复的那一半，丢掉
     const cond = String(x.if||"").trim();
-    const why  = String(x.why||"").trim();
     if(!cond) return;
-    rows.push('<li><b>'+esc(cond)+'</b>'+(why?'<span>'+esc(why)+'</span>':"")+'</li>');
+    rows.push('<li>'+esc(cond)+'</li>');
   });
   const inval = (Array.isArray(d.invalidation)?d.invalidation:(d.invalidation?[d.invalidation]:[]))
     .filter(x=>String(x).trim())
@@ -11130,7 +11129,8 @@ function decisionHtml(r){
     '<h4>判断与待验证</h4>'+
     (d.stance?'<p class="dec-stance">'+esc(d.stance)+'</p>':"")+
     ((rows.length||inval)?'<ul class="dec-list">'+rows.join("")+inval+'</ul>':"")+
-    (d.timing?'<p class="dec-timing">'+esc(d.timing)+'</p>':"")+
+    // timing 已在 metrics 的「股价反应」里写过，不重复
+
     // risk 的正文与 narrative.divergence 高度重复，只保留它独有的一件事：本次记录缺了什么
     (function(){
       const gaps = String(d.risk||"").split(/(?<=。)/)
