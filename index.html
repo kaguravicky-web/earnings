@@ -11131,7 +11131,12 @@ function decisionHtml(r){
     (d.stance?'<p class="dec-stance">'+esc(d.stance)+'</p>':"")+
     ((rows.length||inval)?'<ul class="dec-list">'+rows.join("")+inval+'</ul>':"")+
     (d.timing?'<p class="dec-timing">'+esc(d.timing)+'</p>':"")+
-    (d.risk?'<p class="dec-risk">'+esc(d.risk)+'</p>':"")+
+    // risk 的正文与 narrative.divergence 高度重复，只保留它独有的一件事：本次记录缺了什么
+    (function(){
+      const gaps = String(d.risk||"").split(/(?<=。)/)
+        .filter(x=>/未取得|未披露|未拆分|无法量化/.test(x)).join("");
+      return gaps ? '<p class="dec-risk">'+esc(gaps)+'</p>' : "";
+    })()+
   '</section>';
 }
 
