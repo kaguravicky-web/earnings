@@ -11351,8 +11351,8 @@ function render(){
     const detailPageBlock = detailPageHtml(r);
     const accelBlock = accelHtml(r.accel);
     const researchBody = r.detailPage
-      ? accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+notesHtml+outcomeHtml
-      : accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+fullReportHtml+sourcesHtml;
+      ? accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+notesHtml+outcomeHtml+decisionBlock
+      : accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+decisionBlock+fullReportHtml+sourcesHtml;
     return '<div class="record">'+
       '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
         '<span class="rec-arrow">▶</span>'+
@@ -11368,7 +11368,7 @@ function render(){
       '</div>'+
       '<div class="record-body">'+
         detailPageBlock+
-        '<div class="record-pane active" data-pane="research">'+researchBody+decisionBlock+'</div>'+
+        '<div class="record-pane active" data-pane="research">'+researchBody+'</div>'+
         '<button type="button" class="collapse-record">收起 ↑</button>'+
       '</div>'+
     '</div>';
