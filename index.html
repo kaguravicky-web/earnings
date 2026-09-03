@@ -750,6 +750,70 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-09-02",
+  ticker: "SNOW",
+  company: "Snowflake",
+  sector: "tech",
+  score: 89,
+  rec: "resonance",
+  dims: {quality: 37, marketread: 32, fundamentals: 20},
+  compare: {revenueGrowth:37, revenueGuidance:37.5},
+  accel: {thisQ: "产品收入 +37%（两季自 30% 加速 7 个百分点）", nextQ: "Q3 指引产品收入 +37%~38%，全年上调至 +36%", direction: "加速", note: "本批里二阶导最强的一只：本季已经加速，下季指引还在本季基础上再往上，而且非GAAP营业利润率全年指引从13.5%上调到14.5%——增长与利润率同时加速。管理层称AI工作负载贡献了约一半的增长加速。与同为用量计费数据平台的MDB形成直接对照：同一种商业模式，一个加速一个减速，市场给出的反应也完全相反。"},
+  business: {
+    plain: "Snowflake 把企业散在各处的数据集中到云上，让分析师和应用能直接查询。它自己不建机房，跑在AWS、Azure、GCP上面，卖的是把数据整理好、随时可查、按需扩容这件事。近两年的新故事是让AI直接在这些数据上工作——因为AI最缺的不是模型，是干净、可用、有权限管理的企业数据。",
+    howMakesMoney: "按用量计费：客户跑多少查询、存多少数据，就付多少钱。所以核心指标是产品收入而非合同额，收入曲线跟着客户的实际使用走。这也意味着它没有席位订阅的年约缓冲——客户优化成本时收入立刻反映，反过来客户跑得多时收入也立刻上去。",
+    moat: "壁垒是数据重力与权限体系：企业把核心数据、权限、治理规则都建在上面，迁移要重做整套数据架构。风险是三大云厂商都有自家的数据仓库产品，且用量计费模式的下行弹性很大，一旦企业进入降本周期，收入会直接反映。",
+    whatChanged: "本季最重要的不是37%这个数字，而是它的方向：产品收入14.9亿美元、同比+37%，两个季度里从30%加速了7个百分点，且是第二个连续创纪录的环比美元增量。Q3指引产品收入15.88至15.93亿、同比+37%至38%，在本季基础上继续往上；全年产品收入指引上调到60.7亿、+36%。利润率同步：非GAAP营业利润率本季扩到15%，全年指引从13.5%上调到14.5%。管理层称AI工作负载贡献了约一半的增长加速。"
+  },
+  decision: {
+    stance: "增长与利润率同时加速、下季指引再往上，是本批二阶导最强的一份；唯一没被量化的是AI贡献",
+    summary: "产品收入14.9亿美元、同比+37%，两季自30%加速7个百分点，且为第二个连续创纪录的环比美元增量。Q3指引产品收入15.88至15.93亿、同比+37%至38%，继续高于本季；全年上调至60.7亿、+36%。非GAAP营业利润率本季15%，全年指引从13.5%上调至14.5%。净收入留存率126%，剩余履约义务+30%至90亿美元。核心待验证的是AI的贡献——管理层称约占增长加速的一半，但没有独立的收入披露。",
+    playbook: [
+      {if:"Q3产品收入落在15.88至15.93亿指引内，且Q4指引隐含增速不低于37%", then:"确认加速可延续，维持共振判断", why:"连续两个季度指引隐含增速不下滑，才能排除本季加速来自单季客户用量波动。"},
+      {if:"非GAAP营业利润率按全年14.5%推进，且净收入留存率维持在125%以上", then:"确认增长与利润率可以同时改善", why:"用量计费模式下利润率扩张通常来自规模效应；留存率则说明加速来自老客户扩容而不是一次性新签。"},
+      {if:"CoWork、CoCo等AI产品开始有独立的收入或用量披露", then:"提高持续性评分", why:"目前AI贡献只有约一半增长加速的定性口径，按本站对CRM、PATH、VEEV的同一标准，需要可量化披露才计入基本面。"},
+      {if:"Q3产品收入增速回落到35%以下、或净收入留存率跌破120%", then:"减仓或回避", why:"用量计费没有年约缓冲，客户进入降本周期时收入会直接反映——这正是同模式的MDB本季所处的位置。"}
+    ],
+    triggers: ["Q3产品收入与Q4指引隐含增速", "非GAAP营业利润率是否按14.5%推进", "净收入留存率能否维持125%以上", "CoWork与CoCo的可量化披露", "剩余履约义务增速与产品收入增速之差", "与MDB在同模式下的相对方向"],
+    invalidation: ["Q3产品收入增速回落到35%以下", "Q4指引隐含增速低于本季实际", "净收入留存率跌破120%", "全年产品收入或利润率指引回调", "AI产品长期停留在定性叙事"],
+    timing: "口径日 2026-09-02：财报盘后发布。正式盘收305.84美元、当日-4.36%（跌幅发生在财报前，与同批标的一致的财报前去风险形态）；盘后报376.60美元、较收盘约+23.14%，盘后高点380.52、低点304.48。这是本批财报中最大的正向反应，与其最强的二阶导方向一致。首日正式反应为9/3交易日，不在本记录内。",
+    risk: "用量计费的下行弹性是这个模式的固有属性：客户跑得多时收入立刻上去，客户降本时也立刻下来，没有席位订阅的年约缓冲——同为用量计费数据平台的MDB本季正处在减速一侧，是最直接的提醒。AI贡献目前只有约一半增长加速的定性口径，没有独立收入披露，按本站标准尚不能计入基本面。三大云厂商的自家数据仓库产品构成长期竞争压力。本次记录未取得客户数、毛利率与自由现金流明细。"
+  },
+  metrics: [
+    {label:"🔑 产品收入与二阶导", value:"14.9亿美元，+37%", sub:"两个季度内自30%加速7个百分点，且为第二个连续创纪录的环比美元增量。方向而非幅度，是本季最重要的一条", tone:"beat", pct:96},
+    {label:"🔑 Q3产品收入指引", value:"15.88至15.93亿，+37%~38%", sub:"高于本季的+37%——下季指引在本季加速的基础上继续往上，是本批六家里唯一做到这一点的软件公司", tone:"beat", pct:97},
+    {label:"FY2027指引（上调）", value:"产品收入60.7亿，+36%", sub:"公司在本季上调了全年产品收入展望", tone:"beat", pct:90},
+    {label:"非GAAP营业利润率", value:"本季15%", sub:"全年指引从13.5%上调至14.5%——增长与利润率同时改善", tone:"beat", pct:92},
+    {label:"净收入留存率", value:"126%", sub:"老客户在持续扩容，说明加速来自存量用量提升而非仅靠新签", tone:"beat", pct:88},
+    {label:"剩余履约义务", value:"90亿美元，+30%", sub:"已签约但未确认的金额，增速略低于产品收入的+37%", tone:"up", pct:76},
+    {label:"AI贡献", value:"约占增长加速的一半", sub:"管理层口径；CoWork与CoCo持续获客，但均无独立收入或用量披露——按本站标准尚不计入基本面", tone:"flat", pct:55},
+    {label:"股价反应", value:"盘后+23.14%", sub:"口径日9/2：正式盘收305.84、当日-4.36%（跌幅在财报前）；盘后376.60、高点380.52。本批财报中最大的正向反应，与最强的二阶导方向一致。首日正式反应为9/3，不在本记录内", tone:"beat", pct:98}
+  ],
+  management_highlights: [
+    "产品收入14.9亿美元、同比+37%，增速较两个季度前的30%加速7个百分点，并录得第二个连续创纪录的环比美元增量。",
+    "Q3产品收入指引15.88至15.93亿美元、同比+37%至38%，高于本季实际；全年产品收入指引上调至60.7亿美元、+36%。",
+    "非GAAP营业利润率本季扩张至15%，全年指引从13.5%上调至14.5%。",
+    "净收入留存率126%，剩余履约义务同比+30%至90亿美元。",
+    "管理层称AI工作负载贡献了约一半的增长加速，AI产品CoWork与CoCo持续获客——但两者均无独立的收入或用量披露。"
+  ],
+  narrative: {
+    summary: "Snowflake这季是本批二阶导最强的一份：产品收入+37%、两季自30%加速7个百分点，Q3指引37%至38%还在本季基础上继续往上，全年收入与利润率指引同时上调。它和同为用量计费数据平台的MDB构成直接对照——同一种商业模式，一个加速一个减速，市场给出的反应也完全相反。",
+    consensus: "多头证据是增长与利润率同时加速：产品收入14.9亿、+37%且为第二个连续创纪录的环比美元增量；Q3指引+37%至38%高于本季；全年产品收入上调至60.7亿、+36%；非GAAP营业利润率本季15%、全年指引从13.5%提到14.5%。净收入留存率126%说明加速来自老客户扩容，剩余履约义务+30%至90亿提供了后续可见度。",
+    divergence: "反叙事有两条。一是模式的下行弹性：用量计费没有席位订阅的年约缓冲，客户进入降本周期时收入会直接反映，而同模式的MDB本季正处在减速一侧。二是AI贡献未被量化——管理层称约占增长加速的一半，CoWork与CoCo持续获客，但均无独立收入或用量披露，按本站对CRM、PATH、VEEV的同一标准尚不能计入基本面。三大云厂商的自家数据仓库产品是长期竞争压力。",
+    signals: ["Q3产品收入与Q4指引隐含增速", "非GAAP营业利润率按14.5%推进", "净收入留存率能否维持125%以上", "CoWork与CoCo的可量化披露", "剩余履约义务与产品收入的增速差", "与MDB在同模式下的相对方向"]
+  },
+  vic_notes: "二阶导框架的正向标杆：本批六家里，SNOW是唯一做到「本季已加速、下季指引在此基础上再加速」的软件公司，市场给出的盘后+23.14%也是本批最大的正向反应。与MDB的对照最有价值——两家都是用量计费的数据平台，商业模式几乎相同，但SNOW的下季指引隐含增速高于本季实际、MDB的下季指引金额低于本季实际，市场反应因此完全相反（+23.1% vs -13.5%）。这组对照说明：在同一商业模式内，决定排序的既不是绝对增速也不是beat幅度，而是二阶导的方向。",
+  sources: [
+    {type:"SEC财报", label:"Snowflake FY2027 Q2 业绩（8-K 附件）", url:"https://www.sec.gov/Archives/edgar/data/1640147/000164014726000033/fy2027q2earnings.htm"},
+    {type:"财报明细", label:"StockTitan：产品收入14.9亿美元", url:"https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-second-quarter-of-fiscal-h84k25gqskea.html"},
+    {type:"业绩会", label:"Snowflake Q2 FY2027 业绩会文字稿", url:"https://www.benzinga.com/news/26/09/61592519/snowflake-q2-2027-earnings-call-complete-transcript"},
+    {type:"财报解读", label:"Seeking Alpha：全年产品收入60.7亿与14.5%利润率指引", url:"https://seekingalpha.com/news/4639794-snowflake-signals-fy-2027-product-revenue-of-6_07b-with-14_5-percent-non-gaap-operating"},
+    {type:"市场反应", label:"CNBC：Snowflake Q2 FY2027 财报", url:"https://www.cnbc.com/2026/09/02/snowflake-snow-q2-earnings-report-2027.html"}
+  ]
+},
+
+{
+  type: "earnings",
+  date: "2026-09-02",
   ticker: "AVGO",
   company: "Broadcom",
   sector: "semis",
@@ -10316,7 +10380,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = {
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis",
   CSCO:"tech",
