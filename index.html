@@ -125,6 +125,16 @@ h1{font-size:26px;margin:0 0 4px}
 .sector-card .narr-lead{font-weight:700;color:#0f172a;margin:12px 0 5px;font-size:13px}
 .sector-card .narr-para{margin:0 0 8px;line-height:1.8;color:#334155;font-size:13px}
 .sector-card .narr-para:last-of-type{margin-bottom:0}
+.accel{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;border-radius:10px;padding:11px 13px;margin:0 0 12px;font-size:13px;border:1px solid var(--line);background:#f8fafc}
+.accel.up{border-color:#bbf7d0;background:#f0fdf4}
+.accel.down{border-color:#fecaca;background:#fef2f2}
+.accel.flat{border-color:#e2e8f0;background:#f8fafc}
+.accel-dir{font-weight:700;white-space:nowrap}
+.accel.up .accel-dir{color:#15803d}.accel.down .accel-dir{color:#b91c1c}.accel.flat .accel-dir{color:#475569}
+.accel-body{color:#0f172a;font-weight:600}
+.accel-note{flex-basis:100%;color:#475569;line-height:1.7}
+.accel-tag{display:inline-block;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700;white-space:nowrap}
+.accel-tag.up{background:#dcfce7;color:#15803d}.accel-tag.down{background:#fee2e2;color:#b91c1c}.accel-tag.flat{background:#e2e8f0;color:#475569}
 .narrative-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .trend-badge{display:inline-flex;align-items:center;border-radius:999px;padding:3px 8px;font-size:10px;line-height:1;font-weight:900;letter-spacing:.04em;vertical-align:middle}
 .trend-badge.new{color:#1556a0;background:#eaf3ff;border:1px solid #bed8fa}
@@ -242,7 +252,7 @@ h1{font-size:26px;margin:0 0 4px}
 <section id="tab-framework" style="display:none">
 <div class="panel fw">
   <h2>评分框架</h2>
-  <pre>财报质量   = 本季度收入、利润、现金流和指引相对预期的兑现度
+  <pre>财报质量   = 先看二阶导（下季指引隐含增速 vs 本季实际），再看收入、利润、现金流与指引的兑现度
 股价反应   = 财报后价格如何消化预期差，以及反应能否持续
 持续性质量 = 护城河、订单可见度、客户结构、现金转化与未来几个季度的可重复性
 总分       = 财报质量 + 股价反应 + 持续性质量
@@ -256,6 +266,26 @@ h1{font-size:26px;margin:0 0 4px}
   </ul>
   <p class="hint">目标不是把新闻改写成中文，而是建立一个能反复校验的“市场叙事数据库”。</p>
 
+  <h3>二阶导就是一切：加速还是减速</h3>
+  <p class="hint">2026-09-02 起的核心口径。<b>市场给财报排序的依据是增速的方向，不是 beat 的幅度。</b>一份全面超预期但下季指引隐含减速的财报，会比一份小幅超预期却继续加速的财报跌得更多。</p>
+  <table>
+    <thead><tr><th>股票</th><th>本季增速</th><th>下季指引方向</th><th>市场结果</th></tr></thead>
+    <tbody>
+      <tr><td>SNOW</td><td>产品收入 +37%</td><td>两季加速 7pt（30%→37%）</td><td>盘后 +22%</td></tr>
+      <tr><td>AVGO</td><td>AI +221%</td><td>Q4 AI 指引 +236%（继续加速）</td><td>盘后由 -5% 收复至 -0.2%</td></tr>
+      <tr><td>DELL</td><td>收入 +58%</td><td>Q3 指引大幅高于共识</td><td>9/2 +15.8%</td></tr>
+      <tr><td>GTLB</td><td>+21%</td><td>Q3 金额低于 Q2 实际（→15~16%）</td><td>9/2 +10.0%（高开低收）</td></tr>
+      <tr><td>MDB</td><td>+30%</td><td>Q3 金额低于 Q2 实际（→20~21%）</td><td>9/2 -13.5%</td></tr>
+      <tr><td>CRDO</td><td>+114.7%</td><td>Q2 指引仅环比 +10.6%，加速全压后半年</td><td>9/2 -20.0%</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><b>六只全部 beat 本季数字，排序完全跟增速方向走，与 beat 幅度无关。</b>增速最高的 CRDO（+114.7%）跌最多，增速最低的 GTLB（+21%）反而不崩。</li>
+    <li><b>减速时要问第二曲线。</b>GTLB 与 MDB 结构相同——下季指引金额都低于本季实际——差别在于 GTLB 有 consumption run-rate 从 1,500 万到 4,000 万美元这条加速中的第二曲线接住，所以只是高开低收而不是崩。</li>
+    <li><b>判断顺序：</b>①下季指引隐含增速 vs 本季实际是加速还是减速 → ②减速的话有没有可量化的第二曲线 → ③再看 beat 幅度与利润率、现金流。前两步决定分数区间，第三步只影响边际。</li>
+    <li><b>评分含义：</b>加速可给财报质量高分；减速则封顶，除非第二曲线能被数字证明；「指引金额低于本季实际」是最直接的减速信号，比同比增速更早暴露。</li>
+    <li>每条 earnings 记录都要填 <code>accel</code> 字段（本季增速 / 下季指引 / 方向 / 第二曲线说明），并在卡片顶部单独显示。</li>
+  </ul>
   <h3>总分解释</h3>
   <table>
     <thead><tr><th>分数</th><th>含义</th><th>要求</th></tr></thead>
@@ -272,7 +302,7 @@ h1{font-size:26px;margin:0 0 4px}
   <table>
     <thead><tr><th>维度</th><th>权重</th><th>说明</th></tr></thead>
     <tbody>
-      <tr><td>财报质量</td><td>40</td><td>只看当季兑现：收入、EPS、利润率、FCF、订单、backlog和指引相对预期。</td></tr>
+      <tr><td>财报质量</td><td>40</td><td><b>主依据是增速的方向（二阶导），不是 beat 的幅度。</b>先判下季指引隐含增速相对本季实际是加速还是减速，再看收入、EPS、利润率、FCF、订单与 backlog 的兑现度。</td></tr>
       <tr><td>股价反应</td><td>35</td><td>盘后/次日及后续价格、成交、卖方预期修正、估值约束与“利好兑现”。</td></tr>
       <tr><td>持续性质量</td><td>25</td><td>判断好数字能否重复：护城河、客户集中度、订单可见度、资本强度、现金转化与周期性。</td></tr>
     </tbody>
@@ -328,6 +358,7 @@ h1{font-size:26px;margin:0 0 4px}
  *   decision: {stance:"等待确认", summary:"当前交易本质", playbook:[{if:"证据",then:"动作",why:"理由"}],
  *     triggers:["未来催化"], invalidation:["失效条件"], timing:"验证日期", risk:"执行风险"},
  *   sources: [{type:"X|业绩会|采访|视频|公告", label:"来源名称", url:"https://..."}],
+ *   accel: {thisQ:"本季增速", nextQ:"下季指引隐含增速", direction:"加速|减速|持平", note:"第二曲线或口径说明"},
  *   vic_notes: "",             // Vic后续论点，Claude代为补充
  *   outcome: ""                // 复盘结果，如 "+12.3%，Day5清仓"
  * }
@@ -724,6 +755,7 @@ const RECORDS = [
   score: 84,
   rec: "resonance",
   dims: {quality: 38, marketread: 26, fundamentals: 20},
+  accel: {thisQ: "收入 +58%", nextQ: "Q3 490亿、全年上调至约 +70%，大幅高于共识", direction: "加速", note: "二阶导向上：Q3 指引金额高于本季实际，且全年收入一次上调 250 亿、每股收益从 17.90 提到 25.50 美元。这是本批六家里方向最明确的一家。"},
   compare: {revenueGrowth:58, revenueGuidance:70},
   business: {
     plain: "戴尔卖服务器、存储和个人电脑。过去它是一家增长平平的硬件公司，靠规模和供应链吃薄利。变化来自AI：训练大模型需要成千上万台装满GPU的服务器，而这些机架要有人设计、集成、散热、交付、部署——戴尔就是干这个的。它不做芯片，做把芯片变成能用的机房这件事。",
@@ -773,7 +805,8 @@ const RECORDS = [
     {type:"公司演示", label:"Investing.com：Q2 FY27 幻灯片，AI积压950亿", url:"https://www.investing.com/news/company-news/dell-q2-fy27-slides-ai-server-backlog-hits-95b-revenue-up-58-93CH-4884718"},
     {type:"市场反应", label:"CNBC：上调全年展望后股价涨9%", url:"https://www.cnbc.com/2026/09/01/dell-q2-earnings-report-2027.html"},
     {type:"财报解读", label:"24/7：950亿AI积压与超预期", url:"https://247wallst.com/cards/dell-technologies-q2-2027-earnings-dell-01m1f9r5egqcdb5ba3h8b408w5"}
-  ]
+  ],
+  outcome: "9/2 首日 +15.8%。二阶导框架下的排序完全兑现——本批六家里指引方向最明确向上的一家，涨幅也最大。"
 },
 {
   type: "earnings",
@@ -784,6 +817,7 @@ const RECORDS = [
   score: 65,
   rec: "doubt",
   dims: {quality: 36, marketread: 10, fundamentals: 19},
+  accel: {thisQ: "收入 +114.7%（环比 +10%）", nextQ: "Q2 指引仅环比 +10.6%，加速全部压到后半年", direction: "减速", note: "同比 115% 的高基数下，下季指引只给出环比 +10.6%，等于把全年 85% 的增长目标全部压到后半年兑现。本站与外部研究的收入与毛利门槛虽然全部通过，但二阶导方向是向下的。"},
   compare: {revenueGrowth:115, revenueGuidance:85},
   business: {
     plain: "Credo 做高速数据连接的芯片与线缆。AI集群里GPU之间要以极高速率交换数据，铜线到一定距离就衰减、光模块又贵，Credo的AEC（有源电缆）在中间那段距离上把信号重新放大整形，成本和功耗都比光更划算。此外它也做SerDes和光通讯用的DSP。",
@@ -833,7 +867,8 @@ const RECORDS = [
     {type:"财报解读", label:"Seeking Alpha：全年光通讯收入超6亿、Q2指引5.25至5.35亿", url:"https://seekingalpha.com/news/4639254-credo-targets-more-than-600m-in-fiscal-27-optical-revenue-as-q2-revenue-is-guided-to-525m"},
     {type:"市场反应", label:"Benzinga：业绩公布后股价走低", url:"https://www.benzinga.com/markets/earnings/26/09/61563224/credo-technology-reports-q1-results-shares-slip"},
     {type:"外部研究", label:"老师：光速之后｜美股光通讯产业链深度分析 v1.1", url:"https://sintszkay.github.io/market-reports/reports/2026-08-10-optical-communications-deep-dive-special.html"}
-  ]
+  ],
+  outcome: "9/2 首日 -20.0%，是本批六家里跌幅最大的一只——而它的本季增速 +114.7% 也是六家里最高的。这条直接证伪了「beat 幅度决定反应」的旧口径：预登记的收入与毛利门槛全部通过，仍然跌两成，因为二阶导向下。"
 },
 {
   type: "earnings",
@@ -844,6 +879,7 @@ const RECORDS = [
   score: 65,
   rec: "doubt",
   dims: {quality: 36, marketread: 10, fundamentals: 19},
+  accel: {thisQ: "收入 +30%", nextQ: "Q3 指引金额低于 Q2 实际（隐含约 20~21%）", direction: "减速", note: "下季指引金额低于本季实际，是最直接的减速信号，比同比增速更早暴露。全面超预期与创纪录客户增长都没能抵消这一点，也没有可量化的第二曲线接住。"},
   compare: {revenueGrowth:30, revenueGuidance:22},
   business: {
     plain: "MongoDB 做数据库，但和传统关系型数据库不同——它存的是文档而不是表格，开发者不用事先把数据结构定死，改需求时不用重构整个库。这个特性让它在应用迭代快的场景里很受欢迎，AI应用尤其如此，因为向量、文本、结构化数据经常要混在一起存。",
@@ -892,7 +928,8 @@ const RECORDS = [
     {type:"SEC财报", label:"MongoDB Q2 FY27 8-K 附件", url:"https://www.sec.gov/Archives/edgar/data/0001441816/000162828026059794/mdb-073126xex991xrelease.htm"},
     {type:"业绩会", label:"MongoDB Q2 FY2027 业绩会文字稿", url:"https://seekingalpha.com/article/4942252-mongodb-inc-mdb-q2-2027-earnings-call-transcript"},
     {type:"财报解读", label:"Seeking Alpha：全年指引上调、Atlas增速提高至约27%", url:"https://seekingalpha.com/news/4639257-mongodb-projects-fiscal-2027-revenue-of-2_99b-to-3_03b-while-raising-atlas-growth-outlook-to"}
-  ]
+  ],
+  outcome: "9/2 首日 -13.5%。全面超预期、Atlas 超自身指引 300 个基点、净新增客户创纪录，仍然大跌——本季数字与市场反应完全脱钩，决定排序的是下季指引隐含的减速。与结构相同的 GTLB 对照：差别只在有没有第二曲线。"
 },
 {
   type: "earnings",
@@ -903,6 +940,7 @@ const RECORDS = [
   score: 82,
   rec: "resonance",
   dims: {quality: 34, marketread: 30, fundamentals: 18},
+  accel: {thisQ: "收入 +21%", nextQ: "Q3 指引金额低于 Q2 实际（隐含约 15~16%）", direction: "减速", note: "结构与 MDB 相同——下季指引金额低于本季实际。但有第二曲线接住：consumption run-rate 从 1,500 万升至 4,000 万美元且仍在加速，加上净 ARR 增长超过 40%。这是减速但不崩的典型中间态。"},
   compare: {revenueGrowth:21, revenueGuidance:20},
   business: {
     plain: "GitLab 是软件开发的一站式工作台：代码托管、协作评审、自动化测试与部署、安全扫描，全部放在同一个平台里。开发者用GitHub加一堆工具能拼出同样的流程，GitLab卖的是不用拼、开箱即用，尤其适合对合规与私有部署有要求的大企业。",
@@ -950,7 +988,8 @@ const RECORDS = [
     {type:"SEC财报", label:"GitLab Q2 FY27 8-K 附件", url:"https://www.sec.gov/Archives/edgar/data/0001653482/000162828026059820/gitlab-ex99120260731fy27.htm"},
     {type:"业绩会", label:"GitLab Q2 FY2027 业绩会文字稿", url:"https://seekingalpha.com/article/4942245-gitlab-inc-gtlb-q2-2027-earnings-call-transcript"},
     {type:"财报解读", label:"StockStory：Q2 超预期、股价跳涨", url:"https://markets.financialcontent.com/stocks/article/stockstory-2026-9-1-gitlab-nasdaqgtlb-reports-bullish-q2-cy2026-stock-jumps-159"}
-  ]
+  ],
+  outcome: "9/2 首日 +10.0%，但高开低收。验证了「减速要问第二曲线」这条：结构与 MDB 一样是下季指引金额低于本季实际，因为 consumption run-rate 从 1,500 万到 4,000 万的第二曲线接住，所以只是高开低收而没有崩。"
 },
 {
   type: "earnings",
@@ -961,6 +1000,7 @@ const RECORDS = [
   score: 61,
   rec: "doubt",
   dims: {quality: 28, marketread: 15, fundamentals: 18},
+  accel: {thisQ: "收入 +34%（含 CyberArk 并表）", nextQ: "Q1 FY27 每股收益指引 0.96 至 0.98 美元，低于本季 1.02", direction: "减速", note: "下季每股收益指引金额低于本季实际，方向向下；且本季 +34% 的收入增速含并表贡献，有机口径未披露，实际二阶导可能比表观更弱。"},
   compare: {revenueGrowth:34},
   business: {
     plain: "Palo Alto 是网络安全里的平台型龙头。它最早卖防火墙硬件，现在把云安全、终端防护、安全运营中心的自动化都收进同一个平台，主打让客户用一家取代原来七八家安全厂商。刚完成对CyberArk的收购，把身份与特权访问也纳进来。",
@@ -10422,6 +10462,28 @@ function recKey(r){ return r.type==="event" ? "event" : (r.rec||"doubt"); }
 function sectorKey(r){ return r.sector || TICKER_SECTOR[r.ticker] || "other"; }
 function sectorLabel(r){ return SECTOR_META[sectorKey(r)] || SECTOR_META.other; }
 
+function accelKey(a){
+  const d = a && a.direction ? String(a.direction) : "";
+  if(d.indexOf("加速") >= 0) return "up";
+  if(d.indexOf("减速") >= 0 || d.indexOf("減速") >= 0) return "down";
+  return "flat";
+}
+function accelTag(a){
+  if(!a || !a.direction) return "";
+  const k = accelKey(a);
+  const icon = k === "up" ? "\u2197" : (k === "down" ? "\u2198" : "\u2192");
+  return '<span class="accel-tag '+k+'">'+icon+" "+esc(a.direction)+'</span>';
+}
+function accelHtml(a){
+  if(!a || !a.direction) return "";
+  const k = accelKey(a);
+  const body = [a.thisQ ? "本季 "+a.thisQ : "", a.nextQ ? "下季指引 "+a.nextQ : ""].filter(Boolean).join("　\u2192　");
+  return '<div class="accel '+k+'">'+
+    '<span class="accel-dir">\u4e8c\u9636\u5bfc\uff1a'+esc(a.direction)+'</span>'+
+    (body ? '<span class="accel-body">'+esc(body)+'</span>' : "")+
+    (a.note ? '<span class="accel-note">'+esc(a.note)+'</span>' : "")+
+  '</div>';
+}
 function narrativeBlock(label, val){
   const rows = Array.isArray(val) ? val.filter(x=>x && String(x).trim()) : (val ? [val] : []);
   if(!rows.length) return "";
@@ -10582,9 +10644,10 @@ function render(){
     const businessBlock = businessHtml(r);
     const decisionBlock = decisionHtml(r);
     const detailPageBlock = detailPageHtml(r);
+    const accelBlock = accelHtml(r.accel);
     const researchBody = r.detailPage
-      ? businessBlock+dimsHtml+metricsHtml+historyBlock+notesHtml+outcomeHtml
-      : businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+fullReportHtml+sourcesHtml;
+      ? accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+notesHtml+outcomeHtml
+      : accelBlock+businessBlock+dimsHtml+metricsHtml+historyBlock+extendedBlock+managementHtml+narrativeHtml+notesHtml+outcomeHtml+fullReportHtml+sourcesHtml;
     return '<div class="record">'+
       '<div class="record-head" role="button" tabindex="0" aria-expanded="false">'+
         '<span class="rec-arrow">▶</span>'+
@@ -10593,6 +10656,7 @@ function render(){
         '<span class="rec-company">'+esc(r.company||"")+'</span>'+
          '<span class="sector-tag">'+esc(sectorLabel(r))+'</span>'+
         (r.extended?'<span class="deep-tag">板块扩展</span>':'')+
+        accelTag(r.accel)+
         sortBadge(r)+
         (isEvent? "" : '<span class="rec-score">'+(r.score!=null?r.score:"—")+'<small> /100</small></span>')+
         '<span class="badge '+meta.cls+'">'+meta.label+'</span>'+
