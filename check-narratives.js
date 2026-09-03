@@ -45,9 +45,47 @@ NARRATIVES.forEach((n, idx) => {
   if (!dc.trim()) errors.push(where + '：没有证伪条件。');
 });
 
+
+const REVIEW_DAYS = 7;  // 叙事每周复盘一次：超过这个天数未复盘就红
+const num = v => parseFloat(String(v || '0').split('/')[0]) || 0;
+const today = new Date();
+const daysAgo = d => {
+  const t = Date.parse(String(d) + 'T00:00:00Z');
+  if (isNaN(t)) return null;
+  return Math.floor((today - t) / 86400000);
+};
+
+// 5) 每周复盘：每条都要有 reviewedAt，且不得超过 REVIEW_DAYS 天
+NARRATIVES.forEach(n => {
+  const where = 'rank ' + n.rank + '「' + n.theme + '」';
+  const d = daysAgo(n.reviewedAt);
+  if (d === null) {
+    errors.push(where + '：缺少 reviewedAt（YYYY-MM-DD）。叙事每周复盘一次，复盘后必须写回日期。');
+  } else if (d > REVIEW_DAYS) {
+    errors.push(where + '：reviewedAt 是 ' + n.reviewedAt + '，已 ' + d + ' 天未复盘，超过 ' + REVIEW_DAYS + ' 天上限。');
+  }
+});
+
+// 6) 排名必须与强度一致：最热的排最前面，strength 降序
+for (let i = 1; i < NARRATIVES.length; i++) {
+  const prev = NARRATIVES[i - 1], cur = NARRATIVES[i];
+  if (num(cur.strength) > num(prev.strength)) {
+    errors.push('rank ' + cur.rank + '「' + cur.theme + '」strength ' + cur.strength +
+      ' 高于前一条 rank ' + prev.rank + '「' + prev.theme + '」的 ' + prev.strength +
+      '，但排在它后面。排名必须与强度一致，请重排或重打分。');
+  }
+}
+
+// 7) 从未复盘过的要显式标出来，不能悄悄留着
+NARRATIVES.forEach(n => {
+  if (n.status === 'unreviewed' || n.statusAsOf === '待复盘') {
+    console.warn('  ! rank ' + n.rank + '「' + n.theme + '」尚未做过状态复盘（strength ' + n.strength + ' 未经检验）。');
+  }
+});
+
 if (errors.length) {
   console.error('叙事闸门未通过（' + errors.length + ' 项）：');
   errors.forEach(e => console.error('  - ' + e));
   process.exit(1);
 }
-console.log('narratives ok（' + NARRATIVES.length + ' 条，单段上限 ' + MAX_PARA + '）');
+console.log('narratives ok（' + NARRATIVES.length + ' 条，单段上限 ' + MAX_PARA + '，复盘周期 ' + REVIEW_DAYS + ' 天）');
