@@ -472,760 +472,552 @@ const SECTOR_REVIEWS = [
   }
 ];
 
+// 🔴 本数组由 D:\交易为生\scripts\build_themes.py 从 data/themes.json 生成。
+// 不要手改这里 —— 改登记表，然后重跑生成器。2026-09-04 生成。
 const NARRATIVES = [
-  {
-    "rank": 1,
-    "theme": "mRNA个体化肿瘤疫苗：定价重心从疗效转向产能",
-    "status": "new",
-    "statusAsOf": "2026-09-03",
-    "reviewedAt": "2026-09-03",
-    "strength": "10/10",
-    "horizon": "当前至未来数季",
-    "direction": "快速强化",
-    "tickers": [
-      "MRNA",
-      "BNTX",
-      "MRK",
-      "PSNL",
-      "TEM",
-      "TMO",
-      "ARCT",
-      "MRVI",
-      "TWST",
-      "RGEN",
-      "NTLA",
-      "ILMN"
-    ],
-    "thesis": [
-      "8/19 的临床事件把 mRNA 个体化肿瘤疫苗从研究话题变成可交易主线。按「与事件的连结强度」分的六层结构，在事件当天几乎完美单调：一级当事人 +70.51%，往下逐层递减到五级 +7.65%。",
-      "但把起点挪到 8/19 收盘、看到 8/28，排序整个反转。一级 −11.05% 且 0/3 为正；二级「已披露关联的服务与制造」+4.64% 且 3/3 全正，是六层里唯一全员为正的一层。",
-      "所以这条线的定价重心已经从「有没有效」转到「能不能按时按量造出来」。把 4–6 周的个体化生产窗口拆成七步，三到四周花在 DNA 模板与 QC 放行上，真正合成 mRNA 只占两三天。"
-    ],
-    "evidence": [
-      "二级三只事件后全为正：PSNL +7.97%、TEM +4.56%、TMO +1.41%，对应定序鉴定、算法数据与耗材设备。同期一级三只全在还货：MRNA −20.87%、BNTX −9.76%、MRK −2.53%。",
-      "TEM 于 2026-07-20 宣布以每股 16.25 美元、企业价值约 15 亿美元收购 PSNL，标的正是 MRD 微小残留病灶监测。二级里最强的两只被并进同一个平台，监测与产能这两格开始并表。",
-      "生产链上市场只买了占时间最短的两格：LNP 递送（ARCT）与上游原料（MRVI）事件后仍为正；占掉大半窗口的 DNA 模板（TWST，−0.7%）与纯化放行（RGEN，−0.1%）被打回原地。",
-      "机制上这条线与检查点抑制剂互补而非替代：早期胰腺癌试验里疫苗诱导的 T 细胞约 98% 是治疗前在血液与肿瘤中都找不到的全新克隆，这解释了 8/19 当天 MRK 是跟涨而不是被抢生意。"
-    ],
-    "disconfirm": [
-      "主闸门：二级三只（PSNL／TEM／TMO）任一跌回 8/19 收盘之下，且三只里不再有两只为正。这是结构原文写下的失效条件。",
-      "统计口径的修正：PSNL 与 TEM 不是两个独立样本。收购以股票对价为主，PSNL 价格已锚定 TEM 加一个并购价差，因此二级实际只有两个独立观察，「3/3 全正」应按 2/2 读。",
-      "若 TEM 收购 PSNL 因股东会或监管未获通过而终止，二级的样本结构与本条的核心证据都需要重取。"
-    ],
-    "sources": [
-      {
-        "type": "专题",
-        "label": "2026-08-30《mRNA 个体化肿瘤疫苗深度：机制 × 结构 × 生产 × 股价复盘》（2026-09-02 更新）"
-      },
-      {
-        "type": "公司公告",
-        "label": "Tempus to Acquire Personalis（2026-07-20）",
-        "url": "https://www.tempus.com/news/pr/tempus-to-acquire-personalis-integrating-mrd/"
-      },
-      {
-        "type": "公司公告",
-        "label": "Personalis 8-K：每股 16.25 美元现金加股票对价",
-        "url": "https://www.stocktitan.net/sec-filings/PSNL/8-k-personalis-inc-reports-material-event-7dda0d5a33c7.html"
-      }
-    ]
-  },
-  {
-    "rank": 2,
-    "theme": "主权AI、私有AI与企业控制层",
-    "strength": "9.5/10",
-    "horizon": "未来1–3年",
-    "direction": "强化",
-    "tickers": [
-      "PLTR",
-      "IBM",
-      "AMD",
-      "ORCL",
-      "HPE",
-      "DELL"
-    ],
-    "thesis": "企业和政府不愿只依赖远程模型API，正在增加对自有算力、数据、模型、权限、路由和行动反馈层的投入。控制权正在从单一模型能力转向“谁掌握生产资料和业务闭环”。",
-    "evidence": "PLTR Q2收入同比+93%，美国商业收入+149%、美国政府收入+90%，次日股价上涨29.5%，说明主权AI与企业控制层已经从采访观点进入订单、收入、利润和价格。Karp强调客户要控制数据、提示词与组织alpha；IBM观察到资本开支转向基础设施，AMD也以开放系统争取主权AI部署。",
-    "disconfirm": "公有云模型API成本继续快速下降，企业大规模放弃私有部署和自建控制层，或控制层项目长期停留在试点。",
-    "sources": [
-      {
-        "type": "CEO股东信",
-        "label": "Palantir Q2 2026 Letter to Shareholders",
-        "url": "https://www.palantir.com/q2-2026-letter/en/"
-      },
-      {
-        "type": "采访",
-        "label": "Karp CNBC采访视频",
-        "url": "https://www.youtube.com/watch?v=0A3sGymV6kY"
-      },
-      {
-        "type": "媒体",
-        "label": "Axios：Sovereign AI data protection",
-        "url": "https://www.axios.com/2026/07/13/sovereign-ai-data-protection"
-      },
-      {
-        "type": "公司公告",
-        "label": "IBM CEO致投资者信",
-        "url": "https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "status": "unreviewed",
-    "statusAsOf": "待复盘",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 3,
-    "theme": "AI网络层成为新瓶颈：Ethernet Fabric重定价",
-    "status": "uptrending",
-    "statusAsOf": "2026-08-08",
-    "strength": "9/10",
-    "horizon": "当前至未来数季",
-    "direction": "快速强化",
-    "tickers": [
-      "ANET",
-      "ALAB",
-      "AAOI",
-      "CRDO",
-      "MRVL",
-      "AMD",
-      "NVDA",
-      "CSCO",
-      "AVGO",
-      "AEVA"
-    ],
-    "thesis": "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。",
-    "evidence": [
-      "ANET Q2收入与EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数；管理层把网络称为AI基础设施的中枢神经系统。",
-      "ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连与fabric switch需求；CRDO与MRVL分别验证AEC高速连接、光互连DSP与交换硅需求。",
-      "AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍；管理层称800G与1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%。",
-      "AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线——但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。"
-    ],
-    "disconfirm": "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。",
-    "sources": [
-      {
-        "type": "专题",
-        "label": "2026-08-05《AI 网络层成为新瓶颈：Ethernet Fabric》"
-      },
-      {
-        "type": "市场反应",
-        "label": "IBD：AI Cloud Networking Growth Drives Arista Beat",
-        "url": "https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"
-      },
-      {
-        "type": "市场反应",
-        "label": "Barron's：Arista stock surges after earnings",
-        "url": "https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"
-      },
-      {
-        "type": "SEC财报",
-        "label": "AAOI Q2 2026 Results",
-        "url": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"
-      },
-      {
-        "type": "公司资料",
-        "label": "AMD and Arista AI networking webinar",
-        "url": "https://www.arista.com/en/23982-amd-webinar-series"
-      }
-    ],
-    "reviewedAt": "2026-09-03"
-  },
-  {
-    "rank": 4,
-    "theme": "光通讯产业链：需求闭环已验证，最弱信号在估值与自由现金流",
-    "status": "new",
-    "statusAsOf": "2026-08-10",
-    "strength": "9/10",
-    "horizon": "当前至未来2–4季",
-    "direction": "需求强化，估值容错收窄",
-    "tickers": [
-      "AXTI",
-      "TSEM",
-      "GFS",
-      "FORM",
-      "AEHR",
-      "TSM",
-      "UMC",
-      "KLIC",
-      "AMKR",
-      "VECO",
-      "LITE",
-      "COHR",
-      "AAOI",
-      "POET",
-      "MKSI",
-      "MTSI",
-      "MRVL",
-      "FN",
-      "CRDO",
-      "ALAB",
-      "SMTC",
-      "GLW",
-      "AVGO",
-      "NVDA",
-      "CIEN",
-      "APH",
-      "ANET",
-      "CLS",
-      "CSCO"
-    ],
-    "layers": [
-      {
-        "name": "上游材料",
-        "desc": "基板与晶体",
-        "tickers": [
-          "AXTI"
-        ]
-      },
-      {
-        "name": "代工与测试",
-        "desc": "矽光晶圆、量测",
-        "tickers": [
-          "TSEM",
-          "GFS",
-          "FORM",
-          "AEHR",
-          "TSM",
-          "UMC",
-          "KLIC",
-          "AMKR",
-          "VECO"
-        ]
-      },
-      {
-        "name": "光源与模组",
-        "desc": "雷射、光模组",
-        "tickers": [
-          "LITE",
-          "COHR",
-          "AAOI",
-          "POET",
-          "MKSI"
-        ]
-      },
-      {
-        "name": "光电IC与封装",
-        "desc": "DSP、TIA、代工",
-        "tickers": [
-          "MTSI",
-          "MRVL",
-          "FN",
-          "CRDO",
-          "ALAB",
-          "SMTC"
-        ]
-      },
-      {
-        "name": "连接与网络",
-        "desc": "光纤、交换机、系统",
-        "tickers": [
-          "GLW",
-          "AVGO",
-          "NVDA",
-          "CIEN",
-          "APH",
-          "ANET",
-          "CLS",
-          "CSCO"
-        ]
-      }
-    ],
-    "thesis": [
-      "AI集群把800G、1.6T、AEC、CPO与高速交换推进同一条需求曲线，但“需求真实”不等于“任何价格都值得买”。真正的研究问题是瓶颈在哪一层、现金何时回来、市场已经预支了多少年。",
-      "同一条需求链上的商业模型差异极大：高速类比与SerDes毛利约60%–68%、交换系统可维持60%以上、光模组约44%–48%、制造与组装只有10%–15%——利润最厚的环节不一定是光模组。垂直整合既是供应护城河也是现金黑洞：扩产先推高库存与资本开支，损益改善必须用现金流验证。",
-      "分层清单来自老师最新的产业链图示（上游材料→代工与测试→光源与模组→光电IC与封装→连接与网络），个别标的在图中标了不同底色，具体含义等老师完整报告出来再补充，本站暂不据此做核心/规避的区分。"
-    ],
-    "evidence": [
-      "外部数据五层同向，闭环强度4.5/5：四大云2026年资本开支合计约7350–7600亿美元；Dell'Oro统计2025 Q1以太网数据中心交换机销售增长逾40%、800G单季超10亿美元；LightCounting估算2026 Q1光收发器销售约100亿美元、增长逾90%，当前需求高于供应约30%；IEA指2025年数据中心用电增长17%。",
-      "2026-08-11至12出现同晚双端验证。供给端：LITE FY26 Q4收入10.1亿美元、同比+109%，非GAAP毛利率一次突破50%，FY27 Q1再指引12.25至12.75亿美元、环比+22%至+26%。需求端：CRWV积压订单1,040亿美元、同比+246%，合同电力从3.7扩到4.2吉瓦；NBIS收入同比+454%、调整后EBITDA利润率40.6%、年底ARR目标70至90亿美元。",
-      "但现金是另一回事。COHR FY26非GAAP毛利率40.2%、数据中心与通信+59%，全年自由现金流却是-10.234亿美元，库存同比+79.5%而收入仅+22.5%；CRWV账上350亿美元债务、调整后经营利润率仅5%；NBIS单季资本开支56.6亿美元，接近收入的10倍。",
-      "分层结论因此更精确：卡在物理瓶颈的一端在提价（LITE毛利率破50%并继续向上），垂直整合扩产的一端在垫钱（COHR毛利改善却烧掉10亿美元现金），做系统集成的一端在让价（CSCO FY27 Q1非GAAP毛利率只指引65%至66%，低于其历史水平）。需求端的强度没有被推翻，被推翻的是“需求强就等于股东回报好”这个默认假设。",
-      "2026-08-27 门槛裁决：MRVL数据中心收入21.72亿美元、环比+18%、同比+46%、占总收入79%，并上调FY2027与FY2028展望至约115亿与165亿美元——预登记门槛未触发。但分歧同步转移到毛利率：其Q3调整后毛利率指引57.5%至58.5%低于本季58.9%，与本主线「毛利扩张能否穿透」的关切同源。",
-      "口径说明：本条主线整理自老师的《光速之后｜美股光通讯产业链深度分析》v1.1（2026-08-10），闭环评分、毛利分层与下一季门槛均为该报告口径，本站未独立复核其估值快照。"
-    ],
-    "disconfirm": [
-      "四大云资本开支合计指引下修逾10%，且云收入或backlog同步放慢。",
-      "外部出货仍高增，但LITE、FN、COHR、GLW、CIEN中多数连续两季低于行业增速。",
-      "连续两季存货增速显著快于收入（COHR本季已亮红灯，需第二季确认是否连续）。",
-      "EPS上升但自由现金流连续两季不改善——COHR FY26已触发，FN为下一个观察重点。",
-      "估值要改用FY29以后年份才能得到合理倍数；或1.6T只有认证与样品、没有量产收入比例。",
-      "近端逐条门槛：COHR FY27 Q1指引<20.5亿（已过关，实际22–24亿）｜FN营益率<9.5%或FCF再为负（08.17）｜MRVL数据中心收入环比不增（08.27，已裁决：环比+18%、同比+46%，未触发）｜CRDO收入<4.6亿或毛利<66%（09.02）｜AVGO AI半导体<155亿（09.03）｜CIEN收入<15.5亿或毛利<43.5%（09.03）｜GLW核心销售<49亿或光通信环比转负（10.27）。"
-    ],
-    "sources": [
-      {
-        "type": "专题",
-        "label": "2026-08-11《光通信叙事主线》（老师 8/10 专题归档 ＋ 我方检验，2026-09-03 更新）"
-      },
-      {
-        "type": "外部研究",
-        "label": "老师：光速之后｜美股光通讯产业链深度分析 v1.1",
-        "url": "https://sintszkay.github.io/market-reports/reports/2026-08-10-optical-communications-deep-dive-special.html"
-      },
-      {
-        "type": "行业数据",
-        "label": "LightCounting 2026年6月季度更新",
-        "url": "https://www.lightcounting.com/newsletter/en/june-2026-quarterly-market-update-375"
-      },
-      {
-        "type": "行业数据",
-        "label": "LightCounting 2026年4月市场预测",
-        "url": "https://www.lightcounting.com/newsletter/en/april-2026-market-forecast-379"
-      },
-      {
-        "type": "行业数据",
-        "label": "Dell'Oro：以太网数据中心交换机创纪录",
-        "url": "https://www.prnewswire.com/news-releases/ai-investments-shield-ethernet-data-center-switch-market-from-tariff-disruptions-shattering-sales-records-according-to-delloro-group-302473912.html"
-      },
-      {
-        "type": "机构报告",
-        "label": "IEA：2025年数据中心用电激增",
-        "url": "https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions"
-      },
-      {
-        "type": "公司公告",
-        "label": "Corning 2026 Q2 Results",
-        "url": "https://investor.corning.com/news-and-events/news/news-details/2026/Cornings-Strong-Second-Quarter-2026-Financial-Results1-Demonstrate-Progress-on-Recently-Upgraded-Springboard-Plan/default.aspx"
-      },
-      {
-        "type": "公司公告",
-        "label": "Coherent FY26 Q3 Results",
-        "url": "https://www.coherent.com/news/press-releases/third-quarter-fiscal-year-2026-results"
-      }
-    ],
-    "reviewedAt": "2026-09-03"
-  },
-  {
-    "rank": 5,
-    "theme": "AI电力、冷却与现场供电成为硬瓶颈",
-    "status": "uptrending",
-    "statusAsOf": "2026-08-08",
-    "strength": "9/10",
-    "horizon": "当前至未来数年",
-    "direction": "强化",
-    "tickers": [
-      "BE",
-      "GEV",
-      "VRT",
-      "ETN",
-      "CEG",
-      "CAT"
-    ],
-    "thesis": "AI数据中心最稀缺的资源正在从GPU进一步外溢到电力、并网、燃气/燃料电池、冷却、电气设备和现场施工。市场开始奖励能缩短time to power、缩短交付周期、把AI capex变成实际容量的公司。",
-    "evidence": "BE Q2收入首次超过10亿美元，产品收入同比+215.4%，经营现金流转正并上修全年收入指引；管理层称所有美国大型hyperscaler和十多家neocloud/AI lab/colo运营商已验证并批准Bloom用于AI factories。SpaceX的AI capex也通过数据中心和算力需求传导到重型设备与电力链条。",
-    "disconfirm": "云厂商AI资本开支放慢，数据中心项目审批/并网延迟明显恶化，或BE、GEV、VRT、ETN等同链条财报无法继续交叉验证。",
-    "sources": [
-      {
-        "type": "公司公告",
-        "label": "Bloom Energy Q2 2026 Results",
-        "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"
-      },
-      {
-        "type": "市场反应",
-        "label": "IBD：Bloom Energy AI infrastructure winner",
-        "url": "https://www.investors.com/news/bloom-energy-earnings-be-stock-q2-ai-infrastructure-winner/"
-      },
-      {
-        "type": "市场观察",
-        "label": "Axios：SpaceX, Caterpillar and AI",
-        "url": "https://www.axios.com/newsletters/axios-closer-f8186890-7ddf-4084-b60d-d84a9e794345"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 6,
-    "theme": "AI应用层开始分化：交易转化胜过模型故事",
-    "status": "uptrending",
-    "statusAsOf": "2026-08-08",
-    "strength": "9/10",
-    "horizon": "当前至未来数季",
-    "direction": "分化加剧",
-    "tickers": [
-      "PLTR",
-      "DDOG",
-      "SHOP",
-      "APP",
-      "ZETA",
-      "U",
-      "INTU",
-      "TEAM",
-      "HUBS",
-      "TWLO",
-      "META",
-      "GOOG",
-      "CRM",
-      "NOW",
-      "ADBE"
-    ],
-    "thesis": "市场正在区分AI应用层的质量：能把AI直接转化为客户经营结果、订单、GMV、广告ROI、现金流和上调指引的公司会被奖励；只讲模型效率、token使用量或季度节奏失误的公司会被惩罚。",
-    "evidence": [
-      "被奖励的一侧：PLTR收入+93%、美国商业+149%，次日股价+29.5%；SHOP收入+34%、GMV +32%；TEAM云收入+31%、RPO +44%；TWLO有机收入+17%、DBNE升至116%、自由现金流+34%，全年有机增长指引上调后首日+24.9%。",
-      "被惩罚的一侧：DDOG收入+36%、billings +38%、指引高于共识，首日仍跌约19%；APP收入+53%但增速从59%降下来、Q3指引约47%，首日跌约20%；HUBS收入+20%、利润率扩张，却因billings与客户增速放慢、全年指引下调而首日跌约19%。",
-      "同层对照最能说明判据。APP与ZETA都是AI驱动的广告与营销变现、都被同一家做空机构Culper攻击过数据来源，本季结果却相反：ZETA收入4.43亿美元、+44%（剔除并购+28%），调整后EBITDA利润率20.7%、GAAP首次转正、第20个连续beat-and-raise，首日上涨。",
-      "U则是第三种结果：战略收入+38%、Strategic Grow +63%，调整后EBITDA 1.602亿美元、利润率29%（原指引仅1.30至1.35亿），Q3战略收入再指引+44%至+47%，是三家里唯一下季指引斜率比本季更陡的。",
-      "INTU补上第三种情形，也是最少被讨论的一种：在位者主动降价防守。Q4收入+14%、每股收益双超预期，FY2027每股收益指引却比共识低约16%——CEO承认把优质DIY报税客户丢给低价对手，线上付费客户仅+3%，公司选择让渡ARPC换客户增长。",
-      "结论：分化的判据是当期数字能否兑现已经计入的预期、以及下季指引的斜率方向，而不是是否属于AI应用层，也不是绝对增速——本轮增速最高的APP跌得最惨。"
-    ],
-    "disconfirm": "APP后续模型改进快速兑现，收入和EBITDA重新加速；或SHOP的AI工具无法持续带动GMV和Merchant Solutions收入。",
-    "sources": [
-      {
-        "type": "CEO股东信",
-        "label": "Palantir Q2 2026 Letter to Shareholders",
-        "url": "https://www.palantir.com/q2-2026-letter/en/"
-      },
-      {
-        "type": "市场反应",
-        "label": "WSJ：Shopify revenue acceleration as AI tools drive results",
-        "url": "https://www.wsj.com/business/earnings/shopify-profit-jumps-as-subscriptions-merchant-services-boost-revenues-73693ff6"
-      },
-      {
-        "type": "市场反应",
-        "label": "WSJ：AppLovin says Q2 fell short of standards",
-        "url": "https://www.wsj.com/business/earnings/applovin-second-quarter-sales-gain-gives-soft-third-quarter-outlook-202082a6"
-      },
-      {
-        "type": "SEC财报",
-        "label": "Datadog Q2 2026 Results",
-        "url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"
-      },
-      {
-        "type": "SEC财报",
-        "label": "HubSpot Q2 2026 Results",
-        "url": "https://www.sec.gov/Archives/edgar/data/1404655/000119312526335148/hubs-ex99_1.htm"
-      },
-      {
-        "type": "公司财报",
-        "label": "Twilio Q2 2026 Results",
-        "url": "https://investors.twilio.com/news-releases/news-release-details/twilio-announces-second-quarter-2026-results"
-      },
-      {
-        "type": "市场反应",
-        "label": "MarketWatch：Shopify left no doubt",
-        "url": "https://www.marketwatch.com/story/shopifys-stock-heads-for-best-day-in-a-year-after-the-company-left-no-doubt-about-its-growth-trajectory-79551270"
-      },
-      {
-        "type": "SEC财报",
-        "label": "Zeta Global Q2 2026 Results",
-        "url": "https://www.sec.gov/Archives/edgar/data/1851003/000119312526066951/zeta-ex99_1.htm"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 7,
-    "theme": "存储与设备层：市场开始区分结构性瓶颈与周期性提价",
-    "status": "new",
-    "statusAsOf": "2026-08-13",
-    "strength": "8.5/10",
-    "horizon": "当前至未来数季",
-    "direction": "分化加剧",
-    "tickers": [
-      "ASML",
-      "AMAT",
-      "TSM",
-      "SNDK",
-      "WDC"
-    ],
-    "thesis": "AI资本开支确实外溢到了存储与先进制程，但市场给这一层定价的方式已经变了：它不再为“收入暴涨”本身付钱，而是先判断这是新平台带来的结构性瓶颈，还是又一轮存储周期的高点。前者给估值倍数，后者只给一次性利润。",
-    "evidence": [
-      "被当成结构性瓶颈定价的一侧：ASML本站90分共振确认；TSM 83分共振——上修资本开支且HPC占比继续提高。两家卖的都是别人短期做不出来的能力。",
-      "被当成周期定价的一侧全部落在市场存疑：SNDK收入同比约+372%、数据中心收入接近30亿美元，仍判存疑；WDC拆分闪存后只做HDD，收入同比+44%、非GAAP毛利率54.4%、单季自由现金流12.8亿美元，40TB ePMR已开始出货、下季仍指引约+45.5%收入增长，却只有67分存疑。",
-      "分裂点很清晰：市场对前者问“这个能力还能稀缺多久”，对后者问“这个价格和毛利还能维持多久”。这条主线的用处不是判断AI资本开支会不会外溢，而是判断这一层里哪一半的溢价能留下来。",
-      "AMAT补上第三种情形：收入91.2亿美元、非GAAP EPS 3.50美元、毛利率50.4%与经营现金流全部创纪录，Q4再指引同比+51%，盘后仍跌逾5%。它站在结构性一侧，被卖的却是价格——年内涨幅接近100%。结构性溢价本身也开始受估值约束。"
-    ],
-    "disconfirm": [
-      "SNDK与WDC连续两季维持毛利率与自由现金流改善，且股价开始跟随数字——分化叙事失效。",
-      "反向证伪：ASML订单指引下修或TSM资本开支不再上修，则结构性一侧的溢价同样不成立。",
-      "NAND与HDD价格明显回落，或云厂商存储采购节奏放缓。"
-    ],
-    "sources": [
-      {
-        "type": "SEC财报",
-        "label": "Onto Innovation Q2 2026 Earnings Release",
-        "url": "https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"
-      },
-      {
-        "type": "公司公告",
-        "label": "Western Digital Q4 FY2026 Results",
-        "url": "https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-fourth-quarter-and-fiscal-year-2026-financial"
-      },
-      {
-        "type": "市场反应",
-        "label": "IBD：Sandisk 超预期但指引平淡",
-        "url": "https://www.investors.com/news/technology/sandisk-stock-sndk-fiscal-q4-2026-earnings/"
-      },
-      {
-        "type": "公司公告",
-        "label": "Veeco Q2 2026 Financial Results",
-        "url": "https://ir.veeco.com/news-and-events/news-details/2026/Veeco-Reports-Second-Quarter-2026-Financial-Results/default.aspx"
-      },
-      {
-        "type": "公告",
-        "label": "TSMC 2026 Q2 Results",
-        "url": "https://investor.tsmc.com/english/quarterly-results/2026/q2"
-      },
-      {
-        "type": "公告",
-        "label": "ASML Q2 2026 Results",
-        "url": "https://www.asml.com/en/investors/financial-results/quarterly-results"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 8,
-    "theme": "先进封装与测试：新机架把测试从成本项变成瓶颈项",
-    "status": "new",
-    "statusAsOf": "2026-08-13",
-    "strength": "8.5/10",
-    "horizon": "当前至未来数季",
-    "direction": "强化，但环比动能待验证",
-    "tickers": [
-      "TER",
-      "ONTO",
-      "AEHR",
-      "FORM",
-      "FN",
-      "VECO"
-    ],
-    "thesis": "AI机架越密、HBM堆叠越高、先进封装层数越多，每颗芯片和每个模组要测的东西就越多。测试与量测正从摊薄毛利的成本项，变成决定产能爬坡速度的瓶颈项——这是“AI资本开支外溢”里少数能直接用订单和积压验证的一层。",
-    "evidence": [
-      "TER Q2 FY26收入13.3亿美元、同比+104%，高于约12.2亿美元共识；半导体测试11.2亿美元、+128%（SOC 8.43亿、存储2.12亿、整机测试0.67亿）。AI相关收入占比超过60%，计算类占SOC收入的70%、同比增长近600%；存储连续第三个季度超过2亿美元，book-to-bill高于2。公司还交付了首个商用GPU订单并在第二家超大规模客户完成对标。",
-      "ONTO本站86分共振：Q2收入同比+35%、先进节点收入环比+50%，先进封装与特殊器件收入创纪录，积压订单首次超过10亿美元，Q3指引中点接近同比+79%。AEHR同样是86分共振。",
-      "但动能与利润要分开看。TER的Q3指引转为环比下滑，说明爆发式环比增长阶段已经结束；VECO拿到2亿美元先进封装订单，却因提前扩产而下调全年EPS指引，本站只给68分存疑——订单强不等于利润同步。FORM与FN本站尚无记录，列为下季待补。"
-    ],
-    "disconfirm": [
-      "TER的book-to-bill回落到1以下，或AI相关收入占比停止提升。",
-      "ONTO积压订单不再创新高，或先进封装收入环比转负。",
-      "测试与量测订单继续增长，但毛利率与EPS指引被扩产持续吃掉——VECO已出现，若TER或ONTO同样出现，本条降级为周期叙事。",
-      "HBM堆叠层数与机架密度的提升节奏放缓，“测试强度结构性上升”这个前提随之失效。"
-    ],
-    "sources": [
-      {
-        "type": "SEC财报",
-        "label": "Onto Innovation Q2 2026 Earnings Release",
-        "url": "https://www.sec.gov/Archives/edgar/data/704532/000119312526337990/onto-ex99_1.htm"
-      },
-      {
-        "type": "业绩会",
-        "label": "Teradyne Q2 2026 业绩会文字稿",
-        "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-teradyne-tops-q2-2026-estimates-on-ai-demand-93CH-4820636"
-      },
-      {
-        "type": "财报解读",
-        "label": "Futurum：TER 半导体测试收入翻倍",
-        "url": "https://futurumgroup.com/insights/teradyne-q2-fy-2026-doubles-semiconductor-test-revenue-on-ai-compute-and-memory-demand/"
-      },
-      {
-        "type": "公司公告",
-        "label": "Veeco Q2 2026 Financial Results",
-        "url": "https://ir.veeco.com/news-and-events/news-details/2026/Veeco-Reports-Second-Quarter-2026-Financial-Results/default.aspx"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 9,
-    "theme": "AI算力租赁：用客户预付款建资产的一层",
-    "status": "new",
-    "statusAsOf": "2026-08-27",
-    "strength": "8.5/10",
-    "horizon": "当前至未来数季",
-    "direction": "订单可见度极高，现金结构待验证",
-    "tickers": [
-      "CRWV",
-      "NBIS",
-      "APLD",
-      "IREN"
-    ],
-    "thesis": "这一层既不卖芯片也不卖光模块——它买芯片、买电，再把算力按长约租出去。判据因此和其他AI主线完全不同：不看毛利率与份额，而看积压订单对收入的倍数、合同电力，以及客户预付款能覆盖多少资本开支。它是整条AI资本开支链上唯一一层订单可见度极高、而股东现金回收期极长的生意。",
-    "evidence": [
-      "CRWV积压订单1,040亿美元、同比+246%，约为其全年收入指引的8倍，且不含Q3初新增的逾250亿美元承诺；合同电力从3.7吉瓦扩到4.2吉瓦，年底活跃电力目标上调至1.85吉瓦以上。需求可见度是全场最高的一层。",
-      "NBIS给出了这门生意能成立的机制：季内四笔单笔均超10亿美元的大单，客户预付款覆盖相关资本开支的50%至60%。这正是它敢在单季投入56.6亿美元资本开支、而经营现金流仍为正22.5亿美元的唯一原因。",
-      "代价写在资产负债表上：CRWV账上350亿美元债务、调整后经营利润率仅5%、GAAP净亏损扩大到6.26亿美元；NBIS全年资本开支指引200至250亿美元，而全年收入指引只有30至34亿美元，资本强度接近收入的7倍。",
-      "这一层与其他AI主线正交：光通讯是卖给AI的，电力与冷却是供给AI的，而这三家是买芯片、买电、再把算力租出去的买方。所以它们的证伪条件不该套用毛利率与份额，而应盯预付比例、合同电力与积压订单倍数。",
-      "IREN补上这一层第一个被卖的样本：转型订单侧已兑现（AI云全年收入从1,640万增至1.288亿美元、已签约ARR 40亿、交付微软首个50兆瓦液冷部署），盘后却跌8.45%。差别不在需求而在资金——FY2027资本开支指引250亿至300亿美元，对比本季1.372亿美元收入相差两个数量级，且未披露预付款覆盖比例。",
-      "APLD本站记录为84分共振确认（2026-07-27），但该条记录字段偏薄、缺少数字快照与业务拆解。本主线目前的硬证据主要来自CRWV与NBIS，APLD需在下季补齐后才计入交叉验证。"
-    ],
-    "disconfirm": [
-      "新签大单的预付款覆盖比例低于50%——这是这门生意的生死线，一旦下滑，资本开支与收入之间的时间差会立刻变成现金缺口。",
-      "积压订单停止净增，或合同电力目标推迟、活跃电力爬坡落后于计划。",
-      "债务规模继续扩大，而调整后经营利润率无法脱离个位数。",
-      "客户集中度上升的同时，出现单一大客户的合约调整、缩量或交付延迟。",
-      "超大规模客户的AI资本开支整体下修，算力与电力采购节奏放缓。"
-    ],
-    "sources": [
-      {
-        "type": "专题",
-        "label": "2026-08-27《Neocloud 深度：基本面拆解 × 十个月股价复盘》"
-      },
-      {
-        "type": "公司公告",
-        "label": "CoreWeave Q2 2026 Results",
-        "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx"
-      },
-      {
-        "type": "业绩会",
-        "label": "MarketBeat：CRWV Q2 业绩会要点",
-        "url": "https://www.marketbeat.com/instant-alerts/coreweave-q2-earnings-call-highlights-2026-08-11/"
-      },
-      {
-        "type": "SEC财报",
-        "label": "Nebius Group Q2 2026 结果（6-K 附件）",
-        "url": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm"
-      },
-      {
-        "type": "业绩会",
-        "label": "Nebius Q2 2026 业绩会文字稿",
-        "url": "https://za.investing.com/news/transcripts/earnings-call-transcript-nebius-beats-q2-2026-forecasts-shares-jump-165-93CH-4424564"
-      }
-    ],
-    "reviewedAt": "2026-09-03"
-  },
-  {
-    "rank": 10,
-    "theme": "AI安全、权限与审计成为必要开支",
-    "strength": "8/10",
-    "horizon": "中长期",
-    "direction": "强化",
-    "tickers": [
-      "PANW",
-      "CRWD",
-      "FTNT",
-      "IBM",
-      "PLTR",
-      "ANET",
-      "NET",
-      "AKAM",
-      "OKTA"
-    ],
-    "thesis": "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。",
-    "evidence": [
-      "IBM已确认快速变化的网络安全环境影响客户交易签约；围绕数据归属、缓存位置与提示词安全的讨论说明，AI部署越深入，安全与权限越靠近采购核心。",
-      "网络与边缘侧同步验证：NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%。",
-      "OKTA提供目前最直接的会计层交叉验证：FY27 Q1收入仅+11%，但RPO +16%、cRPO +12%都快于当期收入确认——长约在累积。CEO把AI agent定义为组织内部正在出现的新员工，产生必须与人类用户一同被治理的身份。裁决点是cRPO：如果agentic identity是真需求，它应该先于收入加速。",
-      "2026-08-26 裁决：该预测兑现。OKTA cRPO同比+14%、较上季+12%加速，且快于收入约+11%，公司称是自FY25 Q4以来最大的cRPO超预期——领先指标确实先动了。但只算部分验证：Q3的cRPO指引回落到+11%至+12%，加速尚未证明连续。",
-      "同晚CRWD从预算侧给出更硬的证据：季内净新增ARR 3.328亿美元创纪录、同比+51%，公司据此把全年净新增ARR增长指引一次上调630个基点至中点34%。在安全行业，敢上调净新增ARR指引比上调收入指引分量更重。"
-    ],
-    "disconfirm": "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。",
-    "sources": [
-      {
-        "type": "专题",
-        "label": "2026-08-03《CIBR × XSW 成分股新叙事》"
-      },
-      {
-        "type": "公司公告",
-        "label": "IBM CEO致投资者信",
-        "url": "https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"
-      },
-      {
-        "type": "媒体",
-        "label": "Axios：企业如何控制自己的AI大脑",
-        "url": "https://www.axios.com/2026/07/13/sovereign-ai-data-protection"
-      },
-      {
-        "type": "公司资料",
-        "label": "Arista AI networking overview",
-        "url": "https://investors.arista.com/"
-      },
-      {
-        "type": "SEC财报",
-        "label": "Akamai Q2 2026 Results",
-        "url": "https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"
-      },
-      {
-        "type": "公司公告",
-        "label": "Okta FY2027 Q1 Results",
-        "url": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-Announces-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "status": "unreviewed",
-    "statusAsOf": "待复盘"
-  },
-  {
-    "rank": 11,
-    "theme": "国防与关键基础设施AI",
-    "strength": "8/10",
-    "horizon": "长期",
-    "direction": "强化",
-    "tickers": [
-      "PLTR",
-      "LMT",
-      "RTX",
-      "SPCX",
-      "IBM"
-    ],
-    "thesis": "安全、权限、审计、数据主权、本地部署和任务可靠性要求，使国防、航天、政府云和关键基础设施成为企业级AI控制技术的重要长期落地场景。",
-    "evidence": "Karp强调国家安全不应外包给硅谷共识；LMT、RTX等国防链条继续体现预算韧性；SPCX的政府合同、Starlink政府/企业通信和发射能力，把太空基础设施纳入AI与国家安全叙事。",
-    "disconfirm": "相关AI项目长期停留在试点，政府合同扩展、续约、跨部门复制和商业化效率明显低于预期。",
-    "sources": [
-      {
-        "type": "采访",
-        "label": "Karp CNBC采访视频",
-        "url": "https://www.youtube.com/watch?v=0A3sGymV6kY"
-      },
-      {
-        "type": "采访摘要",
-        "label": "Moneycontrol：国家安全与AI控制权",
-        "url": "https://www.moneycontrol.com/artificial-intelligence/palantir-s-alex-karp-says-ai-s-next-battle-is-over-ownership-not-intelligence-article-13963965.html"
-      },
-      {
-        "type": "市场反应",
-        "label": "AP：SpaceX posts smaller-than-expected loss",
-        "url": "https://apnews.com/article/3b7b66a3e522e51d75caebc40af7e09e"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "status": "unreviewed",
-    "statusAsOf": "待复盘",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  },
-  {
-    "rank": 12,
-    "theme": "消费金融增长开始接受信用质量与获客成本审判",
-    "status": "new",
-    "statusAsOf": "2026-08-08",
-    "strength": "7.5/10",
-    "horizon": "当前至未来数季",
-    "direction": "待交叉验证",
-    "tickers": [
-      "SEZL",
-      "AFRM",
-      "KLAR",
-      "PYPL",
-      "SOFI"
-    ],
-    "thesis": "BNPL和消费金融平台不能只用GMV与用户增长证明价值。市场开始同时审查信用损失、获客成本、资金成本和每用户货币化；只有增长、信用质量与利润率一起改善，才会获得持续估值。",
-    "evidence": "SEZL Q2收入+51.7%、GMV +37.9%、活跃订阅用户+76.4%，全年利润指引第三次上调，但信用损失准备率从Q1的1.2%升至2.4%、营销费用同比增长121%，调整后EBITDA率从Q1的52.5%降至38.8%。股价在财报后首日下跌33.9%，说明市场认为高速增长尚不足以抵消获客和信用成本上升。",
-    "disconfirm": "SEZL未来两个季度把信用损失准备率稳定在2.5%–3.0%目标内、营销回收期维持六个月以内，同时订阅留存、GMV和利润率重新改善；或AFRM、KLAR等同行也显示信用成本稳定而增长加速。",
-    "sources": [
-      {
-        "type": "公司财报",
-        "label": "Sezzle Q2 2026 Earnings Release",
-        "url": "https://assets.ctfassets.net/6d085vujy22q/3CK27pSQwJ0YgJOVsqgGH9/3921bf19ede88b12c795af979fe65388/Sezzle_Q2_2026_Earnings_Release.pdf"
-      },
-      {
-        "type": "公司演示",
-        "label": "Sezzle Q2 2026 Earnings Presentation",
-        "url": "https://assets.ctfassets.net/6d085vujy22q/53CbMKsZ9uIqO8HcWKWNnb/31d580bbead5a077afb34674a1f96184/Sezzle_Q2_2026_Earnings_Presentation.pdf"
-      },
-      {
-        "type": "市场行情",
-        "label": "Nasdaq SEZL Quote",
-        "url": "https://www.nasdaq.com/market-activity/stocks/sezl"
-      }
-    ],
-    "reviewedAt": "2026-09-03",
-    "pendingSpecial": "本条主线目前没有对应的专题报告支撑，是早期由财报归纳而来。按 2026-09-03 定的规矩，叙事只从专题来——待补专题后重写或下架。"
-  }
-];
+    {
+      "rank": 1,
+      "theme": "mRNA个体化肿瘤疫苗：定价重心从疗效转向产能",
+      "status": "new",
+      "statusAsOf": "2026-09-03",
+      "reviewedAt": "2026-09-03",
+      "strength": "10/10",
+      "horizon": "当前至未来数季",
+      "direction": "快速强化",
+      "tickers": [
+        "MRNA",
+        "BNTX",
+        "MRK",
+        "PSNL",
+        "TEM",
+        "TMO",
+        "ARCT",
+        "MRVI",
+        "TWST",
+        "RGEN",
+        "NTLA",
+        "ILMN"
+      ],
+      "thesis": [
+        "8/19 的临床事件把 mRNA 个体化肿瘤疫苗从研究话题变成可交易主线。按「与事件的连结强度」分的六层结构，在事件当天几乎完美单调：一级当事人 +70.51%，往下逐层递减到五级 +7.65%。",
+        "但把起点挪到 8/19 收盘、看到 8/28，排序整个反转。一级 −11.05% 且 0/3 为正；二级「已披露关联的服务与制造」+4.64% 且 3/3 全正，是六层里唯一全员为正的一层。",
+        "所以这条线的定价重心已经从「有没有效」转到「能不能按时按量造出来」。把 4–6 周的个体化生产窗口拆成七步，三到四周花在 DNA 模板与 QC 放行上，真正合成 mRNA 只占两三天。"
+      ],
+      "evidence": [
+        "二级三只事件后全为正：PSNL +7.97%、TEM +4.56%、TMO +1.41%，对应定序鉴定、算法数据与耗材设备。同期一级三只全在还货：MRNA −20.87%、BNTX −9.76%、MRK −2.53%。",
+        "TEM 于 2026-07-20 宣布以每股 16.25 美元、企业价值约 15 亿美元收购 PSNL，标的正是 MRD 微小残留病灶监测。二级里最强的两只被并进同一个平台，监测与产能这两格开始并表。",
+        "生产链上市场只买了占时间最短的两格：LNP 递送（ARCT）与上游原料（MRVI）事件后仍为正；占掉大半窗口的 DNA 模板（TWST，−0.7%）与纯化放行（RGEN，−0.1%）被打回原地。",
+        "机制上这条线与检查点抑制剂互补而非替代：早期胰腺癌试验里疫苗诱导的 T 细胞约 98% 是治疗前在血液与肿瘤中都找不到的全新克隆，这解释了 8/19 当天 MRK 是跟涨而不是被抢生意。"
+      ],
+      "disconfirm": [
+        "主闸门：二级三只（PSNL／TEM／TMO）任一跌回 8/19 收盘之下，且三只里不再有两只为正。这是结构原文写下的失效条件。",
+        "统计口径的修正：PSNL 与 TEM 不是两个独立样本。收购以股票对价为主，PSNL 价格已锚定 TEM 加一个并购价差，因此二级实际只有两个独立观察，「3/3 全正」应按 2/2 读。",
+        "若 TEM 收购 PSNL 因股东会或监管未获通过而终止，二级的样本结构与本条的核心证据都需要重取。"
+      ],
+      "sources": [
+        {
+          "type": "专题",
+          "label": "2026-08-30《mRNA 个体化肿瘤疫苗深度：机制 × 结构 × 生产 × 股价复盘》（2026-09-02 更新）"
+        },
+        {
+          "type": "公司公告",
+          "label": "Tempus to Acquire Personalis（2026-07-20）",
+          "url": "https://www.tempus.com/news/pr/tempus-to-acquire-personalis-integrating-mrd/"
+        },
+        {
+          "type": "公司公告",
+          "label": "Personalis 8-K：每股 16.25 美元现金加股票对价",
+          "url": "https://www.stocktitan.net/sec-filings/PSNL/8-k-personalis-inc-reports-material-event-7dda0d5a33c7.html"
+        }
+      ],
+      "themeId": "mrna-cancer-vaccine"
+    },
+    {
+      "rank": 2,
+      "theme": "AI网络层成为新瓶颈：Ethernet Fabric重定价",
+      "status": "uptrending",
+      "statusAsOf": "2026-08-08",
+      "reviewedAt": "2026-09-03",
+      "strength": "9/10",
+      "horizon": "当前至未来数季",
+      "direction": "快速强化",
+      "tickers": [
+        "ANET",
+        "ALAB",
+        "AAOI",
+        "CRDO",
+        "MRVL",
+        "AMD",
+        "NVDA",
+        "CSCO",
+        "AVGO",
+        "AEVA"
+      ],
+      "thesis": [
+        "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。"
+      ],
+      "evidence": [
+        "ANET Q2收入与EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数；管理层把网络称为AI基础设施的中枢神经系统。",
+        "ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连与fabric switch需求；CRDO与MRVL分别验证AEC高速连接、光互连DSP与交换硅需求。",
+        "AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍；管理层称800G与1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%。",
+        "AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线——但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。"
+      ],
+      "disconfirm": [
+        "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。"
+      ],
+      "sources": [
+        {
+          "type": "专题",
+          "label": "2026-08-05《AI 网络层成为新瓶颈：Ethernet Fabric》"
+        },
+        {
+          "type": "市场反应",
+          "label": "IBD：AI Cloud Networking Growth Drives Arista Beat",
+          "url": "https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"
+        },
+        {
+          "type": "市场反应",
+          "label": "Barron's：Arista stock surges after earnings",
+          "url": "https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"
+        },
+        {
+          "type": "SEC财报",
+          "label": "AAOI Q2 2026 Results",
+          "url": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"
+        },
+        {
+          "type": "公司资料",
+          "label": "AMD and Arista AI networking webinar",
+          "url": "https://www.arista.com/en/23982-amd-webinar-series"
+        }
+      ],
+      "themeId": "ai-network-fabric"
+    },
+    {
+      "rank": 3,
+      "theme": "光通讯产业链：需求闭环已验证，最弱信号在估值与自由现金流",
+      "status": "new",
+      "statusAsOf": "2026-08-10",
+      "reviewedAt": "2026-09-03",
+      "strength": "9/10",
+      "horizon": "当前至未来2–4季",
+      "direction": "需求强化，估值容错收窄",
+      "tickers": [
+        "AXTI",
+        "TSEM",
+        "GFS",
+        "FORM",
+        "AEHR",
+        "TSM",
+        "UMC",
+        "KLIC",
+        "AMKR",
+        "VECO",
+        "LITE",
+        "COHR",
+        "AAOI",
+        "POET",
+        "MKSI",
+        "MTSI",
+        "MRVL",
+        "FN",
+        "CRDO",
+        "ALAB",
+        "SMTC",
+        "GLW",
+        "AVGO",
+        "NVDA",
+        "CIEN",
+        "APH",
+        "ANET",
+        "CLS",
+        "CSCO"
+      ],
+      "layers": [
+        {
+          "name": "上游材料",
+          "desc": "基板与晶体",
+          "tickers": [
+            "AXTI"
+          ]
+        },
+        {
+          "name": "代工与测试",
+          "desc": "矽光晶圆、量测",
+          "tickers": [
+            "TSEM",
+            "GFS",
+            "FORM",
+            "AEHR",
+            "TSM",
+            "UMC",
+            "KLIC",
+            "AMKR",
+            "VECO"
+          ]
+        },
+        {
+          "name": "光源与模组",
+          "desc": "雷射、光模组",
+          "tickers": [
+            "LITE",
+            "COHR",
+            "AAOI",
+            "POET",
+            "MKSI"
+          ]
+        },
+        {
+          "name": "光电IC与封装",
+          "desc": "DSP、TIA、代工",
+          "tickers": [
+            "MTSI",
+            "MRVL",
+            "FN",
+            "CRDO",
+            "ALAB",
+            "SMTC"
+          ]
+        },
+        {
+          "name": "连接与网络",
+          "desc": "光纤、交换机、系统",
+          "tickers": [
+            "GLW",
+            "AVGO",
+            "NVDA",
+            "CIEN",
+            "APH",
+            "ANET",
+            "CLS",
+            "CSCO"
+          ]
+        }
+      ],
+      "thesis": [
+        "AI集群把800G、1.6T、AEC、CPO与高速交换推进同一条需求曲线，但“需求真实”不等于“任何价格都值得买”。真正的研究问题是瓶颈在哪一层、现金何时回来、市场已经预支了多少年。",
+        "同一条需求链上的商业模型差异极大：高速类比与SerDes毛利约60%–68%、交换系统可维持60%以上、光模组约44%–48%、制造与组装只有10%–15%——利润最厚的环节不一定是光模组。垂直整合既是供应护城河也是现金黑洞：扩产先推高库存与资本开支，损益改善必须用现金流验证。",
+        "分层清单来自老师最新的产业链图示（上游材料→代工与测试→光源与模组→光电IC与封装→连接与网络），个别标的在图中标了不同底色，具体含义等老师完整报告出来再补充，本站暂不据此做核心/规避的区分。"
+      ],
+      "evidence": [
+        "外部数据五层同向，闭环强度4.5/5：四大云2026年资本开支合计约7350–7600亿美元；Dell'Oro统计2025 Q1以太网数据中心交换机销售增长逾40%、800G单季超10亿美元；LightCounting估算2026 Q1光收发器销售约100亿美元、增长逾90%，当前需求高于供应约30%；IEA指2025年数据中心用电增长17%。",
+        "2026-08-11至12出现同晚双端验证。供给端：LITE FY26 Q4收入10.1亿美元、同比+109%，非GAAP毛利率一次突破50%，FY27 Q1再指引12.25至12.75亿美元、环比+22%至+26%。需求端：CRWV积压订单1,040亿美元、同比+246%，合同电力从3.7扩到4.2吉瓦；NBIS收入同比+454%、调整后EBITDA利润率40.6%、年底ARR目标70至90亿美元。",
+        "但现金是另一回事。COHR FY26非GAAP毛利率40.2%、数据中心与通信+59%，全年自由现金流却是-10.234亿美元，库存同比+79.5%而收入仅+22.5%；CRWV账上350亿美元债务、调整后经营利润率仅5%；NBIS单季资本开支56.6亿美元，接近收入的10倍。",
+        "分层结论因此更精确：卡在物理瓶颈的一端在提价（LITE毛利率破50%并继续向上），垂直整合扩产的一端在垫钱（COHR毛利改善却烧掉10亿美元现金），做系统集成的一端在让价（CSCO FY27 Q1非GAAP毛利率只指引65%至66%，低于其历史水平）。需求端的强度没有被推翻，被推翻的是“需求强就等于股东回报好”这个默认假设。",
+        "2026-08-27 门槛裁决：MRVL数据中心收入21.72亿美元、环比+18%、同比+46%、占总收入79%，并上调FY2027与FY2028展望至约115亿与165亿美元——预登记门槛未触发。但分歧同步转移到毛利率：其Q3调整后毛利率指引57.5%至58.5%低于本季58.9%，与本主线「毛利扩张能否穿透」的关切同源。",
+        "口径说明：本条主线整理自老师的《光速之后｜美股光通讯产业链深度分析》v1.1（2026-08-10），闭环评分、毛利分层与下一季门槛均为该报告口径，本站未独立复核其估值快照。"
+      ],
+      "disconfirm": [
+        "四大云资本开支合计指引下修逾10%，且云收入或backlog同步放慢。",
+        "外部出货仍高增，但LITE、FN、COHR、GLW、CIEN中多数连续两季低于行业增速。",
+        "连续两季存货增速显著快于收入（COHR本季已亮红灯，需第二季确认是否连续）。",
+        "EPS上升但自由现金流连续两季不改善——COHR FY26已触发，FN为下一个观察重点。",
+        "估值要改用FY29以后年份才能得到合理倍数；或1.6T只有认证与样品、没有量产收入比例。",
+        "近端逐条门槛：COHR FY27 Q1指引<20.5亿（已过关，实际22–24亿）｜FN营益率<9.5%或FCF再为负（08.17）｜MRVL数据中心收入环比不增（08.27，已裁决：环比+18%、同比+46%，未触发）｜CRDO收入<4.6亿或毛利<66%（09.02）｜AVGO AI半导体<155亿（09.03）｜CIEN收入<15.5亿或毛利<43.5%（09.03）｜GLW核心销售<49亿或光通信环比转负（10.27）。"
+      ],
+      "sources": [
+        {
+          "type": "专题",
+          "label": "2026-08-11《光通信叙事主线（老师 8/10 专题归档 ＋ 我方检验）》（2026-09-03 更新）"
+        },
+        {
+          "type": "外部研究",
+          "label": "老师：光速之后｜美股光通讯产业链深度分析 v1.1",
+          "url": "https://sintszkay.github.io/market-reports/reports/2026-08-10-optical-communications-deep-dive-special.html"
+        },
+        {
+          "type": "行业数据",
+          "label": "LightCounting 2026年6月季度更新",
+          "url": "https://www.lightcounting.com/newsletter/en/june-2026-quarterly-market-update-375"
+        },
+        {
+          "type": "行业数据",
+          "label": "LightCounting 2026年4月市场预测",
+          "url": "https://www.lightcounting.com/newsletter/en/april-2026-market-forecast-379"
+        },
+        {
+          "type": "行业数据",
+          "label": "Dell'Oro：以太网数据中心交换机创纪录",
+          "url": "https://www.prnewswire.com/news-releases/ai-investments-shield-ethernet-data-center-switch-market-from-tariff-disruptions-shattering-sales-records-according-to-delloro-group-302473912.html"
+        },
+        {
+          "type": "机构报告",
+          "label": "IEA：2025年数据中心用电激增",
+          "url": "https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions"
+        },
+        {
+          "type": "公司公告",
+          "label": "Corning 2026 Q2 Results",
+          "url": "https://investor.corning.com/news-and-events/news/news-details/2026/Cornings-Strong-Second-Quarter-2026-Financial-Results1-Demonstrate-Progress-on-Recently-Upgraded-Springboard-Plan/default.aspx"
+        },
+        {
+          "type": "公司公告",
+          "label": "Coherent FY26 Q3 Results",
+          "url": "https://www.coherent.com/news/press-releases/third-quarter-fiscal-year-2026-results"
+        }
+      ],
+      "themeId": "optical-supply-chain"
+    },
+    {
+      "rank": 4,
+      "theme": "AI算力租赁：用客户预付款建资产的一层",
+      "status": "new",
+      "statusAsOf": "2026-08-27",
+      "reviewedAt": "2026-09-03",
+      "strength": "8.5/10",
+      "horizon": "当前至未来数季",
+      "direction": "订单可见度极高，现金结构待验证",
+      "tickers": [
+        "CRWV",
+        "NBIS",
+        "APLD",
+        "IREN"
+      ],
+      "thesis": [
+        "这一层既不卖芯片也不卖光模块——它买芯片、买电，再把算力按长约租出去。判据因此和其他AI主线完全不同：不看毛利率与份额，而看积压订单对收入的倍数、合同电力，以及客户预付款能覆盖多少资本开支。它是整条AI资本开支链上唯一一层订单可见度极高、而股东现金回收期极长的生意。"
+      ],
+      "evidence": [
+        "CRWV积压订单1,040亿美元、同比+246%，约为其全年收入指引的8倍，且不含Q3初新增的逾250亿美元承诺；合同电力从3.7吉瓦扩到4.2吉瓦，年底活跃电力目标上调至1.85吉瓦以上。需求可见度是全场最高的一层。",
+        "NBIS给出了这门生意能成立的机制：季内四笔单笔均超10亿美元的大单，客户预付款覆盖相关资本开支的50%至60%。这正是它敢在单季投入56.6亿美元资本开支、而经营现金流仍为正22.5亿美元的唯一原因。",
+        "代价写在资产负债表上：CRWV账上350亿美元债务、调整后经营利润率仅5%、GAAP净亏损扩大到6.26亿美元；NBIS全年资本开支指引200至250亿美元，而全年收入指引只有30至34亿美元，资本强度接近收入的7倍。",
+        "这一层与其他AI主线正交：光通讯是卖给AI的，电力与冷却是供给AI的，而这三家是买芯片、买电、再把算力租出去的买方。所以它们的证伪条件不该套用毛利率与份额，而应盯预付比例、合同电力与积压订单倍数。",
+        "IREN补上这一层第一个被卖的样本：转型订单侧已兑现（AI云全年收入从1,640万增至1.288亿美元、已签约ARR 40亿、交付微软首个50兆瓦液冷部署），盘后却跌8.45%。差别不在需求而在资金——FY2027资本开支指引250亿至300亿美元，对比本季1.372亿美元收入相差两个数量级，且未披露预付款覆盖比例。",
+        "APLD本站记录为84分共振确认（2026-07-27），但该条记录字段偏薄、缺少数字快照与业务拆解。本主线目前的硬证据主要来自CRWV与NBIS，APLD需在下季补齐后才计入交叉验证。"
+      ],
+      "disconfirm": [
+        "新签大单的预付款覆盖比例低于50%——这是这门生意的生死线，一旦下滑，资本开支与收入之间的时间差会立刻变成现金缺口。",
+        "积压订单停止净增，或合同电力目标推迟、活跃电力爬坡落后于计划。",
+        "债务规模继续扩大，而调整后经营利润率无法脱离个位数。",
+        "客户集中度上升的同时，出现单一大客户的合约调整、缩量或交付延迟。",
+        "超大规模客户的AI资本开支整体下修，算力与电力采购节奏放缓。"
+      ],
+      "sources": [
+        {
+          "type": "专题",
+          "label": "2026-08-27《Neocloud 深度：基本面拆解 × 十个月股价复盘》"
+        },
+        {
+          "type": "公司公告",
+          "label": "CoreWeave Q2 2026 Results",
+          "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx"
+        },
+        {
+          "type": "业绩会",
+          "label": "MarketBeat：CRWV Q2 业绩会要点",
+          "url": "https://www.marketbeat.com/instant-alerts/coreweave-q2-earnings-call-highlights-2026-08-11/"
+        },
+        {
+          "type": "SEC财报",
+          "label": "Nebius Group Q2 2026 结果（6-K 附件）",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm"
+        },
+        {
+          "type": "业绩会",
+          "label": "Nebius Q2 2026 业绩会文字稿",
+          "url": "https://za.investing.com/news/transcripts/earnings-call-transcript-nebius-beats-q2-2026-forecasts-shares-jump-165-93CH-4424564"
+        }
+      ],
+      "themeId": "neocloud-compute-rental"
+    },
+    {
+      "rank": 5,
+      "theme": "AI安全、权限与审计成为必要开支",
+      "status": "unreviewed",
+      "statusAsOf": "待复盘",
+      "reviewedAt": "2026-09-03",
+      "strength": "8/10",
+      "horizon": "中长期",
+      "direction": "强化",
+      "tickers": [
+        "PANW",
+        "CRWD",
+        "FTNT",
+        "IBM",
+        "PLTR",
+        "ANET",
+        "NET",
+        "AKAM",
+        "OKTA"
+      ],
+      "thesis": [
+        "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。"
+      ],
+      "evidence": [
+        "IBM已确认快速变化的网络安全环境影响客户交易签约；围绕数据归属、缓存位置与提示词安全的讨论说明，AI部署越深入，安全与权限越靠近采购核心。",
+        "网络与边缘侧同步验证：NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%。",
+        "OKTA提供目前最直接的会计层交叉验证：FY27 Q1收入仅+11%，但RPO +16%、cRPO +12%都快于当期收入确认——长约在累积。CEO把AI agent定义为组织内部正在出现的新员工，产生必须与人类用户一同被治理的身份。裁决点是cRPO：如果agentic identity是真需求，它应该先于收入加速。",
+        "2026-08-26 裁决：该预测兑现。OKTA cRPO同比+14%、较上季+12%加速，且快于收入约+11%，公司称是自FY25 Q4以来最大的cRPO超预期——领先指标确实先动了。但只算部分验证：Q3的cRPO指引回落到+11%至+12%，加速尚未证明连续。",
+        "同晚CRWD从预算侧给出更硬的证据：季内净新增ARR 3.328亿美元创纪录、同比+51%，公司据此把全年净新增ARR增长指引一次上调630个基点至中点34%。在安全行业，敢上调净新增ARR指引比上调收入指引分量更重。"
+      ],
+      "disconfirm": [
+        "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。"
+      ],
+      "sources": [
+        {
+          "type": "专题",
+          "label": "2026-08-03《CIBR × XSW 成分股新叙事》"
+        },
+        {
+          "type": "公司公告",
+          "label": "IBM CEO致投资者信",
+          "url": "https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"
+        },
+        {
+          "type": "媒体",
+          "label": "Axios：企业如何控制自己的AI大脑",
+          "url": "https://www.axios.com/2026/07/13/sovereign-ai-data-protection"
+        },
+        {
+          "type": "公司资料",
+          "label": "Arista AI networking overview",
+          "url": "https://investors.arista.com/"
+        },
+        {
+          "type": "SEC财报",
+          "label": "Akamai Q2 2026 Results",
+          "url": "https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"
+        },
+        {
+          "type": "公司公告",
+          "label": "Okta FY2027 Q1 Results",
+          "url": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-Announces-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx"
+        }
+      ],
+      "themeId": "ai-security-identity"
+    }
+  ];
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
+{
+  type: "earnings",
+  date: "2026-09-03",
+  ticker: "PATH",
+  company: "UiPath",
+  sector: "tech",
+  score: 68,
+  rec: "doubt",
+  dims: {quality: 26, marketread: 21, fundamentals: 21},
+  compare: {revenueGrowth:13, revenueGuidance:12},
+  accel: {thisQ: "收入 +13%、ARR +12%", nextQ: "Q3 收入指引 4.40~4.45 亿（金额高于本季），全年指引隐含低双位数", direction: "持平", note: "收入端持平，利润端明确加速——这是本条与本批其他标的最大的不同：二阶导发生在利润线而不是收入线。连续第四个季度 GAAP 盈利，非 GAAP 营业利润从本季到下季指引再到全年目标是逐级往上的。但收入侧藏着一条更值得看的：ARR 增速低于收入增速。订阅生意里 ARR 领先收入，ARR 慢于收入意味着未来的收入会向 ARR 的水平收敛，也就是现在这个增速还要再往下一点。股价的跌幅主要是仓位不是财报——它在财报前一个月已经涨了约 40%，盘后先冲高再砸穿，二十七个百分点的来回是拥挤交易被清的形态。"},
+  business: {
+    plain: "UiPath 做的是让软件替人做重复的电脑操作——把「打开系统、复制数据、填另一个表、发邮件」这种流程录下来交给机器人跑。客户主要是流程繁琐的大企业：银行、保险、医疗、政府。近两年的新故事是把这套机器人和 AI 代理接起来：以前的机器人只会照剧本走，接上模型之后能处理判断题。",
+    howMakesMoney: "按年度订阅收费，客户买的是机器人的运行许可与平台席位，所以年度经常性收入与净新增 ARR 是核心指标，当季收入只是往年签约的结果。续约与扩容体现在净留存率上——老客户每年多买多少，决定这门生意能不能在不烧钱获客的情况下继续长。",
+    moat: "壁垒是流程本身的黏性：机器人一旦嵌进企业的日常操作，替换要重新梳理并重建整套流程。风险是自动化正在被通用 AI 平台从上面覆盖，微软、Salesforce 与云厂商都在把代理能力打包进已有订阅，专门做流程自动化的溢价需要重新证明。",
+    whatChanged: "本季有两条方向相反的线。利润端明确改善：连续第四个季度实现 GAAP 层面盈利，非 GAAP 营业利润从本季到下季指引再到全年目标逐级抬升，毛利率维持高位，公司也上调了全年收入展望。增长端则停在原地：收入增速仍是低双位数，而年度经常性收入的增速比收入还要低一点——在订阅生意里这是个前瞻偏弱的信号，意味着收入未来会向 ARR 的水平靠拢。净留存率停在一百零几，说明老客户还在扩但扩得不多。本季同时公告了财务负责人交接。"
+  },
+  decision: {
+    stance: "利润端在加速、收入端持平，但 ARR 增速低于收入增速——订阅生意里这条比当季 beat 更值得看",
+    summary: "beat 并上调了全年收入展望，连续第四个季度 GAAP 盈利，利润指引逐级抬升。真正的问题在前瞻量：ARR 增速低于收入增速，意味着收入会向 ARR 收敛而不是相反。股价跌主要来自财报前一个月约 40% 的涨幅被清，不是这份财报本身。",
+    playbook: [
+      {if:"下一季 ARR 增速回到收入增速之上，且净新增 ARR 高于去年同期", then:"确认收入不会向下收敛，可从存疑上修", why:"ARR 领先收入，只有它先回到收入之上，低双位数的增速中枢才有抬升的可能。"},
+      {if:"非 GAAP 营业利润按逐季抬升的路径推进，且 GAAP 盈利延续", then:"确认利润端的二阶导是真的", why:"利润端是本季唯一在加速的方向，它能否持续决定这门生意从成长股转向现金流资产的路径是否成立。"},
+      {if:"AI 代理相关产品开始有独立的 ARR 或客户数披露", then:"提高持续性评分", why:"目前 AI 只出现在定性叙事与大单描述里，按本站对 CRM、VEEV、ZS 的同一标准，需要可量化披露才计入基本面。"},
+      {if:"净留存率跌破一百，或净新增 ARR 连续两季低于去年同期", then:"减速被确认为趋势", why:"净留存率跌破一百意味着老客户整体在缩，那是订阅生意最难逆转的一种失速。"}
+    ],
+    triggers: ["ARR 增速能否回到收入增速之上", "净新增 ARR 与净留存率", "非 GAAP 营业利润是否按逐季抬升推进", "AI 代理产品的可量化披露", "财务负责人交接期间指引口径是否变化", "全年收入指引是否再上调"],
+    invalidation: ["净留存率跌破一百", "净新增 ARR 连续两季低于去年同期", "ARR 增速持续低于收入增速", "非 GAAP 营业利润未按指引路径抬升", "全年收入指引在后续季度被下调"],
+    timing: "口径日 2026-09-03，财报盘后发布。首日正式反应为 9/4 交易日，不在本记录内。",
+    risk: "最容易读错的一点是把这根阴线当成对财报的评价：这份财报 beat 并上调了全年收入展望，跌幅主要来自财报前一个月约 40% 的涨幅被清，盘后二十七个百分点的来回是拥挤交易被清的形态而不是基本面转折。真正的基本面风险在 ARR 增速低于收入增速——订阅生意里这意味着收入还要向下收敛。竞争上，通用 AI 平台正在从上面覆盖流程自动化。本季同时公告财务负责人交接，交接期间的指引口径需要额外留意。本次记录未取得自由现金流、分行业客户结构，以及 AI 代理相关产品的独立收入或 ARR。"
+  },
+  metrics: [
+    {label:"Q2 收入", value:"4.103亿美元，+13%", sub:"超出市场预期约1249万美元；公司同时上调全年收入展望", tone:"beat", pct:74},
+    {label:"🔑 ARR 与收入的增速差", value:"ARR 19.4亿美元，+12%", sub:"全篇最重要的一行：ARR增速低于收入的+13%。订阅生意里ARR领先收入，ARR慢于收入意味着收入会向ARR收敛，而不是相反", tone:"miss", pct:38},
+    {label:"净新增 ARR", value:"3700万美元", sub:"基于美元的净留存率109%——老客户还在扩容，但扩的幅度不大", tone:"flat", pct:50},
+    {label:"🔑 利润端：唯一在加速的方向", value:"连续第四个季度GAAP盈利", sub:"GAAP营业利润3160万美元、非GAAP营业利润8900万；Q3指引约1亿、全年指引约4.45亿——本季到下季到全年逐级抬升", tone:"beat", pct:88},
+    {label:"非GAAP毛利率", value:"82%", sub:"维持在高位", tone:"beat", pct:80},
+    {label:"Q3 指引", value:"收入4.40~4.45亿美元", sub:"金额高于本季实际；ARR指引19.92~19.97亿美元", tone:"beat", pct:72},
+    {label:"FY27 全年指引", value:"收入17.89~17.94亿美元", sub:"ARR指引20.65~20.70亿美元，将在本财年内跨过20亿ARR；相对本季隐含低双位数，方向持平", tone:"flat", pct:55},
+    {label:"管理层变动", value:"财务负责人交接", sub:"本季同时公告；交接期间的指引口径需要额外留意", tone:"flat", pct:45},
+    {label:"股价反应", value:"盘后-7.79%（财报前一个月已涨约40%）", sub:"口径日9/3：正式盘收18.22、当日+1.28%；盘后高点20.88、低点15.36、收在16.81。二十七个百分点的来回是拥挤交易被清，不是对财报的评价。首日正式反应为9/4，不在本记录内", tone:"miss", pct:28}
+  ],
+  management_highlights: [
+    "Q2收入4.103亿美元、同比+13%，超出市场预期约1249万美元；公司上调全年收入展望。",
+    "截至2026年7月31日，年度经常性收入19.4亿美元、同比+12%，本季净新增ARR 3700万美元，基于美元的净留存率109%。",
+    "连续第四个季度实现GAAP盈利，GAAP营业利润3160万美元；非GAAP毛利率82%，非GAAP营业利润8900万美元。",
+    "Q3指引：收入4.40亿至4.45亿美元、ARR 19.92亿至19.97亿美元、非GAAP营业利润约1亿美元。",
+    "FY27全年指引：收入17.89亿至17.94亿美元、ARR 20.65亿至20.70亿美元、非GAAP营业利润约4.45亿美元，将在本财年内跨过20亿美元ARR。",
+    "本季同时公告财务负责人交接。"
+  ],
+  narrative: {
+    summary: "UiPath这季的两条线方向相反：利润端明确加速，收入端停在低双位数。跌了近八个百分点主要不是因为这份财报——它beat并上调了全年收入展望——而是因为财报前一个月已经涨了约四成，盘后二十七个百分点的来回是拥挤交易被清的形态。",
+    consensus: "多头证据集中在利润端：连续第四个季度GAAP盈利，非GAAP营业利润从本季到下季指引再到全年目标逐级抬升，毛利率维持高位，全年收入展望上调，年度经常性收入将在本财年内跨过一个整数关口。净留存率仍在一百以上，说明老客户还在扩容。AI代理与企业级大单在管理层口径里是本季增长的主要驱动。",
+    divergence: "反叙事有一条硬的：ARR增速低于收入增速。订阅生意里ARR是收入的先行量，ARR慢于收入意味着未来的收入会向ARR的水平收敛，也就是现在这个增速还要再往下一点，而净新增ARR的绝对额并不大。竞争上，通用AI平台正在从上面覆盖流程自动化，专门做这件事的溢价需要重新证明；AI代理目前只出现在定性叙事里，没有独立的收入或ARR披露。本季同时公告财务负责人交接。",
+    signals: ["ARR增速能否回到收入增速之上", "净新增ARR与净留存率", "非GAAP营业利润是否按逐季抬升推进", "AI代理产品的可量化披露", "财务负责人交接期间的指引口径", "全年收入指引是否再上调"]
+  },
+  vic_notes: "两点值得单独记。第一，这是本站第一条「二阶导发生在利润线而不是收入线」的记录——收入持平、利润逐级抬升。框架原本按收入增速的方向设计，遇到这种情况要分两条线看，不能一句加速或减速带过。第二条更实用：**订阅生意要比较 ARR 增速和收入增速的相对位置，不是只看各自的绝对值。**PATH 本季 ARR 在收入下面，意味着收入会向 ARR 收敛、增速还要下移；同一天的 ZS 则是两者当季都在同一水平，但指引里分了岔。这个「ARR 与收入谁在上面」的读法，比当季 beat 幅度更早暴露订阅生意的方向，应该加进以后所有订阅制公司的检查项。最后提醒自己别把股价当成财报评价：PATH 跌了近八个点，但它 beat 并上调了指引，跌的原因是财报前一个月涨了约 40%，盘后从冲高到砸穿的来回是仓位被清，跟这份财报的质量关系不大——这一点和 ZS 当晚那根「五项全超共识却回吐到跌」性质完全不同，ZS 是方向问题，PATH 是仓位问题。",
+  sources: [
+    {type:"财报明细", label:"StockTitan：UiPath Q2 FY2027 收入4.103亿美元、同比+13%", url:"https://www.stocktitan.net/news/PATH/ui-path-reports-second-quarter-fiscal-2027-financial-poj6x3r6q45v.html"},
+    {type:"市场反应", label:"Benzinga：UiPath 强劲Q2并上调收入展望", url:"https://www.benzinga.com/markets/earnings/26/09/61616658/uipath-reports-strong-q2-results-raises-revenue-outlook-above-estimtes"},
+    {type:"财报解读", label:"Investing.com：UiPath Q2 FY2027 业绩演示——盈利改善、AI驱动企业级大单", url:"https://www.investing.com/news/company-news/uipath-q2-fy2027-slides-profitability-rises-ai-drives-enterprise-deals-93CH-4888674"},
+    {type:"财报解读", label:"Seeking Alpha：FY27 收入指引与财务负责人交接", url:"https://seekingalpha.com/news/4640224-uipath-expects-fy2027-revenue-of-1_789b-1_794b-and-non-gaap-operating-income-of-about-445m"},
+    {type:"市场反应", label:"Seeking Alpha：财报前一个月已涨约40%", url:"https://seekingalpha.com/news/4639454-uipath-up-40-in-a-month-now-q2-earnings-will-test-the-ai-story"}
+  ]
+},
+{
+  type: "earnings",
+  date: "2026-09-03",
+  ticker: "ZS",
+  company: "Zscaler",
+  sector: "tech",
+  score: 74,
+  rec: "doubt",
+  dims: {quality: 28, marketread: 24, fundamentals: 22},
+  compare: {revenueGrowth:25, revenueGuidance:15.5},
+  accel: {thisQ: "收入 +25%、ARR +25%", nextQ: "FY27 收入指引 +15%~16%，ARR 指引 +16.6%~17.4%", direction: "减速", note: "本站迄今最干净的一个二阶导样本。五项指引全部高于共识——Q4 收入、调整后每股收益、Q1 收入指引、全年收入指引、全年每股收益指引，没有一项落后。但方向是向下的：ARR 增速要从当前水平掉到十六七个百分点。市场的处理方式把这件事说得很清楚——盘后先冲到 201.21 美元（约 +13.2%），然后一路吐回 174.00（约 -2.14%），13.8 个百分点的来回。beat 决定了当晚先涨多少，二阶导决定了最后停在哪里。第二曲线存在但没被完整量化：AI 安全订单环比增长可观，可公司没披露它的基数；Z-Flex 全年订单额是签约口径不是收入曲线。因此不能像 GTLB 那样用第二曲线把减速接住。"},
+  business: {
+    plain: "Zscaler 做的是把企业上网这件事搬到云上做安全检查。传统做法是在公司机房摆一堆防火墙盒子，员工在家办公就得先绕回公司再出去；它把检查点放到自己遍布全球的云节点上，员工在哪儿上网就近接入、先过检查再放行。核心产品是管出网的 ZIA 和管进内网的 ZPA。",
+    howMakesMoney: "按用户数收年费订阅，所以真正的先行指标是 ARR 和净新增 ARR，而不是当季确认的收入——收入是过去几年签约的结果，ARR 才是未来几年收入的形状。近两年新加的是按用量弹性计费的 Z-Flex 打包合约，以及围绕 AI 应用访问控制的新模块。",
+    moat: "壁垒是全球云节点的规模和企业换掉安全出口的迁移成本：一旦所有分支与远程办公的流量都走它，替换要重做整套网络路径与策略。风险在于这是一门成熟度较高的订阅生意，渗透到一定程度后新增用户的增速会自然放缓，而云厂商与网络设备商都在把类似能力打包进自己的平台。",
+    whatChanged: "本季在兑现层面没有短板：收入与调整后每股收益双双超预期，非 GAAP 营业利润率创下公司纪录，年度经常性收入规模再上一个台阶，全年收入与每股收益指引也都给在共识之上。真正改变判断的是指引里的增速形状——年度经常性收入的增速被指引到一个明显低于当前的水平，而 ARR 在订阅生意里是收入的先行量。管理层同时提到 AI 安全相关订单环比大幅增长、Z-Flex 全年签约额跨过新的量级，但两者都没有可以直接换算成增速的基数。"
+  },
+  decision: {
+    stance: "五项指引全超共识，方向却是减速；盘后冲高 13.2% 完全回吐，是本站最干净的一次「beat 不决定排序」",
+    summary: "兑现层面没有短板，指引金额也全部高于共识；问题在增速形状——ARR 被指引到明显低于当前的水平，而 ARR 在订阅生意里领先收入。第二曲线存在但未被量化，无法像 GTLB 那样接住减速。",
+    playbook: [
+      {if:"下一季 ARR 增速与净新增 ARR 高于本次指引隐含的路径", then:"确认减速被高估，可从存疑上修", why:"ARR 是订阅收入的先行量，只有它先转向，收入的方向才会跟着改。"},
+      {if:"公司开始披露 AI 安全模块的 ARR 金额或客户数基数", then:"第二曲线可计入基本面", why:"目前只有环比增速没有基数，按本站对 CRM、PATH、VEEV 的同一标准不能计入。"},
+      {if:"非 GAAP 营业利润率继续按纪录水平之上推进，且全年每股收益指引再上调", then:"确认利润端的加速是真的", why:"增长减速时，利润端能不能持续扩张，决定这门生意从成长股转向现金流资产的过程是否顺利。"},
+      {if:"净新增 ARR 连续两季低于去年同期", then:"减速被确认为趋势而非单季", why:"净新增 ARR 是最早暴露订阅生意失速的指标，比收入增速早一到两个季度。"}
+    ],
+    triggers: ["下一季净新增 ARR 与 ARR 增速", "AI 安全模块是否披露 ARR 基数", "Z-Flex 签约额转化为 ARR 的比例", "非 GAAP 营业利润率能否继续扩张", "全年每股收益指引是否再上调", "与 CRWD、S、NET 在同一板块内的相对方向"],
+    invalidation: ["净新增 ARR 连续两季低于去年同期", "ARR 增速跌破本次指引区间下沿", "非 GAAP 营业利润率回落到纪录水平以下", "全年指引在后续季度被下调", "AI 安全订单长期停留在无基数的环比口径"],
+    timing: "口径日 2026-09-03，财报盘后发布。首日正式反应为 9/4 交易日，不在本记录内。",
+    risk: "本记录的核心风险是把利润端的改善误当成增长问题的解答：营业利润率创纪录、每股收益指引大幅超共识都是真的，但订阅生意的估值锚在 ARR 增速上，两者不能互相替代。第二曲线的两项证据都缺基数——AI 安全订单只有环比增速，Z-Flex 是签约额而非收入曲线，按本站标准都不计入基本面。板块层面还有一个连带风险：财报前一日安全板块整体走强，若本次盘后回吐延续，同业会被一起拖累。本次记录未取得自由现金流、客户数分层、以及 ZIA 与 ZPA 的分产品明细。"
+  },
+  metrics: [
+    {label:"Q4 收入", value:"8.982亿美元，+25%", sub:"高于约8.77亿美元预期；去年同期约7.19亿", tone:"beat", pct:88},
+    {label:"调整后每股收益", value:"1.19美元", sub:"高于约1.09美元预期", tone:"beat", pct:85},
+    {label:"🔑 年度经常性收入（ARR）", value:"38亿美元，+25%", sub:"本季净新增ARR 2.46亿美元。ARR是订阅生意的先行量，收入只是它几年前的结果", tone:"beat", pct:87},
+    {label:"🔑 FY27 ARR 指引：方向", value:"43.96~44.26亿，+16.6%~17.4%", sub:"这是全篇最重要的一行。增速要从本季的+25%掉到十六七个百分点——五项指引全超共识，但方向在这里向下", tone:"miss", pct:32},
+    {label:"FY27 收入指引", value:"39.1~39.4亿美元", sub:"高于约39.0亿预期，但相对FY26的34亿隐含约+15%~16%，低于本季的+25%", tone:"flat", pct:48},
+    {label:"FY27 每股收益指引", value:"4.86~4.90美元", sub:"大幅高于约4.60美元预期。利润端的方向与增长端相反，是本季唯一在加速的一条", tone:"beat", pct:90},
+    {label:"Q1 FY27 收入指引", value:"9.35~9.39亿美元", sub:"高于约9.27亿预期，金额也高于本季实际——与MDB、CRDO那种「下季指引金额低于本季实际」不是一回事", tone:"beat", pct:78},
+    {label:"非GAAP营业利润率", value:"创纪录24.3%", sub:"公司历史最高；全年收入34亿、同比+25%", tone:"beat", pct:86},
+    {label:"第二曲线（未量化）", value:"AI安全订单环比+50%／Z-Flex全年17亿", sub:"两项都缺基数：环比增速没披露分母，Z-Flex是签约额不是收入曲线。按本站标准尚不计入基本面，因此无法像GTLB那样接住减速", tone:"flat", pct:52},
+    {label:"股价反应", value:"盘后冲高+13.2%后回吐至-2.14%", sub:"口径日9/3：正式盘收177.80、当日+2.94%；盘后高点201.21、低点173.42、收在174.00。13.8个百分点的来回。首日正式反应为9/4，不在本记录内", tone:"miss", pct:30}
+  ],
+  management_highlights: [
+    "Q4收入8.982亿美元、同比+25%，高于约8.77亿美元预期；调整后每股收益1.19美元，高于约1.09美元预期。",
+    "年度经常性收入达38亿美元、同比+25%，本季净新增ARR 2.46亿美元；非GAAP营业利润率创纪录24.3%。",
+    "全年收入34亿美元、同比+25%。",
+    "FY27指引：收入39.1亿至39.4亿美元、调整后每股收益4.86至4.90美元、ARR 43.96亿至44.26亿美元（同比+16.6%至17.4%）；Q1收入指引9.35亿至9.39亿美元。五项指引均高于市场预期。",
+    "AI安全相关订单环比增长超过50%，Z-Flex全年签约额超过17亿美元——两者均未披露可换算成增速的基数。"
+  ],
+  narrative: {
+    summary: "Zscaler这季把「beat 幅度不决定排序」演示得最清楚：五项指引全部高于共识，没有一项落后，盘后先冲高一成三，然后一点不剩地吐回去收在跌。唯一改变判断的是ARR的增速形状被指引到明显低于当前的水平，而ARR在订阅生意里是收入的先行量。",
+    consensus: "多头证据在兑现与利润两端都很扎实：收入与调整后每股收益双双超预期，非GAAP营业利润率创下公司纪录，年度经常性收入规模再上台阶，下季与全年指引金额全部高于共识，全年每股收益指引的超出幅度尤其大。下季收入指引金额也高于本季实际，与那些「指引金额低于本季实际」的减速样本有本质区别。AI安全订单与Z-Flex签约额都在放量。",
+    divergence: "反叙事只有一条，但它是决定性的：ARR增速被指引到明显低于当前的水平。订阅生意的收入是几年前签约的结果，ARR才是未来收入的形状，所以增速的锚在ARR不在收入。第二曲线的两项证据都缺基数——AI安全订单只有环比口径没有分母，Z-Flex是签约额而非收入曲线——因此无法像GTLB那样把减速接住。利润端的加速是真的，但估值锚在增速上，两者不能互相替代。",
+    signals: ["下一季净新增ARR与ARR增速", "AI安全模块是否披露基数", "Z-Flex签约额转化为ARR的比例", "非GAAP营业利润率能否继续扩张", "全年每股收益指引是否再上调", "与CRWD、S、NET的相对方向"]
+  },
+  vic_notes: "这条是二阶导框架目前最好的教学样本，比 CRDO 那条还干净。CRDO 至少还有「指引只给环比 +10.6%」这种能一眼看出问题的数字，而 ZS 是五项指引没有一项落后于共识、当晚还先冲高了 13.2%——如果只看 beat 幅度，它应该是本周最强的一份。但盘后 13.8 个百分点的来回把答案写清楚了：市场先按 beat 定价，再按方向重新定价，最后留下的是方向。与本批其他标的的分界也值得记住：ZS 的下季指引金额是高于本季实际的，这一点和 MDB、CRDO 那种「下季指引金额低于本季实际」不同，所以它跌得温和（-2.14% 而不是 -13.5% 或 -20%）。判断顺序因此可以再细一层——先看下季指引金额相对本季实际（决定跌不跌得狠），再看中期增速指引相对本季实际（决定涨上去能不能留住）。另外记一条 ZS 特有的：订阅生意要看 ARR 不看收入，收入是几年前签约的结果。本季收入和 ARR 增速都是 +25%，但指引里两者分了岔——收入指引隐含十五六个百分点、ARR 指引十六七个百分点，说明公司自己也认为增速中枢下移。",
+  sources: [
+    {type:"公司公告", label:"Zscaler Announces Strong Fourth Quarter and Fiscal 2026 Financial Results", url:"https://www.globenewswire.com/news-release/2026/09/03/3356252/0/en/zscaler-announces-strong-fourth-quarter-and-fiscal-2026-financial-results.html"},
+    {type:"市场反应", label:"CNBC：Zscaler Q4 earnings 2026", url:"https://www.cnbc.com/2026/09/03/zscaler-zs-q4-earnings-2026.html"},
+    {type:"财报解读", label:"TIKR：Zscaler Q4 FY2026 财报前的关键看点", url:"https://www.tikr.com/blog/zscaler-reports-q4-fy2026-earnings-september-3-what-the-stock-needs-to-show"},
+    {type:"财报解读", label:"Zacks：Zscaler Q4 财报前瞻", url:"https://finance.yahoo.com/markets/stocks/articles/zscaler-report-q4-earnings-buy-134900865.html"}
+  ]
+},
 {
   type: "merger",
   date: "2026-07-20",
@@ -10964,7 +10756,7 @@ const SECTOR_META = {
   materials:   "材料与资源",
   other:       "其他"
 };
-const TICKER_SECTOR = { HPE:"tech", PSNL:"healthcare",
+const TICKER_SECTOR = { ZS:"tech", HPE:"tech", PSNL:"healthcare",
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
