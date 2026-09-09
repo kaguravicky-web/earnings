@@ -464,6 +464,75 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-09-08",
+  ticker: "TTAN",
+  company: "ServiceTitan",
+  sector: "tech",
+  score: 56,
+  rec: "doubt",
+  dims: {quality: 19, marketread: 17, fundamentals: 20},
+  compare: {revenueGrowth:21, revenueGuidance:-2.4},
+  accel: {thisQ: "收入 2.928 亿美元、+21%（超共识 2.859 亿）；非 GAAP 营业利润 4440 万、利润率 15.2%", nextQ: "Q3 指引收入 2.85~2.87 亿、营业利润 2900~3000 万——两条都低于本季实际", direction: "减速", note: "本站迄今最重的一次「下季指引金额低于本季实际」，而且是收入与利润双低——收入环比降约两到三个百分点，非 GAAP 营业利润却要环比掉三成以上，利润率从 15.2% 指到十个百分点出头。利润的降幅远大于收入，说明压力不在需求单侧，成本结构也在同时变。第二个前瞻信号在交易额：客户的总交易额增速低于公司自己的收入增速，也就是收入的增长来自单笔抽成的提升而不是底层生意的扩张，而底层量才是先行指标——管理层同时提到暖通空调这个主力垂直行业需求转软。再叠加首席营收官离任，这三件事凑在同一份财报里。"},
+  business: {
+    plain: "ServiceTitan 卖给「上门服务」的生意用的管理软件——修空调、通下水道、修电路的那类公司。一个师傅接单、报价、上门、收钱、开发票，过去靠电话和纸单子，它把这一整套搬到手机和后台系统上。客户是几个人到几百人规模的家庭服务公司，行业里叫 the trades。",
+    howMakesMoney: "订阅费加上按交易抽成两块：软件按席位或按公司规模收年费，客户通过平台完成的收款还要抽一道。所以有两个指标要分开看——收入是它自己收到的钱，而客户在平台上完成的总交易额是底层的生意量，后者才是前者的先行指标。近两年在推的是把 AI 代理接进派单、报价和客服环节。",
+    moat: "壁垒是这类小公司一旦把派单、客户资料、收款流水都放进来，日常运转就离不开，替换要停摆几天，这是它们承受不起的。风险在于客户本身是强周期的：暖通、管道、电工的需求跟着房屋成交、天气和家庭可选开支走，客户的生意一软，抽成和续约会同时受影响，而软件公司无法用自己的执行力对冲这一层。",
+    whatChanged: "本季在兑现层面其实是超预期的：收入高于市场共识，平台收入占比接近全部，净留存率维持在一百一以上，非 GAAP 自由现金流也过了五千万。改变判断的是下一季的指引——收入和营业利润两条都给在了本季实际之下，而且利润的降幅远大于收入，隐含的利润率要从本季水平掉下来一大截。同时有两条前瞻性的坏消息：客户在平台上完成的总交易额增速慢于公司自己的收入增速，管理层提到暖通空调这个主力垂直行业需求转软；公司还公告了首席营收官离任。"
+  },
+  decision: {
+    stance: "下季收入与利润双双指引到本季实际之下，利润降幅远大于收入；底层交易额已经慢于收入，首席营收官同时离任",
+    summary: "本季收入超共识、自由现金流过五千万、净留存率仍在一百一以上，但下一季的收入和营业利润都被指引到本季实际之下，利润率隐含大幅压缩。更早的信号是客户端交易额增速已经低于公司收入增速，说明增长靠抽成提升而非底层生意扩张，而主力垂直行业需求转软。首席营收官离任让执行层面的不确定性再加一层。",
+    playbook: [
+      {if:"下一季实际收入与营业利润回到本季水平之上，且公司不再给出环比下滑的指引", then:"确认本次指引只是保守，可从存疑上修", why:"连续两季指引金额低于本季实际，才是趋势；单季可能只是新任销售负责人交接期的保守起手。"},
+      {if:"客户端总交易额的增速重新回到公司收入增速之上", then:"确认底层需求企稳", why:"交易额是这门生意真正的先行量，收入靠抽成率提升可以短期维持，但底层量不回来，抽成的空间也会见顶。"},
+      {if:"暖通空调等主力垂直行业的需求出现回暖，且不是靠让利换来的", then:"降低周期折价", why:"客户是强周期的小生意，需求回暖必须体现在他们自己的成交上，而不是平台补贴带来的。"},
+      {if:"首席营收官的继任者到位并给出可量化的销售计划", then:"降低执行层面的折价", why:"销售一把手在指引转弱的同一季离任，接任前很难判断指引的保守程度有多少来自交接、多少来自需求。"},
+      {if:"AI 代理相关的产品开始有独立的收入或采用率披露", then:"第二曲线可计入基本面", why:"目前只有门店数量层面的进展，没有金额口径；按本站对 ZS、IOT 的同一标准，第二曲线必须同时有绝对额、有增速、有连续性。"}
+    ],
+    triggers: ["下一季指引是否仍低于当季实际", "客户端总交易额与收入的增速差", "暖通空调等主力垂直行业的需求走向", "非 GAAP 营业利润率的实际路径", "首席营收官继任者与销售计划", "AI 代理产品的可量化披露"],
+    invalidation: ["连续两季指引金额低于当季实际", "客户端交易额增速持续低于收入增速", "净留存率跌破一百一", "非 GAAP 营业利润率低于指引区间下沿", "全年指引在后续季度被下调"],
+    timing: "口径日 2026-09-08，财报盘后发布。首日正式反应为 9/9 交易日，不在本记录内。",
+    risk: "最容易低估的是利润与收入两条指引的降幅差：收入只指引到环比小幅下滑，营业利润却要掉三成以上，这说明压力不只在需求侧，成本结构或投入节奏也在同时变，而后者通常比需求更难在一两个季度内回摆。周期性是这门生意的结构风险——客户是强周期的家庭服务小公司，需求跟着房屋成交、天气与可选开支走，软件公司无法用执行力对冲。治理上首席营收官在指引转弱的同一季离任，接任前难以区分指引的保守有多少来自交接。第二曲线目前只有门店数量口径，没有金额。本次记录未取得客户总数、分垂直行业的收入结构、抽成率的具体变化，以及全年指引相对此前区间是上调还是下调。"
+  },
+  metrics: [
+    {label:"Q2 收入", value:"2.928亿美元，+21%", sub:"高于约2.859亿美元的市场共识；去年同期2.421亿。平台收入2.845亿、同比+22%", tone:"beat", pct:76},
+    {label:"🔑 Q3 指引：收入与利润双低于本季", value:"收入2.85~2.87亿／营业利润2900~3000万", sub:"全篇最重要的一行。收入环比降约2~3%，非GAAP营业利润却要环比掉三成以上——利润的降幅远大于收入，压力不在需求单侧", tone:"miss", pct:12},
+    {label:"🔑 交易额慢于收入", value:"GTV 268亿美元，+17%", sub:"客户在平台上完成的总交易额，增速低于公司自己收入的+21%。收入靠抽成提升而非底层生意扩张，而底层量才是先行指标", tone:"miss", pct:30},
+    {label:"非GAAP营业利润率", value:"本季15.2%", sub:"非GAAP营业利润4440万美元；Q3指引隐含的利润率要掉到十个百分点出头", tone:"flat", pct:42},
+    {label:"GAAP 口径", value:"营业亏损2760万美元", sub:"GAAP营业利润率-9.4%，GAAP每股净亏损0.26美元；非GAAP摊薄每股收益0.40美元", tone:"flat", pct:40},
+    {label:"自由现金流与留存", value:"非GAAP自由现金流5050万美元", sub:"净留存率高于110%，平台收入占比超过95%——本季最扎实的一组", tone:"beat", pct:78},
+    {label:"FY27 全年指引", value:"收入11.39~11.44亿美元", sub:"非GAAP营业利润1.52~1.54亿美元。本次记录未取得此前区间，无法判断是上调还是下调", tone:"flat", pct:50},
+    {label:"第二曲线（仅数量口径）", value:"Max门店数全年目标超700家", sub:"本季已超额完成翻倍目标。但只有门店数量、没有金额贡献，按本站对ZS与IOT的同一标准（要同时有绝对额、增速、连续性）尚不能接住减速", tone:"flat", pct:48},
+    {label:"管理层变动与需求", value:"首席营收官离任／暖通需求转软", sub:"销售一把手在指引转弱的同一季离任；管理层同时提到暖通空调这一主力垂直行业需求走软", tone:"miss", pct:20},
+    {label:"股价反应", value:"当日-7.21%后盘后再-20.25%", sub:"口径日9/8：正式盘自87.92跌至81.58、当日-7.21%（财报前已在跌）；盘后高点82.00、低点64.26、收在65.06。合计约-26.0%。首日正式反应为9/9，不在本记录内", tone:"miss", pct:6}
+  ],
+  management_highlights: [
+    "Q2收入2.928亿美元、同比+21%，高于约2.859亿美元的市场共识；平台收入2.845亿美元、同比+22%，占比超过95%。",
+    "客户平台总交易额268亿美元、同比+17%，增速低于公司自身收入增速。",
+    "非GAAP营业利润4440万美元、利润率15.2%；GAAP营业亏损2760万美元、利润率-9.4%。非GAAP摊薄每股收益0.40美元，GAAP每股净亏损0.26美元。",
+    "非GAAP自由现金流5050万美元；净留存率高于110%。",
+    "Q3指引：收入2.85亿至2.87亿美元、营业利润2900万至3000万美元——两条均低于本季实际。",
+    "FY27全年指引：收入11.39亿至11.44亿美元、非GAAP营业利润1.52亿至1.54亿美元。",
+    "本季超额完成Max门店翻倍目标，全年预计超过700家；同期公告首席营收官离任，并提到暖通空调垂直行业需求转软。"
+  ],
+  narrative: {
+    summary: "ServiceTitan这季收入超了共识、自由现金流也过了五千万，但下一季的收入和营业利润被同时指引到本季实际之下，而且利润的降幅远大于收入。底层的客户交易额增速已经慢于公司自己的收入，主力垂直行业需求转软，首席营收官又在同一季离任——三件事凑在一起，股价当天加盘后合计跌了约四分之一。",
+    consensus: "多头证据是这门生意的质地本身没坏：收入高于市场共识，平台收入占比超过九成五，净留存率维持在一百一以上，非 GAAP 自由现金流过了五千万，说明现有客户还在扩容、现金转化也在改善。Max 门店本季超额完成翻倍目标并给出了全年数量目标，AI 代理方向的产品化在推进。行业本身仍是高度分散、数字化程度很低的市场，长期渗透空间没有变。",
+    divergence: "反叙事有三层，而且互相叠加。指引层：下一季收入与营业利润都低于本季实际，利润的降幅远大于收入，说明压力不只来自需求，成本或投入节奏也在变。前瞻层：客户端总交易额的增速已经慢于公司收入，意味着增长靠抽成提升维持，而底层生意量在放缓，主力垂直行业需求转软是直接印证。治理层：首席营收官在指引转弱的同一季离任，接任前难以区分指引的保守有多少来自交接、多少来自真实需求。第二曲线目前只有门店数量口径，没有金额。",
+    signals: ["下一季指引是否仍低于当季实际", "客户端交易额与收入的增速差", "主力垂直行业的需求走向", "非GAAP营业利润率的实际路径", "首席营收官继任者与销售计划", "AI代理产品的可量化披露"]
+  },
+  vic_notes: "这条把两个已经出现过的读法钉死了，值得作为订阅制与平台型公司的固定检查项。第一，**下季指引金额低于本季实际是最强的减速信号**——MDB、CRDO 验证过一次，TTAN 是最重的一次，因为它是收入和利润两条同时低。而且要分开看两条的降幅：收入只降两三个百分点、利润却要降三成以上，这个差本身就是信息——需求单侧走弱不会造成这么大的利润降幅，成本或投入节奏一定也在变，而后者比需求更难在一两个季度里回摆。第二，**平台型公司要比较「底层交易量」和「自己的收入」谁快**，逻辑和 PATH 那条「ARR 与收入谁在上面」完全一样：TTAN 的客户交易额 +17% 慢于自己收入的 +21%，说明增长来自抽成提升而不是底层扩张，抽成的空间是有限的，底层量才是先行指标。把这两条和 IOT 的第二曲线三要件（绝对额、增速、连续性）放在一起，订阅与平台型公司的检查清单基本就完整了：先看下季指引金额相对本季实际，再看前瞻量相对收入，最后看第二曲线够不够格接住减速。TTAN 三项全不过。",
+  sources: [
+    {type:"公司公告", label:"ServiceTitan Announces Fiscal Second Quarter Financial Results（2026-09-08）", url:"https://www.globenewswire.com/news-release/2026/09/08/3358107/0/en/servicetitan-announces-fiscal-second-quarter-financial-results.html"},
+    {type:"财报明细", label:"StockTitan：ServiceTitan 第二财季业绩", url:"https://www.stocktitan.net/news/TTAN/service-titan-announces-fiscal-second-quarter-financial-kjxmbdgerzrh.html"},
+    {type:"市场反应", label:"Investing.com：指引偏软，Q2 表现好坏参半后股价跌 18%", url:"https://www.investing.com/news/earnings/servicetitan-falls-18-on-weak-guidance-following-mixed-q2-93CH-4892428"},
+    {type:"财报解读", label:"Investing.com：Q2 FY27 业绩演示——21% 增长与 AI 战略转向", url:"https://www.investing.com/news/company-news/servicetitan-q2-fy27-slides-21-growth-amid-strategic-ai-pivot-93CH-4892570"},
+    {type:"市场反应", label:"ChartMill：Q2 超预期但指引偏软，股价重挫", url:"https://www.chartmill.com/news/TTAN/Chartmill-54540-ServiceTitan-NASDAQTTAN-Plunges-on-Soft-Guidance-Despite-Q2-Earnings-Beat"},
+    {type:"业绩会", label:"Seeking Alpha：ServiceTitan Q2 2027 业绩会文字稿", url:"https://seekingalpha.com/article/4944094-servicetitan-inc-ttan-q2-2027-earnings-call-transcript"}
+  ]
+},
+{
+  type: "earnings",
   date: "2026-09-03",
   ticker: "IOT",
   company: "Samsara",
@@ -522,7 +591,8 @@ const RECORDS = [
     {type:"财报明细", label:"StockTitan：ARR 跨过 21 亿美元，大企业开始标准化", url:"https://www.stocktitan.net/news/IOT/samsara-crosses-2-1-billion-in-arr-as-large-enterprises-standardize-1rsbeag7kla1.html"},
     {type:"财报解读", label:"Investing.com：beat and raise，盘后涨 16%", url:"https://www.investing.com/news/company-news/samsara-q2-fy27-slides-beat-and-raise-sends-shares-up-16-93CH-4888654"},
     {type:"财报解读", label:"Seeking Alpha：FY27 收入 20.43 亿至 20.47 亿、21% 非 GAAP 营业利润率目标", url:"https://seekingalpha.com/news/4640227-samsara-outlines-fy-2027-revenue-of-2_043b-2_047b-while-targeting-21-percent-non-gaap"}
-  ]
+  ],
+  outcome: "首日之后的五个交易日：38.75 → 40.15，累计 +3.61%（口径 2026-09-08 收盘，自财报前 9/3 正式盘收盘起算，5 个交易日累计）。盘后曾涨 15.95%，五天后只剩三个多点——涨幅吐掉了约四分之三，但仍是这一批唯一收正的一只，方向判断成立、幅度被高估。这一批五条放在一起看，最有价值的一条是：**盘后反应普遍低估了后续跌幅，唯一盘后就跌透的 LULU 反而是后面最稳的。**盘后 -2.14% 的 ZS 五日跌到 -8.9%，盘后 -7.79% 的 PATH 五日跌到 -23.1%，而盘后一次性跌掉 18.17% 的 LULU 五日是 -15.3%、还小幅收复。市场消化「减速」需要好几天，当晚跌得温和不等于跌完了。另外要诚实记一条：本站给的分数与五日收益的排序并不一致——LULU 只有 38 分却跑赢了 68 分的 PATH 和 71 分的 GWRE。分数衡量的是财报质量，不是五日收益；盘后已经跌透的标的，分数低不代表后面还要继续跌。"
 },
 {
   type: "earnings",
@@ -584,7 +654,8 @@ const RECORDS = [
     {type:"财报解读", label:"Seeking Alpha：FY27 ARR 指引 14.5 亿至 14.6 亿、云 ARR 占比 84%", url:"https://seekingalpha.com/news/4640228-guidewire-expects-1_45b-1_46b-fy2027-arr-supported-by-84-percent-cloud-arr-mix"},
     {type:"市场反应", label:"ChartMill：Q4 超预期但 FY27 展望偏软，股价下挫", url:"https://www.chartmill.com/news/GWRE/Chartmill-54359-Guidewire-Software-NYSEGWRE-Tumbles-on-Soft-Fiscal-2027-Outlook-Despite-Q4-Beat"},
     {type:"市场反应", label:"Zacks：Q4 收入与盈利均超预期", url:"https://ca.finance.yahoo.com/news/guidewire-software-gwre-q4-earnings-214002102.html"}
-  ]
+  ],
+  outcome: "首日之后的五个交易日：202.86 → 149.71，累计 -26.20%（口径 2026-09-08 收盘，自财报前 9/3 正式盘收盘起算，5 个交易日累计）。盘后已经跌 15.16%，之后继续跌，是这一批五日跌幅最大的一只。「减速一个百分点、指引还符合共识」在溢价估值上的代价比当晚看到的更大。这一批五条放在一起看，最有价值的一条是：**盘后反应普遍低估了后续跌幅，唯一盘后就跌透的 LULU 反而是后面最稳的。**盘后 -2.14% 的 ZS 五日跌到 -8.9%，盘后 -7.79% 的 PATH 五日跌到 -23.1%，而盘后一次性跌掉 18.17% 的 LULU 五日是 -15.3%、还小幅收复。市场消化「减速」需要好几天，当晚跌得温和不等于跌完了。另外要诚实记一条：本站给的分数与五日收益的排序并不一致——LULU 只有 38 分却跑赢了 68 分的 PATH 和 71 分的 GWRE。分数衡量的是财报质量，不是五日收益；盘后已经跌透的标的，分数低不代表后面还要继续跌。"
 },
 {
   type: "earnings",
@@ -650,7 +721,8 @@ const RECORDS = [
     {type:"财报解读", label:"Investing.com：收入下滑 4%，股价重挫 18%", url:"https://www.investing.com/news/company-news/lululemon-q2-2026-presentation-revenue-drops-4-stock-plunges-18-93CH-4888642"},
     {type:"业绩会", label:"Investing.com：利润超预期未能安抚投资者（业绩会记录）", url:"https://www.investing.com/news/transcripts/earnings-call-transcript-lululemon-q2-2026-profit-beat-fails-to-calm-investors-93CH-4888627"},
     {type:"业绩会", label:"lululemon Q2 FY26 业绩会文字稿", url:"https://singjupost.com/transcript-lululemon-athletica-lulu-inc-q2-fy26-earnings-call/"}
-  ]
+  ],
+  outcome: "首日之后的五个交易日：121.77 → 103.19，累计 -15.26%（口径 2026-09-08 收盘，自财报前 9/3 正式盘收盘起算，5 个交易日累计）。盘后一次性跌了 18.17%、跌破 52 周低点，之后反而小幅收复，是这一批里唯一五日跌幅小于盘后跌幅的一只。恶化的方向没有争议，但当晚已经把坏消息一次性定价完。这一批五条放在一起看，最有价值的一条是：**盘后反应普遍低估了后续跌幅，唯一盘后就跌透的 LULU 反而是后面最稳的。**盘后 -2.14% 的 ZS 五日跌到 -8.9%，盘后 -7.79% 的 PATH 五日跌到 -23.1%，而盘后一次性跌掉 18.17% 的 LULU 五日是 -15.3%、还小幅收复。市场消化「减速」需要好几天，当晚跌得温和不等于跌完了。另外要诚实记一条：本站给的分数与五日收益的排序并不一致——LULU 只有 38 分却跑赢了 68 分的 PATH 和 71 分的 GWRE。分数衡量的是财报质量，不是五日收益；盘后已经跌透的标的，分数低不代表后面还要继续跌。"
 },
 {
   type: "earnings",
@@ -715,7 +787,8 @@ const RECORDS = [
     {type:"财报解读", label:"Investing.com：UiPath Q2 FY2027 业绩演示——盈利改善、AI驱动企业级大单", url:"https://www.investing.com/news/company-news/uipath-q2-fy2027-slides-profitability-rises-ai-drives-enterprise-deals-93CH-4888674"},
     {type:"财报解读", label:"Seeking Alpha：FY27 收入指引与财务负责人交接", url:"https://seekingalpha.com/news/4640224-uipath-expects-fy2027-revenue-of-1_789b-1_794b-and-non-gaap-operating-income-of-about-445m"},
     {type:"市场反应", label:"Seeking Alpha：财报前一个月已涨约40%", url:"https://seekingalpha.com/news/4639454-uipath-up-40-in-a-month-now-q2-earnings-will-test-the-ai-story"}
-  ]
+  ],
+  outcome: "首日之后的五个交易日：18.22 → 14.01，累计 -23.11%（口径 2026-09-08 收盘，自财报前 9/3 正式盘收盘起算，5 个交易日累计）。盘后只跌 7.79%，五天后跌幅扩大到三倍。本记录当时把跌幅主要归因于财报前一个月约 40% 涨幅的拥挤仓位被清——五日的走势说明那只是第一层，ARR 增速低于收入增速这条基本面判断也在被定价。这一批五条放在一起看，最有价值的一条是：**盘后反应普遍低估了后续跌幅，唯一盘后就跌透的 LULU 反而是后面最稳的。**盘后 -2.14% 的 ZS 五日跌到 -8.9%，盘后 -7.79% 的 PATH 五日跌到 -23.1%，而盘后一次性跌掉 18.17% 的 LULU 五日是 -15.3%、还小幅收复。市场消化「减速」需要好几天，当晚跌得温和不等于跌完了。另外要诚实记一条：本站给的分数与五日收益的排序并不一致——LULU 只有 38 分却跑赢了 68 分的 PATH 和 71 分的 GWRE。分数衡量的是财报质量，不是五日收益；盘后已经跌透的标的，分数低不代表后面还要继续跌。"
 },
 {
   type: "earnings",
@@ -779,7 +852,8 @@ const RECORDS = [
     {type:"市场反应", label:"CNBC：Zscaler Q4 earnings 2026", url:"https://www.cnbc.com/2026/09/03/zscaler-zs-q4-earnings-2026.html"},
     {type:"财报解读", label:"TIKR：Zscaler Q4 FY2026 财报前的关键看点", url:"https://www.tikr.com/blog/zscaler-reports-q4-fy2026-earnings-september-3-what-the-stock-needs-to-show"},
     {type:"财报解读", label:"Zacks：Zscaler Q4 财报前瞻", url:"https://finance.yahoo.com/markets/stocks/articles/zscaler-report-q4-earnings-buy-134900865.html"}
-  ]
+  ],
+  outcome: "首日之后的五个交易日：177.80 → 161.94，累计 -8.92%（口径 2026-09-08 收盘，自财报前 9/3 正式盘收盘起算，5 个交易日累计）。盘后只跌 2.14%，五天后跌幅扩大到四倍以上。当晚五项指引全超共识起到了缓冲作用，但缓冲只持续了一个晚上——ARR 增速指引下移这件事最终还是被完整定价了。这一批五条放在一起看，最有价值的一条是：**盘后反应普遍低估了后续跌幅，唯一盘后就跌透的 LULU 反而是后面最稳的。**盘后 -2.14% 的 ZS 五日跌到 -8.9%，盘后 -7.79% 的 PATH 五日跌到 -23.1%，而盘后一次性跌掉 18.17% 的 LULU 五日是 -15.3%、还小幅收复。市场消化「减速」需要好几天，当晚跌得温和不等于跌完了。另外要诚实记一条：本站给的分数与五日收益的排序并不一致——LULU 只有 38 分却跑赢了 68 分的 PATH 和 71 分的 GWRE。分数衡量的是财报质量，不是五日收益；盘后已经跌透的标的，分数低不代表后面还要继续跌。"
 },
 {
   type: "merger",
@@ -10519,7 +10593,7 @@ const SECTOR_META = {
   materials:   "材料与资源",
   other:       "其他"
 };
-const TICKER_SECTOR = { LULU:"consumer", GWRE:"tech", IOT:"tech", ZS:"tech", HPE:"tech", PSNL:"healthcare",
+const TICKER_SECTOR = { TTAN:"tech", LULU:"consumer", GWRE:"tech", IOT:"tech", ZS:"tech", HPE:"tech", PSNL:"healthcare",
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
