@@ -196,7 +196,6 @@ h1{font-size:26px;margin:0 0 4px}
   <p class="sub">先回答这家公司好不好，再把交易动作绑定到证据、价格和时间；新观点与后续验证会持续补进对应记录。</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-records">📁 分析记录</button>
-    <button class="tab-btn" data-tab="tab-narratives">🧭 叙事主线</button>
     <button class="tab-btn" data-tab="tab-sectors">🧩 板块小结</button>
     <button class="tab-btn" data-tab="tab-mergers">🤝 并购跟踪</button>
     <button class="tab-btn" data-tab="tab-framework">📐 评分框架参考</button>
@@ -231,17 +230,6 @@ h1{font-size:26px;margin:0 0 4px}
     <div class="sort-note" id="sort-note" hidden>仅比较已录入结构化口径的公司；缺少可靠可比数据的旧记录排在后面。</div>
   </div>
   <div id="records-list"></div>
-</section>
-
-<!-- ============ TAB: NARRATIVES ============ -->
-<section id="tab-narratives" style="display:none">
-  <div class="panel">
-    <h2>当前市场叙事与主线</h2>
-    <p class="hint">综合财报、业绩会、X、采访和视频提炼。叙事强度不是看多/看空，而是衡量“这条主线是否被多家公司、多个数据点和市场价格共同验证”。</p>
-    <p class="hint">强度口径：9分以上 = 多家公司财报和价格同时确认；8分以上 = 有强证据但还需后续季度交叉验证；7分左右 = 正在形成但证据仍偏单点；低于7分 = 仅作为观察线索。</p>
-    <p class="hint"><b>状态标签：</b><span class="trend-badge new">NEW</span> = 本轮财报首次形成、仍需同行验证；<span class="trend-badge uptrending">UPTRENDING</span> = 最近一轮至少新增两项独立财报、订单或价格证据，且没有触发主要证伪条件。状态按新证据更新，不代表追涨建议。</p>
-  </div>
-  <div id="narratives-list"></div>
 </section>
 
 <!-- ============ TAB: SECTORS ============ -->
@@ -471,421 +459,6 @@ const SECTOR_REVIEWS = [
     ]
   }
 ];
-
-// 🔴 本数组由 D:\交易为生\scripts\build_themes.py 从 data/themes.json 生成。
-// 不要手改这里 —— 改登记表，然后重跑生成器。2026-09-04 生成。
-const NARRATIVES = [
-    {
-      "rank": 1,
-      "theme": "mRNA个体化肿瘤疫苗：定价重心从疗效转向产能",
-      "status": "new",
-      "statusAsOf": "2026-09-03",
-      "reviewedAt": "2026-09-03",
-      "strength": "10/10",
-      "horizon": "当前至未来数季",
-      "direction": "快速强化",
-      "tickers": [
-        "MRNA",
-        "BNTX",
-        "MRK",
-        "PSNL",
-        "TEM",
-        "TMO",
-        "ARCT",
-        "MRVI",
-        "TWST",
-        "RGEN",
-        "NTLA",
-        "ILMN"
-      ],
-      "thesis": [
-        "8/19 的临床事件把 mRNA 个体化肿瘤疫苗从研究话题变成可交易主线。按「与事件的连结强度」分的六层结构，在事件当天几乎完美单调：一级当事人 +70.51%，往下逐层递减到五级 +7.65%。",
-        "但把起点挪到 8/19 收盘、看到 8/28，排序整个反转。一级 −11.05% 且 0/3 为正；二级「已披露关联的服务与制造」+4.64% 且 3/3 全正，是六层里唯一全员为正的一层。",
-        "所以这条线的定价重心已经从「有没有效」转到「能不能按时按量造出来」。把 4–6 周的个体化生产窗口拆成七步，三到四周花在 DNA 模板与 QC 放行上，真正合成 mRNA 只占两三天。"
-      ],
-      "evidence": [
-        "二级三只事件后全为正：PSNL +7.97%、TEM +4.56%、TMO +1.41%，对应定序鉴定、算法数据与耗材设备。同期一级三只全在还货：MRNA −20.87%、BNTX −9.76%、MRK −2.53%。",
-        "TEM 于 2026-07-20 宣布以每股 16.25 美元、企业价值约 15 亿美元收购 PSNL，标的正是 MRD 微小残留病灶监测。二级里最强的两只被并进同一个平台，监测与产能这两格开始并表。",
-        "生产链上市场只买了占时间最短的两格：LNP 递送（ARCT）与上游原料（MRVI）事件后仍为正；占掉大半窗口的 DNA 模板（TWST，−0.7%）与纯化放行（RGEN，−0.1%）被打回原地。",
-        "机制上这条线与检查点抑制剂互补而非替代：早期胰腺癌试验里疫苗诱导的 T 细胞约 98% 是治疗前在血液与肿瘤中都找不到的全新克隆，这解释了 8/19 当天 MRK 是跟涨而不是被抢生意。"
-      ],
-      "disconfirm": [
-        "主闸门：二级三只（PSNL／TEM／TMO）任一跌回 8/19 收盘之下，且三只里不再有两只为正。这是结构原文写下的失效条件。",
-        "统计口径的修正：PSNL 与 TEM 不是两个独立样本。收购以股票对价为主，PSNL 价格已锚定 TEM 加一个并购价差，因此二级实际只有两个独立观察，「3/3 全正」应按 2/2 读。",
-        "若 TEM 收购 PSNL 因股东会或监管未获通过而终止，二级的样本结构与本条的核心证据都需要重取。"
-      ],
-      "sources": [
-        {
-          "type": "专题",
-          "label": "2026-08-30《mRNA 个体化肿瘤疫苗深度：机制 × 结构 × 生产 × 股价复盘》（2026-09-02 更新）"
-        },
-        {
-          "type": "公司公告",
-          "label": "Tempus to Acquire Personalis（2026-07-20）",
-          "url": "https://www.tempus.com/news/pr/tempus-to-acquire-personalis-integrating-mrd/"
-        },
-        {
-          "type": "公司公告",
-          "label": "Personalis 8-K：每股 16.25 美元现金加股票对价",
-          "url": "https://www.stocktitan.net/sec-filings/PSNL/8-k-personalis-inc-reports-material-event-7dda0d5a33c7.html"
-        }
-      ],
-      "themeId": "mrna-cancer-vaccine"
-    },
-    {
-      "rank": 2,
-      "theme": "AI网络层成为新瓶颈：Ethernet Fabric重定价",
-      "status": "uptrending",
-      "statusAsOf": "2026-08-08",
-      "reviewedAt": "2026-09-03",
-      "strength": "9/10",
-      "horizon": "当前至未来数季",
-      "direction": "快速强化",
-      "tickers": [
-        "ANET",
-        "ALAB",
-        "AAOI",
-        "CRDO",
-        "MRVL",
-        "AMD",
-        "NVDA",
-        "CSCO",
-        "AVGO",
-        "AEVA"
-      ],
-      "thesis": [
-        "AI集群的性能不只取决于GPU数量，还取决于GPU之间、服务器之间、数据中心之间的数据交换效率。市场开始把高端以太网、后端AI fabric、NIC、交换机、遥测和网络软件视为AI基础设施的核心层。"
-      ],
-      "evidence": [
-        "ANET Q2收入与EPS明显超预期，Q3收入指引约33亿美元高于市场预期，股价盘后一度大涨两位数；管理层把网络称为AI基础设施的中枢神经系统。",
-        "ALAB Q2收入3.924亿美元、同比+104%，Q3收入指引5.5亿美元，验证rack-scale AI互连与fabric switch需求；CRDO与MRVL分别验证AEC高速连接、光互连DSP与交换硅需求。",
-        "AAOI数据中心收入1.077亿美元、同比+140%，800G出货环比翻倍；管理层称800G与1.6T需求到2027年中仍超过产能，Q3收入指引中点同比约+130%。",
-        "AEVA以高功率光源切入近封装光学并签下首个联合开发协议，说明光学瓶颈正在吸引新技术路线——但2027部署、2028量产且尚非生产订单，只能算高Beta前置信号。"
-      ],
-      "disconfirm": [
-        "大型云厂商转向白牌/ODM显著压缩品牌网络设备份额，或AI集群网络需求无法持续带来高毛利率订单。"
-      ],
-      "sources": [
-        {
-          "type": "专题",
-          "label": "2026-08-05《AI 网络层成为新瓶颈：Ethernet Fabric》"
-        },
-        {
-          "type": "市场反应",
-          "label": "IBD：AI Cloud Networking Growth Drives Arista Beat",
-          "url": "https://www.investors.com/news/technology/arista-stock-anet-arista-earnings-q22026/"
-        },
-        {
-          "type": "市场反应",
-          "label": "Barron's：Arista stock surges after earnings",
-          "url": "https://www.barrons.com/articles/arista-networks-earnings-stock-price-e421b3c3"
-        },
-        {
-          "type": "SEC财报",
-          "label": "AAOI Q2 2026 Results",
-          "url": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826006055/aaoi_ex9901.htm"
-        },
-        {
-          "type": "公司资料",
-          "label": "AMD and Arista AI networking webinar",
-          "url": "https://www.arista.com/en/23982-amd-webinar-series"
-        }
-      ],
-      "themeId": "ai-network-fabric"
-    },
-    {
-      "rank": 3,
-      "theme": "光通讯产业链：需求闭环已验证，最弱信号在估值与自由现金流",
-      "status": "new",
-      "statusAsOf": "2026-08-10",
-      "reviewedAt": "2026-09-03",
-      "strength": "9/10",
-      "horizon": "当前至未来2–4季",
-      "direction": "需求强化，估值容错收窄",
-      "tickers": [
-        "AXTI",
-        "TSEM",
-        "GFS",
-        "FORM",
-        "AEHR",
-        "TSM",
-        "UMC",
-        "KLIC",
-        "AMKR",
-        "VECO",
-        "LITE",
-        "COHR",
-        "AAOI",
-        "POET",
-        "MKSI",
-        "MTSI",
-        "MRVL",
-        "FN",
-        "CRDO",
-        "ALAB",
-        "SMTC",
-        "GLW",
-        "AVGO",
-        "NVDA",
-        "CIEN",
-        "APH",
-        "ANET",
-        "CLS",
-        "CSCO"
-      ],
-      "layers": [
-        {
-          "name": "上游材料",
-          "desc": "基板与晶体",
-          "tickers": [
-            "AXTI"
-          ]
-        },
-        {
-          "name": "代工与测试",
-          "desc": "矽光晶圆、量测",
-          "tickers": [
-            "TSEM",
-            "GFS",
-            "FORM",
-            "AEHR",
-            "TSM",
-            "UMC",
-            "KLIC",
-            "AMKR",
-            "VECO"
-          ]
-        },
-        {
-          "name": "光源与模组",
-          "desc": "雷射、光模组",
-          "tickers": [
-            "LITE",
-            "COHR",
-            "AAOI",
-            "POET",
-            "MKSI"
-          ]
-        },
-        {
-          "name": "光电IC与封装",
-          "desc": "DSP、TIA、代工",
-          "tickers": [
-            "MTSI",
-            "MRVL",
-            "FN",
-            "CRDO",
-            "ALAB",
-            "SMTC"
-          ]
-        },
-        {
-          "name": "连接与网络",
-          "desc": "光纤、交换机、系统",
-          "tickers": [
-            "GLW",
-            "AVGO",
-            "NVDA",
-            "CIEN",
-            "APH",
-            "ANET",
-            "CLS",
-            "CSCO"
-          ]
-        }
-      ],
-      "thesis": [
-        "AI集群把800G、1.6T、AEC、CPO与高速交换推进同一条需求曲线，但“需求真实”不等于“任何价格都值得买”。真正的研究问题是瓶颈在哪一层、现金何时回来、市场已经预支了多少年。",
-        "同一条需求链上的商业模型差异极大：高速类比与SerDes毛利约60%–68%、交换系统可维持60%以上、光模组约44%–48%、制造与组装只有10%–15%——利润最厚的环节不一定是光模组。垂直整合既是供应护城河也是现金黑洞：扩产先推高库存与资本开支，损益改善必须用现金流验证。",
-        "分层清单来自老师最新的产业链图示（上游材料→代工与测试→光源与模组→光电IC与封装→连接与网络），个别标的在图中标了不同底色，具体含义等老师完整报告出来再补充，本站暂不据此做核心/规避的区分。"
-      ],
-      "evidence": [
-        "外部数据五层同向，闭环强度4.5/5：四大云2026年资本开支合计约7350–7600亿美元；Dell'Oro统计2025 Q1以太网数据中心交换机销售增长逾40%、800G单季超10亿美元；LightCounting估算2026 Q1光收发器销售约100亿美元、增长逾90%，当前需求高于供应约30%；IEA指2025年数据中心用电增长17%。",
-        "2026-08-11至12出现同晚双端验证。供给端：LITE FY26 Q4收入10.1亿美元、同比+109%，非GAAP毛利率一次突破50%，FY27 Q1再指引12.25至12.75亿美元、环比+22%至+26%。需求端：CRWV积压订单1,040亿美元、同比+246%，合同电力从3.7扩到4.2吉瓦；NBIS收入同比+454%、调整后EBITDA利润率40.6%、年底ARR目标70至90亿美元。",
-        "但现金是另一回事。COHR FY26非GAAP毛利率40.2%、数据中心与通信+59%，全年自由现金流却是-10.234亿美元，库存同比+79.5%而收入仅+22.5%；CRWV账上350亿美元债务、调整后经营利润率仅5%；NBIS单季资本开支56.6亿美元，接近收入的10倍。",
-        "分层结论因此更精确：卡在物理瓶颈的一端在提价（LITE毛利率破50%并继续向上），垂直整合扩产的一端在垫钱（COHR毛利改善却烧掉10亿美元现金），做系统集成的一端在让价（CSCO FY27 Q1非GAAP毛利率只指引65%至66%，低于其历史水平）。需求端的强度没有被推翻，被推翻的是“需求强就等于股东回报好”这个默认假设。",
-        "2026-08-27 门槛裁决：MRVL数据中心收入21.72亿美元、环比+18%、同比+46%、占总收入79%，并上调FY2027与FY2028展望至约115亿与165亿美元——预登记门槛未触发。但分歧同步转移到毛利率：其Q3调整后毛利率指引57.5%至58.5%低于本季58.9%，与本主线「毛利扩张能否穿透」的关切同源。",
-        "口径说明：本条主线整理自老师的《光速之后｜美股光通讯产业链深度分析》v1.1（2026-08-10），闭环评分、毛利分层与下一季门槛均为该报告口径，本站未独立复核其估值快照。"
-      ],
-      "disconfirm": [
-        "四大云资本开支合计指引下修逾10%，且云收入或backlog同步放慢。",
-        "外部出货仍高增，但LITE、FN、COHR、GLW、CIEN中多数连续两季低于行业增速。",
-        "连续两季存货增速显著快于收入（COHR本季已亮红灯，需第二季确认是否连续）。",
-        "EPS上升但自由现金流连续两季不改善——COHR FY26已触发，FN为下一个观察重点。",
-        "估值要改用FY29以后年份才能得到合理倍数；或1.6T只有认证与样品、没有量产收入比例。",
-        "近端逐条门槛：COHR FY27 Q1指引<20.5亿（已过关，实际22–24亿）｜FN营益率<9.5%或FCF再为负（08.17）｜MRVL数据中心收入环比不增（08.27，已裁决：环比+18%、同比+46%，未触发）｜CRDO收入<4.6亿或毛利<66%（09.02）｜AVGO AI半导体<155亿（09.03）｜CIEN收入<15.5亿或毛利<43.5%（09.03）｜GLW核心销售<49亿或光通信环比转负（10.27）。"
-      ],
-      "sources": [
-        {
-          "type": "专题",
-          "label": "2026-08-11《光通信叙事主线（老师 8/10 专题归档 ＋ 我方检验）》（2026-09-03 更新）"
-        },
-        {
-          "type": "外部研究",
-          "label": "老师：光速之后｜美股光通讯产业链深度分析 v1.1",
-          "url": "https://sintszkay.github.io/market-reports/reports/2026-08-10-optical-communications-deep-dive-special.html"
-        },
-        {
-          "type": "行业数据",
-          "label": "LightCounting 2026年6月季度更新",
-          "url": "https://www.lightcounting.com/newsletter/en/june-2026-quarterly-market-update-375"
-        },
-        {
-          "type": "行业数据",
-          "label": "LightCounting 2026年4月市场预测",
-          "url": "https://www.lightcounting.com/newsletter/en/april-2026-market-forecast-379"
-        },
-        {
-          "type": "行业数据",
-          "label": "Dell'Oro：以太网数据中心交换机创纪录",
-          "url": "https://www.prnewswire.com/news-releases/ai-investments-shield-ethernet-data-center-switch-market-from-tariff-disruptions-shattering-sales-records-according-to-delloro-group-302473912.html"
-        },
-        {
-          "type": "机构报告",
-          "label": "IEA：2025年数据中心用电激增",
-          "url": "https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions"
-        },
-        {
-          "type": "公司公告",
-          "label": "Corning 2026 Q2 Results",
-          "url": "https://investor.corning.com/news-and-events/news/news-details/2026/Cornings-Strong-Second-Quarter-2026-Financial-Results1-Demonstrate-Progress-on-Recently-Upgraded-Springboard-Plan/default.aspx"
-        },
-        {
-          "type": "公司公告",
-          "label": "Coherent FY26 Q3 Results",
-          "url": "https://www.coherent.com/news/press-releases/third-quarter-fiscal-year-2026-results"
-        }
-      ],
-      "themeId": "optical-supply-chain"
-    },
-    {
-      "rank": 4,
-      "theme": "AI算力租赁：用客户预付款建资产的一层",
-      "status": "new",
-      "statusAsOf": "2026-08-27",
-      "reviewedAt": "2026-09-03",
-      "strength": "8.5/10",
-      "horizon": "当前至未来数季",
-      "direction": "订单可见度极高，现金结构待验证",
-      "tickers": [
-        "CRWV",
-        "NBIS",
-        "APLD",
-        "IREN"
-      ],
-      "thesis": [
-        "这一层既不卖芯片也不卖光模块——它买芯片、买电，再把算力按长约租出去。判据因此和其他AI主线完全不同：不看毛利率与份额，而看积压订单对收入的倍数、合同电力，以及客户预付款能覆盖多少资本开支。它是整条AI资本开支链上唯一一层订单可见度极高、而股东现金回收期极长的生意。"
-      ],
-      "evidence": [
-        "CRWV积压订单1,040亿美元、同比+246%，约为其全年收入指引的8倍，且不含Q3初新增的逾250亿美元承诺；合同电力从3.7吉瓦扩到4.2吉瓦，年底活跃电力目标上调至1.85吉瓦以上。需求可见度是全场最高的一层。",
-        "NBIS给出了这门生意能成立的机制：季内四笔单笔均超10亿美元的大单，客户预付款覆盖相关资本开支的50%至60%。这正是它敢在单季投入56.6亿美元资本开支、而经营现金流仍为正22.5亿美元的唯一原因。",
-        "代价写在资产负债表上：CRWV账上350亿美元债务、调整后经营利润率仅5%、GAAP净亏损扩大到6.26亿美元；NBIS全年资本开支指引200至250亿美元，而全年收入指引只有30至34亿美元，资本强度接近收入的7倍。",
-        "这一层与其他AI主线正交：光通讯是卖给AI的，电力与冷却是供给AI的，而这三家是买芯片、买电、再把算力租出去的买方。所以它们的证伪条件不该套用毛利率与份额，而应盯预付比例、合同电力与积压订单倍数。",
-        "IREN补上这一层第一个被卖的样本：转型订单侧已兑现（AI云全年收入从1,640万增至1.288亿美元、已签约ARR 40亿、交付微软首个50兆瓦液冷部署），盘后却跌8.45%。差别不在需求而在资金——FY2027资本开支指引250亿至300亿美元，对比本季1.372亿美元收入相差两个数量级，且未披露预付款覆盖比例。",
-        "APLD本站记录为84分共振确认（2026-07-27），但该条记录字段偏薄、缺少数字快照与业务拆解。本主线目前的硬证据主要来自CRWV与NBIS，APLD需在下季补齐后才计入交叉验证。"
-      ],
-      "disconfirm": [
-        "新签大单的预付款覆盖比例低于50%——这是这门生意的生死线，一旦下滑，资本开支与收入之间的时间差会立刻变成现金缺口。",
-        "积压订单停止净增，或合同电力目标推迟、活跃电力爬坡落后于计划。",
-        "债务规模继续扩大，而调整后经营利润率无法脱离个位数。",
-        "客户集中度上升的同时，出现单一大客户的合约调整、缩量或交付延迟。",
-        "超大规模客户的AI资本开支整体下修，算力与电力采购节奏放缓。"
-      ],
-      "sources": [
-        {
-          "type": "专题",
-          "label": "2026-08-27《Neocloud 深度：基本面拆解 × 十个月股价复盘》"
-        },
-        {
-          "type": "公司公告",
-          "label": "CoreWeave Q2 2026 Results",
-          "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx"
-        },
-        {
-          "type": "业绩会",
-          "label": "MarketBeat：CRWV Q2 业绩会要点",
-          "url": "https://www.marketbeat.com/instant-alerts/coreweave-q2-earnings-call-highlights-2026-08-11/"
-        },
-        {
-          "type": "SEC财报",
-          "label": "Nebius Group Q2 2026 结果（6-K 附件）",
-          "url": "https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm"
-        },
-        {
-          "type": "业绩会",
-          "label": "Nebius Q2 2026 业绩会文字稿",
-          "url": "https://za.investing.com/news/transcripts/earnings-call-transcript-nebius-beats-q2-2026-forecasts-shares-jump-165-93CH-4424564"
-        }
-      ],
-      "themeId": "neocloud-compute-rental"
-    },
-    {
-      "rank": 5,
-      "theme": "AI安全、权限与审计成为必要开支",
-      "status": "unreviewed",
-      "statusAsOf": "待复盘",
-      "reviewedAt": "2026-09-03",
-      "strength": "8/10",
-      "horizon": "中长期",
-      "direction": "强化",
-      "tickers": [
-        "PANW",
-        "CRWD",
-        "FTNT",
-        "IBM",
-        "PLTR",
-        "ANET",
-        "NET",
-        "AKAM",
-        "OKTA"
-      ],
-      "thesis": [
-        "AI进入生产环境后，身份、权限、审计、日志、数据边界、提示词安全、模型路由和网络可观测性会从合规功能升级为基础设施预算。"
-      ],
-      "evidence": [
-        "IBM已确认快速变化的网络安全环境影响客户交易签约；围绕数据归属、缓存位置与提示词安全的讨论说明，AI部署越深入，安全与权限越靠近采购核心。",
-        "网络与边缘侧同步验证：NET收入+36%、10万美元以上大客户+27%、净留存率120%；AKAM安全收入+10%至6.04亿美元，同时云基础设施收入+39%。",
-        "OKTA提供目前最直接的会计层交叉验证：FY27 Q1收入仅+11%，但RPO +16%、cRPO +12%都快于当期收入确认——长约在累积。CEO把AI agent定义为组织内部正在出现的新员工，产生必须与人类用户一同被治理的身份。裁决点是cRPO：如果agentic identity是真需求，它应该先于收入加速。",
-        "2026-08-26 裁决：该预测兑现。OKTA cRPO同比+14%、较上季+12%加速，且快于收入约+11%，公司称是自FY25 Q4以来最大的cRPO超预期——领先指标确实先动了。但只算部分验证：Q3的cRPO指引回落到+11%至+12%，加速尚未证明连续。",
-        "同晚CRWD从预算侧给出更硬的证据：季内净新增ARR 3.328亿美元创纪录、同比+51%，公司据此把全年净新增ARR增长指引一次上调630个基点至中点34%。在安全行业，敢上调净新增ARR指引比上调收入指引分量更重。"
-      ],
-      "disconfirm": [
-        "安全预算增速明显落后AI基础设施预算，或大型AI部署没有带动安全平台订单、RPO和续费改善。"
-      ],
-      "sources": [
-        {
-          "type": "专题",
-          "label": "2026-08-03《CIBR × XSW 成分股新叙事》"
-        },
-        {
-          "type": "公司公告",
-          "label": "IBM CEO致投资者信",
-          "url": "https://newsroom.ibm.com/2026-07-14-Arvind-Krishnas-Letter-to-IBM-Investors"
-        },
-        {
-          "type": "媒体",
-          "label": "Axios：企业如何控制自己的AI大脑",
-          "url": "https://www.axios.com/2026/07/13/sovereign-ai-data-protection"
-        },
-        {
-          "type": "公司资料",
-          "label": "Arista AI networking overview",
-          "url": "https://investors.arista.com/"
-        },
-        {
-          "type": "SEC财报",
-          "label": "Akamai Q2 2026 Results",
-          "url": "https://www.sec.gov/Archives/edgar/data/1086222/000108622226000083/exhibit991-q22026.htm"
-        },
-        {
-          "type": "公司公告",
-          "label": "Okta FY2027 Q1 Results",
-          "url": "https://investor.okta.com/news-and-events/news-releases/news-details/2026/Okta-Announces-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx"
-        }
-      ],
-      "themeId": "ai-security-identity"
-    }
-  ];
 
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
@@ -2926,7 +2499,7 @@ const RECORDS = [
   dims: {quality: 26, marketread: 16, fundamentals: 18},
   compare: {revenueGrowth:45, revenueGuidance:43},
   business: {
-    plain: "Fabrinet是光通讯和精密光电子产品的代工厂——客户设计好光模块、激光器这些产品，Fabrinet负责精密制造和封装。它是“光通讯产业链”里连接光源/IC设计公司和最终客户（云厂商、电信运营商）之间的关键一环，本站NARRATIVES里“光电IC与封装”这一层的成员之一。",
+    plain: "Fabrinet是光通讯和精密光电子产品的代工厂——客户设计好光模块、激光器这些产品，Fabrinet负责精密制造和封装。它是“光通讯产业链”里连接光源/IC设计公司和最终客户（云厂商、电信运营商）之间的关键一环，「光通讯产业链」这条主线里“光电IC与封装”这一层的成员之一。",
     howMakesMoney: "按客户订单代工制造光收发模块、激光雷达、医疗器械等精密光电子产品，数据中心相关产品是本季最大驱动力（收入6.69亿美元、占比51%、同比+68%），电信、工业激光等其他业务体量较小但更稳定。",
     moat: "壁垒是精密光电子封装的良率和规模化代工能力，客户换代工厂需要重新验证产线，转换成本高。风险是资本开支强度极大——这一季自由现金流转负，说明规模扩张需要持续烧钱，不是轻资产生意。",
     whatChanged: "Q4营收13.16亿美元同比+45%、创纪录，非GAAP EPS 4.10美元同比约+55%，超出约3.81美元的市场预期约7.6%，双双超出公司自己给的指引上限。数据中心收入6.69亿美元同比+68%、环比+13%，占比升到51%。但营业利润率10.9%（三年新高）背后，自由现金流转为-3690万美元（经营现金流5500万，资本开支高达9190万），全年自由现金流同比暴跌98%至仅422万美元；另有一笔5670万美元的非上市股权证券亏损拖累GAAP结果。Q1 FY2027指引营收13.75亿至14.25亿美元（约+43% YoY），相对本季环比增幅明显放缓，被市场解读为增长降速的信号。"
@@ -11070,17 +10643,6 @@ function footnotesHtml(sources){
   }).join("")+'</ol></div>';
 }
 
-function inlineSourcesHtml(sources){
-  const rows = sources || [];
-  if(!rows.length) return "";
-  return '<div class="inline-sources"><b>来源：</b>'+rows.map((s,i)=>{
-    const txt = '['+(i+1)+'] '+esc((s.type?s.type+" · ":"")+(s.label||s.url||"打开"));
-    // 本地专题没有可公开访问的 URL，出纯文字引用而不是死链接
-    return s.url ? '<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+txt+'</a>'
-                 : '<span class="src-offline">'+txt+'</span>';
-  }).join('　')+'</div>';
-}
-
 function comparable(r){
   return Object.assign({}, COMPARABLES[(r.date||"")+"|"+(r.ticker||"")]||{}, r.compare||{});
 }
@@ -11203,22 +10765,6 @@ function accelHtml(a){
     (a.note ? '<span class="accel-note">'+esc(a.note)+'</span>' : "")+
   '</div>';
 }
-function narrativeBlock(label, val){
-  const rows = Array.isArray(val) ? val.filter(x=>x && String(x).trim()) : (val ? [val] : []);
-  if(!rows.length) return "";
-  return '<p class="narr-lead">'+esc(label)+'</p>'+
-    rows.map(t=>'<p class="narr-para">'+esc(t)+'</p>').join("");
-}
-
-function layersHtml(layers){
-  if(!Array.isArray(layers) || !layers.length) return "";
-  return '<p class="narr-lead">产业链分层</p><div class="layer-stack">'+
-    layers.map(l=>'<div class="layer-box"><div class="layer-head"><div class="layer-name">'+esc(l.name||"")+'</div><div class="layer-desc">'+esc(l.desc||"")+'</div></div><div class="layer-chips">'+
-      (l.tickers||[]).map(t=>'<span class="layer-chip">'+esc(t)+'</span>').join("")+
-    '</div></div>').join("")+
-  '</div>';
-}
-
 function renderSectors(){
   const list = document.getElementById("sectors-list");
   if(!list) return;
@@ -11247,23 +10793,6 @@ function renderSectors(){
     '</article>';
   }).join("");
 }
-function renderNarratives(){
-  const list = document.getElementById("narratives-list");
-  if(!NARRATIVES.length){
-    list.innerHTML = '<div class="panel"><div class="empty"><b>还没有叙事主线</b>添加财报、X、采访或视频后，会在这里汇总多信源共识与分歧。</div></div>';
-    return;
-  }
-  const rows = NARRATIVES.slice();
-  list.innerHTML = rows.map(n=>{
-    const trend = n.status==="new"
-      ? '<span class="trend-badge new" title="本轮首次形成 · '+esc(n.statusAsOf||"")+'">NEW</span>'
-      : n.status==="uptrending"
-        ? '<span class="trend-badge uptrending" title="近期证据持续强化 · '+esc(n.statusAsOf||"")+'">UPTRENDING</span>'
-        : '';
-    return '<div class="narrative-card"><h3 class="narrative-title"><span>'+esc(n.rank)+'. '+esc(n.theme)+'</span>'+trend+'</h3><div class="ticker-list">'+esc((n.tickers||[]).join(" · "))+'　<span class="strength-pill">'+esc(n.strength)+'</span>　'+esc(n.horizon)+'　'+esc(n.direction||"")+'</div>'+layersHtml(n.layers)+narrativeBlock("当前叙事", n.thesis)+narrativeBlock("多信源证据", n.evidence)+narrativeBlock("证伪条件", n.disconfirm)+inlineSourcesHtml(n.sources)+'</div>';
-  }).join("");
-}
-
 function renderMergers(){
   const list = document.getElementById("mergers-list");
   const rows = RECORDS.filter(r=>r.type==="merger");
@@ -11414,7 +10943,6 @@ function render(){
   });
 }
 
-renderNarratives();
 
 renderSectors();
 

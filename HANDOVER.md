@@ -22,7 +22,7 @@
 
 - 纯静态 GitHub Pages，无后端、数据库和构建流程。
 - 所有页面代码和数据目前都在 `index.html`。
-- 页面包含：分析记录、叙事主线、并购跟踪、评分框架。
+- 页面包含：分析记录、板块小结、并购跟踪、评分框架。
 - 每条记录分成“研究分析｜这家公司好不好”和“交易决策｜什么证据该做什么”。
 - 分析记录支持板块筛选、结论筛选、搜索、Revenue Growth 排序和收入指引排序。
 - 重要财报使用独立完整页面，并从主页链接；当前示例为 APP 与 PLTR。
@@ -58,7 +58,6 @@
 
 ## 5. `index.html` 数据位置
 
-- `NARRATIVES`：市场主线。
 - `RECORDS`：财报与事件记录；新记录插入 `/* __RECORDS_INSERT_POINT__ */` 后。
 - `DEALS`：并购跟踪。
 - `SECTOR_META` / `TICKER_SECTOR`：板块映射。
@@ -100,16 +99,25 @@
 
 ```powershell
 node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const m=s.match(/<script>([\s\S]*?)<\/script>/);new Function(m[1]);console.log('script ok')"
-node check-narratives.js && node check-records.js
+node check-records.js
 git diff --check
 git status -sb
 ```
 
-发布前两道闸门都要跑，返回非零就不许推送。改规则时改脚本，不要只改本文档。
+发布前闸门要跑，返回非零就不许推送。改规则时改脚本，不要只改本文档。
 
-`check-narratives.js`（叙事）会拒绝：`strength` 含“负面”；`thesis`/`evidence`/`disconfirm` 写成超过 220 字的单个字符串，或任一段落超过 220 字；`rank` 不连续；缺少证伪条件；`reviewedAt` 缺失或超过 7 天未复盘；排名与 `strength` 不一致（最强的必须排最前）；**没有专题支撑**。
+**🔴 2026-09-05 · 叙事主线标签已删除。** Vic：「财报助手里面的叙事主线标签可以删除了」。
+主线在 2026-09-04 已经合并进主线登记表（日报那侧的 `data/themes.json`）并由 `output/themes.html`
+渲染，本站这个标签是同一批内容的第二个入口。现在：
 
-最后一条是 2026-09-03 定的：**叙事主线只能从 Vic 的专题报告来。Vic 先做专题，再由专题写主线——不要从财报自行归纳一条主线出来。**每条叙事的 `sources` 里必须有一条 `{type:专题, label:日期《标题》}`。专题只存在本地、不发布，所以这条来源**不写 url**（渲染层会出纯文字引用而不是死链），也**不要把本地路径写进本文件或 index.html**（见第 10 节）。早期由财报归纳、尚无专题的条目挂 `pendingSpecial` 记账，闸门会持续警告直到补上专题或下架。
+- 标签按钮、`#tab-narratives` 整段、`NARRATIVES` 数组，以及只服务于它的
+  `renderNarratives` / `narrativeBlock` / `layersHtml` / `inlineSourcesHtml` 四个函数都已删除。
+- **`check-narratives.js` 退役并删除**（历史在 commit dd81aa3）。日报那侧的
+  `build_themes.py` 也不再往本仓库写任何东西——两边的连接彻底断开。
+- 要改主线：去日报那侧改登记表再跑 `build_themes.py`，闸门和渲染都在那一侧。
+  **不要在本仓库重建叙事主线。**
+- §3 里那几条叙事编辑原则（不写负面主线、分段不超 220 字、不写板块标签）现在归
+  `build_themes.py` 的闸门管，留在本文档只作背景。
 
 `check-records.js`（记录）会拒绝：同一个百分比或金额出现在 3 个以上字段组。数字住在 `metrics`，其他字段引用它、不要重讲。只对 `GATE_FROM`（2026-09-01）起的新记录强制，更早的记录不回头改。
 
