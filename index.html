@@ -55,8 +55,14 @@ h1{font-size:26px;margin:0 0 4px}
 .record-pane{display:none}.record-pane.active{display:block}
 .business-card{border:1px solid #d9dee7;border-radius:12px;background:#fff;padding:15px 16px;margin:0 0 12px}
 .business-card h4{margin:0;font-size:15px}.business-kicker{font-size:11.5px;color:var(--muted);margin:1px 0 10px}
-.business-lead{font-size:14px;font-weight:750;line-height:1.65;background:#f8fafc;border-radius:9px;padding:11px 12px;margin-bottom:10px}
-.business-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.business-item{border-top:1px solid var(--line);padding-top:8px;font-size:12.5px}.business-item b{display:block;color:#475569;font-size:11px;margin-bottom:3px}
+/* 2026-09-10 Vic：「改成字体统一」——这张卡原来有三种字号（导语14px/750、正文13px、标签11.5px），
+   一眼看过去像三个不同的东西。统一成 13px：导语只靠浅底色区分，标签只靠颜色+字重区分，不再靠字号。*/
+.business-lead{font-size:13px;font-weight:600;background:#f8fafc;border-radius:9px;padding:11px 12px;margin-bottom:10px}
+/* 2026-09-10 Vic：三栏并排读着不舒服 → 竖排，标签在左、正文在右，一行一件事 */
+.business-grid{display:flex;flex-direction:column;gap:9px;margin-top:9px}
+.business-item{border-top:1px solid var(--line);padding-top:9px;font-size:13px;display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;align-items:start}
+.business-item b{color:#475569;font-size:13px;font-weight:600;margin:0;display:block}
+@media(max-width:560px){.business-item{grid-template-columns:1fr;gap:3px}}
 .decision-hero{border:1px solid #d7dce5;border-radius:12px;background:#f8fafc;padding:14px 15px;margin-bottom:12px}.decision-hero-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:5px}.decision-hero h4{margin:0;font-size:15px}.decision-stance{border-radius:999px;background:#fff3d6;color:#8a5a00;padding:4px 10px;font-size:11px;font-weight:850}.decision-hero p{margin:0;font-size:13px;color:#334155}
 .decision-section{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px;margin-bottom:10px}.decision-section h4{margin:0 0 7px;font-size:12px;color:#334155}
 .decision-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr);gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:12.5px}.decision-row:first-of-type{border-top:0}.decision-row b{color:#334155}.decision-row strong{color:#185fa8}.decision-row span{color:#475569}
@@ -81,10 +87,32 @@ h1{font-size:26px;margin:0 0 4px}
 .metric-dot{width:11px;height:11px;border-radius:50%;margin-top:4px;background:#94a3b8}
 .metric-dot.beat,.metric-dot.up{background:#72bb56}.metric-dot.miss,.metric-dot.down{background:#ef476f}.metric-dot.flat{background:#f5bd4f}
 .metric-legend{margin-top:9px;padding-top:7px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--muted)}
+/* 2026-09-10 Vic：「大段文字读起来很累」。prose() 已把长段按句切成 <p>，
+   这里给它们呼吸空间：段间距 + 更松的行高 + 真加粗有颜色。
+   注意 .vic-notes/.outcome 原来带 white-space:pre-wrap，配 <p> 会多出空行，所以在 .prose 里关掉。*/
+.prose p{margin:0 0 .62em;line-height:1.78}
+.prose p:last-child{margin-bottom:0}
+.prose strong{font-weight:800;color:#0f172a;background:linear-gradient(transparent 62%,#ffe9a8 62%)}
+.prose{white-space:normal}
+.prose-list{margin:.2em 0 .5em;padding-left:0;list-style:none}
+.prose-list>li{position:relative;padding-left:15px;margin:0 0 .5em}
+.prose-list>li:last-child{margin-bottom:0}
+.prose-list>li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:#94a3b8}
+.prose-list>li>p{margin:0 0 .35em}
+.prose-list>li>p:last-child{margin-bottom:0}
+/* 这季发生了什么：先我的归纳，再管理层原话 */
+.quarter-box .quarter-lead{margin-bottom:10px}
+.quarter-box .quarter-quotes{border-top:1px dashed var(--line);padding-top:9px}
+.quarter-box .quarter-quotes>b{display:block;font-size:11.5px;color:#475569;margin-bottom:5px}
+/* 叙事的共识/分歧单段常到 200 字，挤在两栏窄格里最难读——够长就整行铺开 */
+@media (max-width:1100px){.insight-grid{grid-template-columns:1fr}}
 .vic-notes{border-left:3px solid var(--amber);background:#faf6ee;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .vic-notes b{color:#8a5a00;font-size:12px;display:block;margin-bottom:3px}
 .outcome{border-left:3px solid var(--green);background:#f0f9f3;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin:0 0 12px;white-space:pre-wrap}
 .outcome b{color:var(--green);font-size:12px;display:block;margin-bottom:3px}
+/* .prose{white-space:normal} 写在上面，和 .vic-notes/.outcome 同优先级但更靠前，会被它们的
+   pre-wrap 覆盖；这两条必须放在后面才生效（prose 已经切好 <p>，再 pre-wrap 会多出空行）*/
+.vic-notes.prose,.outcome.prose{white-space:normal}
 .outcome.loss{border-left-color:var(--red);background:#fdf1f0}
 .outcome.loss b{color:var(--red)}
 .insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
@@ -10677,6 +10705,60 @@ function esc(s){
   return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 }
 
+// 2026-09-10 Vic：「字太多、大段文字，读起来很累」。
+// 记录本身不回头改（财报记录一次成型），所以全部收在渲染层：
+//   ①**加粗**之前被 esc 转义成字面星号，白写了——现在真的加粗
+//   ②一段 200~590 字不分行是最累的地方（narrative 45 处超160字、vic_notes 15 条超250字），
+//     按句号切开、每段不超过 SOFT 字，让眼睛有落点
+//   ③「第一/第二/首先/其次/最后/指引层：」这类枚举强制另起一段，原文的结构显出来
+const PROSE_SOFT = 90;              // 单段软上限（中文字符）
+const ENUM_RE = /^(第[一二三四五六七八九十]{1,2}[，、,]?|首先|其次|再次|最后|另外|此外|[^。；\s]{2,6}层：)/;
+// 2026-09-10 Vic：「不要写第一第二，用 bullets」。枚举句转成 <li> 并把「第一，」这类前缀去掉——
+// 序号由列表本身表达，字面写出来是冗余。紧跟其后的说明句归到同一条下（否则一条要点会被拆散），
+// 但遇到收束句（把…／总之／所以／因此／综上）就结束列表，避免把结论吞进最后一个 bullet。
+const ENUM_PREFIX_RE = /^(第[一二三四五六七八九十]{1,2}[，、,]\s*|首先[，、,]?\s*|其次[，、,]?\s*|再次[，、,]?\s*|最后[，、,]?\s*)/;
+const WRAPUP_RE = /^(把|总之|所以|因此|综上|结论|整体)/;
+function prose(s){
+  const raw = String(s == null ? "" : s).trim();
+  if (!raw) return "";
+  // 先按原文已有的换行分块，再在块内按句切分
+  const blocks = [];
+  raw.split(/\n+/).forEach(chunk => {
+    const sents = chunk.split(/(?<=[。！？])/).map(x => x.trim()).filter(Boolean);
+    let cur = "";
+    sents.forEach(sn => {
+      const isEnum = ENUM_RE.test(sn);
+      // 枚举句一律起新段；否则累到软上限再断
+      if (cur && (isEnum || cur.length + sn.length > PROSE_SOFT)) { blocks.push(cur); cur = ""; }
+      cur += sn;
+    });
+    if (cur) blocks.push(cur);
+  });
+
+  const fmt = b => esc(b).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  const out = [];
+  let li = null;              // 当前正在累积的 bullet（数组，可含多段）
+  let list = null;            // 当前列表
+  const closeList = () => {
+    if (li) { list.push('<li>' + li.join('') + '</li>'); li = null; }
+    if (list) { out.push('<ul class="prose-list">' + list.join('') + '</ul>'); list = null; }
+  };
+  blocks.forEach(b => {
+    if (ENUM_RE.test(b)) {
+      if (li) list.push('<li>' + li.join('') + '</li>');
+      if (!list) list = [];
+      li = ['<p>' + fmt(b.replace(ENUM_PREFIX_RE, '')) + '</p>'];
+    } else if (li && !WRAPUP_RE.test(b)) {
+      li.push('<p>' + fmt(b) + '</p>');        // 说明句跟着上一条要点
+    } else {
+      closeList();
+      out.push('<p>' + fmt(b) + '</p>');
+    }
+  });
+  closeList();
+  return out.join("");
+}
+
 function metricCards(r){
   let rows = r.metrics || [];
   const structured = rows.length>0;
@@ -10749,13 +10831,32 @@ function businessHtml(r){
   if(!b){
     return '<section class="business-card"><h4>这家公司在做什么？</h4><div class="business-kicker">用最白话的方式理解 '+esc(r.company||r.ticker||"这家公司")+' 的生意</div><div class="decision-empty">这条历史记录尚未补录白话商业模式。后续更新时必须先回答：卖什么、客户是谁、怎么赚钱、为什么难复制。</div></section>';
   }
+  // 2026-09-10 Vic：「怎么赚钱／为什么难复制／发生了什么 并排三栏读起来不舒服」——改竖排。
+  // 「这季发生了什么」也不留在这里了，它属于本季动态，挪去和业绩会重点合并（见 quarterHtml）。
   const items = [
     ["怎么赚钱",b.howMakesMoney],
-    ["为什么难复制",b.moat],
-    ["这季发生了什么",b.whatChanged]
+    ["为什么难复制",b.moat]
   ].filter(x=>x[1]);
-  return '<section class="business-card"><h4>这家公司在做什么？</h4><div class="business-kicker">用最白话的方式理解 '+esc(r.company||r.ticker||"这家公司")+' 的生意</div><div class="business-lead">'+esc(b.plain||"")+'</div>'+
-    (items.length?'<div class="business-grid">'+items.map(x=>'<div class="business-item"><b>'+esc(x[0])+'</b>'+esc(x[1])+'</div>').join("")+'</div>':'')+'</section>';
+  return '<section class="business-card"><h4>这家公司在做什么？</h4><div class="business-kicker">用最白话的方式理解 '+esc(r.company||r.ticker||"这家公司")+' 的生意</div><div class="business-lead prose">'+prose(b.plain||"")+'</div>'+
+    (items.length?'<div class="business-grid">'+items.map(x=>// prose() 会吐出多个 <p>/<ul>；.business-item 是两列网格，不包一层的话
+// 第二段会掉进左边 88px 的标签列，变成一个字一行（2026-09-10 撞到过）。
+'<div class="business-item"><b>'+esc(x[0])+'</b><div class="bi-body prose">'+prose(x[1])+'</div></div>').join("")+'</div>':'')+'</section>';
+}
+
+// 2026-09-10 Vic：「业绩会发言重点 和 这季发生了什么 能放一起嘛」——能，本来就是一回事：
+// 都在讲本季发生了什么，一个是我的归纳、一个是管理层的原话。合成一块，先归纳后原话。
+function quarterHtml(r){
+  const changed = (r.business && r.business.whatChanged) || "";
+  const quotes = (r.management_highlights || []).filter(x => String(x).trim());
+  if (!changed && !quotes.length) return "";
+  return '<div class="insight-box quarter-box">' +
+    '<h4>📌 这季发生了什么</h4>' +
+    (changed ? '<div class="prose quarter-lead">' + prose(changed) + '</div>' : '') +
+    (quotes.length
+      ? '<div class="quarter-quotes"><b>🎙️ 业绩会 · 管理层怎么说</b><ul>' +
+        quotes.map(x => '<li>' + esc(x) + '</li>').join("") + '</ul></div>'
+      : '') +
+    '</div>';
 }
 
 function decisionHtml(r){
@@ -10763,29 +10864,37 @@ function decisionHtml(r){
   if(!d) return "";
   // 仓位建议不进站：这是基本面记录，不给加减仓动作
   const POS = /减仓|加仓|回避|买入|卖出|清仓|止盈|建仓/;
-  const rows = [];
-  (d.playbook||[]).forEach(x=>{
-    const then = String(x.then||"");
-    if(POS.test(then)) return;              // 正反重复的那一半，丢掉
-    const cond = String(x.if||"").trim();
-    if(!cond) return;
-    rows.push('<li>'+esc(cond)+'</li>');
-  });
-  const inval = (Array.isArray(d.invalidation)?d.invalidation:(d.invalidation?[d.invalidation]:[]))
-    .filter(x=>String(x).trim())
-    .map(x=>'<li class="inv">'+esc(x)+'</li>').join("");
-  if(!rows.length && !inval && !d.stance && !d.timing) return "";
+
+  // 2026-09-10 Vic：「这部分缩减，都是自己正反预测，而且上面有重复的」——他是对的。
+  // 同一件事在四个地方各写一遍：narrative.signals（渲染成上方「下一步验证」）、
+  // playbook[].if（正面说法）、invalidation（反面说法）、triggers（与 signals 几乎一字不差）。
+  // 例：TTAN 的「下一季指引是否仍低于当季实际」＝「下一季实际回到本季水平之上」＝「连续两季指引低于当季实际」。
+  // 处理：上方已经列过「下一步验证」时，这里**一条清单都不再重复**，只留这块独有的两样东西——
+  //   ① stance：这一季的判断本身      ② risk 里「本次记录缺了什么」
+  // 只有当上方没有 signals 时，才退回来显示失效条件，避免完全没有可验证项。
+  const signals = (r.narrative && r.narrative.signals || []).filter(x=>String(x).trim());
+  let listHtml = "";
+  if(!signals.length){
+    const rows = (d.playbook||[])
+      .filter(x=>!POS.test(String(x.then||"")) && String(x.if||"").trim())
+      .map(x=>'<li>'+esc(String(x.if).trim())+'</li>');
+    const inval = (Array.isArray(d.invalidation)?d.invalidation:(d.invalidation?[d.invalidation]:[]))
+      .filter(x=>String(x).trim())
+      .map(x=>'<li class="inv">'+esc(x)+'</li>');
+    if(rows.length||inval.length) listHtml='<ul class="dec-list">'+rows.join("")+inval.join("")+'</ul>';
+  }
+  if(!listHtml && !d.stance && !d.timing) return "";
   return '<section class="decision-inline">'+
     '<h4>判断与待验证</h4>'+
-    (d.stance?'<p class="dec-stance">'+esc(d.stance)+'</p>':"")+
-    ((rows.length||inval)?'<ul class="dec-list">'+rows.join("")+inval+'</ul>':"")+
+    (d.stance?'<div class="dec-stance prose">'+prose(d.stance)+'</div>':"")+
+    listHtml+
     // timing 已在 metrics 的「股价反应」里写过，不重复
 
     // risk 的正文与 narrative.divergence 高度重复，只保留它独有的一件事：本次记录缺了什么
     (function(){
       const gaps = String(d.risk||"").split(/(?<=。)/)
         .filter(x=>/未取得|未披露|未拆分|无法量化/.test(x)).join("");
-      return gaps ? '<p class="dec-risk">'+esc(gaps)+'</p>' : "";
+      return gaps ? '<div class="dec-risk prose">'+prose(gaps)+'</div>' : "";
     })()+
   '</section>';
 }
@@ -10880,7 +10989,7 @@ function renderMergers(){
       ["报价 / 行权价",m.offer],["记录时市价",m.marketPrice],["价差 / 价内幅度",m.spread],["交易估值 / 潜在持股",m.equityValue],["收购状态 / 隐含概率",m.probability]
     ];
     const narrativeHtml = r.narrative
-      ? '<div class="narrative-summary"><b>核心判断：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>交易逻辑</h4><div>'+esc(r.narrative.consensus||"")+'</div></div><div class="insight-box"><h4>主要障碍</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div><div class="insight-box"><h4>下一步验证</h4><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
+      ? '<div class="narrative-summary prose"><b>核心判断：</b>'+prose(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box prose"><h4>交易逻辑</h4>'+prose(r.narrative.consensus||"")+'</div><div class="insight-box prose"><h4>主要障碍</h4>'+prose(r.narrative.divergence||"")+'</div></div><div class="insight-box"><h4>下一步验证</h4><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
     const sourcesHtml = footnotesHtml(r.sources);
     const fullReportHtml = reportHtml(r.report);
     return '<article class="merger-card"><div class="merger-top"><div class="merger-title"><h3>'+esc(r.ticker)+' · '+esc(m.target||r.company)+'</h3><p>'+esc(m.buyer||"")+'　更新：'+esc(r.date||"")+'</p></div><span class="deal-status">'+esc(m.stage||"持续跟踪")+'</span></div>'+
@@ -10948,16 +11057,16 @@ function render(){
       }).join("")+'</div>';
     }
     const notesHtml = (r.vic_notes && r.vic_notes.trim())
-      ? '<div class="vic-notes"><b>💬 Vic观点</b>'+esc(r.vic_notes)+'</div>' : "";
+      ? '<div class="vic-notes prose"><b>💬 Vic观点</b>'+prose(r.vic_notes)+'</div>' : "";
     let outcomeHtml = "";
     if(r.outcome && r.outcome.trim()){
       const isLoss = /^[-−]|亏|止损|loss/i.test(r.outcome.trim());
-      outcomeHtml = '<div class="outcome'+(isLoss?" loss":"")+'"><b>📋 复盘结果</b>'+esc(r.outcome)+'</div>';
+      outcomeHtml = '<div class="outcome prose'+(isLoss?" loss":"")+'"><b>📈 市场反应</b>'+prose(r.outcome)+'</div>';
     }
-    const managementHtml = (r.management_highlights||[]).length
-      ? '<div class="insight-box"><h4>🎙️ 业绩会 · 管理层发言重点</h4><ul>'+r.management_highlights.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
+    // 2026-09-10：管理层发言重点已并入 quarterHtml（和「这季发生了什么」同一块）
+    const managementHtml = quarterHtml(r);
     const narrativeHtml = r.narrative
-      ? '<div class="narrative-summary"><b>🧭 多信源叙事：</b>'+esc(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box"><h4>共识与验证</h4><div>'+esc(r.narrative.consensus||"")+'</div><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div><div class="insight-box"><h4>分歧与反叙事</h4><div>'+esc(r.narrative.divergence||"")+'</div></div></div>' : "";
+      ? '<div class="narrative-summary prose"><b>🧭 多信源叙事：</b>'+prose(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box prose"><h4>共识与验证</h4>'+prose(r.narrative.consensus||"")+'<ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div><div class="insight-box prose"><h4>分歧与反叙事</h4>'+prose(r.narrative.divergence||"")+'</div></div>' : "";
     const metricsHtml = metricCards(r);
     const sourcesHtml = footnotesHtml(r.sources);
     const fullReportHtml = reportHtml(r.report);
