@@ -492,6 +492,85 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-09-30",
+  ticker: "MU",
+  company: "美光科技",
+  sector: "semis",
+  score: 75,
+  rec: "doubt",
+  dims: {quality: 37, marketread: 22, fundamentals: 16},
+  compare: {revenueGrowth:379, revenueGuidance:350},
+  accel: {thisQ: "收入542.3亿美元，环比+31%、同比+379%；毛利率87%", nextQ: "Q1指引收入615亿美元±15亿（中点环比约+13%）、每股收益38.15美元±1.00；毛利率指引约86.25%", direction: "收入加速，毛利率见顶", note: "收入这条线没有争议：下季指引中点压在本季实际之上，也高于市场预期，连续第六个季度创纪录。掉头的是另外两条线。毛利率在本季还在环比扩张，到下季指引里第一次低于本季，管理层把它定义为全财年的低点。同时资本开支指引抬到接近上一财年的两倍，上半财年就要花掉去年全年的大部分。内存的每一轮下行都由扩产触发、不由需求消失触发，而这轮扩产的主力正是公司自己——这是本季真正被定价的东西，不是赚了多少。"},
+  business: {
+    plain: "美光做内存芯片。DRAM 管程序运行时的临时存放，NAND 管断电后的长期存储。AI 服务器每多一张加速卡，就要配更多内存和硬盘，它卖的就是这两样。",
+    howMakesMoney: "按颗粒卖，价格随行就市：收入等于出货的位元数乘以当期价格，没有订阅也没有续费，所以价格周期就是业绩周期。DRAM 占本季收入约七成、NAND 约四分之一，其中卖给 AI 服务器的高带宽内存（HBM）是溢价最高的一块，而且它的供货合同提前一年锁价，不像普通颗粒那样随现货波动。",
+    moat: "护城河不在产品而在产能和良率——全球能量产先进制程 DRAM 的只有三家，建一座新厂要数年和数百亿美元，新进入者进不来。但这条护城河是对称的：三家都在扩产，谁扩得多谁就在为下一轮降价出力。HBM 多一层保护，供货合同提前锁定，客户短期换不掉。",
+    whatChanged: "本季每一项都是纪录：收入连续第六个季度创新高，DRAM 与 NAND 同时创纪录，毛利率继续环比扩张，经营现金流占收入超过八成。下季指引的收入和每股收益也都明显高于本季实际、高于市场预期。变化发生在两处。第一处是毛利率，它在指引里首次掉头向下，管理层说这是全财年的低点。第二处是资本开支，指引抬到接近上一财年的两倍，上半财年就要花掉去年全年的大部分。"
+  },
+  decision: {
+    stance: "数字是历史级别的，市场只给了温和涨幅——分歧不在这一季，在这些利润能撑多久",
+    summary: "需求侧没有短板：收入、每股收益、毛利率、经营现金流同时创纪录，下季指引还压在本季实际之上。市场的回答很克制——开盘先跌、盘中翻红、收在接近当日最高，但涨幅相对这份财报的超预期幅度明显偏小。被定价的不是本季赚了多少，而是资本开支指引接近翻倍之后，这轮周期还能走多远。毛利率已经先于收入在指引里掉头，这通常是周期里最早出现的裂缝。",
+    playbook: [
+      {if:"下季实际毛利率落在指引上沿，且管理层维持「第一季度是全年低点」的说法", then:"确认毛利率回落是节奏不是拐点", why:"这是本季指引第一次把毛利率往下打；是单季节奏还是趋势反转，只能由下一季能否按管理层说的回升来裁决。"},
+      {if:"高带宽内存的次年供货合同继续以涨价签出，且签约客户数量增加", then:"把订单可见度计入基本面", why:"这块提前一年锁价，签约节奏比现货价格更能说明明年的需求，也是目前唯一有合同支撑的能见度。"},
+      {if:"资本开支按指引执行，而行业另外两家没有同步加码", then:"降低供给过剩的折价", why:"内存周期由供给杀死；只有一家扩产和三家一起扩产，对价格的含义完全不同。"},
+      {if:"现货价或合约价连续两个月回落，同时库存天数回升", then:"减仓或回避", why:"价格是这门生意全部的利润杠杆，出货量再大也补不回价格下行。"},
+      {if:"下季收入指引的隐含增速低于本季实际，或毛利率指引再次下修", then:"视为周期见顶的第一个硬信号", why:"收入加速是目前唯一没有争议的部分；它一旦掉头，估值上的周期折价会立刻回来。"}
+    ],
+    triggers: ["下季实际毛利率是否按指引回升", "HBM 次年合约的签约节奏与价格", "三星与海力士的扩产动作", "现货价与合约价走势", "库存天数", "资本开支是否按指引执行"],
+    invalidation: ["毛利率连续两季低于指引", "下季收入指引隐含增速低于本季实际", "现货价连续回落且库存天数回升", "行业三家同步大幅扩产", "HBM 合约出现降价签约"],
+    timing: "口径日 2026-09-30，财报盘后发布。首日正式反应为 10/1 交易日，本记录写于 10/2，10/1 收盘已确认并计入。",
+    risk: "风险在周期位置，不在需求。公司自己把资本开支指引抬到接近前一年的两倍，而内存的历次下行都由扩产触发、不由需求消失触发——它既是本轮最大的受益者，也在为下一轮降价出资。毛利率先于收入在指引里掉头，是周期里最早出现的那道裂缝。另一层风险在估值口径：以周期顶部的盈利去算市盈率天然显得便宜，这个便宜只在利润能维持时成立。本次未取得：HBM 单独的收入与利润口径、按位元计的出货量与价格拆分、库存天数，以及三星与海力士对应的扩产计划。"
+  },
+  metrics: [
+    {label:"Q4 收入", value:"542.3亿美元，+379%", sub:"环比+31%，连续第六个季度创纪录；高于约513亿美元预期", tone:"beat", pct:97},
+    {label:"非GAAP每股收益", value:"33.42美元", sub:"高于约31.7美元预期。全财年收入1332亿美元、同比+256%", tone:"beat", pct:95},
+    {label:"🔑 毛利率", value:"87%", sub:"环比扩大210个基点。全财年81.1%，上一财年仅41.1%——这轮周期的全部弹性都在这一行", tone:"beat", pct:98},
+    {label:"DRAM", value:"398亿美元，+343%", sub:"占总收入73%，环比+27%；全财年 DRAM 收入首次超过1000亿美元", tone:"beat", pct:94},
+    {label:"NAND", value:"141亿美元，+526%", sub:"占总收入26%", tone:"beat", pct:92},
+    {label:"经营现金流", value:"440亿美元", sub:"占本季收入81%；调整后自由现金流332亿美元，全财年623.1亿美元", tone:"beat", pct:96},
+    {label:"Q1 指引：收入", value:"615亿美元±15亿", sub:"远高于约572亿美元预期，中点较本季实际再环比上行", tone:"beat", pct:96},
+    {label:"🔑 Q1 指引：毛利率掉头", value:"约86.25%", sub:"低于本季实际，本财年首次环比回落；管理层称第一季度是全年毛利率低点。每股收益指引38.15美元±1.00，运营费用约20.6亿美元", tone:"flat", pct:55},
+    {label:"🔑 资本开支接近翻倍", value:"FY2027 超过500亿美元", sub:"上一财年为274亿美元。第一季度约115亿，上半财年约250亿，下半年更高；全年运营费用预计再增约25亿", tone:"miss", pct:28},
+    {label:"股价反应", value:"首日+3.03%", sub:"口径日9/30收1065.11；10/1盘中最低1022.90（-3.96%）后反包，收1097.39、接近当日最高1098.90，收在全日区间98%处；盘后1090.20", tone:"flat", pct:52},
+    {label:"链条 read-through", value:"存储链同形态", sub:"同日（9/30收→10/1收）：SNDK +2.75%、STX +2.52%、SMCI +2.07%、WDC +1.78%，全部低开翻红收高；非存储的 NVDA +1.09%、AVGO -2.15% 没跟", tone:"flat", pct:60}
+  ],
+  management_highlights: [
+    "Q4 收入542.3亿美元，环比+31%、同比+379%，连续第六个季度创纪录；全财年收入1332亿美元、同比+256%。",
+    "毛利率87%、环比扩大210个基点；全财年毛利率81.1%，上一财年为41.1%。",
+    "DRAM 收入398亿美元、同比+343%，占总收入73%；NAND 收入141亿美元、同比+526%，占26%。",
+    "经营现金流440亿美元，占本季收入81%；调整后自由现金流332亿美元，全财年623.1亿美元。",
+    "CEO 表示：预计 2027 与 2028 财年的内存与存储供需，比 2026 财年更为紧张。",
+    "HBM 本季收入增速快于公司整体；2027 日历年绝大部分 HBM 位元供货协议已签完，价格同比显著上涨，与常规 DRAM 的毛利率差距正在收窄。",
+    "Q1 指引：收入615亿美元±15亿，毛利率约86.25%，非GAAP每股收益38.15美元±1.00，运营费用约20.6亿美元；管理层称第一季度为本财年毛利率低点。",
+    "FY2027 资本开支：第一季度约115亿美元，上半财年约250亿美元，下半年更高；全年运营费用预计增加约25亿美元，主要来自研发与激励薪酬。"
+  ],
+  narrative: {
+    summary: "收入与利润都是历史级别，毛利率却在指引里先掉头，资本开支同时接近翻倍。市场只给了温和涨幅——它定价的不是这一季，是周期还剩多久。",
+    consensus: "需求侧没有争议：收入连续第六个季度创纪录，DRAM 与 NAND 同创新高，毛利率环比继续扩张，经营现金流占收入超过八成。下季指引的收入与每股收益都压在本季实际之上，且高于市场预期。管理层说后两个财年的供需比今年更紧。",
+    divergence: "利润的持续性靠价格，价格靠供给。公司把资本开支指引抬到接近前一年的两倍，上半财年就要花掉去年全年的大部分——内存的每一轮下行都由扩产触发，不由需求消失触发。毛利率已经先于收入在指引里掉头，这通常是周期中最早出现的裂缝。HBM 至今没有单独披露收入与利润口径。",
+    signals: ["下季实际毛利率是否按管理层所说回升", "HBM 次年合约的签约节奏与价格", "三星与海力士的扩产动作", "现货价、合约价与库存天数", "资本开支是否按指引执行"]
+  },
+  sources: [
+    {type:"公司公告", label:"Micron 2026 财年第四季度及全年业绩", url:"https://www.globenewswire.com/news-release/2026/09/30/3372366/14450/en/micron-technology-inc-reports-record-fiscal-fourth-quarter-and-full-year-2026-results.html"},
+    {type:"SEC财报", label:"Micron FY2026 Q4 8-K 新闻稿附件", url:"https://www.sec.gov/Archives/edgar/data/0000723125/000072312526000018/a2026q4ex991-pressrelease.htm"},
+    {type:"业绩会", label:"Micron Q4 FY2026 业绩会文字稿", url:"https://www.benzinga.com/news/26/09/62095451/transcript-micron-technology-q4-2026-earnings-conference-call"},
+    {type:"业绩会", label:"Q4 2026 业绩会幻灯片：创纪录收入与紧供给展望", url:"https://www.investing.com/news/company-news/micron-q4-2026-slides-record-54b-revenue-tight-supply-outlook-93CH-4926010"},
+    {type:"市场反应", label:"CNBC：财报后股价几乎没动，华尔街仍看涨", url:"https://www.cnbc.com/2026/10/01/mu-barely-budged-on-earnings-wall-street-thinks-gains-will-come.html"},
+    {type:"市场反应", label:"Seeking Alpha：上调 FY2027 资本开支，供需更紧", url:"https://seekingalpha.com/news/4648814-micron-expects-fiscal-q1-revenue-of-61_5b-1_5b-as-it-raises-fiscal-2027-capex-plans-amid"}
+  ],
+  report: `【MU · 美光科技】2026 财年 Q4 财报分析
+
+结论先说：这是一份几乎挑不出短板的财报，收入、每股收益、毛利率、经营现金流同时创纪录，下季指引还压在本季实际之上。市场只还了温和涨幅，而且是先跌后反包换来的。
+
+真正被定价的不是本季赚了多少，是毛利率在指引里首次掉头、资本开支指引接近翻倍这两件事同时发生。内存的每一轮下行都由扩产触发、不由需求消失触发，而这轮扩产的主力正是公司自己。
+
+本站第一条 MU 记录，没有往季可比，纵向对照要等下一季。`,
+  vic_notes: "",
+  outcome: "口径日9/30收1065.11。10/1盘中最低1022.90后反包，收1097.39、接近当日最高，收在全日区间98%处；盘后回吐至1090.20。存储链同日同形态，非存储没跟。历史级别的数字只换来温和涨幅，说明好结果已经计入价格。"
+},
+{
+  type: "earnings",
   date: "2026-09-10",
   ticker: "ORCL",
   company: "Oracle",
@@ -10695,7 +10774,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech",
   SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
-  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis",
+  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
