@@ -493,6 +493,76 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-10-21",
+  ticker: "LRCX",
+  company: "Lam Research",
+  sector: "semis",
+  score: 61,
+  rec: "doubt",
+  dims: {quality: 36, marketread: 10, fundamentals: 15},
+  compare: {revenueGrowth: 54, revenueGuidance: 61},
+  business: {
+    plain: "泛林造的是芯片产线上的刻蚀与沉积设备——把晶圆上一层层材料精确地刻掉、或者长上去。存储芯片往上叠层数，靠的正是这两道工序。",
+    howMakesMoney: "卖设备是一次性大单，装机之后的备件、改造和服务按年收。后者更稳但增长慢，前者才是周期的放大器。",
+    moat: "设备进产线要经过漫长的工艺验证，换供应商等于重做制程。存储越往三维叠，刻蚀与沉积的工序数量越多，它在每片晶圆里的含量就越高。",
+    whatChanged: "营业利润率第一次站上四成，毛利率与每股收益同创纪录。但环比增量几乎全部来自设备新机，而公司当场说下季中国占比会显著下滑。"
+  },
+  metrics: [
+    {label:"Q1 FY27 收入", value:"82.2亿美元", sub:"环比+22%、同比+54%；高于约81.4亿美元预期", tone:"beat", pct:92},
+    {label:"营业利润率", value:"40.2%", sub:"Non-GAAP，首次站上40%；上一季38.4%、上年同期GAAP 34.4%", tone:"beat", pct:95},
+    {label:"毛利率", value:"52.4%", sub:"Non-GAAP创纪录；上一季52.0%。GAAP 52.3%，上年同期50.4%", tone:"beat", pct:88},
+    {label:"摊薄每股收益", value:"2.20美元", sub:"Non-GAAP，高于约2.18美元预期；上一季1.82美元。GAAP 2.19美元，上年同期1.24美元", tone:"beat", pct:82},
+    {label:"中国占比", value:"35%", sub:"上一季26%；韩国20%、台湾18%、日本9%、美国8%。公司指引下季中国显著下滑", tone:"miss", pct:18},
+    {label:"设备 / 服务", value:"57.3亿 / 24.9亿美元", sub:"设备环比+35%（上一季42.5亿美元）；服务环比+0.8%，基本没动", tone:"flat", pct:52},
+    {label:"12月季度指引", value:"86.0亿美元±4.0亿", sub:"中点环比+4.6%、同比约+61%；毛利率52.5%±1、营业利润率40.5%±1、每股收益2.33美元±0.15", tone:"beat", pct:80},
+    {label:"股东回报", value:"季度股息0.33美元", sub:"自0.26美元上调；本季回购10.2亿美元，上一季2.47亿美元。递延收入26.6亿美元，现金74.4亿美元", tone:"beat", pct:86}
+  ],
+  management_highlights: [
+    "CFO Doug Bettinger：预计十二月季度中国占比显著下降，主因是本土客户收入减少；区域内跨国客户的需求仍相对稳健。",
+    "CFO：若不是近期的供应链限制，十二月的收入展望本会再高一些；从十二月推迟的出货预计落到三月季度。",
+    "CEO Tim Archer：2027 年全球晶圆厂设备支出初步预估超过 2000 亿美元，DRAM 的百分比增幅领先，其次是先进逻辑代工与 NAND；2026 年约在 1500 亿美元中段。",
+    "CEO：洁净室可用面积与零部件供应，可能限制整个行业满足 2027 年需求的能力。CFO 另预计 2027 年有 10 座新的一线晶圆厂投产。",
+    "NAND 占设备收入 26%（上一季 23%），环比增长约四成，客户正转向 256 层以上，并已看到 384 层级别的早期支出；DRAM 收入创纪录。"
+  ],
+  narrative: {
+    summary: "一份几乎每条线都创纪录的财报，被下一个季度的区域结构否掉了。",
+    consensus: "周期这一端没有争议。营业利润率第一次站上四成，毛利率与每股收益同创纪录，下季指引在收入、毛利率、营业利润率、每股收益四条线上全部再抬一档，股息和回购同时加码。公司给出的明年设备支出预估比今年高出三成以上。",
+    divergence: "分歧在增量的来源。本季环比多出来的收入里约四分之三来自中国，而公司当场说下季中国占比会显著下滑。接棒的要么是非中国客户，要么是服务收入，但服务这一季环比基本没动。更麻烦的是供给：公司自己说十二月的指引本可以更高，是供应链限制压住了出货，而同一条限制明年可能还在。",
+    signals: [
+      "十二月季度中国占比实际落到多少，以及非中国收入能否环比接上约两成的缺口",
+      "服务收入能否恢复环比增长，这是周期回落时唯一的缓冲垫",
+      "被推迟到三月季度的出货是否如期确认，这是供应链说法能否证实的唯一硬证据",
+      "2027 年设备支出预估在下两个季度是被上调还是收回",
+      "NAND 在设备收入里的占比能否继续抬升，384 层级别的支出是否从早期转为批量",
+      "营业利润率在收入环比放缓的季度里能否守住四成"
+    ]
+  },
+  accel: {thisQ: "Q1 FY27 收入 82.2 亿美元、环比 +22%、同比 +54%；营业利润率 40.2%，首次站上四成", nextQ: "12 月季度指引 86.0 亿美元 ±4.0 亿，中点环比 +4.6%、同比约 +61%；营业利润率指引 40.5%", direction: "同比加速，环比急降", note: "两个口径给出相反的答案，这是本季最容易读错的地方。按同比，指引是从 +54% 抬到约 +61%，还在加速；按环比，增速从 +22% 掉到 +4.6%。市场交易的是后者，而且还叠了一条：本季环比增量里约四分之三来自中国，公司却指引下季中国占比显著下滑。另外公司明说供应链限制压低了十二月的展望，被推迟的出货落到三月季度。所以这份指引里同时含着一个需求端的减项和一个供给端的减项，而不是周期见顶。"},
+  decision: {
+    stance: "数字无可挑剔，但要先看到非中国客户接得住",
+    summary: "这一季押的不是周期强不强，而是十二月的收入结构能不能换人扛。中国被公司自己点名要退，服务收入又没有同步起量，接力棒必须交到非中国的新机需求上。",
+    playbook: [
+      {if:"十二月季度实际收入落在指引中点以上，且中国占比下降的同时非中国收入环比两位数增长", then:"按换挡成功试仓", why:"这同时证明区域切换完成、且供应链限制没有扩大，是这条逻辑唯一干净的验证"},
+      {if:"被推迟的出货没有在三月季度确认，或公司再次把供应链列为压制因素", then:"回避", why:"推迟变成流失，意味着限制是结构性的，明年的设备支出预估也要跟着打折"},
+      {if:"2027 年设备支出预估被下调，同时服务收入仍不增长", then:"减仓", why:"长周期的锚和短周期的缓冲同时失效，没有留下任何支撑这个估值的东西"}
+    ],
+    triggers: ["十二月季度财报与三月季度指引", "同业设备厂的区域结构披露", "2027 年设备支出预估的下一次更新"],
+    invalidation: ["十二月收入落到指引区间下沿以下", "营业利润率跌回四成以下", "中国以外的收入环比零增长"],
+    timing: "下一个检验点是十二月季度财报，重点看区域结构与推迟出货的确认",
+    risk: "入场前必须刷新实时价格与波动率；本条的盘后与盘前价都不是收盘，盘前成交仅约 8.3 万股"
+  },
+  sources: [
+    {type:"SEC财报", label:"Lam Research 8-K 附件 99.1：截至 2026 年 9 月 27 日季度业绩", url:"https://www.sec.gov/Archives/edgar/data/0000707549/000070754926000052/lrcx_exhibitx991xq1x2027.htm"},
+    {type:"业绩会", label:"MarketBeat：泛林 FY27 Q1 电话会重点（中国占比、2027 设备支出、供应限制）", url:"https://www.marketbeat.com/instant-alerts/transcript-lam-research-q1-earnings-call-highlights-2026-10-21/"},
+    {type:"财报解读", label:"MarketBeat：每股收益超预期 0.02 美元", url:"https://www.marketbeat.com/instant-alerts/earnings-lam-research-nasdaq-lrcx-posts-quarterly-earnings-results-beats-estimates-by-002-eps-2026-10-21/"},
+    {type:"财报解读", label:"MarketBeat：FY27 Q1 业绩与电话会汇总", url:"https://www.marketbeat.com/earnings/reports/2026-10-21-lam-research-co-stock/"},
+    {type:"财报解读", label:"StockAnalysis：泛林历史季度收入（用于核 12 月季度同比基数 53.45 亿美元）", url:"https://stockanalysis.com/stocks/lrcx/revenue/"}
+  ],
+  vic_notes: "自己拆的两笔账。一，本季环比多出来的 15.0 亿美元收入里，设备新机贡献了 14.8 亿、几乎是全部，服务基本没动；按区域占比推算，中国环比多出约 11.3 亿，占总增量约四分之三。被公司点名下季要退的，正好是这一块。二，两个口径打架：同比看，指引是从 54% 抬到约 61% 的加速；环比看，是从 22% 掉到 4.6%。市场选了环比。另记一条：本站 10/14 阿斯麦和 10/15 台积电两条记录里，LRCX 都是同日链条里跌得最深的那一只，这次轮到它自己出财报，又是七个点。",
+  outcome: "10/21 正股收 260.81、当日 −1.00%，财报在盘后发布。盘后低见 239.01、收 242.00，较正股收盘 −7.21%。10/22 盘前 06:33 ET 报 241.02，较正股收盘 −7.59%——这一跌隔夜没有修复。"
+},
+{
+  type: "earnings",
+  date: "2026-10-21",
   ticker: "META",
   company: "Meta Platforms",
   sector: "tech",
@@ -11182,7 +11252,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
   SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
-  SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
+  SNDK:"semis", ALAB:"semis", LRCX:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
