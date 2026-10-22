@@ -491,6 +491,142 @@ const SECTOR_REVIEWS = [
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
+  type: "earnings",
+  date: "2026-10-21",
+  ticker: "TSLA",
+  company: "Tesla",
+  sector: "consumer",
+  score: 57,
+  rec: "repricing",
+  dims: {quality: 23, marketread: 18, fundamentals: 16},
+  compare: {revenueGrowth: 0},
+  business: {
+    plain: "特斯拉卖电动车，也卖家用和电网级储能。近两年真正在变的是第三块：把辅助驾驶软件、超充和保险卖给已经买了车的人。",
+    howMakesMoney: "车一次性确认收入；软件按月订阅或一次性买断。监管积分曾经是白送的利润，随着同行自己达标正在消失。",
+    moat: "自建电池与产能压低单车成本；软件端的壁垒是真实道路数据，车队越大越难追。代价是这些投入今天全部计入费用，收入要等很多年。",
+    whatChanged: "在监管积分几乎消失的情况下毛利率反而改善，但营业利润被研发和运营开支吃掉一半以上。储能收入掉头下滑。"
+  },
+  metrics: [
+    {label:"Q3收入", value:"280.5亿美元", sub:"同比基本持平；略高于约277.8亿美元预期", tone:"flat", pct:58},
+    {label:"汽车毛利率（剔除积分）", value:"18.1%", sub:"上年同期15.4%；同期监管积分降至1.13亿美元、同比−73%", tone:"beat", pct:80},
+    {label:"营业利润", value:"7.18亿美元", sub:"同比−56%，营业利润率2.6%", tone:"miss", pct:22},
+    {label:"运营开支", value:"47.8亿美元", sub:"同比+39%；其中研发27.6亿美元、同比+69%", tone:"miss", pct:18},
+    {label:"每股收益", value:"GAAP 0.22美元", sub:"上年同期0.39美元；Non-GAAP 0.48美元，高于0.45美元预期", tone:"flat", pct:42},
+    {label:"储能收入", value:"28.8亿美元", sub:"同比−16%；本季部署13.7 GWh", tone:"miss", pct:28},
+    {label:"服务及其他", value:"46.1亿美元", sub:"同比+33%；FSD装车率超过75%，活跃订阅174万、同比+67%", tone:"beat", pct:86},
+    {label:"自由现金流", value:"15.3亿美元", sub:"经营现金流62.6亿美元，资本开支47.3亿美元；在手现金454.5亿美元", tone:"flat", pct:55}
+  ],
+  management_highlights: [
+    "电池供应仍是本季提高汽车产量的限制因素。",
+    "Optimus 已在弗里蒙特的高产能产线开始生产，Semi 在内华达进入量产，年底预计具备 400 兆瓦训练算力。",
+    "Robotaxi 累计无人监督里程本季增长约八倍至接近 200 万英里，Cybercab 于 9 月 3 日在奥斯汀开始载客。",
+    "没有给出具体销量目标，只说追求产能最大化利用；并称硬件利润之外，软件与车队类高毛利收入会逐步跟上。"
+  ],
+  narrative: {
+    summary: "市场交易的已经不是本季利润，而是把利润换成下一代产品这笔账能不能成。",
+    consensus: "车本身在变好。剔除积分的汽车毛利率同比抬升近三个百分点，而同期积分收入掉了七成以上，说明改善来自成本不是补贴。服务与其他收入增长三成，FSD 装车率跃过四分之三，软件侧第一次给出可量化的拐点。",
+    divergence: "利润表被开支吃掉。运营开支增速接近收入增速的无穷倍——收入持平而开支增长近四成，营业利润率只剩个位数的零头，GAAP 每股收益不到上年的六成。储能这块本来毛利最好，收入却同比下滑。公司没有给销量目标，也没有说这些投入何时变成收入。",
+    signals: [
+      "运营开支的同比增速是否见顶，这是营业利润率能不能回升的唯一变量",
+      "服务及其他收入能否连续两个季度保持三成以上增长，验证 FSD 装车率的跃升是收入而不是促销",
+      "储能收入与部署量是否同向恢复，单季下滑是订单节奏还是需求",
+      "剔除积分的汽车毛利率能否守住，这是本季唯一无争议的改善",
+      "四季度资本开支是否真的放大到兑现全年超过 250 亿美元的指引",
+      "电池供应是否仍被列为产量限制因素"
+    ]
+  },
+  accel: "收入持平且公司未给销量目标；营业利润率较上季在修复，但开支增速仍快于收入。",
+  decision: {
+    stance: "毛利改善是真的，但要等开支见顶才会落到利润上",
+    summary: "这笔交易真正押的是开支周期的拐点，不是本季的利润。毛利率和软件装车率都给了正面读数，而营业利润率要等运营开支增速回落才会跟上。",
+    playbook: [
+      {if:"运营开支同比增速连续两个季度回落，且服务收入仍保持三成以上增长", then:"可以按开支见顶试仓", why:"这是毛利改善传导到营业利润的必要条件，两者同时出现才排除「增长靠花钱买」"},
+      {if:"储能收入继续同比下滑，同时剔除积分的汽车毛利率回落", then:"回避", why:"两块毛利最好的业务同时转差，本季唯一的正面读数就没了"},
+      {if:"四季度资本开支没有放大到兑现全年指引", then:"把全年资本开支指引当作已失效，重估折旧与产能节奏", why:"指引与实际差距过大时，按指引推演的产能和折旧都要重算"}
+    ],
+    triggers: ["四季度财报与全年资本开支兑现情况", "无人监督 FSD 的落地范围与时点", "Optimus 产线爬坡的首次量化披露"],
+    invalidation: ["剔除积分的汽车毛利率跌回上年水平", "服务及其他收入增速跌破两成", "电池供应限制解除后产量仍未回升"],
+    timing: "下一个检验点是四季度财报，重点看开支增速与资本开支兑现",
+    risk: "入场前必须刷新实时价格与波动率；本条记录的盘后价成交稀薄，不能当作可成交价位"
+  },
+  sources: [
+    {type:"财报解读", label:"Electrek：特斯拉 2026 年三季度财务结果", url:"https://electrek.co/2026/10/21/tesla-tsla-q3-2026-financial-results/"},
+    {type:"财报解读", label:"Tesla North：Q3 2026 业绩，FSD 装车率超过 75%", url:"https://teslanorth.com/2026/10/21/tesla-q3-2026-earnings/"},
+    {type:"财报解读", label:"Drive Tesla：Q3 2026 收入 280 亿美元、每股收益 0.48 美元", url:"https://driveteslacanada.ca/news/tesla-q3-2026-earnings-results/"},
+    {type:"市场反应", label:"Yahoo Finance：特斯拉三季度关键指标怎么读", url:"https://finance.yahoo.com/markets/stocks/articles/tesla-tsla-reports-q3-earnings-210001951.html"},
+    {type:"市场反应", label:"Teslarati：收入符合预期、每股收益小幅超预期", url:"https://www.teslarati.com/tesla-tsla-q3-2026-earnings-results/"}
+  ],
+  vic_notes: "本站 7/22 那条把 Q2 判成恶化，当时营业利润率 1.4%。这季是 2.6%，方向反了但幅度远不够，所以给的是重新定价而不是好转。另一条自己算的：前九个月资本开支 130.1 亿美元，全年指引仍是超过 250 亿美元，隐含四季度要花近 120 亿、是本季的两倍半。要么四季度真的翻倍，要么这份指引已经陈旧——下一份财报先看它。盘后成交 679 万股，流动性薄，这个价格的信息量弱于正股收盘。",
+  outcome: "10/21 正股收 386.47、当日 +3.41%，财报在盘后发布。盘后冲高 394.98、下探 372.00，收 373.649，较正股收盘 −3.32%。这个盘后价比 10/20 收盘还低 0.02%——当天的涨幅被完整抹掉。"
+},
+{
+  type: "earnings",
+  date: "2026-10-21",
+  ticker: "HXL",
+  company: "Hexcel",
+  sector: "industrials",
+  score: 49,
+  rec: "doubt",
+  dims: {quality: 24, marketread: 10, fundamentals: 15},
+  compare: {revenueGrowth: 8.8},
+  business: {
+    plain: "赫氏做碳纤维复合材料——比铝轻、比钢硬的结构件材料，用在飞机机翼、机身、发动机短舱和风电叶片上。",
+    howMakesMoney: "先按机型拿到长期供货资格，再随整机厂的生产节奏按量出货。装进哪个平台，决定未来十几年的收入。",
+    moat: "资格认证周期极长，材料一旦写进某个机型的设计就很难更换。代价是产能和人员要提前几年备好，整机厂一降速，固定成本立刻压毛利。",
+    whatChanged: "商用航空继续两位数增长，国防与航天掉头下滑；毛利率同比在升，环比却退了回去。"
+  },
+  metrics: [
+    {label:"Q3净销售", value:"4.964亿美元", sub:"同比+8.8%，固定汇率+9.2%；低于约5.02亿美元预期", tone:"miss", pct:44},
+    {label:"商用航空", value:"3.303亿美元", sub:"同比+20.5%，高于约3.161亿美元预期", tone:"beat", pct:86},
+    {label:"国防、航天及其他", value:"1.661亿美元", sub:"同比−8.7%，低于约1.801亿美元预期", tone:"miss", pct:14},
+    {label:"毛利率", value:"23.3%", sub:"上年同期21.9%；低于约24.6%预期，而前九个月为25.4%", tone:"flat", pct:38},
+    {label:"调整后每股收益", value:"0.50美元", sub:"上年同期0.37美元，略高于0.49美元预期；GAAP 同为0.50美元、上年0.26美元", tone:"beat", pct:70},
+    {label:"调整后营业利润", value:"5440万美元", sub:"利润率11.0%，上年同期9.8%", tone:"beat", pct:68},
+    {label:"全年指引", value:"维持不变", sub:"销售20.25亿至21.25亿美元，调整后每股收益2.30至2.40美元，自由现金流高于1.95亿美元", tone:"flat", pct:50},
+    {label:"回购授权", value:"7.50亿美元", sub:"自3.81亿美元上调", tone:"beat", pct:78}
+  ],
+  management_highlights: [
+    "CEO Tom Gentile：三季度业绩反映了典型的夏季销售季节性，影响了经营杠杆。",
+    "公司把国防端的下滑归因为几个战机与航天项目的暂时性疲软。",
+    "近期成本压力来自为四季度与 2027 年预期需求而提前进行的招聘与培训。"
+  ],
+  narrative: {
+    summary: "一便士的超预期挡不住三处未达预期：收入、毛利率、国防。市场按后者定价。",
+    consensus: "商用航空这条主线没有问题：增速两成出头、且高于预期，整机厂提速的传导是实的。公司维持全年指引，并把回购授权接近翻倍，管理层在用资产负债表表态。",
+    divergence: "问题在利润的质量和节奏。毛利率同比虽然抬升，却明显低于预期，而且比前九个月的水平退了一大截。管理层把原因归给夏季季节性和为后续需求提前招人培训，这两条在本季都没有可验证的数据。国防端被称为暂时性疲软，同样只有说法没有口径。",
+    signals: [
+      "四季度毛利率能否回到前九个月 25.4% 的水平，这是验证「季节性」说法的唯一硬指标",
+      "国防、航天及其他能否恢复同比增长，以及公司是否点名具体项目",
+      "商用航空增速能否守住两成，这是整条主线的支点",
+      "提前招聘与培训的成本是否在四季度转为经营杠杆",
+      "新的回购授权实际执行速度",
+      "全年指引在四季度是收窄还是被下修"
+    ]
+  },
+  accel: "商用航空增速维持两位数、国防转为下滑；毛利率同比在升、环比在退；全年指引未动。",
+  decision: {
+    stance: "主线没坏，但要等一个毛利率回到前九个月水平的季度",
+    summary: "本季真正的分歧是：三季度毛利率的回落到底是季节性加提前备产，还是国防下滑开始抵消商用航空的增量。两种解释在本季的数据里无法区分。",
+    playbook: [
+      {if:"四季度毛利率回到 25% 以上且商用航空增速守住两成", then:"按季节性解释成立试仓", why:"这同时证伪「国防拖累在扩散」并兑现管理层的提前备产说法"},
+      {if:"国防、航天及其他连续第二个季度同比下滑", then:"减仓或回避", why:"单季可以叫暂时性，连续两季就是平台端的订单问题，不是时点问题"},
+      {if:"全年指引在四季度被下修", then:"回避", why:"本季维持指引是唯一的正面锚，锚没了就只剩毛利率回落这一条事实"}
+    ],
+    triggers: ["四季度与全年财报", "主要整机厂的月度交付与生产率更新", "国防项目的具体披露"],
+    invalidation: ["商用航空增速跌破两位数", "毛利率连续两个季度低于 24%", "全年指引下修"],
+    timing: "下一个检验点是四季度财报，重点看毛利率是否回到前九个月水平",
+    risk: "入场前必须刷新实时价格与波动率；本条的盘后成交仅约 5.3 万股，价格不可当作可成交水平"
+  },
+  sources: [
+    {type:"SEC财报", label:"Hexcel 8-K 附件 99.1：2026 年第三季度业绩新闻稿", url:"https://www.sec.gov/Archives/edgar/data/0000717605/000119312526427875/hxl-ex99_1.htm"},
+    {type:"公司公告", label:"StockTitan：Hexcel 三季度销售增长 8.8% 至 4.96 亿美元", url:"https://www.stocktitan.net/news/HXL/hexcel-reports-2026-third-quarter-9ua4ant1qi1m.html"},
+    {type:"市场反应", label:"GuruFocus：收入未达预期，股价盘后跌约 10%", url:"https://www.gurufocus.com/news/9135271/hexcel-corp-hxl-shares-drop-10-after-q3-revenue-miss-despite-solid-aerospace-growth"},
+    {type:"财报解读", label:"MarketBeat：每股收益超预期一美分", url:"https://www.marketbeat.com/instant-alerts/earnings-hexcel-nyse-hxl-posts-earnings-results-beats-estimates-by-001-eps-2026-10-21/"}
+  ],
+  vic_notes: "自己算的一条比同比那句更重要：前九个月毛利率 25.4%、本季 23.3%，反推上半年约 26.4%，本季环比退了三个百分点以上。这解释了为什么一便士的超预期换来盘后两位数的下跌。第二条是指引的算术：前九个月调整后每股收益 1.75 美元，全年指引不变，隐含四季度 0.55 至 0.65 美元。销售这头一样：前九个月 15.272 亿美元，隐含四季度 4.98 亿至 5.98 亿美元，区间宽到几乎没有约束力。维持指引在这里不等于信心，只是没有收窄。",
+  outcome: "10/21 正股收 89.84、当日 −1.62%，财报当日发布。盘后高 89.88、低 78.00，收 80.78，较正股收盘 −10.08%。盘后成交约 5.3 万股、成交额约 472 万美元，薄到不能当作定价。"
+},
+{
   type: "merger",
   date: "2026-10-20",
   ticker: "BRZE",
@@ -10975,7 +11111,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
-  SPCX:"industrials", BE:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
+  SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials",
   SNDK:"semis", ALAB:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
