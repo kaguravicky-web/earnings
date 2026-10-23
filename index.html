@@ -492,6 +492,127 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-10-22",
+  ticker: "BE",
+  company: "Bloom Energy",
+  sector: "industrials",
+  score: 55,
+  rec: "doubt",
+  dims: {quality: 31, marketread: 9, fundamentals: 15},
+  compare: {revenueGrowth: 138, revenueGuidance: 122},
+  business: {
+    plain: "布鲁姆能源卖的是固体氧化物燃料电池——不烧火，直接把天然气或氢气变成电，装在用电方自己的园区里，不用等电网接入。",
+    howMakesMoney: "卖设备是一次性大单，装机之后的安装、维保和售电按年收。产品那块决定增速，后面三块决定装机基数。",
+    moat: "电网排队要好几年，而数据中心等不起，它卖的其实是「现在就能通电」这件事。代价是每一台都得先垫钱造出来。",
+    whatChanged: "收入翻了一倍多，经营利润率从个位数跳到两位数，全年指引年内第三次上调。但经营现金流同时转负，资本开支放大十倍以上。"
+  },
+  metrics: [
+    {label:"Q3收入", value:"12.36亿美元", sub:"同比+138.1%；上年同期5.19亿美元", tone:"beat", pct:95},
+    {label:"产品收入", value:"10.74亿美元", sub:"同比+179.4%，单季首次破十亿；安装0.85亿、服务0.68亿、售电0.10亿美元", tone:"beat", pct:96},
+    {label:"非GAAP毛利率", value:"34.5%", sub:"同比+412个基点。GAAP 33.8%，同比+453个基点", tone:"beat", pct:84},
+    {label:"非GAAP经营利润", value:"2.86亿美元", sub:"利润率23.1%，上年同期8.9%。GAAP 2.25亿美元、利润率18.2%，上年同期1.5%", tone:"beat", pct:92},
+    {label:"摊薄每股收益", value:"非GAAP 0.94美元", sub:"高于约0.67至0.69美元预期；GAAP 0.78美元。调整后EBITDA 2.995亿美元，上年同期0.59亿美元", tone:"beat", pct:88},
+    {label:"经营现金流", value:"−0.27亿美元", sub:"上年同期+0.20亿美元。本季资本开支1.535亿美元，推算自由现金流约−1.81亿美元", tone:"miss", pct:8},
+    {label:"全年指引（年内第三次上调）", value:"44.0亿至46.0亿美元", sub:"中点隐含全年+122%；非GAAP毛利率约34%、经营利润9.60亿至10.30亿美元、每股收益3.10至3.40美元", tone:"beat", pct:90},
+    {label:"现金", value:"24.87亿美元", sub:"截至9月30日。新闻稿未披露在手订单，也未给全年自由现金流指引", tone:"flat", pct:58}
+  ],
+  management_highlights: [
+    "CEO KR Sridhar：「从超大规模厂商开始的需求，正在迅速扩散到各个细分市场，因为每一家企业都需要可靠的电力才能增长。」",
+    "CFO Simon Edwards：「我们继续有纪律地投入，建设扩张业务所需的能力与产能。」",
+    "新闻稿同时提到公司已被纳入标普 500 指数。",
+    "新闻稿没有披露在手订单或积压订单，也没有给出全年自由现金流指引。"
+  ],
+  narrative: {
+    summary: "一份教科书级的增长季，被现金流那一行否掉了。",
+    consensus: "需求这一端没有争议。产品收入单季首次破十亿、同比接近翻三倍，毛利率同比抬升四个百分点以上，经营利润率从个位数跳到两位数，全年指引年内第三次上调。管理层说需求正在从超大规模厂商向其他行业扩散。",
+    divergence: "代价在现金。经营现金流同比由正转负，同期资本开支放大十倍以上，合起来自由现金流从小幅为正变成接近两亿美元的流出。新闻稿既没有披露在手订单，也没有给全年自由现金流指引——增长的可见度和它的资金缺口，这次只披露了一半。",
+    signals: [
+      "经营现金流能否在四季度回正，这是本季唯一一条反向数据",
+      "资本开支的季度规模是否见顶，以及公司是否开始给自由现金流指引",
+      "在手订单或积压订单是否开始披露，这是验证需求扩散说法的唯一硬口径",
+      "非GAAP毛利率能否守住约34%的全年指引水平",
+      "产品收入占比继续抬升时，安装与服务这两块能否同步跟上",
+      "全年指引是否出现年内第四次上调，以及上调是否仍由产品收入驱动"
+    ]
+  },
+  accel: {thisQ: "Q3 收入 12.36 亿美元、同比 +138.1%；非GAAP 经营利润率 23.1%，上年同期 8.9%", nextQ: "全年指引上调到 44.0 亿至 46.0 亿美元，中点隐含全年 +122%；非GAAP 经营利润 9.60 亿至 10.30 亿美元", direction: "收入与利润率同步加速", note: "利润表这一侧几乎挑不出毛病：收入翻倍多，毛利率同比抬升四个百分点以上，经营利润率从个位数跳到两位数，全年指引年内第三次上调。掉头的是现金：经营现金流同比由正转负，同期资本开支放大十倍以上，自由现金流推算约为负一亿八千万美元。扩产期现金为负本来是正常形态，但它正好撞在市场现在最不肯付钱的那一项上——而且公司既没披露在手订单，也没给全年自由现金流指引。"},
+  decision: {
+    stance: "增长是真的，但要先看到经营现金流回正",
+    risk: "本次记录未取得在手订单与积压订单数据，公司也未披露全年自由现金流指引。自由现金流为按资本开支推算，公司未单独列示。"
+  },
+  sources: [
+    {type:"SEC财报", label:"Bloom Energy 8-K 附件 99.1：2026 年第三季度业绩新闻稿", url:"https://www.sec.gov/Archives/edgar/data/0001664703/000162828026066890/ex991_q326financialresults.htm"},
+    {type:"财报解读", label:"Benzinga：超预期并上调全年展望", url:"https://www.benzinga.com/markets/earnings/26/10/62546832/bloom-energy-beats-q3-estimates-raises-fy26-outlook"},
+    {type:"业绩会", label:"Benzinga：2026 年三季度电话会文字稿", url:"https://www.benzinga.com/news/26/10/62549307/bloom-energy-q3-2026-earnings-call-transcript"},
+    {type:"财报解读", label:"Investing.com：收入大增 138%，股价反而下跌", url:"https://ng.investing.com/news/stock-market-news/bloom-energy-q3-2026-slides-revenue-surges-138-stock-falls-93CH-2752953"},
+    {type:"市场反应", label:"StockStory：三季度超预期，全年销售指引强劲", url:"https://markets.financialcontent.com/stocks/article/stockstory-2026-10-22-bloom-energy-nysebe-beats-expectations-in-strong-q3-2026-guides-for-strong-full-year-sales"}
+  ],
+  vic_notes: "两件事。一，推算的自由现金流约负 1.81 亿美元，是本季唯一一条反向数据：经营现金流负 0.27 亿、资本开支 1.535 亿。按上年同期经营现金流正 0.20 亿、自由现金流约正 0.07 亿倒推，资本开支一年里放大了十倍以上。收入翻倍的同时现金在往外走，这是扩产期的正常形态，但它撞在了市场现在最不肯付钱的那一项上。二，本站 7/28 那条给 BE 88 分、结论已经是市场存疑；这一季数字明显更强，分数反而降到 55，差额全部落在现金流和股价反应这两块。",
+  outcome: "10/22 正股收 217.77、当日 −8.70%，财报盘后发布，也就是说当天盘中就已经在卖。盘后低见 200.00、收 202.841，较正股收盘 −6.86%。自 10/21 收盘 238.53 起算，两个交易日累计 −14.96%。"
+},
+{
+  type: "earnings",
+  date: "2026-10-22",
+  ticker: "SPOT",
+  company: "Spotify Technology",
+  sector: "consumer",
+  score: 76,
+  rec: "resonance",
+  dims: {quality: 29, marketread: 29, fundamentals: 18},
+  compare: {revenueGrowth: 14},
+  business: {
+    plain: "Spotify 卖音乐和播客的订阅。付费用户按月交钱换无广告和离线收听，免费用户则靠听广告来付费。",
+    howMakesMoney: "收入是付费用户数乘以每用户月费，再加免费用户那头的广告。成本大头是按播放量付给版权方的分成，所以毛利率取决于能不能把非音乐内容做大。",
+    moat: "歌单、收听历史和推荐模型构成迁移成本。风险是版权成本不掌握在自己手里，涨价和内容结构是仅有的两个毛利率杠杆。",
+    whatChanged: "毛利率创三季度新高，付费用户超出自己的指引。但运营开支增速接近收入的两倍，经营利润率同比反而微降。"
+  },
+  metrics: [
+    {label:"Q3收入", value:"49.69亿欧元", sub:"同比+16%、固定汇率+14%，与指引一致；上年同期42.72亿欧元", tone:"flat", pct:62},
+    {label:"毛利率", value:"33.0%", sub:"三季度历史新高，同比+136个基点；订阅34.5%、广告18.7%", tone:"beat", pct:86},
+    {label:"经营利润", value:"6.72亿欧元", sub:"同比+15%，高于6.70亿欧元的自身指引；利润率13.5%，上年同期13.6%", tone:"beat", pct:72},
+    {label:"运营开支", value:"9.67亿欧元", sub:"同比+26%，快于收入；这是经营利润率没能同步抬升的原因", tone:"miss", pct:28},
+    {label:"付费订阅用户", value:"3.06亿", sub:"同比+9%、净增600万，高于指引100万；月活7.88亿、同比+11%、净增1100万", tone:"beat", pct:82},
+    {label:"每用户月收入", value:"4.95欧元", sub:"同比+9.3%、固定汇率+7.5%，增长主要来自涨价", tone:"beat", pct:78},
+    {label:"净利润", value:"5.18亿欧元", sub:"上年同期8.99亿欧元；摊薄每股收益2.48欧元，上年同期3.28欧元", tone:"miss", pct:34},
+    {label:"自由现金流", value:"7.35亿欧元", sub:"同比−9%，上年同期8.06亿欧元；现金与短期投资约99亿欧元", tone:"flat", pct:58},
+    {label:"Q4指引", value:"收入52亿欧元", sub:"经营利润8.20亿欧元、毛利率33.8%；月活8.18亿、付费订阅3.16亿", tone:"beat", pct:88}
+  ],
+  management_highlights: [
+    "自动化广告销售渠道继续放量，是广告增长最大的贡献来源；音乐广告的增长来自售出展示量增加，部分被价格走软抵消。",
+    "有声书从 22 个市场扩展到年底的 180 多个市场，覆盖 120 多种语言、超过 35 万本。",
+    "自 2026 年 1 月 1 日起部分收入活动从广告业务调整进订阅业务，上年同期分部数据已重述。",
+    "Q4 经营利润指引 8.20 亿欧元，其中含按三季度末收盘价计算的 600 万欧元社保费用。"
+  ],
+  narrative: {
+    summary: "市场买的不是这一季，是下一季指引里那一跳。",
+    consensus: "按公司自己的指引口径，这一季每一项都达到或超过：收入落在指引上，付费用户多出一百万，经营利润高于指引，毛利率创三季度新高。涨价在每用户收入上兑现，有声书的覆盖市场数要在年底扩到八倍以上。",
+    divergence: "往下看没那么顺。运营开支增速接近收入的两倍，经营利润率同比反而微降，自由现金流同比下滑。净利润同比掉四成，但这一段不在经营层：它来自税项由优惠转为支出，以及上年同期一笔可交换票据的公允价值收益今年没有重复。真正要验证的是下季指引——经营利润环比要跳两成以上，利润率要抬升两个多百分点。",
+    signals: [
+      "四季度经营利润能否兑现指引，这是本次上涨唯一押注的变量",
+      "运营开支增速能否降到收入增速附近，否则毛利率的改善到不了经营利润",
+      "广告业务的价格是否止跌，目前增长全靠售出展示量",
+      "有声书扩到 180 多个市场后，对毛利率的实际贡献有多大",
+      "付费用户净增能否维持在千万量级，四季度指引就是按这个给的",
+      "自由现金流能否重新同比增长，本季是下滑的"
+    ]
+  },
+  accel: {thisQ: "Q3 收入 49.69 亿欧元、固定汇率 +14%；经营利润率 13.5%，上年同期 13.6%", nextQ: "Q4 指引收入 52 亿欧元、经营利润 8.20 亿欧元、毛利率 33.8%", direction: "收入平稳，利润率下季要跳一档", note: "这一季的利润率其实没有扩张，扩张只发生在毛利那一行。再往下，运营开支同比 +26%、快过收入，经营利润率同比还降了十个基点。市场付的是下一季：按指引，经营利润从 6.72 亿跳到 8.20 亿欧元、环比超过两成，对应利润率从 13.5% 抬到约 15.8%，一个季度抬两个多百分点。这一跳成不成立，是接下来唯一要盯的事。"},
+  decision: {
+    stance: "这一季达标，但要验证下季利润率那一跳",
+    risk: "本次记录未取得分区域的订阅用户拆分，公司也未披露全年自由现金流指引。净利润同比下滑里税项与财务收益各占多少，新闻稿未拆分。"
+  },
+  sources: [
+    {type:"SEC财报", label:"Spotify 6-K 附件 99.1：2026 年第三季度股东信", url:"https://www.sec.gov/Archives/edgar/data/0001639920/000114036126040435/ef20084028_ex99-1.htm"},
+    {type:"SEC财报", label:"Spotify 6-K：截至 2026 年 9 月 30 日财务报表", url:"https://www.sec.gov/Archives/edgar/data/0001639920/000162828026066889/spot-20260930x6xk.htm"},
+    {type:"业绩会", label:"Motley Fool：2026 年三季度电话会文字稿", url:"https://www.fool.com/earnings/call-transcripts/2026/10/22/spotify-spot-q3-2026-earnings-call-transcript/"},
+    {type:"财报解读", label:"Investing.com：毛利率扩张、广告收入加速", url:"https://www.investing.com/news/company-news/spotify-q3-2026-slides-margins-expand-as-ad-revenue-accelerates-93CH-4966363"},
+    {type:"财报解读", label:"Music Business Worldwide：全年经营利润有望达 33 亿美元", url:"https://www.musicbusinessworldwide.com/spotify-is-on-course-for-a-3-3b-annual-operating-profit-in-2026-after-adding-6m-subscribers-in-q3/"}
+  ],
+  vic_notes: "媒体口径是「利润率扩张、股价大涨」，一手文件不是这么写的。扩张只在毛利那一行：毛利率 33.0% 创三季度新高，但运营开支同比 26%、收入同比 16%，经营利润率 13.5% 比上年的 13.6% 还低十个基点。净利润同比掉四成也容易误读，它不在经营层：税项从上年 7200 万欧元的优惠变成本季 1.87 亿欧元的支出。财务净收益从 2.45 亿掉到 3300 万，主要是上年同期 1.97 亿欧元可交换票据公允价值收益今年没有重复。所以经营面没坏，坏的是比较基数。",
+  outcome: "10/22 正股收 583.66、当日 +11.10%，财报在盘前发布。盘前一度下探 510.00、较前一日收盘 −2.9%，正式盘开在 561.29 后一路走高，盘中高 588.88，收在接近当日高点。盘后 582.00，几乎没动。"
+},
+{
+  type: "earnings",
   date: "2026-10-21",
   ticker: "LRCX",
   company: "Lam Research",
@@ -11258,7 +11379,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   GOOG:"tech", IBM:"tech",
   MOH:"healthcare", VEEV:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", AFRM:"financials", PURR:"financials", TRV:"financials",
-  SHOP:"consumer", TSLA:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
+  SHOP:"consumer", TSLA:"consumer", SPOT:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
   CLF:"materials"
 };
 const DIM_MAX = {quality:40, marketread:35, fundamentals:25};
