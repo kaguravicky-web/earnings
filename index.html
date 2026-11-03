@@ -491,6 +491,57 @@ const SECTOR_REVIEWS = [
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
+  type: "merger",
+  date: "2026-11-02",
+  ticker: "LITE",
+  company: "Lumentum（Marvell 收购）",
+  sector: "semis",
+  rec: "repricing",
+  merger: {
+    target: "Lumentum（LITE）",
+    buyer: "Marvell（MRVL）",
+    offer: "每股换 4.500 股 MRVL · 全股票 · 固定比例、无 collar",
+    equityValue: "公司口径企业价值 1150 亿美元，基准是 10/28 未受影响收盘价",
+    marketPrice: "684.40 美元（2026-11-02 收盘）",
+    spread: "较当日对价 771.35 美元折价 11.27%",
+    stage: "已签最终协议 · 待双方股东会与监管批准",
+    probability: "11.3% 的折价对最长约 19 个月等待，年化 7%~10%，市场定价的主要是时间、不是失败",
+    next: "S-4 生效 / 双方股东会 / 监管批准 · 公司给的交割窗口是 2028 年上半年"
+  },
+  narrative: {
+    summary: "买的是 AI 光互连，付的是自己的股票，而换股比锁死在传闻前那一天。23.9% 的溢价是股数比溢价、永远不变，但它的美元值三个交易日就跌到了 LITE 原价之下。",
+    consensus: "MRVL 的数据中心已占收入 79%，缺的就是光器件这一层。LITE 本季同比 136.5%、下季经营利润率指引 45% 以上，并签下采购承诺超 50 亿美元的 NPO/CPO 大单。按下季指引年化，LITE 交出 37.6% 的前瞻盈利、换回 33% 股权——增厚是算术必然。",
+    divergence: "障碍不在反垄断，在时间和货币。交割窗口放到 2028 年上半年，最长 19 个月；换股比固定，新闻稿没披露 collar、价格重置或 walk-away。MRVL 自 10/28 跌 31.89%，对价同步从 1132.42 美元掉到 771.35 美元，LITE 股东拿到的已经比不卖还少 15.6%。",
+    signals: [
+      "MRVL 自己的股价——换股比固定，它每跌 1% 对价就跌 1%，这是 LITE 股东唯一要盯的变量",
+      "折价会不会从 11.3% 收窄；继续扩大说明市场开始给交割概率打折，不只是等待成本",
+      "S-4 何时生效、双方股东会定在哪一天——LITE 股东要在对价低于原价的情况下投票",
+      "LITE 下季能不能交出 15.75 亿到 16.25 亿美元、经营利润率 45% 以上，这是换股比定价的基础",
+      "那笔超 50 亿美元采购承诺的确认节奏，以及 OCS 会不会真变成公司说的年收入数十亿级",
+      "亚洲各辖区的审批进展——两家在当地收入都重，19 个月的窗口留给监管的变量不少",
+      "MRVL 11/02 只给了初步营收、维持中点收窄区间，正式财报会不会改口"
+    ]
+  },
+  vic_notes: "接回本站 8/11 那条 LITE 记录。它当时记下的公司 FY27 Q1 指引是收入 12.25 亿到 12.75 亿美元、营益率 39.5% 到 40.5%、每股 4.05 到 4.35 美元。这一季实际 12.626 亿、42.3%、4.57 美元：收入在区间内偏上，利润率和每股都在上沿之外。MRVL 买的是一个刚刚超过自己指引的资产。另记两条。1150 亿是 1,132 乘稀释股数 101.7M，不是除以基本股。同日整条光链一起跌：COHR −4.93%、AAOI −9.49%、CRDO −7.27%、ANET −2.80%。",
+  sources: [
+    {
+      type: "公司公告",
+      label: "LITE 8-K 附件：Marvell 收购 Lumentum 联合新闻稿（2026-11-02）",
+      url: "https://www.sec.gov/Archives/edgar/data/0001633978/000119312526442758/d163169dex991.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Lumentum FQ1 FY2027 业绩新闻稿（财季截至 2026-09-26）",
+      url: "https://www.sec.gov/Archives/edgar/data/1633978/000162828026068655/lite_ex991xq1fy27.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Marvell FQ2 FY2027 业绩新闻稿与 FQ3 指引（2026-08-27）",
+      url: "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000022/q227_8kx812026ex-991.htm"
+    }
+  ]
+},
+{
   type: "earnings",
   date: "2026-11-02",
   ticker: "PLTR",
@@ -13024,9 +13075,15 @@ function renderMergers(){
       ? '<div class="narrative-summary prose"><b>核心判断：</b>'+prose(r.narrative.summary||"")+'</div><div class="insight-grid"><div class="insight-box prose"><h4>交易逻辑</h4>'+prose(r.narrative.consensus||"")+'</div><div class="insight-box prose"><h4>主要障碍</h4>'+prose(r.narrative.divergence||"")+'</div></div><div class="insight-box"><h4>下一步验证</h4><ul>'+(r.narrative.signals||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>' : "";
     const sourcesHtml = footnotesHtml(r.sources);
     const fullReportHtml = reportHtml(r.report);
+    // 2026-11-03：这两块原来漏了。写法与财报卡片完全一致，复用 .vic-notes / .outcome 样式。
+    const notesHtml = (r.vic_notes && r.vic_notes.trim())
+      ? '<div class="vic-notes prose"><b>\ud83d\udcac Vic\u89c2\u70b9</b>'+prose(r.vic_notes)+'</div>' : "";
+    const outcomeHtml = (r.outcome && r.outcome.trim())
+      ? '<div class="outcome prose'+(/^[-\u2212]|\u4e8f|\u6b62\u635f|loss/i.test(r.outcome.trim())?" loss":"")+
+        '"><b>\ud83d\udcc8 \u5e02\u573a\u53cd\u5e94</b>'+prose(r.outcome)+'</div>' : "";
     return '<article class="merger-card"><div class="merger-top"><div class="merger-title"><h3>'+esc(r.ticker)+' · '+esc(m.target||r.company)+'</h3><p>'+esc(m.buyer||"")+'　更新：'+esc(r.date||"")+'</p></div><span class="deal-status">'+esc(m.stage||"持续跟踪")+'</span></div>'+
       '<div class="deal-grid">'+metrics.map(x=>'<div class="deal-metric"><span>'+esc(x[0])+'</span><b>'+esc(x[1]||"—")+'</b></div>').join("")+'</div><div class="merger-body">'+
-      narrativeHtml+'<details><summary>展开完整深入分析</summary>'+fullReportHtml+sourcesHtml+'</details></div></article>';
+      narrativeHtml+notesHtml+outcomeHtml+'<details><summary>展开完整深入分析</summary>'+fullReportHtml+sourcesHtml+'</details></div></article>';
   }).join("");
 }
 
