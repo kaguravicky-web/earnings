@@ -35,7 +35,15 @@ const MAX_SENTENCE = 90;
 // 它只该装两样东西：涨跌数据（起止价、区间、口径日）＋一句这说明什么。
 // 现状是把解读、跨批次对比、对评分体系的议论全塞进来——ZS 那条 455 字。
 // 上限压到 180：行情本身约 110 字，剩下 70 字只够写一句结论，写不下第二段议论。
+// 2026-11-03 Vic 第三次提同一件事：「还是字太多问题…你换行好吗，阅读大段不是很舒服」。
+// 查下来 accel.note 是唯一一个两道收口都没接上的字段——渲染不走 prose()，也不在 LIMITS 里，
+// 所以 42 条 note 中位 235 字、14 条超 300 字、0 条分段。渲染那半已改走 prose()；这里补上字数。
+// 上限 300：note 的职责是「口径说明」，解读归 narrative，它不该把下面的总结再讲一遍。
+const NOTE_GATE_FROM = '2026-11-02';   // 新闸门只管这天起的记录，更早的 13 条只提示——
+                                       // 规格变更型闸门漏生效日会把老记录钉红。
+const LIMIT_FROM = { 'accel.note': NOTE_GATE_FROM };
 const LIMITS = {
+  'accel.note': 300,
   'vic_notes': 300,
   'outcome': 180,
   'narrative.summary': 120,
@@ -94,8 +102,8 @@ RECORDS.forEach(r => {
   });
 
   // 字数与单句长度
-  const lenBucket = r.date >= LEN_GATE_FROM ? errors : warns;
   Object.keys(LIMITS).forEach(path => {
+    const lenBucket = r.date >= (LIMIT_FROM[path] || LEN_GATE_FROM) ? errors : warns;
     const t = pick(r, path);
     if (typeof t !== 'string' || !t.trim()) return;
     if (t.length > LIMITS[path]) {
@@ -108,6 +116,25 @@ RECORDS.forEach(r => {
         '）。这种句子排版切不开，只能一路读到底——写的时候就断成两句。');
     }
   });
+
+  // 「X成Y」这种两位数中文编码：二成三＝23%、三成二＝32%。
+  // 2026-11-03 Vic：「营收同比增二成三，什么是增二成三？」——他读不懂，是对的。
+  // 起因是我为了躲上面那条重复数字闸门，把数字换成中文再说一遍。
+  // 正确的躲法是「数字已经在 metrics 里了，正文就别再说一遍」，不是换个写法重讲。
+  // 整数成数（八成、四成、九成以上）是正常中文，不管。
+  // 全站 29 处全部落在 2026-09-01 之后，也就是上面那条重复数字闸门生效之后——
+  // 病因就是它：我躲闸门躲出来的。所以新闸门从 11/02 起强制，更早的 8 条只提示，等 Vic 拍板。
+  // vic_notes / outcome 不管：那两块是他自己的声音。
+  const CN_GATE_FROM = '2026-11-02';
+  const CN_PAIR_RE = /[一二两三四五六七八九十]成[一二三四五六七八九]/g;
+  const proseText = [flat(r.business), flat(r.narrative), flat(r.accel),
+                     flat(r.decision), flat(r.management_highlights)].join(' ');
+  const cnHits = [...new Set(proseText.match(CN_PAIR_RE) || [])];
+  if (cnHits.length) {
+    (r.date >= CN_GATE_FROM ? errors : warns).push(where + '：正文把两位数写成了中文「' +
+      cnHits.join('、') + '」（二成三＝23%）。读的人要解码一次。' +
+      '要么写回阿拉伯数字，要么——更好——这个数字已经在 metrics 里了，正文就不要再说一遍。');
+  }
 
   // 跨行业比股价反应 / 评分排序（2026-09-10 Vic：「请不要跨行业对比股票财报反应」）
   // 起因：9/3 那批把 LULU（服装零售）和 PATH / GWRE / ZS / IOT（软件）放在一张分数表里比五日收益，
