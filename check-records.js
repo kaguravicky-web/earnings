@@ -64,6 +64,15 @@ const longestSentence = t => Math.max(0, ...String(t || '')
 const errors = [];
 const warns = [];
 
+// 2026-11-03：这道闸门的 forEach 第一行原本是 `if (r.type !== 'earnings') return;`，
+// 于是 merger / event 那 5 条记录（BRZE / PSNL / ELVA / PYPL / ORCL）从建站起
+// 没被任何一项检查过——写了没接线。MRVL 收购 LITE 这条要进站，正好接上。
+// 照老规矩给它自己的生效日：这天起的非财报记录强制，之前的 5 条只提示。
+// 不给生效日就会把 5 条历史记录一次钉红，那是另一个已经栽过的坑。
+const NONEARN_GATE_FROM = '2026-11-02';
+const bucketFor = (r, from) =>
+  (r.date >= from && (r.type === 'earnings' || r.date >= NONEARN_GATE_FROM)) ? errors : warns;
+
 const flat = v => {
   if (v == null) return '';
   if (typeof v === 'string') return v;
@@ -81,7 +90,6 @@ const tokens = t => {
 };
 
 RECORDS.forEach(r => {
-  if (r.type !== 'earnings') return;
   const where = r.date + ' ' + r.ticker;
 
   const groups = {
@@ -101,14 +109,14 @@ RECORDS.forEach(r => {
   Object.keys(seen).forEach(t => {
     const gs = seen[t];
     if (gs.length > MAX_FIELDS) {
-      (r.date >= GATE_FROM ? errors : warns).push(where + '：数字「' + t + '」在 ' + gs.length + ' 个字段里重复（' + gs.join('、') +
+      bucketFor(r, GATE_FROM).push(where + '：数字「' + t + '」在 ' + gs.length + ' 个字段里重复（' + gs.join('、') +
         '），上限 ' + MAX_FIELDS + '。数字住在 metrics，其他字段引用它、不要重讲。');
     }
   });
 
   // 字数与单句长度
   Object.keys(LIMITS).forEach(path => {
-    const lenBucket = r.date >= (LIMIT_FROM[path] || LEN_GATE_FROM) ? errors : warns;
+    const lenBucket = bucketFor(r, LIMIT_FROM[path] || LEN_GATE_FROM);
     const t = pick(r, path);
     if (typeof t !== 'string' || !t.trim()) return;
     if (t.length > LIMITS[path]) {
@@ -136,7 +144,7 @@ RECORDS.forEach(r => {
                      flat(r.decision), flat(r.management_highlights)].join(' ');
   const cnHits = [...new Set(proseText.match(CN_PAIR_RE) || [])];
   if (cnHits.length) {
-    (r.date >= CN_GATE_FROM ? errors : warns).push(where + '：正文把两位数写成了中文「' +
+    bucketFor(r, CN_GATE_FROM).push(where + '：正文把两位数写成了中文「' +
       cnHits.join('、') + '」（二成三＝23%）。读的人要解码一次。' +
       '要么写回阿拉伯数字，要么——更好——这个数字已经在 metrics 里了，正文就不要再说一遍。');
   }
@@ -160,7 +168,7 @@ RECORDS.forEach(r => {
       const secs = [...new Set((sn.match(/\b[A-Z]{2,5}\b/g) || [])
         .map(t => SECTOR[t]).filter(Boolean))];
       if (secs.length > 1) {
-        (r.date >= LEN_GATE_FROM ? errors : warns).push(where + '：跨行业比了股价反应（' +
+        bucketFor(r, LEN_GATE_FROM).push(where + '：跨行业比了股价反应（' +
           secs.join(' vs ') + '）——「' + sn.trim().slice(0, 40) +
           '…」。不同板块的估值基准和资金属性不同，收益排序不可比；要比就只比同板块。');
       }
@@ -180,10 +188,15 @@ RECORDS.forEach(r => {
   }
 });
 
-if (warns.length) console.warn('提示：' + warns.length + ' 项（' + GATE_FROM + ' 之前的历史记录，不回头改）');
+if (warns.length) console.warn('提示：' + warns.length + ' 项（生效日之前的历史记录，不回头改；' +
+  '硬闸门：财报 ' + GATE_FROM + ' 起、非财报 ' + NONEARN_GATE_FROM + ' 起）');
 if (errors.length) {
   console.error('记录闸门未通过（' + errors.length + ' 项）：');
   errors.forEach(x => console.error('  - ' + x));
   process.exit(1);
 }
-console.log('records ok（' + RECORDS.filter(r => r.type === 'earnings' && r.date >= GATE_FROM).length + ' 条新记录受闸门约束，单数字最多 ' + MAX_FIELDS + ' 个字段）');
+const gated = RECORDS.filter(r => r.type === 'earnings'
+  ? r.date >= GATE_FROM : r.date >= NONEARN_GATE_FROM);
+console.log('records ok（' + gated.length + ' 条记录受闸门约束，其中 ' +
+  gated.filter(r => r.type !== 'earnings').length + ' 条非财报，单数字最多 ' +
+  MAX_FIELDS + ' 个字段）');
