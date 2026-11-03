@@ -41,9 +41,14 @@ const MAX_SENTENCE = 90;
 // 上限 300：note 的职责是「口径说明」，解读归 narrative，它不该把下面的总结再讲一遍。
 const NOTE_GATE_FROM = '2026-11-02';   // 新闸门只管这天起的记录，更早的 13 条只提示——
                                        // 规格变更型闸门漏生效日会把老记录钉红。
-const LIMIT_FROM = { 'accel.note': NOTE_GATE_FROM };
+// thisQ / nextQ 是读数行。现在最长 120 / 109，所以 140 今天一条都卡不住——
+// 它不是来收紧的，是来防止以后再长回去的天花板。渲染那半已拆成两行。
+const LIMIT_FROM = { 'accel.note': NOTE_GATE_FROM,
+                     'accel.thisQ': NOTE_GATE_FROM, 'accel.nextQ': NOTE_GATE_FROM };
 const LIMITS = {
   'accel.note': 300,
+  'accel.thisQ': 140,
+  'accel.nextQ': 140,
   'vic_notes': 300,
   'outcome': 180,
   'narrative.summary': 120,

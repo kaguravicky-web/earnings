@@ -159,7 +159,7 @@ h1{font-size:26px;margin:0 0 4px}
 .accel.flat{border-color:#e2e8f0;background:#f8fafc}
 .accel-dir{font-weight:700;white-space:nowrap}
 .accel.up .accel-dir{color:#15803d}.accel.down .accel-dir{color:#b91c1c}.accel.flat .accel-dir{color:#475569}
-.accel-body{color:#0f172a;font-weight:600}
+.accel-body{color:#0f172a;font-weight:600;flex-basis:100%}.accel-line{display:block;margin-top:5px;line-height:1.65}.accel-line:first-child{margin-top:0}.accel-line em{font-style:normal;font-weight:700;color:#64748b;margin-right:7px}.accel-line em.to{color:#94a3b8}
 .accel-note{flex-basis:100%;color:#475569;line-height:1.7}.accel-note>p{margin:0 0 .5em}.accel-note>p:last-child{margin-bottom:0}.accel-note .prose-list{margin:.2em 0 0;padding-left:1.15em}.accel-note .prose-list li{margin-bottom:.45em}.accel-note .prose-list li p{margin:0}
 .accel-tag{display:inline-block;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700;white-space:nowrap}
 .accel-tag.up{background:#dcfce7;color:#15803d}.accel-tag.down{background:#fee2e2;color:#b91c1c}.accel-tag.flat{background:#e2e8f0;color:#475569}
@@ -12896,10 +12896,16 @@ function accelTag(a){
 function accelHtml(a){
   if(!a || !a.direction) return "";
   const k = accelKey(a);
-  const body = [a.thisQ ? "本季 "+a.thisQ : "", a.nextQ ? "下季指引 "+a.nextQ : ""].filter(Boolean).join("　\u2192　");
+  // 2026-11-03 Vic：「写的时候都可以阅读舒适度」。
+  // 原来这两段被「　→　」粘成一条约 230 字的加粗长行——单独看都不长，粘起来就没法读。
+  // 拆成两行、各带标签；读数本身仍走 esc()（它是数字不是散文，不该被 prose() 切句）。
+  const lines = [
+    a.thisQ ? '<span class="accel-line"><em>本季</em>'+esc(a.thisQ)+'</span>' : "",
+    a.nextQ ? '<span class="accel-line"><em class="to">→</em>'+esc(a.nextQ)+'</span>' : ""
+  ].filter(Boolean).join("");
   return '<div class="accel '+k+'">'+
     '<span class="accel-dir">\u4e8c\u9636\u5bfc\uff1a'+esc(a.direction)+'</span>'+
-    (body ? '<span class="accel-body">'+esc(body)+'</span>' : "")+
+    (lines ? '<div class="accel-body">'+lines+'</div>' : "")+
     (a.note ? '<div class="accel-note">'+prose(a.note)+'</div>' : "")+
   '</div>';
 }
