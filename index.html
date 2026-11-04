@@ -492,6 +492,205 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-11-04",
+  ticker: "DDOG",
+  company: "Datadog",
+  sector: "tech",
+  score: 63,
+  rec: "repricing",
+  dims: { quality: 33, marketread: 11, fundamentals: 19 },
+  compare: { revenueGrowth: 35.2, revenueGuidance: 25.4 },
+  business: {
+    plain: "Datadog 是云软件的监控台：把服务器、应用、日志、数据库、安全事件和 AI 模型的运行状态放到一个平台上，告诉工程师哪里坏了、为什么坏，并开始让 AI 自己去查原因。",
+    howMakesMoney: "订阅加用量收费：客户监控的主机越多、送进来的日志和数据越多、用的产品越多，付得越多。所以收入跟着客户的云用量涨落，大客户压缩用量会直接反映在收入上。",
+    moat: "监控、日志、安全和 AI 运维共用一套数据和界面，跨产品关联是单点工具做不到的；嵌进开发和运维团队的日常流程后，迁移成本高。弱点也在用量计费——客户优化成本或大客户自建，收入会掉得很快。",
+    whatChanged: "收入继续大幅高于指引，利润率明显抬升；但开票慢了下来，递延收入本季是减少的，四季度收入指引比三季度实际还低，管理层归因于最大客户只按最低承诺计入和大客户提前续约降价。AI 方面推出第一个自研专用模型 Scout，用来驱动自动排障。",
+  },
+  metrics: [
+    { label: "Q3 收入", value: "11.97 亿美元", sub: "同比 +35.16%；比指引中点 11.40 亿高 5.01%，与 Zacks 季前预期 11.4 亿的差距相同", tone: "beat", pct: 90 },
+    { label: "Billings", value: "11.60 亿美元", sub: "电话会披露，与本站用收入加递延收入变动自算的结果一致。同比 +29.92%，低于收入增速；比二季度的 11.77 亿还少（二季度同比 +38.82%）", tone: "down", pct: 22 },
+    { label: "递延收入", value: "13.00 亿美元", sub: "比二季度末少 0.37 亿美元，其中流动部分少 0.52 亿；去年同期这一项是增加的", tone: "down", pct: 25 },
+    { label: "剩余履约义务", value: "38.5 亿美元", sub: "同比 +38%，当期部分同比在 35% 上下；合同平均期限比去年略长。电话会口径，新闻稿不披露", tone: "up", pct: 72 },
+    { label: "10 万美元以上 ARR 客户", value: "约 4,860 家", sub: "同比 +19.70%；本季净增约 140 家，二季度约 170 家、去年同期约 210 家", tone: "flat", pct: 45 },
+    { label: "AI 客户", value: "850 家以上", sub: "上一季约 750 家，其中 39 家年付超过 100 万美元；CEO 称前 15 大 AI 公司全部是客户。电话会口径", tone: "up", pct: 80 },
+    { label: "净收入留存率", value: "滚动 12 个月 120% 出头", sub: "与上一季相近；毛收入留存率稳定在 90% 区间的中高段。电话会口径，新闻稿不披露", tone: "flat", pct: 60 },
+    { label: "Non-GAAP 营业利润", value: "3.34 亿美元", sub: "利润率 27.93%，同比抬 451 个基点；指引 2.60 亿到 2.70 亿，高出上沿 23.81%。毛利率 81.18%，与去年同期持平", tone: "beat", pct: 92 },
+    { label: "GAAP 营业利润", value: "0.75 亿美元", sub: "利润率 6.24%，去年同期亏 0.06 亿；股权激励占收入 19.81%，去年同期 22.65%", tone: "up", pct: 70 },
+    { label: "调整后每股收益", value: "0.81 美元", sub: "同比 +47.27%；指引 0.63 到 0.65 美元，高出上沿 0.16；Zacks 季前预期 0.64", tone: "beat", pct: 90 },
+    { label: "自由现金流", value: "2.51 亿美元", sub: "利润率 20.94%，去年同期 24.16%、二季度 24.85%；经营现金流 2.90 亿、同比 +15.30%，递延收入减少是主要拖累", tone: "down", pct: 35 },
+    { label: "Q4 收入指引", value: "11.90 亿到 12.00 亿美元", sub: "中点同比 +25.37%，比三季度实际还低 0.17%；CFO 称剔除最大客户后隐含增速在 30% 低段到中段。第三方汇总记为比季前预期低约 0.7%", tone: "down", pct: 28 },
+    { label: "Q4 利润指引", value: "Non-GAAP 营业利润 2.80 亿到 2.90 亿美元", sub: "中点利润率 23.85%，低于本季；每股 0.69 到 0.71 美元，第三方汇总记为高于季前预期", tone: "flat", pct: 55 },
+    { label: "全年指引", value: "收入 45.15 亿到 45.25 亿美元", sub: "中点上调 0.60 亿、比 2025 年高 31.89%；上调额和三季度超出指引中点的 0.57 亿几乎相同，四季度本身只多了约 0.03 亿", tone: "flat", pct: 50 },
+  ],
+  management_highlights: [
+    "先标读法：本条初稿写于 11/04 盘前，电话会口径在会后补入，取自 Motley Fool 的实录整理稿（AI 辅助转写，个别字句可能有出入）。市场预期取 Zacks 与 Stock Market Nerd 两处第三方汇总。",
+    "CEO Olivier Pomel（新闻稿）：客户在扩大数字化运营和 AI 使用，平台各产品的采用面都在变广；公司正通过 AI Research 团队自研专用模型，帮客户应对复杂度、走向自主运维。",
+    "四季度指引环比持平，CFO 给了三个原因。一是最大客户只按最低承诺额计入，而它三季度的实际用量「远高于」最低承诺。二是几家大客户和 AI 客户提前续约，承诺额提高、单价下调，短期压收入，10 月还有一家在谈。三是 12 月下旬的假期和代码冻结，四季度环比本来就小。",
+    "CEO：除了提前续约，其余假设和 90 天前一样；非 AI 客户的收入增速连续第五个季度加速，剔除最大客户的收入三季度也再次加速。",
+    "分析师问三季度超出指引有多少来自最大客户超出最低承诺，CFO 不给数字，但承认按算术这部分就是隐含的超额。",
+    "开票：CFO 重申收入比 billings 和剩余履约义务更能反映业务趋势。递延收入为什么环比减少，电话会没有单独解释。",
+    "Scout 1.0 是第一个自研专用模型，已用来驱动 Bits 的故障调查。公司称它的排障效果与前沿模型相当或更好，推理成本只是零头，所以能更早、更频繁地自动调查。",
+    "Bits AI 改成按 AI 额度收费、价格贴近推理成本；CEO 称它是公司史上采用最快的产品，但没有给收入或付费客户数。",
+    "2027 年指引里最大客户怎么计入，CFO 说年底电话会再讲；提前续约的客户和其他客户一样，按近期增速打折后计入。",
+  ],
+  narrative: {
+    summary: "收入和利润又一次大幅高于指引，但开票放慢、四季度指引环比不增。管理层归因于最大客户按最低承诺计入、大客户提前续约降价和年末季节性。要判的是：这是保守加时点，还是大客户议价权在变强。",
+    consensus: "多头看到的是三季度又一次大幅超出指引，利润率创新高，留存率稳定，非 AI 客户连续五个季度加速。四季度只按最大客户的最低承诺额计入，而它三季度实际远高于这个数，四季度实际大概率又高出指引一截。",
+    divergence: "空头盯开票和续约。递延收入本季减少，billings 增速掉到收入增速以下，正是上一季本站写下的证伪条件之一。提前续约换来更高承诺额，代价是单价下调；最大的那批 AI 客户越长越大，议价权也在变强。三季度的超额里有一块来自最大客户，管理层不拆。",
+    signals: [
+      "四季度实际收入高出指引的幅度，是否还像前几个季度那么大。",
+      "递延收入和 billings 在四季度能否恢复环比增长。",
+      "10 万美元以上客户的季度净增能否回到上一季水平。",
+      "提前续约的降价要几个季度消化完，之后收入能否回到正常的环比节奏。",
+      "2027 年指引里最大客户按什么口径计入。",
+      "Bits AI 能否给出付费客户数或收入口径。",
+    ]
+  },
+  accel: {
+    thisQ: "收入 11.97 亿美元、同比 +35.16%，比指引中点高 5.01%；Non-GAAP 营业利润率 27.93%。",
+    nextQ: "四季度收入指引 11.90 亿到 12.00 亿美元，中点同比 +25.37%，环比基本持平。",
+    direction: "四季度指引减速，开票先慢了下来",
+    note: "口径说明三点。\n第一，按本站「下季指引对本季实际」是减速；但四季度只按最大客户的最低承诺额计入，公司前几个季度的实际也都高出指引一截。\n第二，billings 由本站用收入加现金流量表里的递延收入变动算出，与电话会披露一致；新闻稿不披露。\n第三，全年指引的上调额和三季度超出指引的部分几乎一样，等于四季度本身没有上调。",
+  },
+  decision: {
+    stance: "业务仍在高速增长，但开票放慢、指引环比不增；先看四季度实际能否再大幅超出指引",
+    risk: "三季度超出指引的部分里，有多少来自最大客户用量高于最低承诺，管理层未拆分。提前续约涉及几家客户、单价降了多少，电话会未披露，对后面几个季度收入的拖累目前无法量化。递延收入环比减少的原因，电话会未披露。四季度市场预期除 Stock Market Nerd 外，未取得第二处可核对的汇总。",
+  },
+  sources: [
+    {
+      type: "公司公告",
+      label: "Datadog Q3 2026 业绩新闻稿（8-K 附件 EX-99.1，2026-11-04 盘前）",
+      url: "https://www.sec.gov/Archives/edgar/data/1561550/000162828026069792/ex-991x20260930x8k.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Datadog Q2 2026 业绩新闻稿（2026-08-06）· 三季度指引与二季度递延收入出处",
+      url: "https://www.sec.gov/Archives/edgar/data/1561550/000162828026053829/ex-991x20260630x8k.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Datadog Q4 2025 业绩新闻稿（2026-02-10）· 四季度指引同比的基数",
+      url: "https://www.sec.gov/Archives/edgar/data/1561550/000162828026006645/ex-991x20251231x8k.htm"
+    },
+    {
+      type: "业绩会",
+      label: "Datadog Q3 2026 电话会实录（Motley Fool）· 四季度指引原因、提前续约、billings 与剩余履约义务",
+      url: "https://www.fool.com/earnings/call-transcripts/2026/11/04/datadog-ddog-q3-2026-earnings-call-transcript/"
+    },
+    {
+      type: "市场预期",
+      label: "AP：Datadog Q3 Earnings Snapshot（Zacks 季前预期）",
+      url: "https://wtop.com/national/2026/11/datadog-q3-earnings-snapshot"
+    },
+    {
+      type: "X",
+      label: "Stock Market Nerd（@StockMarketNerd）：DDOG Q3-26 结果卡（预期对比、留存率），11/04 13:03 UTC",
+      url: "https://x.com/StockMarketNerd"
+    }
+  ],
+  vic_notes: "接回本站 8/06 那条 DDOG 记录，它留了四个待验证点。收入超过指引上沿，过了。大客户新增重新加速，没过，本季净增比上一季少。AI 产品变成商业增量，电话会仍没有收入口径，验证不了。大跌是预期清洗，部分成立：5 日守住低点、20 日内跌破，10 月一度收复财报前价位，财报前又跌回去。它写的证伪条件里，「billings 增速跌到收入增速以下」这次成立了。",
+  outcome: "财报 11/04 盘前发布，反应交易日即当日：跳空开 199.74、较前收 −9.42%，收 188.72、−14.42%。量为 20 日均量 4.01 倍，收在当日区间 10.4% 处。从 10/28 收盘算，四个交易日累计 −32.22%；收盘回到 5/7 一季度财报跳空那天的收盘位。",
+},
+{
+  type: "earnings",
+  date: "2026-11-04",
+  ticker: "CRCL",
+  company: "Circle Internet Group",
+  sector: "financials",
+  score: 49,
+  rec: "deterioration",
+  dims: { quality: 19, marketread: 18, fundamentals: 12 },
+  compare: { revenueGrowth: -7.7 },
+  business: {
+    plain: "Circle 发行美元稳定币 USDC：每发出一个 USDC，就收进一美元放在现金和短期国债里。USDC 在链上转账、交易和跨境支付里当美元用，Circle 赚的主要是这笔储备的利息。",
+    howMakesMoney: "收入绝大部分是储备利息，大致等于流通量乘以短端利率。最大的成本是付给分销伙伴的分成，Coinbase 拿走其中大头，吃掉储备利息的一大半。另有订阅服务和交易手续费，以及本季新出现的 ARC 代币销售收入。",
+    moat: "牌照和流动性。GENIUS 法案 2027 年 1 月生效，Circle 已拿到 OCC 联邦信托牌照；全天候一比一铸造赎回、交易所和银行接入广，用的人越多流动性越深。弱点是利润绑在利率上，而且分成协议让大部分利差流向分销伙伴。",
+    whatChanged: "储备利息因利率下行同比转负，流通量一年没有增长；公司把重心转向支付网络 CPN 和自有区块链 Arc。本季 Arc 主网上线、确认了第一笔代币销售收入，同时裁员约 5%，并宣布用股票收购跨境支付公司 Tazapay。",
+  },
+  metrics: [
+    { label: "收入与储备收入", value: "8.65 亿美元", sub: "同比 +16.91%；其中 1.82 亿美元是 ARC 代币预售，属一次性：预售总额 2.42 亿，随里程碑确认，本季确认约四分之三。剔除后 6.83 亿美元、同比 −7.69%", tone: "flat", pct: 35 },
+    { label: "储备收入", value: "6.58 亿美元", sub: "同比 −7.54%：平均流通量 +8% 抵不过储备收益率降 61 个基点（本季 3.54%，环比回升 6 个基点）", tone: "down", pct: 28 },
+    { label: "USDC 流通量", value: "期末 739 亿美元", sub: "与去年同期 737 亿基本持平；季度均值 733 亿，比二季度的 765 亿少 4.18%", tone: "down", pct: 22 },
+    { label: "稳定币份额", value: "27%", sub: "同比降 183 个基点；整个稳定币供给今年基本没增长。链上交易量份额是 79%，每个 USDC 一季度周转约 190 次", tone: "flat", pct: 45 },
+    { label: "其他收入", value: "2.07 亿美元", sub: "剔除 ARC 后只剩 0.25 亿美元，比去年同期 0.29 亿还少；订阅与服务从二季度 0.28 亿降到 0.20 亿。CFO 称三季度只做成一笔区块链集成，四季度有几笔", tone: "down", pct: 25 },
+    { label: "分销与交易成本", value: "4.09 亿美元", sub: "同比 −8.50%；净储备利润率 37.8%，同比抬 66 个基点、环比降约 80 个基点，CFO 归因于 Hyperliquid 分成协议的第一个完整季度。USDC 放在 Circle 自家平台的占比从 14% 升到 19%，放在 Coinbase 的从 24% 升到 31%", tone: "flat", pct: 55 },
+    { label: "RLDC（扣分成后收入）", value: "4.53 亿美元", sub: "同比 +55.15%；剔除 ARC 后 2.71 亿、同比 −7.15%，利润率 39.7%，与去年同期 39.5% 持平", tone: "flat", pct: 35 },
+    { label: "调整后 EBITDA", value: "3.17 亿美元", sub: "同比 +84.67%；剔除 ARC 后约 1.35 亿、同比约 −21%，已连续三个季度下滑", tone: "down", pct: 22 },
+    { label: "净利润（持续经营）", value: "2.26 亿美元", sub: "同比 +5.42%，但去年同期含 0.61 亿美元所得税收益；基本股数多了 10.08%，基本每股 0.89 美元低于去年同期 0.93", tone: "flat", pct: 35 },
+    { label: "调整后营业费用", value: "1.39 亿美元", sub: "同比 +13.15%；全年指引 5.70 亿到 5.85 亿不变，CFO 称会落在上沿附近；隐含四季度 1.49 亿到 1.64 亿，比三季度还多", tone: "flat", pct: 45 },
+    { label: "CPN 支付网络", value: "年化支付量 413 亿美元", sub: "同比 15.2 倍、环比 2.8 倍，205 家金融机构接入；到 10/30 已超过 580 亿。Tazapay 另有年化 250 亿美元以上，作价 4 亿美元股票，2027 年交割", tone: "up", pct: 85 },
+    { label: "Arc 链", value: "链上资产 15 亿美元", sub: "9/16 主网上线，到 10/30 USDC 累计转账 300 亿美元以上、日均约 50 万笔；Circle 自留 25 亿枚 ARC（总量四分之一），卖出时才确认收入", tone: "up", pct: 70 },
+    { label: "全年指引", value: "全部维持", sub: "其他收入 3.10 亿到 3.30 亿美元、RLDC 利润率 41.7% 到 43.7%，均含 ARC 预售（8/05 已上调）；隐含四季度其他收入 0.28 亿到 0.48 亿。CFO 称剔除 ARC 的全年 RLDC 利润率在原指引 38% 到 40% 的中点附近，倒推四季度会再降一档", tone: "flat", pct: 45 },
+  ],
+  management_highlights: [
+    "先标读法：本条初稿写于 11/04 盘前，电话会口径在会后补入，取自 Motley Fool 的实录整理稿（AI 辅助转写，个别字句可能有出入）。剔除 ARC 后的收入、利润率和 EBITDA 是公司演示材料和电话会自己给的口径，不是本站推算。",
+    "CEO Jeremy Allaire（新闻稿）：机构在 USDC 上持续扩建——SAP 生态里的 Tereina 接入 USDC 和 EURC，Visa 把稳定币预付资金从试点转为商用，Binance 续约并扩大合作。",
+    "流通量：CEO 开场就直说，在疲软的数字资产市场里 USDC 同比持平，「余额持平，但使用在增长」。CFO：多年跨周期的增长框架不变，但增长不会走直线。",
+    "分成成本：净储备利润率环比下滑，CFO 归因于 Hyperliquid 协议的第一个完整季度（这部分余额放在 Coinbase 上）。四季度再叠加 Binance 新协议的第一个完整季度，CFO 让分析师按全年指引倒推，利润率会再降一档。",
+    "Binance 续约五年，并对 Circle 做 1 亿美元股权投资，重点在新兴市场推广 USDC；协议没有预付成本，分成条款不披露。上周 Binance 出了安全事件、用户提款，CEO 称之后 24 小时已净流入 25 亿美元，会密切观察。",
+    "其他收入：剔除 ARC 后环比少了约 0.08 亿美元，因为三季度只做成一笔区块链集成，四季度有几笔，预计回升。2027 年其他收入指引留到下次电话会。",
+    "ARC 代币：CFO 列了三种入账。转向权益证明后的质押奖励，是预期的主要经常性收入；选择性卖币，没有成本、直接进利润；生态激励按市值记收入，同时记等额分销成本。自留的四分之一只有卖出或分发时才入账。",
+    "CPN：已开始对部分流量收费，CFO 预计 Tazapay 交割后，2027 年 CPN 会带来实质收入。CEO 强调目标是压低支付的单位成本，不要拿传统支付公司的费率来比。",
+    "演示材料把 2027 年 1 月 GENIUS 法案生效称为「Circle 的时刻」，并强调已拿到 OCC 联邦信托牌照，按法案要求受联邦监管。CEO 补充：美国会计准则委员会接近定稿合规稳定币的会计处理，框架是把它们当作现金或现金等价物。",
+    "人事与成本：裁员约 5%，产生 0.09 亿美元重组费用，另为 Tazapay 收购支付一次性专业费用。CFO Jeremy Fox-Geen 9/25 已宣布离任，最晚做到 12 月底，这是他最后一次财报电话会；继任人选还在找。",
+  ],
+  narrative: {
+    summary: "USDC 的使用量和支付网络在快速放大，但赚钱的那部分——储备利息——在缩：利率降了，流通量一年没涨。本季漂亮的增速来自一次性的代币销售，而管理层已明说四季度分成成本还要再升。",
+    consensus: "多头看用途在扩张：USDC 在稳定币交易量里占大头、周转远快于对手，CPN 支付量一年涨了十几倍，Arc 主网一上线就有大机构入驻。GENIUS 法案生效后，受监管的美元稳定币会被更多银行和支付公司采用。",
+    divergence: "空头看利润来源。储备利息靠流通量乘以利率，两样本季都没帮上忙；整个稳定币供给今年基本没增长，USDC 份额还在掉，分成里 Coinbase 平台的占比在升。四季度还要多付 Binance 一整季分成。剔除代币销售，EBITDA 已连续三个季度下滑。",
+    signals: [
+      "USDC 期末流通量能否重新同比正增长。",
+      "储备收益率在降息周期里还会降多少。",
+      "订阅与服务收入能否止跌。",
+      "CPN 支付量能否开始贡献看得见的交易收入。",
+      "ARC 代币后续销售的节奏和入账。",
+      "四季度剔除 ARC 后的利润率降了多少，Binance 带来的流通量能否补回来。",
+      "2027 年其他收入指引里，CPN 和 Tazapay 能贡献多少。",
+      "GENIUS 法案生效后，银行类客户能否带来新增流通量。",
+    ]
+  },
+  accel: {
+    thisQ: "收入 8.65 亿美元、同比 +16.91%；剔除 ARC 代币预售后 −7.69%，储备收入 −7.54%。",
+    nextQ: "公司不给季度收入指引；全年其他收入指引隐含四季度没有大额代币销售，CFO 预计四季度分成成本再升，储备收入取决于利率和流通量。",
+    direction: "剔除代币销售后减速到同比负增长",
+    note: "口径说明。\n本站框架是比「下季指引对本季实际」，但 Circle 只给全年的其他收入、利润率和费用指引，不给收入指引，所以这里用剔除一次性收入后的同比代替。\n上一季收入同比还是正的，本季剔除代币销售后转负，所以记为减速。\n储备收入的同比下滑主要来自利率，环比下滑主要来自流通量。",
+  },
+  decision: {
+    stance: "表面增长靠一次性代币销售，核心储备收入在缩；要看流通量能否在 GENIUS 法案生效前重新增长",
+    risk: "Binance 新协议的分成条款未披露，四季度利润率降多少只能按全年指引倒推，单季幅度无法量化。剩余约四分之一的 ARC 预售款要等后续里程碑达成才确认，里程碑内容和未达成时的返还条件未披露。剔除 ARC 后净利润层面的金额，公司未拆分。季前市场预期未取得可核对的口径，几家二手报道的数字互相矛盾，所以本条不判超预期幅度。",
+  },
+  sources: [
+    {
+      type: "公司公告",
+      label: "Circle Q3 2026 业绩新闻稿（8-K 附件 EX-99.1，2026-11-04 盘前）",
+      url: "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000309/finalq3epr-110326.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Circle Q3 2026 财报演示材料 · 剔除 ARC 口径、流通量与分布、CPN 与 Arc 数据",
+      url: "https://s206.q4cdn.com/265218871/files/doc_earnings/2026/q3/presentation/3Q26-Earnings-Presentation.pdf"
+    },
+    {
+      type: "公司公告",
+      label: "Circle Q2 2026 业绩新闻稿（2026-08-05）· 全年指引上调出处",
+      url: "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm"
+    },
+    {
+      type: "公司公告",
+      label: "Circle 8-K（2026-09-25）· CFO Jeremy Fox-Geen 离任",
+      url: "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000279/crcl-20260925.htm"
+    },
+    {
+      type: "业绩会",
+      label: "Circle Q3 2026 电话会实录（Motley Fool）· 流通量、分成成本、ARC 入账、CPN 收费",
+      url: "https://www.fool.com/earnings/call-transcripts/2026/11/04/circle-crcl-q3-2026-earnings-call-transcript/"
+    }
+  ],
+  vic_notes: "本站第一条 CRCL 记录。自己核的两笔。一，三季度利润表里的增长几乎全是 ARC 代币预售：剔除后收入、扣分成后收入、调整后 EBITDA 三项同比都是负的，公司演示材料也给了剔除口径。二，储备收入同比下滑主要是利率，环比下滑主要是流通量——季度均值比二季度少了一截，而收益率环比其实回升了。",
+  outcome: "财报 11/04 盘前发布，反应交易日即当日：开 74.04、较前收 −1.57%，低见 72.38 后翻红，收 76.12、+1.20%。量为 20 日均量 1.42 倍，收在当日区间 71.8% 处。距 5/12 的 52 周高 140.00 仍 −45.63%。",
+},
+{
+  type: "earnings",
   date: "2026-11-03",
   ticker: "ETN",
   company: "Eaton",
@@ -13264,7 +13463,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
-  SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials", ETN:"industrials",
+  SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials", ETN:"industrials", CRCL:"financials",
   SNDK:"semis", ALAB:"semis", LRCX:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
