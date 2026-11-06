@@ -493,6 +493,230 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-11-05",
+  ticker: "MTSI",
+  company: "MACOM Technology Solutions",
+  sector: "semis",
+  score: 65,
+  rec: "doubt",
+  dims: { quality: 36, marketread: 10, fundamentals: 19 },
+  compare: { revenueGrowth: 62.7, revenueGuidance: 67.5 },
+  business: {
+    plain: "MACOM 做高速模拟和射频芯片：在光模块里驱动激光、放大收到的光信号，也给电信网络和国防雷达做射频器件。AI 集群里光纤两端的模块都要用到这类芯片。",
+    howMakesMoney: "按颗卖芯片给光模块厂、网络设备商和国防承包商。数据中心收入跟着 AI 集群的光模块和铜缆出货量走，速率每升一代，单颗芯片的价值也跟着升；国防业务是长周期项目的后续量产订单。",
+    moat: "高速模拟电路靠多年积累的设计和工艺，客户认证周期长，进了某一代光模块就跟着整代出货。它有自己的化合物半导体晶圆厂，能自己控制产能和成本，这也是毛利率能逐季上移的原因。",
+    whatChanged: "数据中心成了最大的业务，单季收入超过工业与国防。1.6T 光模块放量，订单出货比升到 1.4、积压订单创纪录。下季指引明显高于预期，管理层第一次给出明年的分市场增长框架。"
+  },
+  metrics: [
+    { label: "Q4 FY26 收入", value: "4.248 亿美元", sub: "同比 +62.7%、环比 +24.1%；比指引中点 4.20 亿高 1.1%，Investing.com 季前预期 4.2009 亿", tone: "beat", pct: 85 },
+    { label: "数据中心收入", value: "1.881 亿美元", sub: "环比 +37%；对上年同期 0.796 亿，自算同比 +136%。新闻稿不拆分，电话会口径", tone: "up", pct: 95 },
+    { label: "工业与国防收入", value: "1.646 亿美元", sub: "环比 +23%、自算同比 +42%；美欧国防预算带动雷达、电子战、反无人机的后续量产订单", tone: "up", pct: 82 },
+    { label: "电信收入", value: "0.721 亿美元", sub: "环比 +1%、自算同比 +9%；PON 宽带偏软", tone: "flat", pct: 40 },
+    { label: "调整后毛利率", value: "61.3%", sub: "高过指引上沿 61.0%；上年同期 57.1%。GAAP 毛利率 59.9%", tone: "beat", pct: 80 },
+    { label: "调整后营业利润", value: "1.623 亿美元", sub: "利润率 38.2%；GAAP 营业利润 1.342 亿、利润率 31.6%", tone: "up", pct: 85 },
+    { label: "调整后每股收益", value: "2.09 美元", sub: "比指引中点 2.00 美元高 4.5%；GAAP 每股 1.78 美元", tone: "beat", pct: 82 },
+    { label: "订单出货比", value: "1.4", sub: "积压订单创纪录；当季接单、当季出货的只占收入 7%。电话会口径", tone: "up", pct: 85 },
+    { label: "现金与投资", value: "9.140 亿美元", sub: "可转债 3.407 亿 2029 年 12 月到期，却列在短期负债；CFO 口径的净现金约 4.517 亿", tone: "flat", pct: 60 },
+    { label: "投资公允价值收益", value: "0.194 亿美元", sub: "🔑 全年 0.610 亿，让 GAAP 净利高过营业利润。新闻稿没说是哪笔投资，调整后口径已剔除", tone: "flat", pct: 35 },
+    { label: "FY26 全年收入", value: "13.276 亿美元", sub: "同比 +37.3%；调整后每股 5.60 美元，上年 3.47 美元", tone: "up", pct: 80 },
+    { label: "Q1 FY27 收入指引", value: "4.50 亿到 4.60 亿美元", sub: "中点同比 +67.5%、环比 +7.1%；比 Investing.com 季前预期 4.31 亿高 5.6%", tone: "up", pct: 90 },
+    { label: "Q1 FY27 利润指引", value: "调整后每股 2.21 到 2.29 美元", sub: "中点同比 +120.6%，比季前预期 2.03 美元高 10.8%；毛利率指引 62% 到 63%，税率从 3% 升到约 6%", tone: "up", pct: 88 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/05 收盘后。财务数字取自 8-K；分市场收入、订单出货比和明年框架取自电话会（Motley Fool 实录），新闻稿不披露。分市场同比是本站用上年同期电话会的数字自算。",
+    "数据中心：1.6T 放量是本季的主要推力；明年会有更多 200G 每通道的驱动器和 TIA 出货，并推出了 3.2T 的前端芯片组。下季数据中心预计环比增长约 15%。",
+    "LPO（线性可插拔光模块）「做得很好、同比增长显著」；铜缆用的 200G 均衡器「看起来满足系统要求」，收入主要落在明年下半年。",
+    "公司不给全年指引，但给了基准情形：明年数据中心同比约 80%，工业与国防 30% 以上，电信低双位数。按下季中点年化约 18 亿美元，管理层说「正在往 20 亿凑」。",
+    "毛利率：CFO 预计明年每季提升 25 到 50 个基点；CEO 称「不远的将来」到 60% 中段。",
+    "产能：Lowell 晶圆厂一期完成约三分之二，二期约 2027 年中在现有厂房内开工；明年资本开支 1.0 亿到 1.1 亿美元。",
+    "新方向：CW 激光瞄准 2028 年；近封装光学被称为「数十亿美元的机会」，尚未披露客户。"
+  ],
+  narrative: {
+    summary: "收入加速、数据中心翻倍以上，下季指引明显高于预期，积压订单创纪录；股价却在半导体普跌那天跟着光模块同行一起大跌。",
+    consensus: "多头看三条：1.6T 和 200G 每通道换代，让它的驱动器和 TIA 单价上一档；国防订单进入后续量产；自有晶圆厂让毛利率逐季上移。管理层给的明年分市场框架，比卖方原先的模型高。",
+    divergence: "空头看两点：本季收入只比指引中点高一点；电信在走软。更大的分歧在行业层面：卖方下调目标价的理由是同行估值整体压缩和对 AI 数据中心建设放缓的担忧，和这份财报本身无关。",
+    signals: [
+      "下季数据中心能否兑现环比约 15% 的增长。",
+      "毛利率能否按每季 25 到 50 个基点往上走。",
+      "电信能否止跌，PON 宽带的疲软会不会扩散。",
+      "铜缆均衡器和 LPO 何时给出收入口径。",
+      "投资公允价值收益来自哪笔投资，会不会反向。",
+      "可转债为何列为短期负债。"
+    ]
+  },
+  accel: {
+    thisQ: "Q4 FY26 收入 4.248 亿美元、同比 +62.7%、环比 +24.1%；调整后毛利率高过指引上沿。",
+    nextQ: "Q1 FY27 收入指引 4.50 亿到 4.60 亿美元，中点同比 +67.5%、环比 +7.1%。",
+    direction: "收入加速：下季指引的同比增速高于本季实际",
+    note: "口径说明两点。\n第一，新闻稿不拆分市场，数据中心等三块的收入和环比来自电话会，同比由本站用上年同期电话会的数字自算。\n第二，季前预期来自 Investing.com 与 MarketBeat，两处数字相近；Stock Market Nerd 本次没有发结果卡。"
+  },
+  decision: {
+    stance: "数字和指引都强，下跌跟着板块走；先看它能否在光模块同行里先止跌",
+    risk: "新闻稿未拆分分市场收入，只能用电话会口径。投资公允价值收益对应哪笔投资未披露，可转债列为短期负债的原因也未披露。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "MACOM Q4 FY26 业绩新闻稿（8-K 附件 EX-99.1，2026-11-05 盘前）", url: "https://www.sec.gov/Archives/edgar/data/0001493594/000149359426000041/ex99_1earningsreleaseq4fy26.htm" },
+    { type: "公司公告", label: "MACOM Q3 FY26 业绩新闻稿（2026-08-06）· 四季度指引出处", url: "https://www.sec.gov/Archives/edgar/data/0001493594/000149359426000036/ex99_1earningsreleaseq3fy26.htm" },
+    { type: "公司公告", label: "MACOM Q1 FY26 业绩新闻稿 · 下季同比的基数", url: "https://www.sec.gov/Archives/edgar/data/1493594/000149359426000016/ex99_1earningsreleaseq1fy26.htm" },
+    { type: "业绩会", label: "MACOM Q4 FY26 电话会实录（Motley Fool）· 分市场收入、订单出货比、明年框架", url: "https://www.fool.com/earnings/call-transcripts/2026/11/05/macom-mtsi-q4-2026-earnings-call-transcript/" },
+    { type: "历史口径", label: "MACOM Q4 FY25 电话会实录（Motley Fool）· 分市场同比的基数", url: "https://www.fool.com/earnings/call-transcripts/2025/11/06/macom-mtsi-q4-2025-earnings-call-transcript" },
+    { type: "市场预期", label: "Investing.com：MACOM 季前预期与实际对比", url: "https://www.investing.com/news/earnings/macom-earnings-beat-by-009-revenue-topped-estimates-5004544" },
+    { type: "市场反应", label: "Investing.com：Needham 下调 MACOM 目标价（同行估值压缩）", url: "https://www.investing.com/news/analyst-ratings/needham-cuts-macom-stock-price-target-to-300-on-valuation-93CH-5005313" }
+  ],
+  vic_notes: "自己算的三笔。一，数据中心同比 +136%，增速是工业与国防的三倍多，已经是最大业务。二，本季收入只比指引中点高 1.1%，真正超预期的是下季指引，所以看点在前瞻不在本季。三，GAAP 净利高过营业利润，靠的是一笔没说来源的投资收益；调整后口径已剔除，不影响经营判断。",
+  outcome: "财报 11/05 盘前发布，反应交易日即当日：开 218.50、较前收 −6.3%，收 190.35、−18.35%，收在当日区间 11% 处，量为 20 日均量 2.9 倍。同日 SOXX −12.78%，光模块和 AI 网络同行跌 13% 到 21%，跌幅在同行区间内。"
+},
+{
+  type: "earnings",
+  date: "2026-11-04",
+  ticker: "ARM",
+  company: "Arm Holdings",
+  sector: "semis",
+  score: 55,
+  rec: "repricing",
+  dims: { quality: 28, marketread: 11, fundamentals: 16 },
+  compare: { revenueGrowth: 27, revenueGuidance: 24.0 },
+  business: {
+    plain: "Arm 设计处理器的指令集和核心蓝图，基本不自己造芯片。手机、服务器、汽车里的大部分处理器，都是别家照着 Arm 的蓝图做出来的。",
+    howMakesMoney: "两笔钱：客户拿到设计时付一笔授权费，芯片出货后每颗再交版税，版税按芯片价格的一定比例收。新一代 v9 架构和打包好的计算子系统（CSS）版税率更高。它也开始卖自己的服务器 CPU，第一个大客户是 Meta。",
+    moat: "几乎所有手机软件、越来越多的服务器软件都按 Arm 指令集编写，换架构要重写、重验证整套软件。授权一旦签下，版税会跟着客户芯片的整个生命周期收很多年。",
+    whatChanged: "收入超出指引，但靠的是授权费；最核心的版税增速低于公司自己的指引，原因是内存涨价压了中低端手机出货。数据中心版税同比翻倍，自研服务器 CPU 拿到多家客户延续到 2027 年的订单。经营现金流大降，公司没有解释。"
+  },
+  metrics: [
+    { label: "Q2 FY27 收入", value: "14.43 亿美元", sub: "同比 +27%；比指引中点 13.8 亿高 4.6%，超过上沿 14.3 亿。Reuters 引 LSEG 季前预期 13.8 亿", tone: "beat", pct: 80 },
+    { label: "版税收入", value: "6.70 亿美元", sub: "🔑 同比 +8%，公司 7 月指引 +13%；Reuters 季前预期 7.208 亿，低 7.0%。数据中心版税同比翻倍，汽车等实体 AI 版税 +50%", tone: "miss", pct: 25 },
+    { label: "授权及其他收入", value: "7.73 亿美元", sub: "同比 +50%，指引约 +30%；CFO 称比预想多约 1 亿美元，来自几笔大额授权的时点。其中软银的授权与设计服务 2.09 亿", tone: "beat", pct: 75 },
+    { label: "Non-GAAP 营业利润", value: "6.38 亿美元", sub: "利润率 44.2%，上年同期 41.1%；GAAP 营业利润 2.01 亿、利润率 13.9%", tone: "up", pct: 75 },
+    { label: "Non-GAAP 每股收益", value: "0.52 美元", sub: "比指引中点 0.47 美元高 10.6%、同比 +33%；GAAP 每股 0.12 美元，上年同期 0.22", tone: "beat", pct: 78 },
+    { label: "经营现金流", value: "2.07 亿美元", sub: "🔑 同比 −63%；自由现金流 1.10 亿、同比 −73%。合同资产增加 2.03 亿，股东信和电话会都没解释", tone: "down", pct: 20 },
+    { label: "ACV（年化合同价值）", value: "17.90 亿美元", sub: "同比 +12%；剩余履约义务从本财年起不再披露", tone: "flat", pct: 50 },
+    { label: "股权激励", value: "3.76 亿美元", sub: "同比 +42%，占收入 26.1%", tone: "down", pct: 35 },
+    { label: "有效税率（自算）", value: "约 37.5%", sub: "上年同期约 21.2%；税费 0.78 亿美元，新闻稿没有解释", tone: "flat", pct: 35 },
+    { label: "Q3 FY27 收入指引", value: "14.9 亿到 15.9 亿美元", sub: "中点 15.4 亿，同比 +24.0%，Reuters 季前预期 15.3 亿。版税同比只增低个位数，授权费增五成以上", tone: "flat", pct: 55 },
+    { label: "Q3 FY27 利润指引", value: "Non-GAAP 每股 0.52 到 0.60 美元", sub: "中点 0.56 美元、同比 +30.2%，季前预期 0.55；Non-GAAP 营业费用约 8.25 亿、同比 +15.2%", tone: "flat", pct: 58 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/05 收盘后。财务数字取自 8-K 股东信；份额、客户和 AGI CPU 的口径取自电话会（Motley Fool 实录）。",
+    "服务器份额：头部云厂商的 Arm 服务器 CPU 份额，从 2024 年的 15% 升到 2025 年的一半以上，预计 2026 年底超过 60%。最大的贡献者是亚马逊、谷歌、微软，英伟达在快速上量。",
+    "数据中心版税：管理层称「很有信心」未来几年保持三位数增长。",
+    "手机：内存涨价持续压制中低端手机出货。CFO 引 IDC 预测明年手机出货约 −1%，但预计边缘 AI 版税会重新加速。",
+    "AGI CPU（自研服务器芯片）：Meta 是头号客户，多家客户的订单延续到 2027 年，首批商用交付按计划在本财年四季度。第一版毛利率约 30% 到 40%，以后 50% 以上；CEO 称 20 亿美元「现在很可能实现」。",
+    "软银：每季约 2.09 亿美元的授权与设计服务收入，预计维持在这个水平。",
+    "费用：下季营业费用继续上升，投向工程产能、下一代平台、CSS 和 AGI CPU。",
+    "没谈到的：星际之门与 OpenAI、中国、和高通的诉讼，电话会都没有提及。"
+  ],
+  narrative: {
+    summary: "收入和利润都超指引，但超出的部分来自时点性的授权费；最核心的版税增速低于公司自己的指引，下季还会更低。市场在重估版税这条线。",
+    consensus: "多头看数据中心：Arm 在头部云厂商服务器里的份额已过半，数据中心版税翻倍；自研 CPU 拿到 Meta 等多家客户的订单，等于在授权和版税之外多了一条卖芯片的收入。",
+    divergence: "空头看三处：版税是最稳的那条线，这次被内存涨价拖慢，而这是公司控制不了的；授权费忽高忽低，撑不起估值；现金流大降而公司不解释，自研芯片的毛利率又明显低于授权业务。",
+    signals: [
+      "版税何时回到双位数增长，边缘 AI 版税能否如管理层所说重新加速。",
+      "内存价格回落之前，中低端手机出货还会被压多久。",
+      "AGI CPU 能否在本财年四季度按时交付首批商用产品。",
+      "经营现金流大降的原因，合同资产为何大增。",
+      "营业费用和股权激励的增速能否放缓。",
+      "Arm 服务器份额能否如期达到管理层给的年底目标。"
+    ]
+  },
+  accel: {
+    thisQ: "Q2 FY27 收入 14.43 亿美元、同比 +27%；版税 +8%，低于公司自己的指引，授权费 +50%。",
+    nextQ: "Q3 FY27 收入指引中点 15.4 亿美元，同比 +24.0%；版税同比只增低个位数。",
+    direction: "收入减速，版税增速掉到个位数",
+    note: "口径说明两点。\n第一，收入超指引主要来自授权费，CFO 称比预想多约 1 亿美元；版税才是可以逐季外推的那部分。\n第二，有效税率由本站用税费除以税前利润自算；剩余履约义务公司从本财年起不再披露。"
+  },
+  decision: {
+    stance: "数据中心在加速，但最稳的版税在减速；先看下季版税能否守住指引",
+    risk: "经营现金流大降的原因未披露。数据中心、手机、汽车各自的版税金额未拆分，所以数据中心翻倍对总版税的拉动无法量化。AGI CPU 的收入和订单金额未披露。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Arm Q2 FY27 业绩新闻稿（8-K 附件 EX-99.1，2026-11-04 盘后）", url: "https://www.sec.gov/Archives/edgar/data/0001973239/000197323926000141/exhibit991fye27q230-sepx26.htm" },
+    { type: "公司公告", label: "Arm Q2 FY27 股东信（8-K 附件 EX-99.2）· 分项收入、现金流、指引", url: "https://www.sec.gov/Archives/edgar/data/0001973239/000197323926000141/exhibit992fye27q230-sepx26.htm" },
+    { type: "上季对照", label: "Arm Q1 FY27 股东信（2026-07-29）· 本季指引出处", url: "https://www.sec.gov/Archives/edgar/data/0001973239/000197323926000113/exhibit992fye27q130-junx26.htm" },
+    { type: "历史口径", label: "Arm Q3 FY26 股东信 · 下季同比的基数", url: "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000005/exhibit992fye26q331-decx25.htm" },
+    { type: "业绩会", label: "Arm Q2 FY27 电话会实录（Motley Fool）· 服务器份额、AGI CPU、手机", url: "https://www.fool.com/earnings/call-transcripts/2026/11/05/arm-holdings-arm-q2-2027-earnings-call-transcript/" },
+    { type: "市场预期", label: "Reuters（转载）：Arm 季前预期与实际对比", url: "https://finwire.io/news/stock-markets-news/arm-beats-second-quarter-revenue-estimates-on-ai-and-data-center-demand" },
+    { type: "市场反应", label: "Investing.com：HSBC 以版税疲弱下调 Arm 目标价", url: "https://www.investing.com/news/analyst-ratings/hsbc-cuts-arm-stock-price-target-on-royalty-weakness-despite-licensing-beat-93CH-5002267" }
+  ],
+  vic_notes: "自己算的三笔。一，按 7 月指引推算，授权费比指引多约 1.0 亿美元，版税少约 0.31 亿，总收入超出指引中点的部分全靠授权费。二，GAAP 与 Non-GAAP 营业利润差 4.37 亿美元，股权激励占了其中大头。三，下季营业费用环比多 0.51 亿，吃掉收入指引环比增量的一半多，利润率扩张会放慢。",
+  outcome: "财报 11/04 美东盘后发布，反应交易日 11/05：开 172.05、较前收 −10.3%，收 166.72、−13.08%。收在当日区间 28% 处，量为 20 日均量 2.9 倍。同日 SOXX 开盘 −4.7%、收 −12.78%：开盘那段缺口是财报的，之后跟着板块走。"
+},
+{
+  type: "earnings",
+  date: "2026-10-29",
+  ticker: "SNDK",
+  company: "Sandisk",
+  sector: "semis",
+  score: 61,
+  rec: "doubt",
+  dims: { quality: 35, marketread: 8, fundamentals: 18 },
+  compare: { revenueGrowth: 378, revenueGuidance: 310 },
+  business: {
+    plain: "Sandisk 做 NAND 闪存，也就是把数据长期存下来的芯片，做成数据中心固态硬盘、手机和电脑里的存储，以及存储卡。它和铠侠合资建厂，自己设计、自己卖。",
+    howMakesMoney: "按存储容量卖芯片和固态硬盘，收入等于出货比特数乘以每比特价格。供不应求时价格上涨，收入和利润会成倍放大，价格下跌时反过来。现在越来越多大客户签多年供货协议，锁量也锁一部分价格。",
+    moat: "NAND 只有少数几家能大规模生产，新建产能要几年时间和巨额投资。它和铠侠共用工厂摊薄成本；企业级固态硬盘要经过客户长时间认证，换供应商不容易。",
+    whatChanged: "数据中心收入大幅增长，已接近总收入一半，毛利率稳在高位。本季签下两份多年供货协议，明年相当一部分比特已被锁定。消费类继续萎缩，管理层提醒再下一季的环比增长要保守看。同时宣布回购和 8 拆 1。"
+  },
+  metrics: [
+    { label: "Q1 FY27 收入", value: "110.31 亿美元", sub: "同比 +378%、环比 +23%；比指引中点 105.5 亿高 4.6%，FactSet 季前预期 107.2 亿", tone: "beat", pct: 92 },
+    { label: "数据中心收入", value: "48.02 亿美元", sub: "环比 +61%，占收入 43.5%；上年同期 2.69 亿", tone: "up", pct: 95 },
+    { label: "Edge 收入", value: "58.32 亿美元", sub: "环比 +7%、同比 +320%；手机、电脑和边缘设备用的存储", tone: "up", pct: 75 },
+    { label: "消费类收入", value: "3.97 亿美元", sub: "环比 −29%、同比 −39%；管理层称低端在承压", tone: "miss", pct: 15 },
+    { label: "Non-GAAP 毛利率", value: "85.1%", sub: "比指引中点 84.0% 高 1.1 个百分点，上年同期 29.9%。CFO 称环比增长约六成来自出货量、四成来自涨价", tone: "beat", pct: 92 },
+    { label: "Non-GAAP 营业利润", value: "88.71 亿美元", sub: "利润率 80.4%；Non-GAAP 营业费用 5.13 亿，比指引中点少 0.17 亿", tone: "up", pct: 92 },
+    { label: "Non-GAAP 每股收益", value: "49.51 美元", sub: "拆股前口径。比指引中点 45.00 美元高 10.0%，FactSet 季前预期 46.67；GAAP 每股 52.60 美元，含铠侠持股的公允价值收益", tone: "beat", pct: 88 },
+    { label: "自由现金流", value: "63.09 亿美元", sub: "经营现金流 63.63 亿；剔除合资厂和多年协议相关支付后的调整口径为 56.96 亿", tone: "up", pct: 85 },
+    { label: "应收账款", value: "65.85 亿美元", sub: "🔑 环比 +40%，快过收入增速；CFO 只说是「客户结构」", tone: "flat", pct: 35 },
+    { label: "多年供货协议", value: "明年约一半比特已签约", sub: "本季新签两份，95% 是投资级客户；管线需求超过供给，一直到本十年末。客户名称和合同金额都不披露。电话会口径", tone: "up", pct: 80 },
+    { label: "资本回报", value: "50 亿美元回购", sub: "约 320 万股；8 拆 1，登记日 11/09，11/20 起按拆后价交易。账上没有借款，现金 51.36 亿", tone: "up", pct: 70 },
+    { label: "Q2 FY27 收入指引", value: "122 亿到 126 亿美元", sub: "中点同比 +310%、环比 +12.4%；只比 FactSet 季前预期 123.1 亿高 0.7%", tone: "flat", pct: 60 },
+    { label: "Q2 FY27 利润指引", value: "Non-GAAP 每股 55 到 57 美元", sub: "中点同比 +803%，比 FactSet 预期 53.60 高 4.5%；毛利率指引 84.5% 到 85.5%，股权激励剔除额升到 1.46 亿到 1.97 亿", tone: "up", pct: 72 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/06，反应日 10/30 之后已过 5 个交易日。财务数字取自 8-K；比特、协议和 HBF 的口径取自电话会（Quartr 实录，经 StockAnalysis 转载）。每股数字都是拆股前口径。",
+    "价格：管理层预计价格「继续小幅上涨」，下季指引里含同规格产品的小幅涨价。",
+    "供给：比特增长计划不变，仍是「十几个百分点的中高段」；制程转换需要大量规划和设备采购。全年资本开支升到收入的「中个位数百分比」。",
+    "多年协议：本季签了两份，明年约一半比特在协议下；管线需求超过供给，一直到本十年末。不谈具体客户。",
+    "数据中心：2027 年数据中心将占 NAND 市场一半以上，客户反映 QLC「重新加速」。",
+    "HBF（高带宽闪存）：首颗晶粒已流片，2027 年送样；它不在长期财务模型里，市场规模「待定」。",
+    "消费与 PC：低端承压，但预计明年 PC 的存储容量还会增长。",
+    "节奏：CFO 提醒，从二季度到三季度的环比增长「要保守看」。"
+  ],
+  narrative: {
+    summary: "收入、利润和指引都高过预期，数据中心快速放量，长约锁定明年相当一部分比特；但指引只比预期高一点，管理层还给再下一季降温。市场开始交易周期见顶。",
+    consensus: "多头看三条：价格还在涨、比特增长受控，供给纪律比以往周期好；多年协议把明年相当一部分量锁给投资级客户；数据中心占比越来越高，比手机和电脑更稳。",
+    divergence: "空头看周期：毛利率已在历史极高位，下季指引的环比增速比本季少一截，管理层还主动给再下一季降温。应收账款增速快过收入，消费类在萎缩。存储同行在财报后同步大跌，像是在提前定价周期顶部。",
+    signals: [
+      "二季度到三季度的环比增长到底多保守，价格能否继续小幅上涨。",
+      "应收账款能否随收入回到正常节奏。",
+      "多年协议能否延伸到明年以后，何时披露金额。",
+      "HBF 能否如期在 2027 年送样。",
+      "股权激励剔除额大幅上调的原因。",
+      "存储同行的价格能否止跌：上一条记录写的见顶警示，这次已经触发。"
+    ]
+  },
+  accel: {
+    thisQ: "Q1 FY27 收入 110.31 亿美元、同比 +378%、环比 +23%；毛利率 85.1%，高过指引。",
+    nextQ: "Q2 FY27 收入指引 122 亿到 126 亿美元，中点同比 +310%、环比 +12.4%。",
+    direction: "环比减速：下季指引的环比增速约为本季一半",
+    note: "口径说明三点。\n第一，每股数字都是拆股前口径；8 拆 1 从 11/20 起按拆后价交易。\n第二，GAAP 每股高于 Non-GAAP，是因为计入了铠侠持股的公允价值收益。\n第三，同比增速被上年的低基数放大，判断节奏要看环比。"
+  },
+  decision: {
+    stance: "数字和指引都超预期，股价却跌得比同行多；上条记录的见顶警示已触发，先等同行止跌",
+    risk: "多年协议的客户和金额未披露。电话会说的毛资本开支比现金流量表里的设备采购多约 3.24 亿美元，差额大概率是经合资厂出资的部分，新闻稿未拆分。应收账款跳升只给了一句客户结构，影响无法量化。股权激励剔除额大幅上调的原因未披露。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Sandisk Q1 FY27 业绩新闻稿（8-K 附件 EX-99.1，2026-10-29 盘后）", url: "https://www.sec.gov/Archives/edgar/data/0002023554/000162828026068243/sndkq1-27ex991xpressrelease.htm" },
+    { type: "上季对照", label: "Sandisk Q4 FY26 业绩新闻稿（2026-08-05）· 本季指引出处", url: "https://www.sec.gov/Archives/edgar/data/0002023554/000162828026053346/sndkq4-26ex991xpressrelease.htm" },
+    { type: "历史口径", label: "Sandisk Q2 FY26 业绩新闻稿 · 下季同比的基数", url: "https://www.sec.gov/Archives/edgar/data/2023554/000162828026004121/sndkq2fy26ex991-pressrelea.htm" },
+    { type: "业绩会", label: "Sandisk Q1 FY27 电话会实录（Quartr，经 StockAnalysis）· 价格、比特、多年协议、HBF", url: "https://stockanalysis.com/stocks/sndk/transcripts/725299-q1-2027/" },
+    { type: "市场预期", label: "INDmoney：引 FactSet 季前预期与反应日分析", url: "https://www.indmoney.com/blog/us-stocks/sandisk-stock-q1-earnings-analysis-why-sndk-fell" },
+    { type: "市场反应", label: "24/7 Wall St：Sandisk 与存储同行在财报次日同步下跌", url: "https://247wallst.com/investing/2026/10/30/sandisk-sinks-9-despite-earnings-beat-raised-guidance-and-8-for-1-split-western-digital-tumbles-8-seagate-slides-7-micron-falls-6/" }
+  ],
+  vic_notes: "接回本站 8/05 那条 SNDK 记录，它留了五个待验证点。收入突破上一季指引的上沿，过了。数据中心环比增长并抵掉消费类疲弱，过了。毛利率守住 80% 以上，过了。多年供货协议继续增加，过了，但金额不披露。最后一条是警示：存储同行同步走弱要警惕周期见顶。财报后五个交易日，SNDK、MU、WDC、STX 都跌了三成上下，这条触发了。",
+  outcome: "财报 10/29 美东盘后发布，反应交易日 10/30：开 1215.10、较前收 −8.6%，收 1150.89、−13.47%，量为 20 日均量 2.1 倍。同日 MU −5.30%、WDC −7.41%、STX −7.98%。到 11/05 收 806.43，五个交易日累计 −39.4%，同期 MU −29.7%。均为拆股前价格。"
+},
+{
+  type: "earnings",
+  date: "2026-11-05",
   ticker: "NET",
   company: "Cloudflare",
   sector: "tech",
@@ -13564,7 +13788,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
   SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials", ETN:"industrials", CRCL:"financials",
-  SNDK:"semis", ALAB:"semis", LRCX:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
+  SNDK:"semis", ARM:"semis", MTSI:"semis", ALAB:"semis", LRCX:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
