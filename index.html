@@ -493,6 +493,156 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-11-05",
+  ticker: "FROG",
+  company: "JFrog",
+  sector: "tech",
+  score: 87,
+  rec: "resonance",
+  dims: { quality: 38, marketread: 29, fundamentals: 20 },
+  compare: { revenueGrowth: 31, revenueGuidance: 26.6 },
+  business: {
+    plain: "JFrog 管理软件发布前的「零件仓库」：代码编译出来的安装包、容器镜像、AI 模型都存进它的 Artifactory，经过安全扫描后再发到服务器和设备上。",
+    howMakesMoney: "按年订阅收费，分自管版和云版。云版先签用量承诺，用超了再按量补费。大客户买 Enterprise+ 套餐，把安全扫描、发布管控一起打包。增长主要来自老客户用量变大和加购。",
+    moat: "一家公司所有团队、所有编程语言的制品都集中在一个仓库里，迁走等于改整条发布流水线。它不绑定任何一家云，客户在 AWS、Azure、谷歌云之间都用同一套。",
+    whatChanged: "云收入加速、占比过半；客户从付超额用量转向签更大的承诺，一家电信公司签下公司史上最大的 SaaS 合同。AI 模型、数据集和 MCP 服务器开始作为新的制品类型进仓库。全年指引年内第二次上调。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "1.792 亿美元", sub: "同比 +31%、环比 +9.4%；比指引中点 1.65 亿高 8.6%，S&P 季前预期 1.659 亿。KeyBanc 称是公司史上最大的收入超预期", tone: "beat", pct: 95 },
+    { label: "云收入", value: "1.015 亿美元", sub: "同比 +60%、环比 +16.0%，占收入 57%，上年同期 46%；自管收入 0.777 亿，只增 6%", tone: "up", pct: 95 },
+    { label: "净收入留存率", value: "124%", sub: "过去四季口径；二季度 121%、上年同期 118%。毛留存 97%，电话会口径", tone: "up", pct: 90 },
+    { label: "年付 100 万美元以上客户", value: "112 家", sub: "同比 +58%，二季度 97 家；10 万美元以上 1,357 家。Enterprise+ 占收入 61%，上年同期 56%", tone: "up", pct: 88 },
+    { label: "剩余履约义务", value: "8.124 亿美元", sub: "🔑 同比 +60%，二季度 +38%；环比多出 1.53 亿，其中一部分来自一笔 7,600 万美元的多年合同。60% 在未来 12 个月确认", tone: "up", pct: 85 },
+    { label: "Non-GAAP 营业利润", value: "0.407 亿美元", sub: "利润率 22.7%，上年同期 18.7%；比指引中点 0.28 亿高 45%。GAAP 营业亏损 0.018 亿", tone: "beat", pct: 92 },
+    { label: "Non-GAAP 每股收益", value: "0.32 美元", sub: "比指引中点 0.23 美元高 39%；GAAP 每股 0.05 美元，含以色列新规带来的 0.036 亿研发税收抵免", tone: "beat", pct: 88 },
+    { label: "自由现金流", value: "0.665 亿美元", sub: "利润率 37.1%；现金与投资 8.809 亿", tone: "up", pct: 85 },
+    { label: "Non-GAAP 毛利率", value: "83.6%", sub: "上年同期 83.9%；云业务的第三方托管成本多了 0.053 亿", tone: "flat", pct: 60 },
+    { label: "股权激励", value: "0.418 亿美元", sub: "占收入 23.3%", tone: "flat", pct: 45 },
+    { label: "Q4 收入指引", value: "1.83 亿到 1.85 亿美元", sub: "中点同比 +26.6%，比 S&P 季前预期 1.684 亿高 9.3%", tone: "up", pct: 85 },
+    { label: "Q4 利润指引", value: "Non-GAAP 营业利润 0.362 亿到 0.382 亿美元", sub: "🔑 中点利润率约 20.2%，低于三季度实际；每股 0.28 到 0.30 美元。回落的原因电话会没说", tone: "flat", pct: 50 },
+    { label: "全年指引", value: "收入 6.80 亿到 6.82 亿美元", sub: "年内第二次上调：2 月 6.23 亿到 6.28 亿，8 月 6.48 亿到 6.52 亿。云收入全年基准增速 52% 到 54%，原先 41% 到 43%", tone: "up", pct: 92 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/11，反应日 11/06 之后已过两个交易日。财务数字取自 8-K 和 10-Q；毛留存、云收入基准、大单和客户例子取自电话会（Benzinga 实录）。",
+    "云用量：上半年客户宁可付超额用量费，「几乎像买保险」，也不签更大的承诺；三季度「这种转换清楚多了」。超出承诺的用量不进指引。",
+    "大单：一家「领先的电信公司」签了 7,600 万美元的多年 SaaS 合同，用量承诺比原来多 167%，跑在 Azure 上，并加购安全和 AppTrust；这家客户早先从 Sonatype Nexus 迁过来。CFO 不拆这笔合同的算法。",
+    "企业迁移：福特把超过 1PB 的制品迁进 Artifactory；Credit Karma 的远程仓库全部跑在 JFrog 上。",
+    "AI：新的制品类型包括模型、数据集、MCP 服务器和技能，Anthropic 和 OpenAI 都是客户。分析师追问前沿 AI 实验室会不会自己做这类工具。",
+    "安全：今年不披露安全产品的数字；CFO 称安全的采购环境「非常健康」。Enterprise+ 收入增长 42%。",
+    "指引：CFO 说本季每项指标都「超过指引上沿」，指引把「最大的几笔机会」排除在外。没有客户占收入超过 3%。"
+  ],
+  narrative: {
+    summary: "公司史上最大的一次超预期：云收入加速，大客户和留存都在升，全年指引年内第二次上调。股价一天收复财报前的跌幅，随后创出新高。",
+    consensus: "多头看用量从「付超额」转成「签承诺」：客户把更多制品和 AI 模型放进 JFrog 管，迁移和安全加购让大客户越签越大；指引还刻意不含最大的几笔机会。",
+    divergence: "空头看三点：剩余履约义务的跳升里有一笔大单，不能直接外推；四季度利润率指引回落而公司没解释；前沿 AI 实验室若自己做制品管理和漏洞扫描，会压缩它的新增量。财报前一周股价已因这类担忧大跌。",
+    signals: [
+      "四季度实际收入超出指引的幅度，能否接近本季。",
+      "云收入能否保持在全年基准增速之上，超额用量是否继续转成承诺。",
+      "剩余履约义务去掉那笔大单后的增速。",
+      "四季度利润率回落是一次性投入还是新常态。",
+      "安全产品何时开始披露收入。",
+      "前沿 AI 实验室是否开始自建制品管理。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 1.792 亿美元、同比 +31%、环比 +9.4%；云收入同比 +60%，比指引中点高 8.6%。",
+    nextQ: "Q4 收入指引 1.83 亿到 1.85 亿美元，中点同比 +26.6%；全年云收入基准增速上调。",
+    direction: "云收入加速，总收入指引按惯例偏保守",
+    note: "口径说明三点。\n第一，按本站「下季指引对本季实际」，四季度指引中点的同比增速低于三季度实际；但本季实际大幅高出指引，公司也说指引不含最大的几笔机会，所以记为加速。\n第二，云收入全年基准增速不含超出承诺的用量。\n第三，自管收入由总收入减云收入得出，新闻稿不单列。"
+  },
+  decision: {
+    stance: "数字、指引和股价三者同向，反应日之后又创新高；先看回踩能否守住反应日的跳空",
+    risk: "那笔 7,600 万美元合同在剩余履约义务里占多少未披露。四季度利润率回落的原因未披露。安全和 AI 产品的收入未披露，规模无法量化。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "JFrog Q3 2026 业绩新闻稿（8-K 附件 EX-99.1，2026-11-05 盘后）", url: "https://www.sec.gov/Archives/edgar/data/0001800667/000119312526449797/frog-ex99_1.htm" },
+    { type: "公司公告", label: "JFrog Q3 2026 10-Q（2026-11-06）· 剩余履约义务确认节奏、托管成本、税收抵免", url: "https://www.sec.gov/Archives/edgar/data/1800667/000119312526451981/frog-20260930.htm" },
+    { type: "上季对照", label: "JFrog Q2 2026 业绩新闻稿（2026-08-06）· 本季指引与全年指引出处", url: "https://jfrog.com/press-room/jfrog-announces-second-quarter-2026-results/" },
+    { type: "历史口径", label: "JFrog Q4 2025 业绩新闻稿（2026-02-12）· 四季度同比的基数", url: "https://jfrog.com/press-room/jfrog-announces-fourth-quarter-and-fiscal-2025-results/" },
+    { type: "业绩会", label: "JFrog Q3 2026 电话会实录（Benzinga，经 Webull）· 云用量、大单、AI 制品", url: "https://www.webull.com/news/15873664685874176" },
+    { type: "市场预期", label: "StockStory：引 S&P 季前预期", url: "https://stockstory.org/us/stocks/nasdaq/frog/news/earnings/jfrog-nasdaqfrog-delivers-impressive-q3-2026-stock-jumps-225percent" },
+    { type: "市场反应", label: "Investing.com：KeyBanc 上调 JFrog 目标价", url: "https://www.investing.com/news/analyst-ratings/keybanc-raises-jfrog-stock-price-target-to-118-on-strong-results-93CH-5008276" }
+  ],
+  vic_notes: "自己算的三笔。一，云收入环比多 0.14 亿美元，总收入环比只多 0.154 亿，增量几乎全在云上。二，全年收入指引中点上调 0.31 亿，本季超出 0.142 亿，其余约 0.168 亿是加给四季度的。三，财报前五个交易日跌了 24.5%，反应日的涨幅先是收复这段跌幅，11/09 才越过 8/28 的前高。",
+  outcome: "财报 11/05 美东盘后发布，反应交易日 11/06：开 94.99、较前收 +27.3%，收 100.98、+35.33%。收在当日区间 91% 处，量为 20 日均量 3.4 倍；同日 IGV −0.13%。11/09 收 108.18，越过 8/28 的前高 105.76；11/10 收 103.55。"
+},
+{
+  type: "earnings",
+  date: "2026-11-05",
+  ticker: "U",
+  company: "Unity Software",
+  sector: "tech",
+  score: 85,
+  rec: "resonance",
+  dims: { quality: 38, marketread: 27, fundamentals: 20 },
+  compare: { revenueGrowth: 32, revenueGuidance: 37.6 },
+  business: {
+    plain: "Unity 有两块业务：一是游戏引擎，开发者用它做手机和主机游戏；二是广告平台，帮游戏公司投广告买用户，也帮游戏卖广告位赚钱。",
+    howMakesMoney: "引擎按开发者席位收订阅费，叫 Create。广告业务叫 Grow，按投放收费，核心是 AI 投放系统 Vector：它用游戏运行时的玩家行为数据，预测哪个玩家值得花多少钱去买。",
+    moat: "全球大量手机游戏用 Unity 引擎开发，引擎跑在玩家设备上，能拿到别家拿不到的运行时数据，这是 Vector 训练模型的原料。换引擎意味着重写游戏。",
+    whatChanged: "Vector 带动广告业务翻倍；ironSource 广告网络关停、Supersonic 出售后，收入结构只剩战略业务。上市以来第一次 GAAP 盈利，四季度指引继续加速。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "6.221 亿美元", sub: "同比 +32%、环比 +13.8%；比隐含指引中点 5.65 亿高 10.1%，Zacks 季前预期约 5.655 亿", tone: "beat", pct: 92 },
+    { label: "战略收入", value: "5.966 亿美元", sub: "同比 +59%、环比 +22.6%；比指引中点 5.45 亿高 9.5%。非战略收入只剩 0.255 亿", tone: "beat", pct: 95 },
+    { label: "Strategic Grow", value: "4.315 亿美元", sub: "同比 +90%、环比 +31.2%；比指引中点 3.825 亿高 12.8%。Vector 同比 +126%、环比 +40%，美元金额不披露", tone: "beat", pct: 97 },
+    { label: "Strategic Create", value: "1.651 亿美元", sub: "同比 +11%、环比 +4.8%；比指引中点 1.61 亿高 2.5%", tone: "flat", pct: 55 },
+    { label: "调整后 EBITDA", value: "2.566 亿美元", sub: "利润率 41%，上年同期 23%；比指引中点 1.875 亿高 36.9%", tone: "beat", pct: 97 },
+    { label: "GAAP 净利润", value: "1.216 亿美元", sub: "🔑 上市以来第一个 GAAP 盈利季，上年同期亏 1.268 亿；GAAP 摊薄每股 0.25 美元，调整后 0.44", tone: "up", pct: 90 },
+    { label: "自由现金流", value: "2.197 亿美元", sub: "上年同期 1.513 亿；股权激励 0.631 亿，比上年同期少 0.285 亿", tone: "up", pct: 88 },
+    { label: "现金与可转债", value: "现金 26.46 亿美元", sub: "可转债 5.575 亿 11/15 到期、用现金偿还，另有长期可转债 16.81 亿；未宣布回购", tone: "flat", pct: 60 },
+    { label: "Vector 广告主", value: "环比 +27%", sub: "约九成增长来自老广告主；前 1,000 大广告主里 30% 共享运行时数据，新项目授权共享超过 90%。电话会口径", tone: "up", pct: 85 },
+    { label: "Q4 战略收入指引", value: "6.83 亿到 6.91 亿美元", sub: "同比 +65% 到 +67%，中点比 Investing.com 季前预期 6.013 亿高 14%；Strategic Grow 5.15 亿到 5.20 亿、同比 +105% 到 +107%", tone: "up", pct: 95 },
+    { label: "Q4 利润指引", value: "调整后 EBITDA 2.90 亿到 2.95 亿美元", sub: "同比 +132% 到 +136%、利润率约 42%；中点比季前预期 2.013 亿高 45%", tone: "up", pct: 92 },
+    { label: "Q4 总收入指引（自算）", value: "6.88 亿到 6.96 亿美元", sub: "战略收入指引加非战略 0.05 亿；中点同比 +37.6%", tone: "up", pct: 75 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/11，反应日 11/05 之后已过三个交易日。财务数字取自 8-K；Vector 增速、广告主和运行时数据的口径取自电话会（Singju Post 实录）。",
+    "私有化传闻：Reuters 报道 Silver Lake 与沙特 PIF 曾和公司商谈以约 250 亿美元私有化，尚无协议，公司已请投行。报道引用的是财报后的市值，推断发布于 11/05 收盘后。",
+    "Vector：增长主要来自安装量增加和玩家价值提高，跨客户、操作系统和地区都很广；CEO 称这已是第七个季度。",
+    "CFO Bromberg 提醒「不是每个季度都会是 40% 的季度」；四季度指引假设 Vector 环比增长 21% 到 23%。",
+    "数据：头部广告主共享运行时数据的比例预计继续上升；和谷歌的新合作是非独家的。",
+    "Create：增长来自单客户收入和中国，全年预计增长约 9%。新的浏览器端创作平台 Spark 今年封闭测试、2027 年全面上线，先走免费增值。",
+    "利润与资本：调整后毛利率环比升 200 个基点，四季度 EBITDA 利润率预计再升 100 个基点。11/15 到期的可转债用现金还，回馈股东列为选项，未宣布回购。",
+    "没谈到的：AppLovin、Unity 6 的收费调整、Unity China，电话会都没有单独谈。"
+  ],
+  narrative: {
+    summary: "Vector 带着广告业务翻倍，战略收入和利润都大幅超指引，上市后第一次 GAAP 盈利，四季度指引再加速。股价在纳指暴跌那天逆势大涨，随后又叠上私有化传闻。",
+    consensus: "多头看 Vector 已连续七个季度在抢份额：增长主要来自老广告主加投，越来越多游戏把运行时数据交给它训练模型；利润率随规模快速抬升，现金足够还掉到期的可转债。",
+    divergence: "空头看两点：Vector 的美元规模和从外部抢来的份额仍不披露，增长里有多少是 ironSource 关闭后的内部迁移说不清；引擎业务 Create 增长偏慢。同日 AppLovin 大涨，U 的涨幅里有多少是行业顺风也分不开。",
+    signals: [
+      "四季度 Vector 能否兑现环比 21% 到 23% 的增长。",
+      "Vector 何时披露美元收入，或拆出外部份额。",
+      "Create 能否回到两位数增长，Spark 上线后怎么收费。",
+      "GAAP 盈利能否连续。",
+      "私有化谈判是否推进，报价相对现价的位置。",
+      "11/15 可转债偿还后的现金，以及会不会宣布回购。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 6.221 亿美元、同比 +32%；战略收入 +59%，其中 Strategic Grow +90%。",
+    nextQ: "Q4 战略收入指引同比 +65% 到 +67%，Strategic Grow +105% 到 +107%。",
+    direction: "战略收入继续加速，Vector 带动广告业务翻倍",
+    note: "口径说明三点。\n第一，战略收入剔除了已关停的 ironSource 广告网络、已出售的 Supersonic 等非战略业务，是公司自己定的口径。\n第二，总收入指引由战略收入指引加非战略部分推出，同比由本站自算。\n第三，Vector 的美元收入公司不披露，只给增速。"
+  },
+  decision: {
+    stance: "增长、利润和指引全面超预期；11/06 起的走势混有私有化传闻，按财报读只看 11/05 当天",
+    risk: "Vector 的美元收入未披露，外部份额与内部迁移的比例未拆分。私有化报道的发布时点未取得一手确认，11/06 之后的涨幅有多少来自它无法量化。重组费用 0.125 亿美元的原因未披露。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Unity Q3 2026 业绩新闻稿（8-K 附件 EX-99.1，2026-11-05 盘前）", url: "https://www.sec.gov/Archives/edgar/data/0001810806/000181080626000053/a2026q3ex-991.htm" },
+    { type: "上季对照", label: "Unity Q2 2026 业绩新闻稿（2026-08-06）· 本季指引出处", url: "https://investors.unity.com/news/news-details/2026/Unity-Reports-Second-Quarter-2026-Financial-Results/default.aspx" },
+    { type: "历史口径", label: "Unity Q4 2025 业绩新闻稿 · 四季度同比的基数", url: "https://investors.unity.com/news/news-details/2026/Unity-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Financial-Results/default.aspx" },
+    { type: "业绩会", label: "Unity Q3 2026 电话会实录（Singju Post）· Vector、运行时数据、Spark、资本安排", url: "https://singjupost.com/unity-technologies-q3-2026-earnings-call-transcript/" },
+    { type: "市场预期", label: "Investing.com：Unity 季前预期（含四季度）", url: "https://uk.investing.com/news/stock-market-news/unity-software-stock-soars-22-on-strong-q3-beat-robust-guidance-4960574" },
+    { type: "市场反应", label: "Private Equity Wire：Silver Lake 与 PIF 商谈 250 亿美元私有化（转述 Reuters）", url: "https://privateequitywire.com/news/silver-lake-and-pif-in-talks-over-25bn-unity-buyout" },
+    { type: "市场反应", label: "Investing.com：Goldman Sachs 上调 Unity 目标价", url: "https://www.investing.com/news/analyst-ratings/goldman-sachs-raises-unity-software-stock-price-target-on-strong-q3-results-93CH-5006854" }
+  ],
+  vic_notes: "接回本站 8/06 那条 U 记录。它留的待验证点逐条看。Strategic Grow 达到 3.80 亿到 3.85 亿，大幅超过。三季度 GAAP 盈利，过了，是上市以来第一次。Supersonic 出售后的费用变化，部分给了。Vector 里外部份额和内部迁移各占多少，仍未披露，验证不了。另外，那条记录写的「股价首日下跌约 19%」与日线不符：8/06 收 +15.1%，8/07 再涨 5.4%。",
+  outcome: "财报 11/05 盘前发布，反应交易日即当日：开 48.06、较前收 +13.2%，收 48.80、+14.93%。收在当日区间 85% 处，量为 20 日均量 5.2 倍；同日 QQQ −6.49%，同行 APP +31.04%。11/06 收 51.49，叠有私有化报道；11/10 收 50.34。"
+},
+{
+  type: "earnings",
+  date: "2026-11-05",
   ticker: "MTSI",
   company: "MACOM Technology Solutions",
   sector: "semis",
@@ -13786,7 +13936,7 @@ const SECTOR_META = {
 const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", IOT:"tech", ZS:"tech", HPE:"tech", PSNL:"healthcare",
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
-  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
+  APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", FROG:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
   SPCX:"industrials", BE:"industrials", HXL:"industrials", LMT:"industrials", FIX:"industrials", RTX:"industrials", GEV:"industrials", VMI:"industrials", RKLB:"industrials", ASTS:"industrials", VELO:"industrials", ONDS:"industrials", LUNR:"industrials", ETN:"industrials", CRCL:"financials",
   SNDK:"semis", ARM:"semis", MTSI:"semis", ALAB:"semis", LRCX:"semis", AMD:"semis", INTC:"semis", TSM:"semis", AEHR:"semis", ASML:"semis", ADI:"semis", LITE:"semis", COHR:"semis", AMAT:"semis", CRDO:"semis", MRVL:"semis", GFS:"semis", ASX:"semis", NVDA:"semis", FN:"semis", MU:"semis",
   CSCO:"tech",
