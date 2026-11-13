@@ -493,6 +493,83 @@ const RECORDS = [
 {
   type: "earnings",
   date: "2026-11-12",
+  ticker: "AMAT",
+  company: "Applied Materials",
+  sector: "semis",
+  score: 70,
+  rec: "repricing",
+  dims: { quality: 37, marketread: 13, fundamentals: 20 },
+  compare: { revenueGrowth: 53.1, revenueGuidance: 58.3 },
+  business: {
+    plain: "Applied Materials 卖造芯片的设备：在硅片上沉积薄膜、刻蚀、离子注入和检测量测。台积电、三星、SK 海力士、美光扩产或换新制程，都要向它下单。",
+    howMakesMoney: "三块收入：半导体系统卖设备，本季占 77%；全球服务按装机量做维修、卖备件和升级，是经常性收入；其他主要是显示面板设备。设备收入跟着客户的资本开支周期走。",
+    moat: "它在沉积、刻蚀等多道工序都有成套设备和几十年的工艺配方，客户换供应商要重新验证整条产线。新开的 EPIC 研发中心把芯片厂直接拉进来一起开发下一代工艺，已签 15 家。",
+    whatChanged: "收入、利润率和自由现金流都创纪录，但设备收入的增量几乎全来自存储，代工和逻辑环比没涨。10 月投资者早餐会上没给的 2027 年行业预测，这次在电话会上给了。2026 日历年设备业务增长目标从超过 30% 上调到超过 40%。"
+  },
+  metrics: [
+    { label: "Q4 收入", value: "104.09 亿美元", sub: "同比 +53.1%、环比 +14.2%；比指引中点 102.5 亿高 1.6%，季前预期 103.0 亿（Reuters、Investing.com）", tone: "beat", pct: 78 },
+    { label: "半导体系统", value: "79.96 亿美元", sub: "同比 +63.9%、环比 +13.6%；Non-GAAP 营业利润率 39.0%，三季度 38.0%", tone: "up", pct: 88 },
+    { label: "设备收入结构", value: "DRAM 占 33%", sub: "🔑 三季度 26%、上年同期 28%；代工和逻辑从 67% 降到 58%。按占比自算，DRAM 环比约 +44%，代工和逻辑约 −2%", tone: "flat", pct: 60 },
+    { label: "全球服务", value: "18.96 亿美元", sub: "同比 +25.9%、环比 +6.5%；营业利润率 30.5%，三季度 30.1%", tone: "up", pct: 72 },
+    { label: "Non-GAAP 毛利率", value: "50.6%", sub: "三季度 50.4%、上年同期 48.1%，连续 14 个季度同比提升；Non-GAAP 营业利润率 35.3%，三季度 34.0%", tone: "up", pct: 82 },
+    { label: "Non-GAAP 每股收益", value: "4.16 美元", sub: "同比 +92%，比指引中点 4.02 高 3.5%，季前预期 4.06。GAAP 3.40，差额主要是战略投资未实现亏损 6.53 亿", tone: "beat", pct: 80 },
+    { label: "自由现金流", value: "26.16 亿美元", sub: "单季纪录；经营现金流 33.00 亿，资本开支 6.84 亿。应收账款 89.98 亿，环比 +17.0%，快于收入", tone: "up", pct: 80 },
+    { label: "股东回报", value: "回购 20 亿＋分红 4.21 亿美元", sub: "回购是八年多来单季最大，授权还剩 108 亿；10/26 另签协议，把 Besi 持股增至约 20%", tone: "up", pct: 75 },
+    { label: "中国收入", value: "占 25%", sub: "三季度 28%、上年同期 29%；金额 26.42 亿，环比 +5.4%。台湾 29.16 亿，环比 +44%", tone: "up", pct: 70 },
+    { label: "Q1 收入指引", value: "111 亿美元 ±5 亿", sub: "中点同比 +58.3%、环比 +6.6%（自算）；这季有 14 周、比平常多一周。LSEG 预期 108.9 亿。半导体系统约 87 亿、服务约 20 亿", tone: "up", pct: 80 },
+    { label: "Q1 利润指引", value: "Non-GAAP 每股 4.35 美元 ±0.20", sub: "中点同比 +83%，季前预期 4.25（Investing.com）；Non-GAAP 毛利率约 50.8%", tone: "up", pct: 78 },
+    { label: "2027 行业指引", value: "晶圆厂设备需求增长超过 30%", sub: "🔑 电话会口径，公司说会继续跑赢行业；增速取决于洁净室和零部件供应能扩多快。2026 日历年半导体系统增长超过 40%", tone: "up", pct: 82 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/13 美东开盘前，反应日还没交易。财务数字取自 8-K 新闻稿；分部指引、2027 年行业判断和供应链口径取自电话会（Investing.com 实录，AI 生成后经编辑审过）。",
+    "2027：CEO Dickerson 称 2027 年是行业和公司又一个纪录年，晶圆厂设备需求「增长超过 30%」是「目前的看法」；增速取决于从洁净室到零部件、原材料的整条供应链能扩多快。",
+    "需求：领先制程逻辑和 DRAM 晶圆厂满负荷，NAND 紧随其后，成熟制程 ICAPS 回到健康区间、2027 年非中国部分增长快得多。CEO 说没听到客户要推迟，反而要求加快。",
+    "先进封装 2026 日历年收入增长约 90%，检测量测增长超过 50%；混合键合约 80% 的工序步骤它都有设备。",
+    "供应：几处零部件「卡点」不至于打乱展望，2027 年每季产出都要增加，目标是 2028 年系统产出比本季翻倍。中期看，洁净室是行业能吃下多少设备的关口，2027 年在跟踪 20 多个新厂和扩线。",
+    "可见度：最大的几家客户给滚动八个季度的预测并提前下单；订单积压没有给数字。",
+    "毛利与费用：新工具涨价和产出提升盖过了招人培训的爬坡成本。下季 Non-GAAP 营业费用约 17 亿美元、税率约 13%；二季度服务收入与一季度相近。",
+    "中国：会增长但慢于 AI 带动的市场，2027 年对中国出货占比「可能低于 25%」。实录里没有谈出口管制和关税。"
+  ],
+  narrative: {
+    summary: "收入、利润率和现金流都创纪录，下季指引高于预期，管理层还给出 2027 年行业设备需求的增长判断。但本季设备增量集中在存储，股价财报前已从 6 月高点下来接近一半。",
+    consensus: "多头看三点：AI 让领先制程逻辑和 DRAM 晶圆厂满负荷，客户要求加快交货；2027 年行业继续高增长，公司说会跑赢；新工具涨价推着毛利率连续抬升，回购创八年来单季新高。",
+    divergence: "空头看三点：本季设备增量集中在 DRAM，代工和逻辑环比没涨；增长能走多快卡在洁净室和零部件，管理层自己也这么说；下季多出一周，同比被日历抬高。盘后只涨了不到 1%，弱于同行。",
+    signals: [
+      "反应日 11/13 收盘相对 LRCX、KLAC 的强弱。",
+      "一季度实际收入超出指引的幅度，以及二季度服务收入是否如公司所说持平。",
+      "代工和逻辑的设备收入能否恢复环比增长。",
+      "2027 年行业增长判断在下次财报会上调还是下修。",
+      "洁净室和零部件卡点有没有让交付后移。",
+      "中国出货占比在 2027 年是否落到 25% 以下。"
+    ]
+  },
+  accel: {
+    thisQ: "Q4 收入 104.09 亿美元、同比 +53.1%、环比 +14.2%；半导体系统同比 +63.9%，增量主要来自 DRAM。",
+    nextQ: "Q1 收入指引 111 亿美元 ±5 亿，中点同比 +58.3%、环比 +6.6%；这个季度有 14 周。",
+    direction: "同比继续加速，多出一周、环比放缓",
+    note: "口径说明三点。\n第一，按本站「下季指引对本季实际」，一季度指引中点的同比高于四季度实际，记为加速；但一季度多一周，公司说主要抬高服务收入，同比里有一部分来自日历。\n第二，设备收入按客户类型的金额由占比乘总额自算，占比四舍五入到整数，误差约正负 0.4 亿美元。\n第三，公司的 2026 日历年指二季度到下一财年一季度，所以「超过 40%」已含下季指引。"
+  },
+  decision: {
+    stance: "数字和指引都过关，电话会回答了十月两次大跌各自的疑问；反应日未开盘，先看正式盘相对同行",
+    risk: "订单积压金额未披露。超过 10% 的大客户本次未披露，要等 10-K。多出一周对一季度收入的影响无法量化。全年 2.53 亿美元出口管制和解费落在哪个季度，新闻稿未拆分。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Applied Materials Q4 FY2026 新闻稿（8-K 附件 EX-99.1，2026-11-12 盘后）", url: "https://www.sec.gov/Archives/edgar/data/6951/000162828026073360/exhibit991q42026earningsre.htm" },
+    { type: "上季对照", label: "Applied Materials Q3 FY2026 新闻稿 · 本季指引与上季分部出处", url: "https://www.sec.gov/Archives/edgar/data/6951/000162828026056699/exhibit991q32026earningsre.htm" },
+    { type: "历史口径", label: "Applied Materials Q2 FY2026 新闻稿 · 推算一季度同比基数", url: "https://www.sec.gov/Archives/edgar/data/6951/000162828026035071/exhibit991q22026earningsre.htm" },
+    { type: "公司公告", label: "增持 Besi 至约 20% 公告（8-K 附件 EX-99.1，2026-10-26）", url: "https://www.sec.gov/Archives/edgar/data/6951/000162828026067303/ex991prforprojectbasil.htm" },
+    { type: "业绩会", label: "Applied Materials Q4 FY2026 电话会实录（Investing.com）· 2027 行业判断、分部指引、供应链", url: "https://au.investing.com/news/stock-market-news/earnings-call-transcript-applied-materials-tops-q4-2026-forecasts-as-ai-demand-lifts-outlook-93CH-4767141" },
+    { type: "市场预期", label: "Reuters（经 finwire）：季前预期与下季 LSEG 预期", url: "https://finwire.io/news/stock-markets-news/applied-materials-forecasts-quarterly-revenue-above-estimates-on-strong-ai-chip-demand" },
+    { type: "市场预期", label: "Investing.com：季前预期与下季每股预期", url: "https://www.investing.com/news/earnings/applied-materials-shares-trade-lower-depite-q4-beat-5023202" },
+    { type: "市场反应", label: "Investing.com（经 Yahoo）：10/13 投资者日未给行业预测", url: "https://finance.yahoo.com/markets/stocks/articles/applied-materials-shares-slide-chip-170346016.html" },
+    { type: "市场反应", label: "StockStory：10/22 设备股因洁净室与供应瓶颈下跌", url: "https://www.financialcontent.com/article/stockstory-2026-10-22-applied-materials-lam-research-kla-corporation-formfactor-and-penguin-solutions-shares-plummet-what-you-need-to-know" }
+  ],
+  vic_notes: "接回本站 8/13 那条 AMAT 记录。四季度收入在指引内：过了，略高于中点。半导体系统利润率守住 38%：过了。中国占比没有回升：过了。自由现金流：过了，创单季纪录。日历年设备增长超过 30%：上调到超过 40%。财报后守住跌幅：没守住。股价十月两次大跌，10/13 −6.69% 是投资者日没给行业预测，10/22 −8.16% 是 Lam 谈供应瓶颈。",
+  outcome: "财报 11/12 美东盘后发布，反应交易日 11/13 尚未开盘，不计入。11/12 收 380.95 美元、−3.58%，量为 20 日均量 1.08 倍；距 6/30 的 52 周高 739.67 为 −48.5%。盘后收 383.83、+0.76%，区间 −2.0% 到 +3.66%，只作参考；同时段 LRCX +1.68%、KLAC +1.24%。"
+},
+{
+  type: "earnings",
+  date: "2026-11-12",
   ticker: "NBIS",
   company: "Nebius Group",
   sector: "tech",
