@@ -492,6 +492,81 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-11-12",
+  ticker: "NBIS",
+  company: "Nebius Group",
+  sector: "tech",
+  score: 50,
+  rec: "repricing",
+  dims: { quality: 27, marketread: 10, fundamentals: 13 },
+  compare: { revenueGrowth: 571 },
+  business: {
+    plain: "Nebius 是一家 AI 云公司：自己建数据中心、买英伟达 GPU，按小时或按长期合同把算力租给训练和运行 AI 模型的公司。另有自动驾驶 Avride 和在线教育 TripleTen 两块小业务。",
+    howMakesMoney: "按 GPU 小时或多年合同收算力租金。大客户签长约时往往先付一大笔预付款，Nebius 用这笔钱加上可转债和抵押贷款去建机房、买 GPU，机房上线后再按合同确认收入。",
+    moat: "自建机房和电力合同是最稀缺的资源；它在芬兰、美国等地签下的电力，加上整套 AI 云软件，让它接得住微软、Meta 这一级的长约。代价是资本开支远大于收入，靠外部融资撑着。",
+    whatChanged: "收入大增，但三分之一来自不可重复的合作收入。第三方机房延误，微软的部分交付推到明年，全年收入降到指引低端、年底 ARR 目标推迟。同时资本开支上调，并首次给出 2027 年的收入、资本开支和盈利时间表。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "9.808 亿美元", sub: "同比 +571%、环比 +68%；季前预期约 9.07 亿（Proactive、Investing.com），Zacks 9.168 亿", tone: "beat", pct: 80 },
+    { label: "非经常性合作收入", value: "3.251 亿美元", sub: "🔑 公司自称「本质上不可重复」，占本季收入 33.1%。前三季合计 4.091 亿，上半年有 0.84 亿；剔除后本季 6.557 亿，环比 +12.6% 到 +31.6%（自算，取决于二季度含多少）", tone: "miss", pct: 25 },
+    { label: "ARR", value: "64 亿美元", sub: "🔑 只按单月年化；年底 70 亿到 90 亿的目标改成「明年 2 月超过 70 亿」，公司称 ARR 已不是合适的衡量指标", tone: "miss", pct: 30 },
+    { label: "调整后 EBITDA", value: "4.658 亿美元", sub: "利润率 47%，二季度 2.362 亿；AI 云 5.182 亿、利润率 53.2%，Avride 亏 0.455 亿", tone: "up", pct: 80 },
+    { label: "剩余履约义务", value: "387 亿美元", sub: "二季度末 375 亿；三季度以来新签合同超过 120 亿，含 Databricks、Datadog、Snowflake，金额和期限不披露", tone: "up", pct: 70 },
+    { label: "GAAP 每股", value: "−0.13 美元", sub: "持续经营净亏 0.375 亿；季前预期每股亏 0.63 到 0.72 美元。调整后净利 0.909 亿", tone: "beat", pct: 65 },
+    { label: "经营现金流", value: "−2.730 亿美元", sub: "🔑 资本开支 73.004 亿，单季现金缺口约 75.7 亿（自算）；前三季经营现金流 +42.311 亿，主要靠客户预付款", tone: "down", pct: 15 },
+    { label: "债务与融资", value: "长期债务 140.03 亿美元", sub: "本季发可转债 57.5 亿、前三季合计 100.875 亿；ATM 卖股净得约 10 亿；10 月再签花旗 35 亿担保贷款。现金 74.256 亿", tone: "down", pct: 30 },
+    { label: "客户集中度", value: "前三大客户占 70%", sub: "分别占本季收入 15%、22%、33%，客户未具名；一家客户占应收账款 75%", tone: "down", pct: 25 },
+    { label: "全年收入指引", value: "30 亿到 32 亿美元", sub: "原区间 30 亿到 34 亿，降到低端；FactSet 季前预期 33.5 亿。隐含四季度约 10.4 亿到 12.4 亿（自算）", tone: "miss", pct: 25 },
+    { label: "全年资本开支指引", value: "约 270 亿美元", sub: "原指引 200 亿到 250 亿；调整后 EBITDA 利润率约 40% 不变", tone: "down", pct: 30 },
+    { label: "2027 指引", value: "收入 120 亿到 130 亿美元", sub: "资本开支 400 亿到 450 亿，FactSet 预期约 288 亿；2027 年四季度税前打平；预付款 170 亿到 200 亿", tone: "flat", pct: 55 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/13，反应日 11/12 已收盘。财务数字取自两份 6-K（新闻稿、股东信、经营与财务回顾）；价格、交付节奏和融资口径取自电话会（Motley Fool 实录）。",
+    "需求：CEO Volozh 称「AI 需求真实而且可观」，CFO 称产能「都会卖掉」。三季度以来的新签合同大多来自 AI 原生公司。",
+    "价格：合同价格「每兆瓦超过 2,500 万美元」；GPU 小时价比二季度高 20% 以上。",
+    "交付：第三方托管机房「包括新泽西在内」进度落后，微软剩余批次推到 2027 年二季度；自建机房「按计划」。第一批 Vera Rubin 系统已上线。",
+    "融资：微软和 Meta 的合同可以继续拿去做资产抵押融资；ATM「是灵活工具，不是承诺」。2027 年预付款加资产抵押融资覆盖资本开支的 75% 到 85%。",
+    "盈利：目标 2027 年四季度税前盈利。服务器折旧年限从 4 年改为 5 年，影响金额未量化。",
+    "ARR：公司说不再把 ARR 当作合适的衡量指标，之后不再给 ARR 指引。"
+  ],
+  narrative: {
+    summary: "收入远超预期，但三分之一是不可重复的合作收入；全年指引降到低端，ARR 目标推迟，资本开支再上调。市场把它从增速故事改按资本开支和交付节奏来定价。",
+    consensus: "多头看订单和价格：剩余履约义务接近 400 亿美元，三季度以来又签了一批大客户，单价还在涨；自建机房按计划推进，管理层给出 2027 年收入翻几倍、四季度税前打平的路线。",
+    divergence: "空头看三处：本季超预期靠一次性收入，剔除后环比只增一成到三成；第三方机房延误，收入往后推，资本开支却往上加；钱主要靠可转债、卖股和抵押贷款，三家客户占七成收入。",
+    signals: [
+      "四季度剔除非经常性收入后的环比增速。",
+      "明年 2 月 ARR 能否超过公司给的门槛。",
+      "新泽西等第三方机房何时交付，微软剩余批次能否在 2027 年二季度到位。",
+      "新签合同的预付款比例，以及 ATM 卖股的节奏。",
+      "客户集中度能否下降。",
+      "2027 年资本开支的外部融资能否按计划落地。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 9.808 亿美元、同比 +571%、环比 +68%；其中 3.251 亿是公司自己说的非经常性合作收入。",
+    nextQ: "全年收入降到原区间低端，隐含四季度 10.4 亿到 12.4 亿美元；年底 ARR 目标推到明年 2 月。",
+    direction: "剔除非经常性收入后环比减速，全年指引降到低端",
+    note: "口径说明三点。\n第一，非经常性合作收入来自同日另一份 6-K 的经营与财务回顾，新闻稿不单列。\n第二，剔除后的环比由本站自算；上半年那 0.84 亿在一、二季度之间怎么分未披露，所以只能给区间。\n第三，四季度隐含收入由全年指引减去前三季实际推出。"
+  },
+  decision: {
+    stance: "需求和价格都在，但兑现时间往后推、花钱往前提；先看四季度剔除一次性后的增速和机房交付",
+    risk: "非经常性合作收入来自哪家客户未披露，上半年那 0.84 亿在两季之间怎么分也未披露。三季度以来新签合同的金额拆分和期限未披露。服务器折旧年限延长对利润的影响未量化。Stock Market Nerd 只发了财报前瞻，结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Nebius Q3 2026 新闻稿（6-K 附件 EX-99.1，2026-11-12 盘前）", url: "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-1.htm" },
+    { type: "公司公告", label: "Nebius Q3 2026 股东信（6-K 附件 EX-99.2）· ARR、合同、2027 指引", url: "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm" },
+    { type: "公司公告", label: "Nebius Q3 2026 经营与财务回顾（第二份 6-K）· 非经常性收入、分部 EBITDA", url: "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d1.htm" },
+    { type: "公司公告", label: "Nebius Q3 2026 财务报表（第二份 6-K）· 客户集中度", url: "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm" },
+    { type: "上季对照", label: "Nebius Q2 2026 股东信 · 原指引出处", url: "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm" },
+    { type: "业绩会", label: "Nebius Q3 2026 电话会实录（Motley Fool）· 价格、交付延误、融资", url: "https://www.fool.com/earnings/call-transcripts/2026/11/12/nebius-group-nbis-q3-2026-earnings-call-transcript/" },
+    { type: "市场预期", label: "Proactive（经 Yahoo）：Nebius 季前预期与指引反应", url: "https://uk.finance.yahoo.com/news/nebius-shares-slide-revenue-guidance-133400033.html" },
+    { type: "市场预期", label: "Startup Fortune：引 FactSet 的全年收入与 2027 资本开支预期", url: "https://startupfortune.com/nebius-shares-fall-as-much-as-16-after-q3-beat-and-a-later-arr-target/" }
+  ],
+  vic_notes: "接回本站 8/11 那条 NBIS 记录，它留了六个待验证点。三季度环比约 +45%：账面过了，剔除非经常性收入后没过。调整后 EBITDA 利润率：过了。年底 ARR 进度：没过，目标推到明年 2 月。5 吉瓦合同电力：目标不变，目前超过 4 吉瓦。资本开支与收入的时间差：拉大了。预付款比例：2027 年给了总额，单笔合同仍不披露。",
+  outcome: "财报 11/12 盘前发布，反应交易日即当日：开 119.94、较前收 −22.5%，收 128.64、−16.84%。收在当日区间 71% 处，量为 20 日均量 2.7 倍。同日 CRWV −6.86%、IREN −6.53%，QQQ −0.32%。前一日 11/11 涨 15.4%。"
+},
+{
+  type: "earnings",
   date: "2026-11-05",
   ticker: "FROG",
   company: "JFrog",
