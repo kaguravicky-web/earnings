@@ -492,6 +492,164 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-10-21",
+  ticker: "TMO",
+  company: "Thermo Fisher Scientific",
+  sector: "healthcare",
+  score: 66,
+  rec: "doubt",
+  dims: { quality: 34, marketread: 13, fundamentals: 19 },
+  compare: { revenueGrowth: 9.1, revenueGuidance: 4.9 },
+  business: {
+    plain: "赛默飞世尔是全球最大的科研与制药工具供应商：卖实验室仪器、试剂和耗材，也替药企做临床试验和代工生产。药企、生物科技公司、高校和医院的实验室，大多都从它这里买东西。",
+    howMakesMoney: "四个分部。生命科学解决方案卖试剂和生物药生产耗材；分析仪器卖电镜和色谱质谱；专科诊断卖诊断试剂；实验室产品与生物制药服务最大，含分销渠道、药品代工和临床研究服务。耗材和服务是重复性收入，仪器跟着客户的资本开支走。",
+    moat: "规模和渠道：几十万种产品走同一张分销网，客户一张订单买齐。药企的生产工艺一旦用它的耗材和设备做了验证，换供应商就要重新报批。服务端靠多年期的临床试验和代工合同绑定客户。",
+    whatChanged: "有机增长升到 6%，是近两年最快的一季，全年收入、每股收益和自由现金流指引都上调。但公司说超出的部分主要是药品服务把四季度的客户活动提前做了，四季度有机增长指引仍是 4%。每股收益里还有一笔一次性的关税退款。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "121.37 亿美元", sub: "同比 +9.1%：有机 +6%、并购净贡献 +3%、汇率 0。季前预期 119.5 亿（Newsquawk），Zacks 称超预期 1.81%", tone: "beat", pct: 72 },
+    { label: "有机增长", value: "+6%", sub: "🔑 上季 5%，再往前五个季度都在 1% 到 3%（公司对账表）。电话会说比公司自己的预期高约 2 个百分点", tone: "up", pct: 74 },
+    { label: "实验室产品与生物制药服务", value: "68.63 亿美元", sub: "同比 +15%、有机 +10%，利润率 15.5%、上年 14.5%。药品服务 20.29 亿、同比 +17.8%；临床研究 24.45 亿、同比 +21.1%，主要是 Clario 并表（均自算）", tone: "up", pct: 78 },
+    { label: "分析仪器", value: "20.02 亿美元", sub: "同比 +6%、有机 +6%；分部利润 +25%，利润率 26.9%、上年 22.6%。电镜 8.27 亿、同比 +13.0%（自算），电话会说半导体客户需求强", tone: "up", pct: 76 },
+    { label: "生命科学解决方案", value: "27.19 亿美元", sub: "同比 +5%、有机只有 +1%。生物生产 8.96 亿、同比 +9.7% 是最快的一块；生物科学持平，基因科学 −2.5%（均自算）", tone: "flat", pct: 50 },
+    { label: "终端市场", value: "药企与生物科技 高个位数", sub: "学术与政府持平；工业与应用高个位数；诊断与医疗低个位数。北美、欧洲中个位数，亚太和中国都是低双位数", tone: "up", pct: 68 },
+    { label: "调整后营业利润率", value: "24.5%", sub: "上年 23.3%；GAAP 18.6%、上年 17.4%。其中关税退款净贡献约 0.6 亿美元、约 50 个基点，一次性", tone: "up", pct: 70 },
+    { label: "调整后每股收益", value: "6.68 美元", sub: "同比 +15%，季前预期 6.40（Zacks、Newsquawk）。比公司旧指引多 0.26：经营 0.08、汇率 0.03、关税退款 0.15。GAAP 4.64", tone: "beat", pct: 76 },
+    { label: "自由现金流", value: "21.15 亿美元", sub: "上年同期 18.40 亿，前九个月 46.18 亿。本季没有回购，分红约 1.75 亿；净债务对调整后 EBITDA 2.9 倍，二季度末 3.3 倍", tone: "up", pct: 72 },
+    { label: "全年收入指引", value: "477 亿–482 亿美元", sub: "旧指引 474 亿–481 亿；有机增长从「约 4%」（区间 3% 到 4%）定为 4%。电话会口头给出，新闻稿未列", tone: "up", pct: 64 },
+    { label: "全年每股收益指引", value: "25.13–25.43 美元", sub: "旧指引 24.93–25.33，中点 +0.15：经营 0.09、关税退款净额 0.05、汇率 0.01。下限正好等于季前全年一致预期（Zacks）", tone: "up", pct: 60 },
+    { label: "Q4 隐含指引", value: "收入 125.6 亿–130.6 亿美元", sub: "🔑 全年区间减前三季 351.36 亿自算，中点同比 +4.9%（上年 122.15 亿）；比上年多一个销售日。隐含每股 6.98–7.28 美元，上沿才等于季前一致预期", tone: "flat", pct: 45 },
+    { label: "全年自由现金流指引", value: "70 亿–75 亿美元", sub: "旧指引 69 亿–74 亿；调整后营业利润率全年扩张 80 个基点，维持不变", tone: "up", pct: 62 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/14，反应日 10/21 已收盘。财务数字取自 8-K 新闻稿和 10-Q；全年指引新闻稿没列，取自电话会（Motley Fool 实录，AI 辅助转写）。",
+    "节奏：CFO Meyer 说本季超出主要来自药品服务，一部分客户活动原本排在四季度，提前到三季度做完。他说有机增长从本季回到四季度那一档，药品服务是主因，但这块生意的商业势头很强。",
+    "关税退款：三季度获批并确认了绝大部分退款，不在旧指引里，属一次性。四季度会拿出约 0.4 亿美元再投入 AI、药品服务扩产和员工。",
+    "需求：CEO Casper 说药价谈判告一段落后药企信心回升。生物科技恢复的顺序是临床研究先回来，然后是分销渠道，高端试剂要再等几个季度。学术与政府持平，符合预期。",
+    "2027：分析师追问明年能否走到长期框架的上端，Casper 没给数，说 2/2 发指引。他的目标是在 2027 年下半年到 2028 年上半年回到「正常」，并说正常时 7% 是合理的有机增长。",
+    "资本配置：本季还掉约 11 亿美元到期票据，没有回购；微生物业务 8/12 卖出，收回约 10 亿美元。回购授权截至 10/30 剩 10 亿美元（10-Q）。",
+    "其他：9/4 签约出售一座药品服务工厂，计提 2.44 亿美元待售亏损，调整后口径剔除。执行副总裁 Shafer 年底退休（10/30 的 8-K）。"
+  ],
+  narrative: {
+    summary: "有机增长回到近两年最快，三项全年指引都上调。但超出的一块是四季度的生意提前做了，四季度指引没动；加上一次性关税退款，全年上调幅度小于本季超出幅度。",
+    consensus: "多头看三点：药企和生物科技需求在回来，临床研究和渠道先动、试剂随后；分析仪器靠电镜吃到半导体客户，分部利润率大幅抬升；Clario 并表后服务端增长快，现金流够一边还债一边分红。",
+    divergence: "空头看三点：超出主要是时间差，四季度有机增长回到旧口径，而且多一个销售日；每股收益超出里一半以上是关税退款；隐含四季度每股收益的上沿才碰到季前一致预期。反应日低开后收红，但涨幅落在同行后面。",
+    signals: [
+      "四季度有机增长实际落在哪里，药品服务回落多少。",
+      "2/2 给出的 2027 年有机增长指引落在长期框架的哪一段。",
+      "生物科学和基因科学试剂何时恢复增长，这是公司自己说的生物科技复苏最后一环。",
+      "学术与政府能否从持平转正。",
+      "关税退款这一次性收益过去之后，调整后营业利润率还能不能扩张。",
+      "反应日之后相对 XLV 和工具类同行的强弱。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 121.37 亿美元、同比 +9.1%，有机 +6%；调整后每股收益同比 +15%。",
+    nextQ: "Q4 收入按全年指引自算，中点约 128.1 亿美元、同比 +4.9%；有机增长指引 4%。",
+    direction: "减速：报表和有机增速都回落",
+    note: "口径说明两点。\n第一，公司不给季度收入指引；四季度数字是全年 477 亿–482 亿美元减去前三季自算，区间两端同比 +2.9% 和 +6.9%。\n第二，报表增速含 Clario 并表、减去已卖的微生物业务。看需求以有机增长为准，本站按「下季指引对本季实际」记为减速。"
+  },
+  decision: {
+    stance: "数字过关、指引上调，但超出有一块是时间差和一次性收益；反应日收红却落后同行，先看四季度和 2/2 的 2027 指引",
+    risk: "季度收入指引公司未披露，四季度数字为自算。药品服务提前到三季度的收入金额未拆分。终端市场和地区只给增速档位，金额未披露。季前一致预期只取得 Zacks 和 Newsquawk 两家，LSEG 和 FactSet 未取得。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Thermo Fisher Q3 2026 新闻稿（8-K 附件 EX-99.1，2026-10-21 盘前）", url: "https://www.sec.gov/Archives/edgar/data/97745/000009774526000173/q32026earnings8kex99_1.htm" },
+    { type: "公司公告", label: "Thermo Fisher Q3 2026 10-Q · 分部内业务收入、回购授权、重组与资产出售", url: "https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/tmo-20260926.htm" },
+    { type: "上季对照", label: "Thermo Fisher Q2 2026 新闻稿 · 环比对照", url: "https://www.sec.gov/Archives/edgar/data/97745/000009774526000138/q22026earnings8kex99_1.htm" },
+    { type: "公司公告", label: "Thermo Fisher Q3 2026 非 GAAP 对账表 · 有机增长序列与杠杆倍数", url: "https://s27.q4cdn.com/797047529/files/content_files/Q3-2026-Reconciliation-of-Financial-Information.pdf" },
+    { type: "业绩会", label: "Thermo Fisher Q3 2026 电话会实录（Motley Fool）· 全年指引、四季度节奏、关税退款", url: "https://www.fool.com/earnings/call-transcripts/2026/10/21/thermo-fisher-tmo-q3-2026-earnings-call-transcript/" },
+    { type: "上季对照", label: "Thermo Fisher Q2 2026 电话会实录（Motley Fool，经 Webull）· 旧指引出处", url: "https://www.webull.com/news/15279468122612736" },
+    { type: "市场预期", label: "Zacks：Q3 超预期幅度与全年、四季度一致预期", url: "https://www.zacks.com/stock/news/3011570/thermo-fisher-scientific-tmo-tops-q3-earnings-and-revenue-estimates" },
+    { type: "市场预期", label: "Newsquawk：Q3 收入与每股季前预期", url: "https://www.newsquawk.com/headlines/thermo-fisher-scientific-inc-tmo-q3-2026-usd-adj-eps-668-exp-640-revenue-121bln-exp-1195bln" },
+    { type: "公司公告", label: "8-K Item 5.02：执行副总裁 Shafer 退休（2026-10-30）", url: "https://www.sec.gov/Archives/edgar/data/97745/000009774526000181/tmo-20261027.htm" },
+    { type: "市场反应", label: "Benzinga：财报后目标价调整汇总", url: "https://www.benzinga.com/quote/TMO/price-targets" }
+  ],
+  vic_notes: "补记，写于财报三周后。自算两笔：剔除 0.15 的关税退款，本季每股只比旧指引多 0.11；全年中点上调里经营部分 0.09，跟三季度经营超出的 0.08 差不多，等于四季度没有再加码。财报后 10/22 到 10/30，TD Cowen、Stifel、Barclays、RBC、Citi、Argus 都上调了目标价（Benzinga 汇总），没看到下调。",
+  outcome: "财报 10/21 盘前发布，反应日即当日：开 665.00、较前收 −3.25%，收 694.02、+0.97%，盘中越过 10/15 的 52 周高。收在区间 74% 处，量 1.77 倍。同日 DHR +4.29%，A、WAT、MTD、IQV 涨 2.7% 到 3.3%，XLV −0.49%。11/13 收 700.22。"
+},
+{
+  type: "earnings",
+  date: "2026-10-21",
+  ticker: "DHR",
+  company: "Danaher",
+  sector: "healthcare",
+  score: 71,
+  rec: "repricing",
+  dims: { quality: 32, marketread: 22, fundamentals: 17 },
+  compare: { revenueGrowth: 8.3 },
+  business: {
+    plain: "丹纳赫做生命科学和诊断工具：卖生物药生产用的耗材和设备、实验室仪器，以及医院和化验室用的诊断仪器与试剂。药企造抗体药、科研机构做实验、医院做检测，都会用到它的东西。",
+    howMakesMoney: "三个分部。生物技术主要是 Cytiva 和 Pall 的生物工艺，卖药企生产抗体和疫苗用的耗材、树脂和设备；生命科学卖质谱、流式、实验室自动化等仪器；诊断最大，含 Beckman Coulter、Cepheid、Leica 和今年 6 月买下的 Masimo。大部分收入来自耗材和试剂的重复购买。",
+    moat: "药企的生产工艺一旦用某家的耗材做完验证并报批，换供应商就要重新验证，所以生物工艺耗材的客户很黏。诊断靠装机量：医院装了它的仪器，就长期买配套试剂。并购整合靠它的 DBS 管理体系。",
+    whatChanged: "新 CEO Sawyer Montgomery 10/1 上任后的第一份财报。每股收益大超预期，剔除呼吸道检测后的核心增长连升三季，生物工艺订单又是十几个百分点的增长。但呼吸道检测收入继续缩，全年核心增长指引下调，这一条只写在新闻稿的前瞻表里。另外从本季起，退给客户的关税不再计入核心增长，口径对公司有利。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "65.54 亿美元", sub: "同比 +8.3%（自算，公司按半个点取整写 8.5%），其中并购贡献 6.5 个点，主要是 Masimo。季前预期约 65.6 亿（Benzinga、Investing.com、StockStory），大致持平", tone: "flat", pct: 55 },
+    { label: "核心增长", value: "+3.0%", sub: "🔑 从本季起剔除退给客户的关税，这一项抬了 1.0 个点；按旧口径约 2.0%（自算），落在 7 月给本季指引 2% 到 3% 的下沿。价格贡献 −0.5%", tone: "flat", pct: 48 },
+    { label: "剔除呼吸道的核心增长", value: "+5.5%", sub: "一季度 3.0%、二季度 4.5%，连升三季；7 月给本季的指引约 5%。呼吸道检测收入约 3.5 亿美元，上年同期约 5 亿，拖累 2.5 个点", tone: "up", pct: 72 },
+    { label: "生物技术", value: "18.07 亿美元", sub: "核心 +5.0%，退给客户的关税让报表只增 0.5%。生物工艺核心增长在中个位数偏上，订单增长十几个百分点（电话会）；调整后利润率 41.8%，比上年同期高 460 个基点（演示稿）", tone: "up", pct: 74 },
+    { label: "生命科学", value: "18.65 亿美元", sub: "同比 +4.0%、核心 +4.5%；质谱、流式和实验室自动化带动，美国学术支出小幅改善。调整后利润率 21.7%", tone: "up", pct: 62 },
+    { label: "诊断", value: "28.82 亿美元", sub: "同比 +17.0%，并购占 16.5 个点；核心 +0.5%，剔除呼吸道 +7.0%。Cepheid 非呼吸道核心增长低双位数，Beckman 诊断是两年多来最快一季。GAAP 利润率 21.3%、上年 27.0%，被 Masimo 存货增值和并购摊薄", tone: "flat", pct: 55 },
+    { label: "调整后营业利润率", value: "29.0%", sub: "上年 27.9%，7 月给本季的指引约 26.5%。10-Q 说核心利润率提升来自收入和 IEEPA 关税退款；退款扣掉退给客户的部分，对净利贡献不到 1 亿美元", tone: "beat", pct: 76 },
+    { label: "调整后每股收益", value: "2.11 美元", sub: "同比 +11.5%，季前预期 1.92（Zacks、Benzinga、Newsquawk）。Guggenheim 估约 0.20 的超出里一半来自关税。GAAP 持续经营每股 1.71，含 2.63 亿美元税务审计和解收益", tone: "beat", pct: 80 },
+    { label: "自由现金流", value: "16.32 亿美元", sub: "上年同期 13.70 亿，经营现金流 18.86 亿。本季没有回购，前九个月回购 9.03 亿", tone: "up", pct: 70 },
+    { label: "全年核心增长指引", value: "约 +2.5%", sub: "🔑 7 月是 3.0% 到 4.0%，新闻稿正文没提这次下调。剔除呼吸道仍是中个位数；全年呼吸道收入从约 16 亿下调到约 15 亿；诊断分部从「小幅增长」改为「约持平」", tone: "down", pct: 30 },
+    { label: "全年每股收益指引", value: "8.57–8.62 美元", sub: "旧指引 8.45–8.60，下限抬 0.12、上限抬 0.02；季前全年一致预期 8.51 到 8.53（Benzinga、Zacks）。Guggenheim 说上调只反映经营那部分", tone: "up", pct: 62 },
+    { label: "Q4 指引", value: "核心约 +3.0%", sub: "7 月给四季度的是中个位数；剔除呼吸道 +4.0% 到 +5.0%，呼吸道收入约 4 亿、7 月是约 5 亿。调整后营业利润率约 29.5%。全年减前三季 6.11 自算，隐含每股 2.46–2.51，低于一致预期 2.57（Zacks）", tone: "down", pct: 38 },
+    { label: "2027 起点（正式指引前）", value: "剔除呼吸道核心 4% 到 5%", sub: "CFO Gugino 电话会口径，正式指引 1 月给；TD Cowen 称这是更容易达成的起点", tone: "flat", pct: 55 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/14，反应日 10/21 已收盘。财务数字取自 8-K 新闻稿、10-Q 和业绩演示稿；电话会取自 Benzinga 实录（机器转写，经 Webull 转载）。新闻稿 10/21 美东 6:00 发出。",
+    "需求：CEO Sawyer Montgomery 说大药企需求稳健，生物科技活动继续走强；学术需求环比改善，但仍低于历史水平。",
+    "生物工艺：CFO Gugino 说本季订单增长十几个百分点，上游耗材和树脂领头；设备订单维持在较强的两位数增长。",
+    "回流本土：CEO 说大型新建厂项目还在规划阶段，相关收入主要在 2028 年以后（Earnings Whispers 转述）。",
+    "呼吸道：公司按全年约 15 亿美元规划，四季度对核心增长约拖累 150 个基点。",
+    "2027 与资本配置：Gugino 说剔除呼吸道后的起点是上面那一档，正式指引 1 月给。CEO 说资本配置仍偏向并购；StatLab 9/28 完成收购，约 14 亿美元。",
+    "管理层：Sawyer Montgomery 10/1 接任 CEO，前任 Blair 转任顾问到年底。Rales 兄弟各放弃 50 万股创始人限制性股票，四季度相应记约 1.85 亿美元费用，调整后口径剔除。"
+  ],
+  narrative: {
+    summary: "新 CEO 第一季，利润和剔除呼吸道后的增长都超出预期，生物工艺订单强。但全年核心增长指引下调，隐含四季度每股收益低于一致预期；反应日市场选择看剔除呼吸道那条线。",
+    consensus: "多头看三点：剔除呼吸道的核心增长连升三季，诊断里非呼吸道业务在加速；生物工艺订单连续两季十几个百分点增长，设备订单也回来了；利润率大超指引，新 CEO 把 2027 起点给得务实。",
+    divergence: "空头看三点：全年核心指引下调只写在表格里，口径还从本季起改得对公司有利。每股超出约一半来自关税退款，隐含四季度低于一致预期。呼吸道检测还在缩，诊断分部核心几乎不增长，报表增长靠 Masimo 并表。",
+    signals: [
+      "四季度剔除呼吸道的核心增长能否落在指引区间，呼吸道收入是否守住约 4 亿美元。",
+      "生物工艺订单能否连续第三季十几个百分点增长，订单出货比何时披露。",
+      "1 月正式给出的 2027 指引落在电话会起点的上沿还是下沿。",
+      "关税退款过去后，调整后营业利润率还能不能守住本季的水平。",
+      "Masimo 和 StatLab 并表后，诊断分部利润率修复的节奏。",
+      "反应日之后相对 XLV 和工具类同行的强弱。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 65.54 亿美元、同比 +8.3%；核心 +3.0%，剔除呼吸道 +5.5%；调整后每股收益同比 +11.5%。",
+    nextQ: "Q4 核心增长指引约 +3.0%，剔除呼吸道 +4.0% 到 +5.0%；公司不给收入金额指引。",
+    direction: "核心持平，剔除呼吸道小幅减速",
+    note: "口径说明两点。\n第一，从本季起核心增长剔除退给客户的关税，本季因此高约 1 个点。7 月的全年指引是旧口径，新口径对公司有利，全年下调在同口径下只会更大。\n第二，公司只给核心增长、不给收入金额，本条不填下季收入同比。报表增速里有 Masimo 并表，要到明年 6 月才满一年。"
+  },
+  decision: {
+    stance: "利润超预期、剔除呼吸道的增长在加速，市场买了这条线；全年核心指引下调和四季度隐含偏低是待验证的另一面",
+    risk: "生物工艺的订单出货比未披露。关税退款对净利的贡献只给了上限，逐分部金额未拆分。LSEG 的季前预期未取得。8-K 前一晚收盘后已由 EDGAR 受理，何时对公众可见未取得。Stock Market Nerd 的结果卡本次未取得。"
+  },
+  sources: [
+    { type: "公司公告", label: "Danaher Q3 2026 新闻稿（8-K 附件 EX-99.1，2026-10-21 盘前）", url: "https://www.sec.gov/Archives/edgar/data/313616/000031361626000201/dhr-20261021xex991.htm" },
+    { type: "公司公告", label: "Danaher Q3 2026 10-Q · 分部与子业务、关税退款、回购、StatLab", url: "https://www.sec.gov/Archives/edgar/data/313616/000031361626000199/dhr-20260925.htm" },
+    { type: "公司公告", label: "Danaher Q3 2026 业绩演示稿 · 分部调整后利润与呼吸道收入", url: "https://investors.danaher.com/image/Q3+2026+Danaher+Earnings+Presentation.pdf" },
+    { type: "上季对照", label: "Danaher Q2 2026 新闻稿 · 7 月指引出处", url: "https://www.sec.gov/Archives/edgar/data/313616/000031361626000163/dhr-20260721xex991.htm" },
+    { type: "业绩会", label: "Danaher Q3 2026 电话会实录（Benzinga）", url: "https://www.benzinga.com/news/26/10/62494796/danaher-q3-2026-earnings-call-transcript" },
+    { type: "业绩会", label: "同一实录全文转载（Webull）", url: "https://www.webull.com/news/15786398249921536" },
+    { type: "市场预期", label: "Zacks（经 Yahoo）：季前预期与四季度、全年一致预期", url: "https://finance.yahoo.com/healthcare/articles/danaher-dhr-tops-q3-earnings-102502249.html" },
+    { type: "市场预期", label: "Investing.com：演示稿要点与季前收入预期", url: "https://www.investing.com/news/company-news/danaher-q3-2026-slides-strong-margins-offset-respiratory-headwinds-93CH-4963250" },
+    { type: "市场反应", label: "Benzinga：财报后目标价上调汇总（10/22）", url: "https://www.benzinga.com/analyst-stock-ratings/price-target/26/10/62542855/danaher-analysts-raise-their-forecasts-following-better-than-expected-q3-earnings" },
+    { type: "市场反应", label: "Benzinga：Guggenheim 拆关税对超预期的贡献（10/22）", url: "https://www.benzinga.com/analyst-stock-ratings/price-target/26/10/62545670/danaher-posts-first-earnings-under-new-ceo-emphasizes-need-for-improved-execution-innovation" },
+    { type: "公司公告", label: "8-K：CEO 交接（2026-08-03）", url: "https://www.sec.gov/Archives/edgar/data/313616/000119312526330652/d161342d8k.htm" },
+    { type: "公司公告", label: "8-K：新董事与 Rales 兄弟放弃限制性股票（2026-10-13）", url: "https://www.sec.gov/Archives/edgar/data/313616/000031361626000193/dhr-20261009.htm" }
+  ],
+  vic_notes: "补记，写于财报三周后。自算一笔：按旧口径本季核心约 2.0%，落在 7 月指引下沿，所以超预期主要在利润端、不在收入端。反应日它是工具类里涨得最多的一只，而全年核心指引是下调的——市场买的是剔除呼吸道那条线和生物工艺订单。财报后一天内 Baird、Stifel、TD Cowen、JP Morgan、Barclays 都上调了目标价（Benzinga）。",
+  outcome: "财报 10/21 盘前发布，反应日即当日：开 217.56、较前收 −2.98%，收 233.86、+4.29%，收在区间 97% 处，量 1.94 倍。同日 TMO +0.97%，A、WAT、MTD、IQV 涨 2.7% 到 3.3%，XLV −0.49%。前一日量已是 2.19 倍。11/13 收 233.02。"
+},
+{
+  type: "earnings",
   date: "2026-11-12",
   ticker: "AMAT",
   company: "Applied Materials",
@@ -14094,7 +14252,7 @@ const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", 
   CSCO:"tech",
   CRWV:"tech", NBIS:"tech",
   GOOG:"tech", IBM:"tech",
-  MOH:"healthcare", VEEV:"healthcare", JNJ:"healthcare", ELV:"healthcare",
+  MOH:"healthcare", VEEV:"healthcare", TMO:"healthcare", DHR:"healthcare", JNJ:"healthcare", ELV:"healthcare",
   GS:"financials", AFRM:"financials", PURR:"financials", TRV:"financials",
   SHOP:"consumer", TSLA:"consumer", SPOT:"consumer", NFLX:"consumer", WMT:"consumer", TPR:"consumer",
   CLF:"materials"
