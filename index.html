@@ -492,6 +492,92 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-11-17",
+  ticker: "NVDA",
+  company: "NVIDIA",
+  sector: "semis",
+  score: 70,
+  rec: "repricing",
+  dims: { quality: 37, marketread: 14, fundamentals: 19 },
+  compare: { revenueGrowth: 103.2, revenueGuidance: 90.8 },
+  business: {
+    plain: "英伟达卖训练和运行 AI 模型的芯片、网络设备和整机柜系统，是 AI 算力的事实标准。数据中心占收入九成以上；游戏显卡、工作站、汽车和机器人芯片合在边缘计算里。",
+    howMakesMoney: "从本财年起按客户类型报收入。数据中心分两块：超大规模云厂商，以及 AI 云、工业与企业客户；另一块是边缘计算。卖的是 GPU、Vera CPU、网络交换和整机柜，按出货确认收入。本季三家直接客户各占一成以上。",
+    moat: "CUDA 软件生态积累了十几年，客户换芯片要改代码、重新调优。芯片、网络和整机柜一起设计，交付的是能直接上线的系统。它还提前锁了内存和先进封装产能，供应承诺比上季多了接近四成。",
+    whatChanged: "收入、利润和下季指引都高过季前预期，2028 财年增长展望上调，Rubin 第一个季度就贡献了约六分之一的收入。但本季有一笔指引之外的中国 Hopper 收入，下季不再有。下季毛利率按上季的预告降到底部。应收、库存、供应承诺和担保都在变大。CEO 刚辞职，接班人未定。"
+  },
+  metrics: [
+    { label: "Q3 收入", value: "1158.44 亿美元", sub: "同比 +103%、环比 +20%。比公司指引中点 1080 亿高 7.3%，也高于区间上沿；季前预期 1091.0 亿（LSEG）", tone: "beat", pct: 90 },
+    { label: "数据中心", value: "1076.10 亿美元", sub: "同比 +110%、环比 +21%，季前预期 1018.7 亿（StreetAccount）。超大规模 601.36 亿、环比 +23%；AI 云、工业与企业 474.74 亿、环比 +18%，同比接近三倍", tone: "beat", pct: 90 },
+    { label: "中国 Hopper 出货", value: "24 亿美元", sub: "🔑 三季度指引假设中国数据中心算力收入为零，这笔不在指引里。电话会说已停止出货，四季度指引也不含。按直接客户总部，中国含香港收入 110.50 亿，上年同期 29.73 亿", tone: "flat", pct: 50 },
+    { label: "Rubin 第一个季度", value: "接近 200 亿美元", sub: "电话会口径，8 月开始量产出货，公司称是史上最快的产品爬坡；新闻稿没给金额。网络收入超过 210 亿，共封装光学已量产", tone: "up", pct: 85 },
+    { label: "边缘计算", value: "82.34 亿美元", sub: "同比 +42%、环比 +14%，工作站和物理 AI 带动；公司说内存和整机涨价在压消费 PC 需求", tone: "up", pct: 70 },
+    { label: "毛利率", value: "Non-GAAP 74.9%", sub: "上季 75.0%；指引 74.0% ±0.5 个百分点，季前预期也是 74.0%（StreetAccount）。环比微降，公司说是 Rubin 刚开始爬坡。GAAP 74.8%", tone: "beat", pct: 78 },
+    { label: "每股收益", value: "Non-GAAP 2.68 美元", sub: "同比 +111%，季前预期 2.48（LSEG、FactSet）。GAAP 2.70。本财年起 Non-GAAP 含股权激励，和旧口径不可比", tone: "beat", pct: 85 },
+    { label: "自由现金流", value: "437.77 亿美元", sub: "上季 213.41 亿；经营现金流 482.53 亿，环比翻倍，公司说部分是联邦税款缴纳时点。回购 221.22 亿、分红 60.26 亿，合计创纪录", tone: "up", pct: 85 },
+    { label: "应收与库存", value: "应收 810 亿美元", sub: "周转 64 天、上季 60 天：公司说是 Rubin 首发的出货节奏，加上给部分投资级大客户的多季度合同放宽了账期。库存 397.24 亿，环比 +25.7%，为 Rubin 备货", tone: "flat", pct: 45 },
+    { label: "供应承诺", value: "3900 亿美元", sub: "🔑 上季 2790 亿，主要是多年期内存采购，2028 财年要付 2030 亿。云服务协议和数据中心租约合计 1020 亿，上季 740 亿", tone: "up", pct: 65 },
+    { label: "担保与客户融资", value: "担保上限 1180 亿美元", sub: "上季 1085 亿。其中 1050 亿是给 SB Energy 为 OpenAI 建 PORTS-Pike 园区的信用支持，首期预计 2029 财年；至今没付过款。Neocloud 合同 320 亿，以对方融到资、设备验收为前提", tone: "flat", pct: 40 },
+    { label: "客户集中", value: "三家直接客户各占 14%、11%、11%", sub: "两家客户占应收账款的 18% 和 17%。电话会说几家前沿实验室今年约占数据中心收入 15%", tone: "flat", pct: 40 },
+    { label: "Q4 收入指引", value: "1300 亿美元 ±3%", sub: "中点同比 +90.8%、环比 +12.2%（自算）；含多出的一周，不含中国数据中心算力收入。季前预期 1251 亿（LSEG）", tone: "beat", pct: 82 },
+    { label: "Q4 毛利率指引", value: "71%–72%", sub: "季前预期 71.7%（FactSet）。电话会说与上季给的展望一致，四季度是底部，2028 财年回到 72% 到 73%。Non-GAAP 营业费用约 107 亿，含多一周和管理层交接成本", tone: "flat", pct: 50 },
+    { label: "2028 财年增长指引", value: "约 75%", sub: "🔑 上季说约 70%，电话会口径，新闻稿未列。按本财年前三季加四季度指引中点自算约 7414 亿，FactSet 季前预期 6923.5 亿", tone: "beat", pct: 82 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/18 美东开盘前，反应日还没交易。财务数字取自 8-K 新闻稿、CFO 说明和补充财务表；电话会取自两份第三方实录（SingJuPost、StockAnalysis），两份互相印证，专名有转写错误。",
+    "领导层：8-K 写 11/11 董事会接受黄仁勋辞去总裁、CEO 和董事，11/12 对外公布；CFO Kress 兼代理 CEO，Harvey Jones 任首位董事长。电话会开场 Jones 说，他因个人行为不符合行为准则而辞职，董事会不打算让他回来，也不回答相关提问。",
+    "调查：新闻稿只在前瞻声明里提到董事会独立委员会在调查，没给细节。WSJ 报道 SEC 在查公司披露是否误导投资者，公司和 SEC 都没确认。当天早上董事会新设了国家安全与出口管制监督委员会。",
+    "出口管制：Kress 说美国商务部本周发布了新的出口管制，公司还在研究；因为需求远大于供给，预计业绩仍会强劲。",
+    "需求：她说客户的云业务积压三个月前是 2 万亿美元，现在是 2.5 万亿美元；这是云行业的积压，不是公司自己的订单。Hopper 在多年期合同里的续约价最高翻倍，B300 租金自推出以来涨了超过 60%。",
+    "毛利率：她说四季度是底部，因为要先履行之前已经接下的客户订单，进入新年再换新价格；没有提内存成本。",
+    "供应：新签了基板（景硕、三星电机）和封装（矽品）的供应协议，台积电管理层本周在公司。电话会没点名 CoWoS 和 HBM。",
+    "担保：Kress 说担保要等项目建好、可以用了才生效，项目延误或失败担保就不存在；以后的投资、承诺和担保会严格评估，融资优先只做土地、电力和厂房。当晚接受 CNBC 采访时，有人说公司可能要兜底约 5300 亿美元，她回应按公司口径是约 1180 亿。",
+    "资本配置：回购排第一，其次是给供应商的预付款，最后才是有选择的客户担保；仍计划在 2028 财年底前用完回购授权，扣掉战略用途后的自由现金流全部返还。",
+    "其他：主权 AI 收入同比超过三倍；物理 AI 全年有望超过 250 亿美元；CPU 和企业收入预计 2028 财年各翻倍以上。10-Q 比平常晚，几周内提交。"
+  ],
+  narrative: {
+    summary: "收入、每股收益、毛利率和下季指引都高于季前预期，2028 财年增长展望上调。但本季超出里有一笔指引之外的中国收入，下季毛利率按预告走低，CEO 刚辞职，监管调查见报。",
+    consensus: "多头看三点。Rubin 是公司史上最快的爬坡，客户云积压三个月涨了四分之一，需求仍大于供给。供应承诺大增，内存和封装产能已锁定。股价财报前从高点跌去三分之一以上，下季指引和明年展望都高于季前预期。",
+    divergence: "空头看三点。本季超出指引的部分里有中国收入，商务部新管制后已停。应收账期拉长、库存大增，担保和客户融资敞口继续扩大。黄仁勋离任后接班人未定，独立委员会调查和媒体报道的 SEC 调查都没有结论。盘后涨幅到 11/18 凌晨的夜盘已回吐一半以上。",
+    signals: [
+      "反应日 11/18 正式盘能否守住盘后涨幅，相对 SMH 和 AMD、AVGO 的强弱。",
+      "四季度实际收入超出指引的幅度，以及去掉中国之后的环比增速。",
+      "商务部新出口管制的细则，对 2028 财年增长展望有没有影响。",
+      "新 CEO 人选，以及独立委员会和 SEC 调查的进展。",
+      "应收周转天数和库存能否随 Rubin 爬坡回落。",
+      "四季度之后毛利率是否如公司所说回升。"
+    ]
+  },
+  accel: {
+    thisQ: "Q3 收入 1158.44 亿美元、同比 +103%、环比 +20%；数据中心同比 +110%、环比 +21%。",
+    nextQ: "Q4 收入指引 1300 亿美元 ±3%，中点同比 +90.8%、环比 +12.2%（自算）；这个季度多一周。",
+    direction: "按指引口径减速",
+    note: "口径说明三点。\n第一，按本站「下季指引对本季实际」，四季度指引中点的同比低于三季度实际，记为减速。本季实际比指引中点高 7.3%，同样幅度套到四季度，同比会高于本季。\n第二，四季度多一周，公司没拆这一周贡献多少；本季的中国收入下季没有，两者方向相反。\n第三，本财年起收入按客户类型分，算力和网络不再拆开披露；Non-GAAP 改为含股权激励，和旧口径不可比。"
+  },
+  decision: {
+    stance: "经营数字和指引全面超预期，治理和监管是新增变量；反应日未开盘，先看正式盘能否守住盘后涨幅",
+    risk: "Rubin 收入新闻稿未披露，接近 200 亿是电话会口径。算力和网络的拆分本财年起未披露。多出一周对四季度收入的贡献未拆分。独立委员会调查的范围和进展未披露。数据中心的季前预期除 StreetAccount 外未取得。官方电话会实录未取得，用的是第三方转写。"
+  },
+  sources: [
+    { type: "公司公告", label: "NVIDIA Q3 FY2027 新闻稿（8-K 附件 EX-99.1，2026-11-17 盘后）", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm" },
+    { type: "公司公告", label: "NVIDIA Q3 FY2027 CFO 说明（EX-99.2）· 指引、供应承诺、担保、中国出货", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27cfocommentary.htm" },
+    { type: "公司公告", label: "NVIDIA Q3 FY2027 补充财务信息（EX-99.3）· 地区收入、客户集中、库存", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/supplementalfinancialinfor.htm" },
+    { type: "上季对照", label: "NVIDIA Q2 FY2027 CFO 说明 · 本季指引与上季承诺出处", url: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27cfocommentary.htm" },
+    { type: "公司公告", label: "8-K：黄仁勋辞任、Kress 代理 CEO（2026-11-11）", url: "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm" },
+    { type: "业绩会", label: "NVIDIA Q3 FY2027 电话会实录（SingJuPost，第三方转写）", url: "https://singjupost.com/nvidia-q3-fy27-earnings-call-transcript/" },
+    { type: "业绩会", label: "NVIDIA Q3 FY2027 电话会实录（StockAnalysis，源自 Quartr）", url: "https://stockanalysis.com/stocks/nvda/transcripts/739383-q3-2027/" },
+    { type: "市场预期", label: "CNBC 财报直播：LSEG、StreetAccount 季前预期", url: "https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html" },
+    { type: "市场预期", label: "CNBC Investing Club：FactSet 毛利率与 2028 财年预期", url: "https://www.cnbc.com/investingclub/2026/11/17/nvidia-takes-positive-step-forward-with-stronger-sales-outlook-heres-our-thoughts-on-the-stock.html" },
+    { type: "业绩会", label: "CNBC：Kress 接受 Mad Money 采访实录 · 担保口径", url: "https://www.cnbc.com/2026/11/17/cnbc-exclusive-transcript-nvidia-interim-ceo-colette-kress-speaks-with-cnbcs-jim-cramer-on-mad-money-today-.html" },
+    { type: "市场反应", label: "TechCrunch：WSJ 报道 SEC 调查", url: "https://techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit/" },
+    { type: "市场反应", label: "CNBC：11/12 黄仁勋辞任当日股价", url: "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html" },
+    { type: "市场反应", label: "Investing.com：Morgan Stanley 财报后下调目标价", url: "https://ca.investing.com/news/stock-market-news/morgan-stanley-lowers-nvidia-stock-price-target-on-valuation-93CH-4965815" }
+  ],
+  vic_notes: "接回本站 8/26 那条记录。三季度收入达到 1080 亿指引：过了。数据中心环比两位数：过了。中国算力恢复：本季卖了一笔 Hopper，但已停。供给受限转成需求放缓：没有，仍说需求远大于供给。积压继续净增：涨了，但电话会原话是客户的云行业积压，上次记录写成了公司积压。超大规模资本开支预测：这次没更新。财报前 11/12 公布黄仁勋辞任，当天跳空低开 13.1%。",
+  outcome: "财报 11/17 美东盘后发布，反应交易日 11/18 尚未开盘，不计入。11/17 收 155.46 美元、−0.44%，量 1.84 倍；距 10/06 的 52 周高 243.37 为 −36.1%。盘后收 162.95、+4.82%，夜盘到 01:51 回到 +1.96%，只作参考。"
+},
+{
+  type: "earnings",
   date: "2026-10-21",
   ticker: "TMO",
   company: "Thermo Fisher Scientific",
