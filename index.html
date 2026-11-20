@@ -492,6 +492,92 @@ const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
   type: "earnings",
+  date: "2026-11-18",
+  ticker: "PANW",
+  company: "Palo Alto Networks",
+  sector: "tech",
+  score: 77,
+  rec: "resonance",
+  dims: { quality: 34, marketread: 26, fundamentals: 17 },
+  compare: { revenueGrowth: 39.2, revenueGuidance: 36.5 },
+  business: {
+    plain: "Palo Alto Networks 是网络安全的平台型公司，主打让客户用一家换掉七八家安全厂商。防火墙、云安全、终端防护、安全运营自动化，以及年初并进来的 CyberArk 身份安全和 Chronosphere 可观测性，都放在一个平台上卖。",
+    howMakesMoney: "收入分两块：产品主要是防火墙硬件和软件授权；订阅与支持是经常性收入，占八成以上。公司最看重下一代安全 ARR，即 SASE、云安全、XSIAM、身份安全等新产品的年化经常性收入。本财年起按三个分部报：网络与 AI 安全、Cortex、Idira。",
+    moat: "安全产品一旦接管全网流量、终端和身份策略，替换就要重做整套安全架构，客户迁移成本高。平台覆盖越广，单客户金额越大，平台化客户的净留存超过 120%。风险在整合：并购太多，有机增长看不清。",
+    whatChanged: "收入、ARR 和每股收益都超过指引，全年收入和 ARR 指引的上调幅度大于本季超出的部分。但报表增速主要来自年初完成的 CyberArk 和 Chronosphere 两笔并购，公司仍不给有机增速。硬件成本压低了产品毛利率。同时宣布全股票收购 Applied Compute，要开始投数据中心，后两年营业利润率会被拖低。"
+  },
+  metrics: [
+    { label: "Q1 收入", value: "34.45 亿美元", sub: "同比 +39%、环比 +1.0%（自算）；比公司指引 33.00 亿–33.10 亿的上沿高约 1.35 亿；季前预期 33.1 亿（LSEG）", tone: "beat", pct: 80 },
+    { label: "收入结构", value: "订阅与支持 28.50 亿美元", sub: "同比 +40%。产品 5.95 亿、同比 +37%，环比从 7.38 亿回落，四季度是硬件旺季", tone: "up", pct: 70 },
+    { label: "分部收入", value: "网络与 AI 安全 22.82 亿美元", sub: "同比 +20%，含 CyberArk 的证书业务。Cortex 6.47 亿、同比 +53%，备考 +40%，增量主要来自 Chronosphere。Idira 即 CyberArk 身份安全，3.53 亿、备考 +23%", tone: "up", pct: 68 },
+    { label: "有机增速", value: "未披露", sub: "🔑 CyberArk 2/11 并表、Chronosphere 1/29 并表，上年同期都不在。剔除 Idira 后收入同比约 +25%（自算），仍含 Chronosphere 等并购；10-K 里三家合并的上财年备考增速约 17%（自算）", tone: "flat", pct: 45 },
+    { label: "NGS ARR", value: "97.3 亿美元", sub: "同比 +66%，指引上沿 95.6 亿。单季净新增 6.3 亿，上年同期 2.7 亿（自算），两者口径不同：今年含并进来的业务", tone: "beat", pct: 80 },
+    { label: "剩余履约义务", value: "210 亿美元", sub: "同比 +35%，环比从 212 亿小降；未来 12 个月的部分 94 亿、同比 +36%。合同期限同比持平", tone: "flat", pct: 55 },
+    { label: "毛利率", value: "Non-GAAP 75.2%", sub: "上年 76.9%、上季 74.8%。产品毛利率从 80.2% 降到 72.3%，CFO 说硬件元器件成本高，全年都会压着", tone: "down", pct: 40 },
+    { label: "营业利润率", value: "Non-GAAP 30.7%", sub: "上年 30.2%、上季 29.6%。GAAP 只有 2.8%，上年 12.5%，差额主要是并购摊销和股权激励", tone: "up", pct: 70 },
+    { label: "每股收益", value: "Non-GAAP 1.05 美元", sub: "同比 +13%；指引 0.96–0.98，季前预期 0.97。GAAP 0.57，含一笔 3.69 亿的一次性联邦税收收益。摊薄股数 8.37 亿、上年 7.09 亿，多出的是 CyberArk 发的股", tone: "beat", pct: 78 },
+    { label: "自由现金流", value: "调整后 19.37 亿美元", sub: "利润率 56.2%，上年 69.2%；过去 12 个月 37.3%。本季没有回购，授权剩 10 亿、期限延到 2027 年底", tone: "up", pct: 65 },
+    { label: "平台化", value: "净新增约 170 家", sub: "一季度纪录、同比 2.5 倍以上，累计约 2670 家；平台化客户净留存超过 120%，占 NGS ARR 三分之二。XSIAM 的 ARR 约 8 亿、同比 +65% 以上；Prisma AIRS 约 1.7 亿", tone: "beat", pct: 85 },
+    { label: "Q2 收入指引", value: "35.30 亿–35.50 亿美元", sub: "中点同比 +36.5%、环比 +2.8%（自算）。NGS ARR 102.0 亿–102.2 亿、同比 +61%；剩余履约义务 215 亿–216 亿。季前预期收入 34.2 亿（LSEG）、NGS ARR 99.1 亿（FactSet）", tone: "beat", pct: 72 },
+    { label: "Q2 每股指引", value: "1.01–1.03 美元", sub: "上年同期 1.03，股数多了 CyberArk 发的股，同比持平到略降；季前预期 1.01（LSEG）", tone: "flat", pct: 50 },
+    { label: "全年指引", value: "收入 145.2 亿–145.7 亿美元", sub: "9/1 给的是 141 亿–142 亿，中点上调 3.95 亿（自算），一季度超出指引中点约 1.4 亿。NGS ARR 中点上调 3.75 亿；每股 4.26–4.30，原 4.16–4.19。营业利润率 29.5%、调整后自由现金流率 38% 不变。季前预期收入 141.7 亿、每股 4.18（LSEG）", tone: "beat", pct: 78 },
+    { label: "Applied Compute", value: "45 亿美元全股票收购", sub: "🔑 年化收入约 1 亿、约 70 人，目标 2029 财年带来 10 亿 NGS ARR。营业利润率 2027 财年最多拖 1 个百分点、2028 财年最多拖 2 个；2028 财年自由现金流率目标从 40% 改成剔除数据中心资本开支后 38% 以上。现有指引不含这笔", tone: "down", pct: 40 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/19 美东收盘后，反应日已收盘。财务数字取自 8-K 新闻稿、10-Q、业绩演示和补充财务表；电话会取自公司 IR 网站的 FactSet 校对版和 Motley Fool 实录。",
+    "有机增速：电话会也没给总体有机增速，只给分部备考。Idira 本季超过 100 家新客户来自公司已有客户，是并购完成后交叉销售最好的一季；Idira 利润率追平主业的目标原定 18 到 24 个月，管理层说进度快了一半。",
+    "威胁环境：CEO Arora 说严重和高危漏洞的发现速度约为去年月均的 7 倍，大规模打补丁至少还要 18 个月。他说前沿 AI 防御的预算是客户从应急资金里挤出来的。",
+    "AI 安全：Prisma AIRS 上线 5 个季度，是公司史上增长最快的产品，第一个用途是给编程代理做安全。SASE 上的代理流量同比约 9 倍，公司要开始按代理流量计量，预计 6 到 9 个月内客户会超出授权用量。",
+    "硬件：过去 12 个月产品订单 +28%，含软件。Arora 给了三个原因：客户赶在元器件涨价前买、neocloud 建设、厂商整合，预计至少持续 12 个月。硬件约占收入一成。",
+    "Cortex：把 Prisma 云客户迁到 Cortex Cloud 暂时拖累分部利润率，Cortex 毛利率中期低于公司平均，之后回到 70% 以上。可观测性 ARR 约 4 倍，含一家前沿 AI 实验室迁过来的约九位数订单。",
+    "Applied Compute：Arora 说比较了 9 家才选它，目的是帮企业安全地训练和运行开源权重模型。计划年底前有 100 名 AI 研究员，3 到 5 年建 100 兆瓦以上推理算力，到 2030 财年资本开支合计不到 30 亿美元。",
+    "回购：本季没回购，授权最多 10 亿美元、到 2027 年 12 月，择机使用。",
+    "没谈到的：联邦业务、CrowdStrike、Zscaler 和微软在电话会上都没被提到。"
+  ],
+  narrative: {
+    summary: "数字全面超指引，全年指引的上调幅度大于本季超出。但增速主要靠两笔并购，有机口径仍不披露；新宣布的 Applied Compute 要投数据中心，会拖低后两年利润率。反应日在大盘下跌时收涨。",
+    consensus: "多头看三点。平台化在加速，单季新增平台化客户创一季度纪录，平台化客户净留存很高。XSIAM、SASE 和 AI 安全几条新产品线都在高速增长。全年收入和 ARR 指引的上调幅度大于本季超出，管理层在加码。",
+    divergence: "空头看三点。报表增速里并购占大头，有机增速一直不披露，三季度起并购基数效应消失。剩余履约义务环比小降，产品毛利率被硬件成本压了近 8 个百分点。Applied Compute 是全股票收购，还要投数据中心，后两年营业利润率最多被拖低 2 个百分点。",
+    signals: [
+      "反应日之后能否守住 11/18、11/19 两天的涨幅，相对 CIBR 和 CRWD 的强弱。",
+      "三季度起并购进入同比基数后，报表收入和 NGS ARR 增速降到哪里。",
+      "公司会不会开始披露有机增速，或 Idira 的 ARR。",
+      "产品毛利率在硬件成本压力下能否企稳。",
+      "Applied Compute 的反垄断审批和数据中心资本开支节奏。",
+      "剩余履约义务能否恢复环比增长。"
+    ]
+  },
+  accel: {
+    thisQ: "Q1 收入 34.45 亿美元、同比 +39%；NGS ARR 同比 +66%，两项都含 CyberArk 和 Chronosphere 并表。",
+    nextQ: "Q2 收入指引 35.30 亿–35.50 亿美元，中点同比 +36.5%（自算）；NGS ARR 指引同比 +61%。",
+    direction: "报表口径减速，三季度起并购进入基数",
+    note: "口径说明三点。\n第一，按本站「下季指引对本季实际」，二季度中点同比低于一季度实际，记为减速。\n第二，两笔并购在 2026 年 1 月底和 2 月中完成，从三季度起同比基数里也有它们，报表增速会明显下一个台阶。\n第三，公司不披露有机增速，能拆到的是分部备考：Cortex +40%、Idira +23%。剔除 Idira 后收入同比约 +25%，仍含 Chronosphere 等并购。"
+  },
+  decision: {
+    stance: "数字和指引都过关，反应日逆势收涨；但增速靠并购、有机口径不披露，新收购会拖利润率，先看三季度基数效应消失后的增速",
+    risk: "有机收入和 ARR 增速公司未披露。Idira 和 Chronosphere 各自的 ARR 未披露。CyberArk 证书业务本季收入未拆分。Applied Compute 的发股数和数据中心资本开支节奏无法量化。账单金额未披露。"
+  },
+  sources: [
+    { type: "公司公告", label: "Palo Alto Networks Q1 FY2027 新闻稿（8-K 附件 EX-99.1，2026-11-18 盘后）", url: "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000030/ex991q127earningsrelease.htm" },
+    { type: "公司公告", label: "Q1 FY2027 10-Q · 分部收入、税收收益、并购", url: "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000033/panw-20261031.htm" },
+    { type: "公司演示", label: "Q1 FY2027 业绩演示 · 平台化、备考增速、Applied Compute", url: "https://investors.paloaltonetworks.com/static-files/633a3ac1-9b2a-4ab6-b12e-ae2ad9e74006" },
+    { type: "公司公告", label: "Q1 FY2027 补充财务表 · 净新增 ARR、产品毛利率", url: "https://investors.paloaltonetworks.com/static-files/712eb755-2717-466e-b37b-ae3929527b7a" },
+    { type: "业绩会", label: "Q1 FY2027 电话会实录（公司 IR 网站，FactSet 校对版）", url: "https://investors.paloaltonetworks.com/static-files/ba371128-3ec5-4f39-be80-d2ec1fc99254" },
+    { type: "上季对照", label: "Q4 FY2026 新闻稿 · 本季与全年旧指引出处", url: "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/ex991q426earningsrelease.htm" },
+    { type: "历史口径", label: "FY2026 10-K · CyberArk、Chronosphere 完成日与备考收入", url: "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm" },
+    { type: "业绩会", label: "Q1 FY2027 电话会实录（Motley Fool）", url: "https://www.fool.com/earnings/call-transcripts/2026/11/19/palo-alto-panw-q1-2027-earnings-call-transcript/" },
+    { type: "市场预期", label: "CNBC：Q1 收入与每股 LSEG 季前预期", url: "https://www.cnbc.com/2026/11/18/palo-alto-networks-panw-q1-2027-earnings-.html" },
+    { type: "市场预期", label: "CNBC Investing Club：二季度与全年 LSEG、FactSet 预期", url: "https://www.cnbc.com/investingclub/2026/11/18/palo-alto-surges-as-all-signs-point-to-cybersecurity-need-in-the-ai-age.html" },
+    { type: "市场反应", label: "Reuters（经 Investing.com）：上调全年指引、收购 Applied Compute", url: "https://www.investing.com/news/stock-market-news/palo-alto-raises-annual-forecast-signs-45-billion-deal-for-applied-compute-5037460" },
+    { type: "市场反应", label: "Reuters（经 MarketScreener）：反应日涨幅与券商目标价", url: "https://www.marketscreener.com/news/palo-alto-s-raised-sales-forecast-powers-cybersecurity-stock-rally-ce785ed2d88cfe24" },
+    { type: "市场反应", label: "CNBC 盘中异动：11/18 网安股普涨与 CISA 警报", url: "https://www.cnbc.com/2026/11/18/stocks-moving-the-most-today-live-updates.html" },
+    { type: "市场反应", label: "CISA：Java 严重漏洞紧急修补警报（2026-11-17）", url: "https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching" }
+  ],
+  vic_notes: "接回本站 9/01 那条记录。有机增速披露：仍没有，只给了分部备考。GAAP 转亏：本季转回盈利，但含一笔一次性税收收益。一季度每股指引：过了。上次记录说刚完成 CyberArk 收购，实际 2/11 已并表。报告当天网安股普涨，CNBC 归因于 11/17 CISA 发布的 Java 严重漏洞紧急修补警报。财报后至少 20 家券商上调目标价，中位数 425（Reuters）。",
+  outcome: "财报 11/18 美东盘后发布，反应日 11/19：开 355.81、较前收 +4.67%，收 361.73、+6.42%，收在区间 58% 处，量 3.06 倍。同日 QQQ −2.19%，IGV −0.87%，CIBR +0.31%，CRWD +2.71%，ZS +3.98%。报告当天盘中已涨 9.9%。"
+},
+{
+  type: "earnings",
   date: "2026-11-17",
   ticker: "NVDA",
   company: "NVIDIA",
@@ -14329,7 +14415,7 @@ const SECTOR_META = {
   materials:   "材料与资源",
   other:       "其他"
 };
-const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", IOT:"tech", ZS:"tech", HPE:"tech", PSNL:"healthcare",
+const TICKER_SECTOR = { ORCL:"tech", TTAN:"tech", LULU:"consumer", GWRE:"tech", IOT:"tech", ZS:"tech", PANW:"tech", HPE:"tech", PSNL:"healthcare",
   MSFT:"tech", META:"tech", PRCH:"financials",
   SAP:"tech",
   APP:"tech", PLTR:"tech", ANET:"tech", CLS:"tech", APLD:"tech", DDOG:"tech", U:"tech", FROG:"tech", TWLO:"tech", ZETA:"tech", INTU:"tech", SNOW:"tech", MDB:"tech", GTLB:"tech", DELL:"tech", RBRK:"tech", IREN:"tech", S:"tech", OKTA:"tech", CRM:"tech", CRWD:"tech", PATH:"tech", BRZE:"tech",
