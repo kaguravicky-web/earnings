@@ -491,6 +491,77 @@ const SECTOR_REVIEWS = [
 const RECORDS = [
 /* __RECORDS_INSERT_POINT__ */
 {
+  type: "event",
+  date: "2026-11-19",
+  ticker: "AMD",
+  company: "AMD（Hunterbrook 做空报告）",
+  sector: "semis",
+  business: {
+    plain: "11/19 美东开盘后，做空机构 Hunterbrook 发了两篇报告，并披露旗下基金做空 AMD。这不是财报，AMD 下一份季度财报要到明年初。",
+    howMakesMoney: "AMD 卖服务器和电脑 CPU、Instinct AI 加速卡、游戏主机芯片和嵌入式芯片。增长故事押在 AI 加速卡上，而这类芯片出口中国本来就要许可证。报告的两条主线正好打在这里：中国渠道和给客户的融资。",
+    moat: "x86 服务器 CPU 的份额和 Instinct 的软硬件栈，让它成了英伟达之外的第二选择。但大部分封测交给通富微电控股的合资公司，开票到中国含香港的收入占两成以上。",
+    whatChanged: "英伟达 11/12 公布 CEO 辞任后，市场把 AMD 当作没有中国问题的替代品，五个交易日涨了四成多。这份报告挑战的正是这个前提：AMD 的固件在被制裁的中国服务器商那里持续更新，给客户的融资相对收入也更大。同一天，商务部对新加坡等五国的新许可证规则生效。"
+  },
+  metrics: [
+    { label: "固件更新", value: "至少 6 个版本", sub: "IEIT 2025 年 3 月以浪潮电子别名进实体清单，此后它的 BIOS 更新里出现 6 个更新版 AMD 启动固件。最新一版 AMD 7 月发布，IEIT 10/19 挂出。报告说不知道固件是谁给的、有没有许可证", tone: "down", pct: 35 },
+    { label: "三家关联服务器商", value: "固件 99.94% 相同", sub: "Maginfra、Kaytus、Aivres 都不在清单上。Kaytus 账目写最终控股方是 IEIT，Aivres 原名浪潮系统。AMD 官网把 Aivres 列为 Instinct 服务器伙伴", tone: "down", pct: 35 },
+    { label: "新加坡开票", value: "42.84 亿美元", sub: "🔑 2025 财年，占收入 12.4%，2023 年是 22.31 亿（10-K，按客户开票地）。11/19 起向新加坡等五国出口先进 AI 芯片和服务器要许可证，美国总部客户按月报备可豁免", tone: "down", pct: 30 },
+    { label: "中国含香港开票", value: "77.51 亿美元", sub: "2025 财年，占收入 22.4%（10-K）。AMD 按开票地报，英伟达按客户总部报，两家的比例不能直接比", tone: "flat", pct: 45 },
+    { label: "授权收入", value: "6700 万美元", sub: "2025 年，10-K 里只剩分部调节表一行。2024 年 10-K 写明是海光合资公司（THATIC）的授权费，2025 年这句说明删了。报告承认可能是被制裁前签的授权", tone: "flat", pct: 45 },
+    { label: "封测合资", value: "持股 15%", sub: "与通富微电的两家合资公司做大部分封测（10-K）。前九个月向关联方采购 18 亿，应付 6.06 亿；1 亿美元借款原定 10/16 到期，9 月底仍未收回（10-Q）", tone: "flat", pct: 45 },
+    { label: "客户认股权", value: "3.2 亿股", sub: "OpenAI、Meta 各 1.6 亿股，行权价 1 美分（10-Q）。三季度认股权公允价值变动在其他收益里记了 −10.97 亿", tone: "down", pct: 35 },
+    { label: "对合作方的信用支持", value: "约 280 亿美元", sub: "代签后要转给合作方的数据中心租约 133 亿；担保上限 85 亿，二季度末是 41 亿；云算力兜底 61.75 亿。担保在合作方违约时才要付", tone: "down", pct: 30 },
+    { label: "采购承诺", value: "487.61 亿美元", sub: "2025 年底是 122 亿，9 个月变成 4 倍；334 亿在 2027 年底前付。现金及短期投资 158 亿，总债务 71.25 亿（10-Q）", tone: "down", pct: 30 },
+    { label: "股权投资承诺", value: "最多 51 亿美元", sub: "10-Q 没点名对象；7/22 新闻稿说最多 50 亿投 Anthropic。报告把 World Labs 列为待完成收购，实际 11/13 已交割、增发约 1498 万股", tone: "flat", pct: 45 },
+    { label: "当日股价", value: "489.19 美元", sub: "−7.72%，盘中最低 470.56；量为 20 日均量 1.96 倍，收在全日区间 22% 处", tone: "down", pct: 20 }
+  ],
+  management_highlights: [
+    "先标读法：本条写于 11/19 美东收盘后。指控取自 Hunterbrook 两篇原文；AMD 的数字逐条对过 2025 财年 10-K 和三季度 10-Q，出口规则对过联邦公报。",
+    "AMD 回应：CNBC 转引发言人，称指控歪曲了公司的业务和关系，公司遵守美国出口管制法规，有严格的合规流程。没有回答是否持有向 IEIT 供货的许可证。",
+    "报告自己划的线：记录不能证明 AMD 违法；海光付款可能是被制裁前技术授权的费用；Cancon 的目录条目可能是旧的没删；这些关系相对 AMD 的规模不大。",
+    "利益关系：Hunterbrook Capital 发稿时做空 AMD、做多一篮子可比证券，仓位可能随时变化。第二篇由同系的 The Bear Cave 写，付费部分本站没读。",
+    "新规则：11/19 生效的远程访问规则，向印尼、马来西亚、新加坡、巴西、泰国出口先进芯片和服务器要许可证，逐案审批。美国总部客户按月报备可豁免，在途货物 12/21 前完成可放行。",
+    "同一规则还要求：给中国等国总部企业提供大规模算力的数据中心，供货也要许可证。",
+    "关联方规则：被清单实体持股 50% 以上的外国公司同样受限。2025 年 9 月发布后暂停，11/09 再延到 2027/1/10。",
+    "先例（报告引用）：10 月商务部与 Lambda Research 和解，被制裁后的 7 次软件自动更新各算一次违规。",
+    "卖方：截至 11/19 收盘没找到券商针对这份报告的研报。报告前，Oppenheimer 和 William Blair 已因英伟达风波上调 AMD 评级。",
+    "减持：报告称苏姿丰今年卖出约 64 万股、约 2.48 亿美元，本站没核对 Form 4。"
+  ],
+  narrative: {
+    summary: "做空报告检验的是「AMD 没有中国问题」这个前提：固件持续流向被制裁的中国服务器商，给客户的融资相对收入更大。证据是可复查的文件，但报告承认不能证明违法。",
+    consensus: "AMD 一方看三点。报告承认不能证明违法，固件可能经合法客户流转，有没有许可证只有商务部知道。海光、Cancon 这些关系金额很小。融资承诺大多有条件，合作方违约或算力卖不出时才要出钱。",
+    divergence: "空头看三点。五国许可证规则当天生效，AMD 开票到新加坡的收入占一成以上。关联方规则如果 1/10 生效，Kaytus 这类全资子公司会被管住。采购承诺 9 个月变成 4 倍，客户一旦放慢，这笔钱照样要付。",
+    signals: [
+      "AMD 是否正面说明有没有向 IEIT 及其关联方供货的许可证。",
+      "商务部会不会把 Aivres、Kaytus、Maginfra 加进实体清单。",
+      "关联方规则 2027/1/10 到期后是生效还是继续暂停。",
+      "五国许可证要求在 AMD 下一份财报的指引里有没有体现。",
+      "采购承诺和对合作方的信用支持在下一份 10-K 里怎么变。",
+      "11/19 盘中低点 470.56 能不能守住。"
+    ]
+  },
+  decision: {
+    stance: "报告动摇的是溢价前提，证据硬但不构成违法认定；许可证和政策两条线要先落地",
+    risk: "AMD 是否持有向 IEIT 及其关联方出口的许可证未披露，商务部也不公开许可证信息。固件经谁流到 IEIT 无法量化，报告只做了文件比对。AMD 按开票地报收入，新加坡以外的东南亚国家未拆分。Bear Cave 付费部分未取得。本条为事件记录，不参与评分。"
+  },
+  sources: [
+    { type: "媒体", label: "Hunterbrook：AMD 的中国问题（2026-11-19，发布方做空 AMD）", url: "https://hntrbrk.com/investigations/amd-china" },
+    { type: "媒体", label: "Hunterbrook / The Bear Cave：Bank of AMD（客户融资）", url: "https://hntrbrk.com/investigations/bank-of-amd" },
+    { type: "公告", label: "AMD 2025 财年 10-K · 地区收入、授权收入、封测合资", url: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm" },
+    { type: "公告", label: "AMD 2024 财年 10-K · 授权收入来自 THATIC 的原说明", url: "https://www.sec.gov/Archives/edgar/data/2488/000000248825000012/amd-20241228.htm" },
+    { type: "公告", label: "AMD 2026 Q3 10-Q · 采购承诺、担保、租约、认股权、现金与债务", url: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/amd-20260926.htm" },
+    { type: "公告", label: "AMD 2026 Q2 10-Q · 二季度末担保 41 亿", url: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000123/amd-20260627.htm" },
+    { type: "公告", label: "8-K/A：World Labs 收购 11/13 已交割", url: "https://www.sec.gov/Archives/edgar/data/2488/000119312526462340/d105780d8ka.htm" },
+    { type: "公告", label: "AMD 新闻稿 7/22：投资 Anthropic 最多 50 亿美元", url: "https://ir.amd.com/news-events/press-releases/detail/1292" },
+    { type: "公告", label: "联邦公报 2026-23529：远程访问规则（五国许可证，11/19 生效）", url: "https://www.federalregister.gov/documents/2026/11/19/2026-23529/addressing-remote-access-to-advanced-semiconductors" },
+    { type: "公告", label: "联邦公报 2026-22793：关联方规则暂停延到 2027/1/10", url: "https://www.federalregister.gov/documents/2026/11/09/2026-22793/extension-of-the-suspension-of-expansion-of-end-user-controls-for-affiliates-of-certain-listed" },
+    { type: "公告", label: "联邦公报 2025-05427：浪潮电子（含 IEIT 别名）列入实体清单", url: "https://www.govinfo.gov/content/pkg/FR-2025-03-28/html/2025-05427.htm" },
+    { type: "媒体", label: "CNBC：AMD 回应与当日收盘", url: "https://www.cnbc.com/2026/11/19/amd-falls-on-short-seller-report-of-alleged-china-exposure.html" }
+  ],
+  vic_notes: "",
+  outcome: "报告 11/19 美东 10:27 发出。AMD 当天高开 2.27%，随后急跌，收 489.19、−7.72%，盘后 472.50、−3.41%。同日 QQQ −2.19%、SMH −2.62%。此前 11/05 到 11/12 五天涨 44.7%，11/12 以来回吐 16.4%。"
+},
+{
   type: "earnings",
   date: "2026-11-18",
   ticker: "PANW",
